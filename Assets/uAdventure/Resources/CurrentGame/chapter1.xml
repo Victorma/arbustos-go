@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE eAdventure PUBLIC "SYSTEM" "eadventure.dtd">
+<eAdventure version="1">
+  <player>
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </player>
+  <character id="Bandalf">
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BandalfNormal.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <scene id="Title" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/pantallatitulo.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="371" y="324" width="545" height="141" hasInfluenceArea="no" idTarget="Begin" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
+  </scene>
+  <atrezzoobject id="Naranja">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/naranja.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <atrezzoobject id="Amarillo">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/amarillo.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <atrezzoobject id="Marron">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/marron.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <atrezzoobject id="Verde">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/verde.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <atrezzoobject id="Azul">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/azul.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436444567004, -3.72727715969078)" zoom="19" start="no">
+    <map-element targetId="PlasticBag" layer="0" scale="0.03" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4436264038086, -3.72736024856567)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+  </map-scene>
+  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4446777844245, -3.72575753927061)" zoom="18" start="no">
+    <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4419364929199, -3.72617602348328)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">False</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Azul" layer="0" scale="0.1167925" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4430389404297, -3.72509765625)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Amarillo" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4419479370117, -3.72607946395874)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">False</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Marron" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4430046081543, -3.72508955001831)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4452323913574, -3.724440574646)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.442943572998, -3.72506809234619)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Amarillo" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4428787231445, -3.72504949569702)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Amarillo" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4436874389648, -3.72525334358215)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4434204101563, -3.72521567344666)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435958862305, -3.72524261474609)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Azul" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.443546295166, -3.72522640228271)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4447326660156, -3.72561001777649)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Azul" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4446754455566, -3.72559666633606)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Amarillo" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4454193115234, -3.72532558441162)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4454040527344, -3.72539806365967)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+  </map-scene>
+  <map-scene id="Begin" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436015898043, -3.72803354263299)" zoom="18" start="no">
+    <map-element targetId="InitialArea" layer="0" scale="1" orientation="0">
+      <condition />
+    </map-element>
+  </map-scene>
+  <object id="PlasticBag" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/plastic_bag_PNG4.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <graph-conversation id="Intro">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Hola viajero y bienaventurado seas</speak-player>
+      <condition />
+      <speak-player>#O Una voz que habla... </speak-player>
+      <condition />
+      <speak-player>#O Justo lo que me faltaba para rematar el estrés de volver a clase</speak-player>
+      <condition />
+      <speak-player>Qué?</speak-player>
+      <condition />
+      <speak-player>No soy ninguna voz</speak-player>
+      <condition />
+      <speak-player>Soy el narrador de este mundo paralelo que coexiste con el tuyo</speak-player>
+      <condition />
+      <speak-player>Un mundo conocido como Baland</speak-player>
+      <condition />
+      <speak-player>#O Mundos paralelos, coexistencia... Algo así como Narnia?</speak-player>
+      <condition />
+      <speak-player>Más o menos...</speak-player>
+      <condition />
+      <speak-player>Pero en este caso mi mundo está amenazado y casi no nos queda tiempo</speak-player>
+      <condition />
+      <speak-player>La falta de conciencia ecológica en tu mundo está llevando a mi mundo al desastre</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" editor-x="119" editor-y="461" x="119" y="461">
+      <speak-player>Te ayudaré</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Bueh y a mí qué</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="828" editor-y="69">
+      <speak-player>Fantástico escuchar eso</speak-player>
+      <condition />
+      <speak-player>Pongámonos manos a la obra</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="861" editor-y="522">
+      <speak-player>Jajaja, qué iluso, no tienes elección...</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="1299" editor-y="302">
+      <speak-player>Verás, todo lo que pase en mi mundo repercutirá en tu mundo...</speak-player>
+      <condition />
+      <speak-player>Es decir, si mi mundo perece, el tuyo también...</speak-player>
+      <condition />
+      <speak-player>#O No! Y qué puedo hacer yo?</speak-player>
+      <condition />
+      <speak-player>A través de tu móvil he formado un portal interdimensional</speak-player>
+      <condition />
+      <speak-player>Este portal te permitirá interactuar con mi mundo</speak-player>
+      <condition />
+      <speak-player>Un mago, Bandalf, te está buscando</speak-player>
+      <condition />
+      <speak-player>Para encontrarle, dirígete a la casa del estudiante</speak-player>
+      <condition />
+      <speak-player>Para ayudarte, he invocado una flecha verde que te ayudará a encontrar el camino</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <geoelement id="InitialArea">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="0">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4430703132123 -3.72718058834544 40.4429886612605 -3.72797988663189 40.4434581586286 -3.72901521931163 40.4435398100101 -3.72901521931163 40.4440705415719 -3.72830175171366 40.4442297602233 -3.72786186943521 40.4442785110112 -3.72740402860181</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="Start" x="400" y="300" transitionTime="0" transitionType="0" scale="1" />
+          <condition />
+          <trigger-conversation idTarget="Intro" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+      <exit-action>
+        <only-from-inside>False</only-from-inside>
+      </exit-action>
+    </actions>
+  </geoelement>
+</eAdventure>
