@@ -62,6 +62,14 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="BandalfIntro" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <scene id="Title" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -73,10 +81,23 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="371" y="324" width="545" height="141" hasInfluenceArea="no" idTarget="Begin" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+      <exit rectangular="yes" x="371" y="324" width="545" height="141" hasInfluenceArea="no" idTarget="Begin" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="2000" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+  </scene>
+  <scene id="Alumnos" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/casaestudiante.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="523" y="635" scale="0.4670743" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <atrezzoobject id="Naranja">
     <resources name="No name">
@@ -148,16 +169,19 @@
       </detailed>
     </description>
   </atrezzoobject>
-  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436444567004, -3.72727715969078)" zoom="19" start="no">
+  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436220026153, -3.72750514745726)" zoom="19" start="no">
     <map-element targetId="PlasticBag" layer="0" scale="0.03" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4436264038086, -3.72736024856567)</param>
+        <param name="Position">(40.4436378479004, -3.72734689712524)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Alumnos" layer="0" scale="1" orientation="0">
+      <condition />
     </map-element>
   </map-scene>
   <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4446777844245, -3.72575753927061)" zoom="18" start="no">
@@ -357,7 +381,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" editor-x="119" editor-y="461" x="119" y="461">
+    <option-node nodeindex="1" preListening="yes" editor-x="119" editor-y="461" x="119" y="461">
       <speak-player>Te ayudaré</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -397,6 +421,47 @@
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="BandalfIntro">
+    <dialogue-node nodeindex="0" editor-x="247" editor-y="87">
+      <speak-char idTarget="Bandalf">Sí, soy Bandalf</speak-char>
+      <condition />
+      <speak-player>Cómo?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Ibas a preguntarlo, verdad?</speak-char>
+      <condition />
+      <speak-player>Yo... Eh... Sí.</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Soy mago.</speak-char>
+      <condition />
+      <speak-player>Qué?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Ibas a preguntar que cómo lo sabía, verdad?</speak-char>
+      <condition />
+      <speak-player>Sí.</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Bueno, para algo estás aquí.</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Necesito tu ayuda y no hay tiempo que perder con más preguntas.</speak-char>
+      <condition />
+      <speak-player>Pero... Sí no he podido preguntar nada!</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Calla!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Verás...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Una amenaza se cierne sobre nuestros mundos.</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">El planeta está muriéndose. </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Si seguimos consumiendo de manera tan inconsciente vamos a acabar...</speak-char>
+      <condition />
+      <speak-player>Mal, verdad?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Vaya, veo que no hace falta ser mago para darse cuenta...</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
   <geoelement id="InitialArea">
     <description>
       <name>
@@ -430,6 +495,36 @@
       <exit-action>
         <only-from-inside>False</only-from-inside>
       </exit-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Alumnos">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="5">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4434762440089 -3.72810378200092 40.443466037581 -3.727981398684 40.4437840898013 -3.72804845390937 40.4437534706534 -3.72816010839024</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="Alumnos" x="512" y="503" zoneId="InitialArea" transitionTime="2000" transitionType="5" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
     </actions>
   </geoelement>
 </eAdventure>
