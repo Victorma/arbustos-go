@@ -267,6 +267,15 @@ namespace uAdventure.Runner
 
         protected eAnim LoadAnimation(string uri)
         {
+            if (resource == null)
+            {
+                checkResources();
+                if (resource == null)
+                {
+                    return null;
+                }
+            }
+
             var animationPath = resource.getAssetPath(uri);
 
             if (!string.IsNullOrEmpty(animationPath) && !animationPath.EndsWith(SpecialAssetPaths.ASSET_EMPTY_ANIMATION))

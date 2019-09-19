@@ -18,8 +18,8 @@
       <asset type="walkright" uri="assets/special/EmptyAnimation" />
       <asset type="walkleft" uri="assets/special/EmptyAnimation" />
     </resources>
-    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
-      <frontcolor color="#FFFFFF" />
+    <textcolor showsSpeechBubble="yes" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#00AAFF" />
       <bordercolor color="#000000" />
     </textcolor>
     <description>
@@ -49,8 +49,8 @@
       <asset type="walkright" uri="assets/special/EmptyAnimation" />
       <asset type="walkleft" uri="assets/special/EmptyAnimation" />
     </resources>
-    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
-      <frontcolor color="#FFFFFF" />
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#B0CEFF" bubbleBorderColor="#000000">
+      <frontcolor color="#C64500" />
       <bordercolor color="#000000" />
     </textcolor>
     <description>
@@ -64,8 +64,347 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Intro" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="BandalfIntro" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="Bolsi" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="BusquedaBolsi" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Basauron">
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BasauronShadow.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#000000" bubbleBorderColor="#FF0000">
+      <frontcolor color="#FF0000" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Bolsi">
+    <resources name="Dead">
+      <condition>
+        <inactive flag="Alive" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiDead.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Sad">
+      <condition>
+        <active flag="Sad" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiSad.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiSadTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Mad">
+      <condition>
+        <active flag="Mad" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiMad.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiMadTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Happy">
+      <condition>
+        <active flag="Happy" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiHappy.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiHappyTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Confident">
+      <condition>
+        <active flag="Confident" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiConfident.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiConfidentTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Confused">
+      <condition>
+        <active flag="Confused" />
+      </condition>
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiConfused.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiConfusedTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <resources name="Normal">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/BolsiNormal.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/animation/BolsiNormalTalking.eaa.xml" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#C3FFA1" bubbleBorderColor="#000000">
+      <frontcolor color="#FFF700" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: AyudaBolsi</documentation>
+        <effect>
+          <trigger-conversation idTarget="AyudaBolsi" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="Ramon">
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/RamonStand.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="yes" bubbleBkgColor="#B5C2FF" bubbleBorderColor="#000000">
+      <frontcolor color="#FF00B8" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: PocionRamon</documentation>
+        <condition>
+          <inactive flag="IntroRamon" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="PocionRamon" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: PistasRamon</documentation>
+        <condition>
+          <either>
+            <inactive flag="MajueloEncontrado" />
+            <inactive flag="SaltacercasEncontrado" />
+          </either>
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="PistasRamon" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: CreacionPocionRamon</documentation>
+        <condition>
+          <inactive flag="PocionMedicina" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="CreacionPocionRamon" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: FinalRamon</documentation>
+        <effect>
+          <trigger-conversation idTarget="FinalRamon" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="SeveroMarga">
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/SeveroMargaStand.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFCCFD" bubbleBorderColor="#000000">
+      <frontcolor color="#00FF6B" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="IntroSevero" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="PocionSevero" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <either>
+            <inactive flag="PlumeroEncontrado" />
+            <inactive flag="CiruelosEncontrados" />
+          </either>
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="PistasSevero" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="PocionFarmacia" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="CreacionPocionSevero" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="FinalSevero" />
           <condition />
         </effect>
       </talk-to>
@@ -81,7 +420,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="371" y="324" width="545" height="141" hasInfluenceArea="no" idTarget="Begin" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="2000" not-effects="no">
+      <exit rectangular="yes" x="371" y="324" width="545" height="141" hasInfluenceArea="no" idTarget="Begin" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="1000" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -97,6 +436,160 @@
     <default-initial-position x="400" y="450" />
     <characters>
       <character-ref idTarget="Bandalf" x="523" y="635" scale="0.4670743" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Antes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Ciudad Universitaria Vista Aerea.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="685" y="658" scale="0.3648587" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Ahora" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/ciudaduniversitaria.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="830" y="695" scale="0.4111673" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Unisucia" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/sancemento_twitter-z.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="125" y="424" scale="0.5397723" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="TresErres" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Importancia-de-las-3r.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="412" y="290" scale="0.01" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Reducir" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/reduce.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="567" y="403" scale="0.01" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Reutilizar" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/reutiliza.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="567" y="406" scale="0.01" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Reciclar" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/recicla.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="567" y="408" scale="0.01" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="ElMal" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Vertedero-Pinto_2140595929_7142450_1300x731.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Basauron" x="982" y="732" scale="1.393833" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Bandalf" x="294" y="950" scale="1.14" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="CuartaErre" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/maxresdefault.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="209" y="726" scale="1" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Fin" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+  </scene>
+  <scene id="FacultadFarmacia" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/farmacia.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="SeveroMarga" x="172" y="375" scale="0.2489046" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="FacultadMedicina" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/medicina.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Ramon" x="284" y="427" scale="0.5133095" orientation="2" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <atrezzoobject id="Naranja">
@@ -169,22 +662,47 @@
       </detailed>
     </description>
   </atrezzoobject>
-  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436220026153, -3.72750514745726)" zoom="19" start="no">
-    <map-element targetId="PlasticBag" layer="0" scale="0.03" orientation="0">
+  <map-scene id="Begin" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436015898043, -3.72803354263299)" zoom="18" start="no">
+    <map-element targetId="InitialArea" layer="0" scale="1" orientation="0">
       <condition />
+    </map-element>
+  </map-scene>
+  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437240665748, -3.72681850194845)" zoom="19" start="no">
+    <map-element targetId="PlasticBag" layer="0" scale="0.03" orientation="0">
+      <condition>
+        <active flag="Intro" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4436378479004, -3.72734689712524)</param>
+        <param name="Position">(40.4436340332031, -3.72690439224243)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
     <map-element targetId="Alumnos" layer="0" scale="1" orientation="0">
+      <condition>
+        <inactive flag="Intro" />
+      </condition>
+    </map-element>
+    <map-element targetId="Bandalf" layer="0" scale="1.006375" orientation="0">
       <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(93.4, 707.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Bolsi" layer="0" scale="0.1686526" orientation="0">
+      <condition>
+        <active flag="Bolsi" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(270.2, 643.9)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
     </map-element>
   </map-scene>
-  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4446777844245, -3.72575753927061)" zoom="18" start="no">
+  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4448737440143, -3.72565829753608)" zoom="19" start="no">
     <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -225,16 +743,6 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
-      <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4452323913574, -3.724440574646)</param>
-        <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
-        <param name="RevealOnlyOnRange">True</param>
-        <param name="RevealParticleTexture">leaf_particle.png</param>
-      </ext-elem-ref>
-    </map-element>
     <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -265,6 +773,16 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
+    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435997009277, -3.72524666786194)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
     <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -275,30 +793,10 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
-      <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4435958862305, -3.72524261474609)</param>
-        <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
-        <param name="RevealOnlyOnRange">True</param>
-        <param name="RevealParticleTexture">leaf_particle.png</param>
-      </ext-elem-ref>
-    </map-element>
     <map-element targetId="Azul" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.443546295166, -3.72522640228271)</param>
-        <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
-        <param name="RevealOnlyOnRange">True</param>
-        <param name="RevealParticleTexture">leaf_particle.png</param>
-      </ext-elem-ref>
-    </map-element>
-    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
-      <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4447326660156, -3.72561001777649)</param>
+        <param name="Position">(40.4435348510742, -3.72523307800293)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -335,10 +833,251 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-  </map-scene>
-  <map-scene id="Begin" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436015898043, -3.72803354263299)" zoom="18" start="no">
-    <map-element targetId="InitialArea" layer="0" scale="1" orientation="0">
+    <map-element targetId="Raspa" layer="0" scale="0.1" orientation="0">
       <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4439239501953, -3.72639465332031)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Botella" layer="0" scale="0.0850116" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4439544677734, -3.72597336769104)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Cafe" layer="0" scale="0.15" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4434242248535, -3.72584462165833)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="PapelDeCocina" layer="0" scale="0.06656296" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4439697265625, -3.72572135925293)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Colilla" layer="0" scale="0.09068778" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4438056945801, -3.7265796661377)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="CacaDeGato" layer="0" scale="0.06670713" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435691833496, -3.72614502906799)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Goma" layer="0" scale="0.07358073" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4442367553711, -3.72628998756409)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Aluminio" layer="0" scale="0.1114622" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4442367553711, -3.72604060173035)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Botelladevidrio" layer="0" scale="0.1402556" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.443603515625, -3.72586894035339)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Aerosol" layer="0" scale="0.0632357" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435691833496, -3.72654747962952)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Tarro" layer="0" scale="0.07564225" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4440574645996, -3.72629261016846)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Rimel" layer="0" scale="0.1343856" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4442024230957, -3.72568655014038)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Caja" layer="0" scale="0.07799884" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.443733215332, -3.72563290596008)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Apuntes" layer="0" scale="0.1297074" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435348510742, -3.72635698318481)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Revista" layer="0" scale="0.07616044" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4443435668945, -3.72645354270935)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Ciruela" layer="0" scale="0.1381304" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4435424804688, -3.72694182395935)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">26.91</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Saltacercas" layer="0" scale="0.06269838" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4444389343262, -3.72533917427063)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">54.77</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Farmacia" layer="0" scale="1" orientation="0">
+      <condition />
+    </map-element>
+    <map-element targetId="Plumero" layer="0" scale="0.1496907" orientation="0">
+      <condition>
+        <active flag="MonumentoSeveroEncontrado" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4445381164551, -3.72668147087097)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">39.6</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="EstatuaSevero" layer="0" scale="1" orientation="0">
+      <condition>
+        <active flag="IntroSevero" />
+        <inactive flag="PocionFarmacia" />
+      </condition>
+    </map-element>
+    <map-element targetId="Metro" layer="0" scale="1" orientation="0">
+      <condition>
+        <active flag="IntroSevero" />
+        <inactive flag="PocionFarmacia" />
+      </condition>
+    </map-element>
+    <map-element targetId="Majuelo" layer="0" scale="0.1763588" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4429054260254, -3.72572135925293)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Medicina" layer="0" scale="1" orientation="0">
+      <condition />
+    </map-element>
+    <map-element targetId="Fachada de Medicina" layer="0" scale="1" orientation="0">
+      <condition>
+        <inactive flag="PocionMedicina" />
+        <active flag="IntroRamon" />
+      </condition>
+    </map-element>
+    <map-element targetId="Odontología" layer="0" scale="1" orientation="0">
+      <condition>
+        <active flag="IntroRamon" />
+        <inactive flag="PocionMedicina" />
+      </condition>
+    </map-element>
+    <map-element targetId="LosPortadores" layer="0" scale="1" orientation="0">
+      <condition>
+        <active flag="PocionFarmacia" />
+        <active flag="PocionMedicina" />
+        <greater-equals-than var="Total" value="10" />
+      </condition>
+    </map-element>
+    <map-element targetId="Bolsi" layer="0" scale="0.1628286" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(82.6, 601.2)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4446105957031, -3.7255871295929)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
     </map-element>
   </map-scene>
   <object id="PlasticBag" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -354,6 +1093,1206 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="PlasticBag" />
+          <condition />
+          <generate-object idTarget="PlasticBag" />
+          <condition />
+          <consume-object idTarget="PlasticBag" />
+          <condition />
+          <activate flag="Bolsi" />
+          <condition />
+          <trigger-conversation idTarget="CreacionBolsi" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Raspa" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/raspa.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Raspa" />
+          <condition />
+          <generate-object idTarget="Raspa" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una raspa!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las raspas van al orgánico</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Los residuos orgánicos sirven para hacer abono y energía</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Cada 100kg se convierten en 30kg de abono</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="RaspaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="RaspaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoMarron" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Raspa" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">La raspa, al igual que todos los restos de comida, van al marrón!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Cafe" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/cafe.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Cafe" />
+          <condition />
+          <generate-object idTarget="Cafe" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, restos de café!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los restos de café van al orgánico</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Con ellos, también los filtros, cáscaras de pipas, corcho, serrín y plantas</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Incluso los huesos de la fruta!</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="CafeGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="CafeGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoMarron" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Cafe" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los restos del café, al igual que el filtro, van al marrón!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="PapelDeCocina" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/papeldecocina.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="PapelDeCocina" />
+          <condition />
+          <generate-object idTarget="PapelDeCocina" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, papel de cocina sucio!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los restos de papel de cocina manchados de comida van al orgánico</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">El papel, normalmente, se recicla en el contenedor azul</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Sin embargo, éste está sucio de comida o grasa, por lo que debe ir al orgánico</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Esto es necesario dado que la grasa interfiere en el proceso de reciclaje del papel</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Por otro lado, si está manchado de químicos o pintura, debe ir al naranja</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="PapelDeCocinaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="PapelDeCocinaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoMarron" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="PapelDeCocina" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los restos de papel de cocina y servilletas sucias van al orgánico!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Colilla" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/colilla.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Colilla" />
+          <condition />
+          <generate-object idTarget="Colilla" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una colilla!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las colillas van al naranja</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Las colillas pueden permanecer hasta 10 años en el suelo</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">A priori no parece mucho...</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Sin embargo, pese a degradarse, al contener sustancias químicas dañinas como el alquitrán o el amoníaco son muy dañinas para el suelo</speak-char>
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Por eso debemos tirarlas a las papeleras!</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="ColillaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="ColillaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoNaranja" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Colilla" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las colillas van al contenedor naranja!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="CacaDeGato" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/caca.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="CacaDeGato" />
+          <condition />
+          <generate-object idTarget="CacaDeGato" />
+          <condition />
+          <macro-ref id="Sad" />
+          <condition />
+          <speak-char idTarget="Bolsi">Puaj caca de gato!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">La caca de gato va al naranja</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Al contrario de lo que puedas pensar, los restos de tus animales no van al orgánico</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Esto incluye las cacas y la arena sucia, por ejemplo</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="CacaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="CacaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoNaranja" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="CacaDeGato" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los residuos de animales deben ir al resto!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Goma" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/goma.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Goma" />
+          <condition />
+          <generate-object idTarget="Goma" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una goma!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las gomas van al naranja</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">No todos los plásticos son reciclables</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Sólo aquellos identificados por el símbolo adecuado con el triángulo del 1 al 7</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Otros plásticos como los juguetes de los niños no lo son y deben ir al resto o pueden donarse a organizaciones.</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="GomaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="GomaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoNaranja" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Goma" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las gomas no son reciclables, van al resto!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Botella" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/botellaplastico.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Botella" />
+          <condition />
+          <generate-object idTarget="Botella" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una botella!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las gomas van al amarillo</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Algunas botellas son reutilizables</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las más adecuadas son las del número 4 (polietileno de baja densidad) y 5 (polipropileno) o aquellas BPA Free</speak-char>
+          <condition />
+          <macro-ref id="Sad" />
+          <condition />
+          <speak-char idTarget="Bolsi">Sin embargo, aquellas identificadas con un 1 (polietileno) que son las más comunes, no es recomendable reutilizarlas...</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="BotellaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="BotellaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoAmarillo" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Botella" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las botellas de plástico, al igual que los envases, van al amarillo!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Aluminio" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/aluminio.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Aluminio" />
+          <condition />
+          <generate-object idTarget="Aluminio" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, papel de aluminio!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">El papel de aluminio va al amarillo</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Reciclar el aluminio supone un 95% menos de energía que extraerlo de la bauxita</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Por ello debemos reciclar las latas de bebida y conservas, así como el papel de aluminio</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="AluminioGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="AluminioGrabbed" />
+        </condition>
+      </custom>
+    </actions>
+  </object>
+  <object id="Aerosol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/aerosol.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Aerosol" />
+          <condition />
+          <generate-object idTarget="Aerosol" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, un aerosol!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los aerosoles van al amarillo</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Los aerosoles y las chapas deben de reciclarse, aunque sólo si están vacíos</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los aerosoles que estén llenos deben de llevarse al punto limpio para evitar explosiones o incendios</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="AerosolGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="AerosolGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoAmarillo" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Aluminio" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los aerosoles vacíos van al amarillo!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Botelladevidrio" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/botella.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Botelladevidrio" />
+          <condition />
+          <generate-object idTarget="Botelladevidrio" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una botella de vidrio!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las botellas de vidrio van al verde</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Las botellas de vidrio son totalmente reciclables, pero sus tapones deben ser separados a los contenedores correspondientes</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Por ejemplo, el corcho debe ir al orgánico y las chapas al amarillo.</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="BotellaDeVidrioGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="BotellaDeVidrioGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoVerde" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Botelladevidrio" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las botellas de vidrio deben reciclarse en el contenedor verde!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Tarro" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/tarro.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Tarro" />
+          <condition />
+          <generate-object idTarget="Tarro" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, un tarro!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los tarros son de vidrio y van al verde</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">El vidrio se transforma en calcín que se funde en nuevo vidrio un número ilimitado de veces</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">I LI MI TA DO!</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="TarroGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="TarroGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoVerde" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Tarro" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los tarros son de vidrio, van al verde!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Rimel" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/rimel.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Rimel" />
+          <condition />
+          <generate-object idTarget="Rimel" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, un bote de rimel!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los botes de cosmético son de vidrio y van al verde</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">El vidrio y el cristal son muy diferentes</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Sólo el vidrio es reciclable y se deposita en el contenedor verde</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los vasos, copas, espejos, etc, no son reciclables</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="RimelGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="RimelGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoVerde" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Rimel" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Los frascos de los cosméticos que son de vidrio van al verde!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Caja" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/caja.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Caja" />
+          <condition />
+          <generate-object idTarget="Caja" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una caja de cartón!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las cajas van al contenedor azul y debemos plegarlas para que no ocupen mucho espacio!</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Sin embargo, si está sucia (ej caja de pizza) debe ir al orgánico dado que la grasa no permite reciclarlas</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Una idea es recortar las partes con comida y separar lo reciclable</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="CajaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="CajaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoAzul" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Caja" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las cajas de cartón limpias van al azul (debidamente plegadas)!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Apuntes" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/apuntes.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Apuntes" />
+          <condition />
+          <generate-object idTarget="Apuntes" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, unos apuntes!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">El papel va al contenedor azul</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Se debe de ahorrar papel y debemos tratar de imprimir la menor cantidad posible</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Los libros podemos llevarlos a una librería para que se puedan reutilizar</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="ApuntesGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="ApuntesGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoAzul" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Apuntes" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">El papel, aunque esté escrito, va al azul!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Revista" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/revista.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Caja" />
+          <condition />
+          <generate-object idTarget="Caja" />
+          <condition />
+          <macro-ref id="Happy" />
+          <condition />
+          <speak-char idTarget="Bolsi">Genial, una revista vieja!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Las revistas van al contenedor azul</speak-char>
+          <condition />
+          <macro-ref id="Confident" />
+          <condition />
+          <speak-char idTarget="Bolsi">Podemos utilizarla para manualidades, pero si se mancha de pintura...</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">Debemos tirarla al naranja, dado que está sucio, pero no de comida</speak-char>
+          <condition />
+          <macro-ref id="Normal" />
+          <condition />
+          <activate flag="RevistaGrabbed" />
+          <condition />
+        </effect>
+      </grab>
+      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
+        <resources name="No name">
+          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
+          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
+        </resources>
+        <condition>
+          <active flag="RevistaGrabbed" />
+        </condition>
+        <effect>
+          <activate flag="TirandoAzul" />
+          <condition />
+          <macro-ref id="Tirar" />
+          <condition />
+          <speak-player>Bien hecho!</speak-player>
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <consume-object idTarget="Revista" />
+          <condition>
+            <active flag="Correcto" />
+          </condition>
+          <macro-ref id="Mad" />
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <speak-char idTarget="Bolsi">Las revistas van al azul!</speak-char>
+          <condition>
+            <active flag="Incorrecto" />
+          </condition>
+          <macro-ref id="Normal" />
+          <condition />
+        </effect>
+      </custom>
+    </actions>
+  </object>
+  <object id="Ciruela" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/ciruela.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Ciruela" />
+          <condition />
+          <generate-object idTarget="Ciruela" />
+          <condition />
+          <activate flag="CiruelosEncontrados" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Saltacercas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/saltacercas.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Majuelo" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/frutomajuelo.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Plumero" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/plumeropampa.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Plumero" />
+          <condition />
+          <generate-object idTarget="Plumero" />
+          <condition />
+          <activate flag="PlumeroEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <graph-conversation id="Intro">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
@@ -422,7 +2361,7 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="BandalfIntro">
-    <dialogue-node nodeindex="0" editor-x="247" editor-y="87">
+    <dialogue-node nodeindex="0" editor-x="107" editor-y="82">
       <speak-char idTarget="Bandalf">Sí, soy Bandalf</speak-char>
       <condition />
       <speak-player>Cómo?</speak-player>
@@ -459,7 +2398,1161 @@
       <condition />
       <speak-char idTarget="Bandalf">Vaya, veo que no hace falta ser mago para darse cuenta...</speak-char>
       <condition />
+      <speak-char idTarget="Bandalf">Verás...</speak-char>
+      <condition />
+      <child nodeindex="1" />
+      <effect>
+        <trigger-scene idTarget="Antes" x="480" y="540" transitionTime="500" transitionType="2" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="735" editor-y="82">
+      <speak-char idTarget="Bandalf">Esta era la Universidad Complutense hace más de 50 años</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Se haya ubicada en la dehesa de la villa, un pinar protegido por la comunidad de Madrid</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">En ella podemos encontrar flora y fauna que mezcla la propia del pinar con nuevos árboles y especies</speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <trigger-scene idTarget="Ahora" x="546" y="558" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="1296" editor-y="82">
+      <speak-char idTarget="Bandalf">Y esta es ahora</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Y aunque el progreso ha traído avances y calidad de vida...</speak-char>
+      <condition />
+      <child nodeindex="3" />
+      <effect>
+        <trigger-scene idTarget="Unisucia" x="300" y="337" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1851" editor-y="82">
+      <speak-char idTarget="Bandalf">Me temo que los residuos están empezando a acabar con ellas</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Consumimos, desperdiciamos y nos despreocupamos</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Y poco a poco estamos empezando a sufrir las consecuencias</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Contaminación</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Extinciones</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Calentamiento global</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Pero por suerte aún estamos a tiempo para hacer algo</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Y yo tengo la herramienta perfecta para ti...</speak-char>
+      <condition />
+      <child nodeindex="4" />
+      <effect>
+        <trigger-scene idTarget="TresErres" x="415" y="373" transitionTime="500" transitionType="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="2453" editor-y="82">
+      <speak-char idTarget="Bandalf">Las tres erres!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Reducir, reutilizar y reciclar!</speak-char>
+      <condition />
+      <child nodeindex="5" />
+      <effect>
+        <trigger-scene idTarget="Reducir" x="567" y="555" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="2688" editor-y="82">
+      <speak-char idTarget="Bandalf">Reducir!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Como consumir menos,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Comprar productos con menos envasado,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Llevar tus propias bolsas a la compra,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">O los ejemplos de la imágen</speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <trigger-scene idTarget="Reutilizar" x="567" y="555" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="3171" editor-y="82">
+      <speak-char idTarget="Bandalf">Reutilizar!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Como usar las bolsas de plastico hasta que se rompan,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">O reutilizar los frascos,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">O los ejemplos de la imágen</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <trigger-scene idTarget="Reciclar" x="567" y="555" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="3674" editor-y="82">
+      <speak-char idTarget="Bandalf">Reciclar!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Nuestra pequeña incomprendida,</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Que es aquella que nos atañe hoy...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Debemos aprender a separar correctamente la basura en los cinco contenedores</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Marrón, Amarillo, Verde, Azul y Naranja. </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Con ellos podemos librarnos del mal que nos acecha.</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Verás... </speak-char>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="2" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="4067" editor-y="82">
+      <speak-char idTarget="Bandalf">Él es Basauron</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">El descontrol de la basura</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Un monstruo cuyo poder puede acabar con todo lo que conocemos</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Y está viniendo</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Su sombra se cierne sobre nosotros y atacará de un momento a otro</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Por ello debemos protejernos, y para eso te necesito!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Te voy a entregar un arma...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Un arma muy poderosa...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">La CUARTA R</speak-char>
+      <condition />
+      <child nodeindex="9" />
+      <effect>
+        <trigger-scene idTarget="CuartaErre" x="640" y="540" transitionTime="500" transitionType="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="4609" editor-y="104">
+      <speak-char idTarget="Bandalf">RECOGER!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">La cuidad universitaria, llena de juventud, sufre a veces los daños de los botellones</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Y hoy</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Hoy utilizaremos la cuarta R</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Para salvar el mundo de Basauron!</speak-char>
+      <condition />
+      <child nodeindex="10" />
+      <effect>
+        <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="5049" editor-y="130">
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-player>Entonces... ¿qué tengo que hacer?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Genial, te encargaré dos tareas:</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Una ofensiva y una defensiva</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">La ofensiva será crear unas pociones...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">La defensiva será crear unos golems...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Pero antes acompáñame, tengo que mostrarte algo...</speak-char>
+      <condition />
+      <child nodeindex="11" />
+      <effect>
+        <activate flag="Intro" />
+        <condition />
+        <trigger-scene idTarget="Start" x="639" y="591" transitionTime="100" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="11" editor-x="5454" editor-y="130">
+      <speak-char idTarget="Bandalf">Quiero que bajes aquí al lado</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Junto al monumento hay una bosa de plástico</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Recógela, tienes que aprender cómo funciona esto...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">PlasticBag</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="BusquedaBolsi">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bandalf">#! Mira!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">#! La bolsa de basura que buscábamos!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Todos los objetos que conectan tu mundo con el mío están ocultos</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Sin embargo, podrás interactuar con ellos a través de tu pantalla!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Prueba a tocar la bolsa de basura y pulsa en el símbolo de recojer para recojerla</speak-char>
+      <condition />
       <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="CreacionBolsi">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bandalf">Perfecto!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Ahora voy a hacer mi magia!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Bíbidi, bó...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">No, espera, eso tiene copyright</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Por el poder de la reutilización!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Ven a la vida!!!</speak-char>
+      <condition />
+      <child nodeindex="1" />
+      <effect>
+        <activate flag="Bolsi" />
+        <condition />
+        <macro-ref id="Sad" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="636" editor-y="48">
+      <speak-player>Woah!</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Heh, soy todo un mago!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Bolsi! Saluda!</speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">Ho...</speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">Holi...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">No tengas miedo pequeña</speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <macro-ref id="Normal" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="1423" editor-y="81">
+      <speak-char idTarget="Bolsi">Holi, soy Bolsi y te ayudaré a partir de ahora en tu aventura!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Así me gusta!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Al igual que Bolsi, hay muchos otros residuos en la plaza que deberás reciclar</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">En total, hay 15 residuos y deberás encontrar al menos 10 para poder atraer la atención de Basauron</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Busca cuantos más puedas y luego recíclalos en los contenedores frente a medicina!</speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">Yo te ayudaré a reciclar, además, voy a poner una guía de reciclaje en tu inventario!</speak-char>
+      <condition />
+      <child nodeindex="3" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="2117" editor-y="97">
+      <speak-char idTarget="Bandalf">Gracias Bolsi</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Por otro lado, mientras buscas y reciclas los residuos, te voy a encargar dos tareas</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Para estar preparados necesito que fabriques un par de pociones</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Para ello, he abierto dos portales al pasado en Medicina y Farmacia</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">En esas facultades podrás encontrarte con dos de mis viejos amigos: Ramón y Cajal y Severo Ochoa</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Ellos te ayudarán a crear las pociones</speak-char>
+      <condition />
+      <speak-player>Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza</speak-player>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Recuerda:</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Busca y recicla al menos 10 objetos de la plaza</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Ve a Medicina y a Farmacia a encontrarte con Ramón y Cajal y Severo Ochoa</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Después nos veremos en la estatua en el centro de la plaza</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Suerte</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="LlegadaPortadores">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bandalf">Bueno, ya estamos en el centro de la plaza</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Esta es la Plaza de Ramón y Cajal, uno de los puntos más icónicos de la Ciudad Universitaria</speak-char>
+      <condition />
+      <speak-player>Ramón y Cajal? Como el hospital?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Hospital? Vaya, si que ha llegado Santiago lejos!</speak-char>
+      <condition />
+      <speak-player>Santiago?</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Verás, hace muchos años, antes de la guerra civil, aquí daba clase un buen amigo mío</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Santiago Ramón y Cajal</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+      </speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="BatallaFinal">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bandalf">Parece que la llegada de basauron es inminente...</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Voy a invocar a los golem...</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="562" editor-y="50">
+      <speak-player>Ahí viene!</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <activate flag="Basauron" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="1020" editor-y="50">
+      <speak-char idTarget="Basauron">#! MUAHAHAHAHA</speak-char>
+      <condition />
+      <speak-char idTarget="Basauron">#! Soy Basauron, señor oscuro de la basura!</speak-char>
+      <condition />
+      <speak-char idTarget="Basauron">#! Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! </speak-char>
+      <condition />
+      <speak-player>Adelante Bandalf! Peleemos!</speak-player>
+      <condition />
+      <speak-char idTarget="Bandalf">Tómate la pocion!</speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Con ella podrás ver sus residuos y separarlos para derrotarlo!</speak-char>
+      <condition />
+      <speak-player>Vale!</speak-player>
+      <condition />
+      <speak-player>#O Glup</speak-player>
+      <condition />
+      <speak-player>#O Glup</speak-player>
+      <condition />
+      <speak-player>#O Glup</speak-player>
+      <condition />
+      <speak-player>Viscoso pero sabroso!</speak-player>
+      <condition />
+      <speak-player>#! Bien Basauron! Vamos a acabar contigo!</speak-player>
+      <condition />
+      <speak-char idTarget="Basauron">#! Y ahora, muere!!</speak-char>
+      <condition />
+      <child nodeindex="3" />
+      <effect>
+        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1597" editor-y="50">
+      <speak-char idTarget="Basauron">Es mi momento, voy a acabar con la humanidad</speak-char>
+      <condition />
+      <speak-char idTarget="Basauron">Mi basura innundará el mundo!</speak-char>
+      <condition />
+      <speak-player>#O  * Basauron va a tirarte basura *</speak-player>
+      <condition />
+      <speak-player>#O * Separa la basura correctamente para derrotarle *</speak-player>
+      <condition />
+      <speak-player>#O * Acierta el máximo número de preguntas para derrotar a Basauron *</speak-player>
+      <condition />
+      <speak-player>Viene un botellín de cerveza!</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <option-node nodeindex="4" question="BotellinCerveza" random="yes" keepShowing="yes" preListening="yes" editor-x="2159" editor-y="49" x="2159" y="49">
+      <speak-player correct="true">Verde</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="6" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="2379" editor-y="49">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="2379" editor-y="243">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="7" />
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="2614" editor-y="49">
+      <speak-player>Viene un tetrabrick!</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </dialogue-node>
+    <option-node nodeindex="8" question="Tetrabrick" random="yes" keepShowing="yes" preListening="yes" editor-x="2849" editor-y="49" x="2849" y="49">
+      <speak-player correct="true">Amarillo</speak-player>
+      <condition />
+      <child nodeindex="9" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="10" />
+    </option-node>
+    <dialogue-node nodeindex="9" editor-x="3088" editor-y="58">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="11" />
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="3099" editor-y="266">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="11" />
+    </dialogue-node>
+    <dialogue-node nodeindex="11" editor-x="3344" editor-y="66">
+      <speak-player>Viene una huevera!</speak-player>
+      <condition />
+      <child nodeindex="12" />
+    </dialogue-node>
+    <option-node nodeindex="12" question="Huevera" random="yes" keepShowing="yes" preListening="yes" editor-x="3579" editor-y="66" x="3579" y="66">
+      <speak-player correct="true">Azul</speak-player>
+      <condition />
+      <child nodeindex="13" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="14" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="14" />
+    </option-node>
+    <dialogue-node nodeindex="13" editor-x="3799" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="15" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="14" editor-x="3799" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="15" />
+    </dialogue-node>
+    <dialogue-node nodeindex="15" editor-x="4034" editor-y="66">
+      <speak-player>Viene una lata!</speak-player>
+      <condition />
+      <child nodeindex="16" />
+    </dialogue-node>
+    <option-node nodeindex="16" question="Lata" random="yes" keepShowing="yes" preListening="yes" editor-x="4269" editor-y="66" x="4269" y="66">
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="17" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="18" />
+      <speak-player correct="true">Amarillo</speak-player>
+      <condition />
+      <child nodeindex="18" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="18" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="18" />
+    </option-node>
+    <dialogue-node nodeindex="17" editor-x="4489" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="19" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="18" editor-x="4489" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="19" />
+    </dialogue-node>
+    <dialogue-node nodeindex="19" editor-x="4724" editor-y="66">
+      <speak-player>Viene un jarrón roto!</speak-player>
+      <condition />
+      <child nodeindex="20" />
+    </dialogue-node>
+    <option-node nodeindex="20" question="Jarron" random="yes" keepShowing="yes" preListening="yes" editor-x="4959" editor-y="66" x="4959" y="66">
+      <speak-player correct="true">Naranja</speak-player>
+      <condition />
+      <child nodeindex="21" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="22" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="22" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="22" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="22" />
+    </option-node>
+    <dialogue-node nodeindex="21" editor-x="5179" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="23" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="22" editor-x="5179" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="23" />
+    </dialogue-node>
+    <dialogue-node nodeindex="23" editor-x="5414" editor-y="66">
+      <speak-player>Viene un jueguete roto!</speak-player>
+      <condition />
+      <child nodeindex="24" />
+    </dialogue-node>
+    <option-node nodeindex="24" question="Jueguete" random="yes" keepShowing="yes" preListening="yes" editor-x="5649" editor-y="66" x="5649" y="66">
+      <speak-player correct="true">Naranja</speak-player>
+      <condition />
+      <child nodeindex="25" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="26" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="26" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="26" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="26" />
+    </option-node>
+    <dialogue-node nodeindex="25" editor-x="5869" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="27" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="26" editor-x="5869" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="27" />
+    </dialogue-node>
+    <dialogue-node nodeindex="27" editor-x="6104" editor-y="66">
+      <speak-player>Viene un hueso de fruta!</speak-player>
+      <condition />
+      <child nodeindex="28" />
+    </dialogue-node>
+    <option-node nodeindex="28" question="HuesoFruta" random="yes" keepShowing="yes" preListening="yes" editor-x="6339" editor-y="66" x="6339" y="66">
+      <speak-player correct="true">Marrón</speak-player>
+      <condition />
+      <child nodeindex="29" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="30" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="30" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="30" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="30" />
+    </option-node>
+    <dialogue-node nodeindex="29" editor-x="6559" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="31" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="30" editor-x="6559" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="31" />
+    </dialogue-node>
+    <dialogue-node nodeindex="31" editor-x="6794" editor-y="66">
+      <speak-player>Viene propaganda electoral!</speak-player>
+      <condition />
+      <child nodeindex="32" />
+    </dialogue-node>
+    <option-node nodeindex="32" question="Propaganda" random="yes" keepShowing="yes" preListening="yes" editor-x="7029" editor-y="66" x="7029" y="66">
+      <speak-player correct="true">Azul</speak-player>
+      <condition />
+      <child nodeindex="33" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="34" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="34" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="34" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="34" />
+    </option-node>
+    <dialogue-node nodeindex="33" editor-x="7249" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="35" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="34" editor-x="7249" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="35" />
+    </dialogue-node>
+    <dialogue-node nodeindex="35" editor-x="7484" editor-y="66">
+      <speak-player>Viene un pintauñas vacío!</speak-player>
+      <condition />
+      <child nodeindex="36" />
+    </dialogue-node>
+    <option-node nodeindex="36" question="Pintaunas" random="yes" keepShowing="yes" preListening="yes" editor-x="7719" editor-y="66" x="7719" y="66">
+      <speak-player correct="true">Azul</speak-player>
+      <condition />
+      <child nodeindex="37" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="38" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="38" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="38" />
+      <speak-player>Marrón</speak-player>
+      <condition />
+      <child nodeindex="38" />
+    </option-node>
+    <dialogue-node nodeindex="37" editor-x="7939" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="39" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="38" editor-x="7939" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="39" />
+    </dialogue-node>
+    <dialogue-node nodeindex="39" editor-x="8174" editor-y="66">
+      <speak-player>Viene un corcho!</speak-player>
+      <condition />
+      <child nodeindex="40" />
+    </dialogue-node>
+    <option-node nodeindex="40" question="Corcho" random="yes" keepShowing="yes" preListening="yes" editor-x="8409" editor-y="66" x="8409" y="66">
+      <speak-player correct="true">Marrón</speak-player>
+      <condition />
+      <child nodeindex="41" />
+      <speak-player>Verde</speak-player>
+      <condition />
+      <child nodeindex="42" />
+      <speak-player>Azul</speak-player>
+      <condition />
+      <child nodeindex="42" />
+      <speak-player>Amarillo</speak-player>
+      <condition />
+      <child nodeindex="42" />
+      <speak-player>Naranja</speak-player>
+      <condition />
+      <child nodeindex="42" />
+    </option-node>
+    <dialogue-node nodeindex="41" editor-x="8629" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG, lo has reciclado bien...</speak-char>
+      <condition />
+      <child nodeindex="43" />
+      <effect>
+        <increment var="Recicladas" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="42" editor-x="8629" editor-y="260">
+      <speak-char idTarget="Basauron">#! Mal!!! Mi basura innundará tu mundo!</speak-char>
+      <condition />
+      <child nodeindex="43" />
+    </dialogue-node>
+    <dialogue-node nodeindex="43" editor-x="8864" editor-y="66">
+      <speak-char idTarget="Basauron">#! ARG! Eres un tipo duro...</speak-char>
+      <condition>
+        <greater-equals-than var="Recicladas" value="7" />
+      </condition>
+      <speak-char idTarget="Basauron">Veo que la humanidad aún tiene esperanza porque sabes separar muy bien la basura</speak-char>
+      <condition>
+        <greater-equals-than var="Recicladas" value="7" />
+      </condition>
+      <speak-char idTarget="Basauron">Sin embargo, no ceses tu trabajo o volveré!</speak-char>
+      <condition>
+        <greater-equals-than var="Recicladas" value="7" />
+      </condition>
+      <speak-char idTarget="Basauron">#! Vaya, no tienes ni idea de separar la basura!</speak-char>
+      <condition>
+        <less-equals-than var="Recicladas" value="6" />
+      </condition>
+      <speak-char idTarget="Basauron">Has perdido este combate y la tierra sufrirá las consecuencias...</speak-char>
+      <condition>
+        <active flag="AerosolGrabbed" />
+      </condition>
+      <speak-char idTarget="Basauron">#! Pero aún no es tarde! </speak-char>
+      <condition>
+        <less-equals-than var="Recicladas" value="6" />
+      </condition>
+      <speak-char idTarget="Basauron">Aprende a separar correctamente y vuelve a enfrentarte al reto!</speak-char>
+      <condition>
+        <less-equals-than var="Recicladas" value="6" />
+      </condition>
+      <child nodeindex="44" />
+      <effect>
+        <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="500" transitionType="2" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="44" editor-x="9449" editor-y="66">
+      <speak-char idTarget="Bandalf">Bueno, me voy a volver a mi mundo... El portal interdimensional se cierra... </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">Suerte en tu aventura!!!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="Fin" x="400" y="450" transitionTime="500" transitionType="2" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="PocionSevero">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Hola!</speak-player>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Buenas tardes, somos Severo Ochoa, licenciado en Medicina y Bioquímico y Margarita Salas licenciada en Química y Bioquímica también, mi discípula</speak-char>
+      <condition />
+      <speak-player>Vereis, vengo en nombre de Bandalf...</speak-player>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Bandalf! Hacía años que no oía ese nombre... Durante mi formación en la Universidad Central (la antigua complutense), conocí a Bandalf</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Luego me fui a EEUU donde trabajé mucho tiempo con Margarita y no volví a saber de él, pero pasamos grandes momentos juntos</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Claro que te ayudaremos, qué necesitas?</speak-char>
+      <condition />
+      <speak-player>Necesito que nos ayudeis a luchar contra Basauron...</speak-player>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Genial! Te ayudaremos a hacer una poción para combatirlo!</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Verás, nosotros somos unos genios de la Bioquímica. Hemos hecho grandes avances en el ARN, ADN entre otras cosas.</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Por ello recibí un Premio Nobel en Fisiología y Medicina en 1959</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Yo, Margarita, he recibido múltiples premios, entre ellos doctorados honoris causa y premios a la mujer progresista y a la excelencia química</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Se me ocurre que hagamos una poción genética que mejore tus capacidades celulares!</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Debes traernos: Una ciruela y un plumero de la pampa...</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">La ciruela debería estar cerca del metro de ciudad universitaria</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">El plumero debería estar cerca de una estatua mía que hay por aquí cerca</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Traenos los ingredientes y te haremos la poción!</speak-char>
+      <condition />
+      <speak-player>Perfecto, voy a ello! Gracias!</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="PistasSevero">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="SeveroMarga">Aún te faltan ingredientes:</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">La pista para encontrar el plumero es que está junto a mi estatua...</speak-char>
+      <condition>
+        <inactive flag="PlumeroEncontrado" />
+      </condition>
+      <speak-char idTarget="SeveroMarga">La pista para encontrar los ciruelos se encuentra junto al metro...</speak-char>
+      <condition>
+        <inactive flag="CiruelosEncontrados" />
+      </condition>
+      <speak-player>Gracias!</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="CreacionPocionSevero">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="SeveroMarga">Genial, ya tienes todos los ingredientes...</speak-char>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Toma tu poción!</speak-char>
+      <condition />
+      <speak-player>Gracias!</speak-player>
+      <condition />
+      <speak-char idTarget="SeveroMarga">Suerte en la batalla, manda recuerdos a Bandalf!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="PocionFarmacia" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="FinalSevero">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="SeveroMarga">Suerte en la batalla contra Basauron! Da recuerdos a Bandalf!</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="PocionRamon">
+    <dialogue-node nodeindex="0" editor-x="49" editor-y="50">
+      <speak-player>Disculpe señor...</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Perdone jóven, estoy muy ocupado trabajando en mi teoría neuronal...</speak-char>
+      <condition />
+      <speak-player>Teoría neuronal?</speak-player>
+      <condition />
+      <speak-player>En fin, esto es muy urgente... Vengo en nombre de Bandalf para...</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Bandalf!</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Hacía mucho que no escuchaba ese nombre!</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Conocí a Bandalf en Zaragoza durante mis estudios de medicina... </speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Deja que me presente, soy Santiago Ramón y Cajal, catedrático de Histología, Hitoquimia Normal y Anatomía Patológica de la facultad de Medicina</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Bandalf y yo pasamos grandes momentos juntos, pero finalmente desapareció porque previó que algo oscuro se acercaba...</speak-char>
+      <condition />
+      <speak-player>Verá señor, por eso estoy aquí...</speak-player>
+      <condition />
+      <speak-player>Bandalf prevee la llegada de Basauron, señor oscuro de la basura y necesitamos tu ayuda para derrotarle</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">No se hable más, tengo una idea genial</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Te ayudaré a preparar una poción para combatir contra Basauron</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Verás, he recibido el Premio Nobel de Fisiología y Medicina por mis descubrimientos sobre neurociencia</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Entre otras cosas, escribí la Doctrina de la Neurona y la Histología del Sistema Nervioso del Hombre y los Vertebrados</speak-char>
+      <condition />
+      <speak-player>Wow, podría decirse que entendemos cómo funcionan las neuronas gracias a ti?</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Bueno... Jeje... Algo así. Cosas como que las neuronas son independientes y la sinapsis con aportaciones mías...</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Pero ahora el tiempo apremia y debo aplicar mis conocimientos para crear una poción para que tus neuronas funcionen al 100% durante el combate!</speak-char>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Para ello necesito dos cosas: un fruto del majuelo y un ala de saltacercas...</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Son cosas inverosímiles, pero así es la magia jejeje</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Esta plaza es bastante interesante y la fauna y flora de ella nos ayudarán.</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Deberías encontrar un majuelo cerca de odontología...</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Y el ala de saltacercas creo que se le calló cuando la guerra... En la fachada de medicina donde haya restos de balazos de la guerra podrías encontrar una...</speak-char>
+      <condition />
+      <speak-player>Genial! Muchas gracias!</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Suerte! Estaré esperándote!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="IntroRamon" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="PistasRamon">
+    <dialogue-node nodeindex="0" editor-x="51" editor-y="50">
+      <speak-player>Necesito ayuda para encontrar los ingredientes...</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Perfecto, aún te queda...</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">El fruto del majuelo, que está cerca de odontología</speak-char>
+      <condition>
+        <inactive flag="MajueloEncontrado" />
+      </condition>
+      <speak-char idTarget="Ramon">El ala del saltacercas... Prueba a buscar por la fachada de medicina</speak-char>
+      <condition>
+        <inactive flag="SaltacercasEncontrado" />
+      </condition>
+      <speak-player>Gracias!</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="CreacionPocionRamon">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Bueno, ya lo tengo todo</speak-player>
+      <condition />
+      <speak-char idTarget="Ramon">Perfecto, dame tus incredientes y haré la poción</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">* Hace cosas de científico *</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Aquí tienes</speak-char>
+      <condition />
+      <speak-char idTarget="Ramon">Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="PocionMedicina" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="FinalRamon">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Ramon">Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="AyudaBolsi">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bolsi">Hola compi, te recuerdo lo que estamos haciendo:</speak-char>
+      <condition />
+      <speak-player>Tenemos que buscar residuos por la plaza y reciclar al menos 10</speak-player>
+      <condition />
+      <speak-player>Tenemos que hacer una poción en la Facultad de Medicina</speak-player>
+      <condition />
+      <speak-player>Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal</speak-player>
+      <condition />
+      <speak-player>Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina</speak-player>
+      <condition />
+      <speak-player>Tenemos que hacer una poción en la Facultad de Farmacia</speak-player>
+      <condition />
+      <speak-player>Tenemos que buscar los ingredientes de la poción de Severo y Margarita</speak-player>
+      <condition />
+      <speak-player>Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia</speak-player>
+      <condition />
+      <speak-player>Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron</speak-player>
+      <condition />
+      <speak-player>Con qué necesitas ayuda</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="AyudaBolsi" keepShowing="yes" showUserOption="yes" editor-x="932" editor-y="869" x="932" y="869">
+      <speak-player>Qué tenemos que hacer ahora?</speak-player>
+      <condition />
+      <child nodeindex="0" />
+      <speak-player>Indícame dónde están los contenedores de reciclaje</speak-player>
+      <condition>
+        <less-equals-than var="Recicladas" value="15" />
+      </condition>
+      <child nodeindex="2" />
+      <speak-player>Ayúdame a encontrar las facultades para las pociones</speak-player>
+      <condition>
+        <either>
+          <inactive flag="PocionFarmacia" />
+          <inactive flag="PocionMedicina" />
+        </either>
+      </condition>
+      <child nodeindex="3" />
+      <speak-player>Recuérdame las pistas para los ingredientes de la poción de Ramón</speak-player>
+      <condition>
+        <active flag="IntroRamon" />
+        <either>
+          <inactive flag="MajueloEncontrado" />
+          <inactive flag="SaltacercasEncontrado" />
+        </either>
+      </condition>
+      <child nodeindex="4" />
+      <speak-player>Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita</speak-player>
+      <condition>
+        <active flag="IntroSevero" />
+        <either>
+          <inactive flag="CiruelosEncontrados" />
+          <inactive flag="PlumeroEncontrado" />
+        </either>
+      </condition>
+      <child nodeindex="5" />
+      <speak-player>Indícame dónde está la estatua de los portadores</speak-player>
+      <condition>
+        <active flag="PocionFarmacia" />
+        <active flag="PocionMedicina" />
+        <greater-equals-than var="Total" value="10" />
+      </condition>
+      <child nodeindex="6" />
+      <speak-player>No necesito nada más</speak-player>
+      <condition />
+      <child nodeindex="7" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="1853" editor-y="219">
+      <speak-char idTarget="Bolsi">Hay varios en la calle frente a medicina</speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">Te pondré una flecha verde que te indique dónde ir</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Contenedores</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1924" editor-y="611">
+      <speak-char idTarget="Bolsi">Perfecto, aún tenemos pendiente</speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">La facultad de medicina</speak-char>
+      <condition>
+        <inactive flag="PocionFarmacia" />
+      </condition>
+      <speak-char idTarget="Bolsi">La facultad de farmacia</speak-char>
+      <condition>
+        <inactive flag="PocionMedicina" />
+      </condition>
+      <child nodeindex="8" />
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="2231" editor-y="914">
+      <speak-char idTarget="Bolsi">El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje</speak-char>
+      <condition>
+        <active flag="SaltacercasEncontrado" />
+      </condition>
+      <speak-char idTarget="Bolsi">El fruto del majuelo está frente a odontología</speak-char>
+      <condition>
+        <active flag="MajueloEncontrado" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="1931" editor-y="1047">
+      <speak-char idTarget="Bolsi">Los ciruelos están junto al metro...</speak-char>
+      <condition>
+        <inactive flag="CiruelosEncontrados" />
+      </condition>
+      <speak-char idTarget="Bolsi">El plumero de la pampa está cerca de la estatua de Severo... La estatua creo que está cerca de farmacia...</speak-char>
+      <condition>
+        <inactive flag="PlumeroEncontrado" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1645" editor-y="1218">
+      <speak-player>Está en el centro de la plaza. Te indico</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">LosPortadores</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1148" editor-y="1318">
+      <speak-char idTarget="Bolsi">Si necesitas algo me preguntas :)</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="8" question="AyudaFacultad" editor-x="2225" editor-y="624" x="2225" y="624">
+      <speak-player>Medicina</speak-player>
+      <condition>
+        <inactive flag="PocionMedicina" />
+      </condition>
+      <child nodeindex="9" />
+      <speak-player>Farmacia</speak-player>
+      <condition>
+        <inactive flag="PocionFarmacia" />
+      </condition>
+      <child nodeindex="10" />
+    </option-node>
+    <dialogue-node nodeindex="9" editor-x="2639" editor-y="454">
+      <speak-char idTarget="Bolsi">Perfecto, te indico la dirección de medicina</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Closeness">
+            <step locks="False">Medicina</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="10" editor-x="2613" editor-y="689">
+      <speak-char idTarget="Bolsi">Perfecto, te indico dónde está farmacia</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Closeness">
+            <step locks="False">Farmacia</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <geoelement id="InitialArea">
@@ -520,11 +3613,492 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-zoned-scene idTarget="Alumnos" x="512" y="503" zoneId="InitialArea" transitionTime="2000" transitionType="5" />
+          <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="1000" transitionType="5" />
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
       </enter-action>
     </actions>
   </geoelement>
+  <geoelement id="LosPortadores">
+    <description>
+      <name>Los Portadores de la Antorcha</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="20">
+        <Point>
+          <pos>40.4437924346723 -3.72605775583522</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions />
+  </geoelement>
+  <geoelement id="Metro">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="22.06">
+        <Point>
+          <pos>40.4436804 -3.7268294</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <condition>
+          <inactive flag="Bolsi" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="BusquedaBolsi" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Farmacia">
+    <description>
+      <name>Farmacia</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="10.4">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4449503815821 -3.72654783937368 40.4450034539259 -3.72599359781351 40.4452754664725 -3.72584339410866 40.4451897345509 -3.72682142469317</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="FacultadFarmacia" x="310" y="276" zoneId="InitialArea" transitionTime="500" transitionType="5" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="EstatuaSevero">
+    <description>
+      <name>Monumento a Médico</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="16.2">
+        <Point>
+          <pos>40.4447985730759 -3.72672401191735</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <condition>
+          <inactive flag="MonumentoSeveroEncontrado" />
+        </condition>
+        <effect>
+          <speak-char idTarget="Bolsi">Genial! Has encontrado el monumento a Severo! El ingrediente estará aquí cerca...</speak-char>
+          <condition />
+          <activate flag="MonumentoSeveroEncontrado" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Odontología">
+    <description>
+      <name>Odontología</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="9">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4426387919336 -3.72639707428122 40.442683700753 -3.72527116989901 40.4429473304288 -3.72536236500549 40.4429024217854 -3.72637025219106</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <condition>
+          <inactive flag="EncontradaOdontologia" />
+        </condition>
+        <effect>
+          <speak-char idTarget="Bolsi">Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!</speak-char>
+          <condition />
+          <speak-char idTarget="Bolsi">El fruto del majuelo estará aquí cerca...</speak-char>
+          <condition />
+          <activate flag="EncontradaOdontologia" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Medicina">
+    <description>
+      <name>Medicina</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="13.2">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4436987190748 -3.72511043674014 40.4437354620772 -3.72445965824729 40.4441739966434 -3.72456962881687 40.444102552364 -3.72516676312946</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="FacultadMedicina" x="337" y="315" zoneId="InitialArea" transitionTime="500" transitionType="5" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Fachada de Medicina">
+    <description>
+      <name>Fachada con muescas</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="11.23">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4442682333556 -3.72529819137115 40.4442723158778 -3.72508461294772 40.4449333425761 -3.7251704436362 40.4448884352597 -3.72536792913293</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <condition>
+          <inactive flag="EncontradosBalazos" />
+        </condition>
+        <effect>
+          <speak-char idTarget="Bolsi">Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...</speak-char>
+          <condition />
+          <trigger-cutscene idTarget="Balazos" />
+          <condition />
+          <activate flag="EncontradosBalazos" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Contenedores">
+    <description>
+      <name>Contenedores</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="15">
+        <Point>
+          <pos>40.4431698427234 -3.7251458047699</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions />
+  </geoelement>
+  <macro id="Normal">
+    <documentation>
+    </documentation>
+    <deactivate flag="Confident" />
+    <condition />
+    <deactivate flag="Confused" />
+    <condition />
+    <deactivate flag="Sad" />
+    <condition />
+    <deactivate flag="Mad" />
+    <condition />
+    <deactivate flag="Happy" />
+    <condition />
+  </macro>
+  <macro id="Happy">
+    <documentation>
+    </documentation>
+    <macro-ref id="Normal" />
+    <condition />
+    <activate flag="Happy" />
+    <condition />
+  </macro>
+  <macro id="Sad">
+    <documentation>
+    </documentation>
+    <macro-ref id="Normal" />
+    <condition />
+    <activate flag="Sad" />
+    <condition />
+  </macro>
+  <macro id="Confused">
+    <documentation>
+    </documentation>
+    <macro-ref id="Normal" />
+    <condition />
+    <activate flag="Confused" />
+    <condition />
+  </macro>
+  <macro id="Mad">
+    <documentation>
+    </documentation>
+    <macro-ref id="Normal" />
+    <condition />
+    <activate flag="Mad" />
+    <condition />
+  </macro>
+  <macro id="Confident">
+    <documentation>
+    </documentation>
+    <macro-ref id="Normal" />
+    <condition />
+    <activate flag="Confident" />
+    <condition />
+  </macro>
+  <macro id="ScannedOff">
+    <documentation>
+    </documentation>
+    <deactivate flag="ScannedAmarillo" />
+    <condition />
+    <deactivate flag="ScannedAzul" />
+    <condition />
+    <deactivate flag="ScannedMarron" />
+    <condition />
+    <deactivate flag="ScannedNaranja" />
+    <condition />
+    <deactivate flag="ScannedVerde" />
+    <condition />
+  </macro>
+  <macro id="Tirar">
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <deactivate flag="Correcto" />
+    <condition>
+      <active flag="Correcto" />
+    </condition>
+    <deactivate flag="Incorrecto" />
+    <condition>
+      <active flag="Incorrecto" />
+    </condition>
+    <qr-scanner selection-type="BlackList">
+      <message>Escanea el QR del contenedor adecuado</message>
+      <qr-id>Amarillo</qr-id>
+      <qr-id>Naranja</qr-id>
+      <qr-id>Marron</qr-id>
+      <qr-id>Verde</qr-id>
+      <qr-id>Azul</qr-id>
+    </qr-scanner>
+    <condition />
+    <activate flag="Correcto" />
+    <condition>
+      <active flag="ScannedAmarillo" />
+      <active flag="TirandoAmarillo" />
+    </condition>
+    <activate flag="Correcto" />
+    <condition>
+      <active flag="ScannedAzul" />
+      <active flag="TirandoAzul" />
+    </condition>
+    <activate flag="Correcto" />
+    <condition>
+      <active flag="ScannedMarron" />
+      <active flag="TirandoMarron" />
+    </condition>
+    <activate flag="Correcto" />
+    <condition>
+      <active flag="ScannedNaranja" />
+      <active flag="TirandoNaranja" />
+    </condition>
+    <activate flag="Correcto" />
+    <condition>
+      <active flag="ScannedVerde" />
+      <active flag="TirandoVerde" />
+    </condition>
+    <activate flag="Incorrecto" />
+    <condition>
+      <inactive flag="Correcto" />
+    </condition>
+    <speak-player>No has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</speak-player>
+    <condition>
+      <inactive flag="ScannedAmarillo" />
+      <inactive flag="ScannedAzul" />
+      <inactive flag="ScannedMarron" />
+      <inactive flag="ScannedNaranja" />
+      <inactive flag="ScannedVerde" />
+    </condition>
+    <deactivate flag="ScannedAmarillo" />
+    <condition>
+      <active flag="ScannedAmarillo" />
+    </condition>
+    <deactivate flag="ScannedAzul" />
+    <condition>
+      <active flag="ScannedAzul" />
+    </condition>
+    <deactivate flag="ScannedMarron" />
+    <condition>
+      <active flag="ScannedMarron" />
+    </condition>
+    <deactivate flag="ScannedNaranja" />
+    <condition>
+      <active flag="ScannedNaranja" />
+    </condition>
+    <deactivate flag="ScannedVerde" />
+    <condition>
+      <active flag="ScannedVerde" />
+    </condition>
+    <increment var="Amarillos" value="1" />
+    <condition>
+      <active flag="TirandoAmarillo" />
+      <active flag="Correcto" />
+    </condition>
+    <increment var="Azules" value="1" />
+    <condition>
+      <active flag="TirandoAzul" />
+      <active flag="Correcto" />
+    </condition>
+    <increment var="Marrones" value="1" />
+    <condition>
+      <active flag="TirandoMarron" />
+      <active flag="Correcto" />
+    </condition>
+    <increment var="Naranjas" value="1" />
+    <condition>
+      <active flag="TirandoNaranja" />
+      <active flag="Correcto" />
+    </condition>
+    <increment var="Verdes" value="1" />
+    <condition>
+      <active flag="TirandoVerde" />
+      <active flag="Correcto" />
+    </condition>
+    <increment var="Total" value="1" />
+    <condition>
+      <active flag="Correcto" />
+    </condition>
+    <deactivate flag="TirandoAmarillo" />
+    <condition>
+      <active flag="TirandoAmarillo" />
+    </condition>
+    <deactivate flag="TirandoAzul" />
+    <condition>
+      <active flag="TirandoAzul" />
+    </condition>
+    <deactivate flag="TirandoMarron" />
+    <condition>
+      <active flag="TirandoMarron" />
+    </condition>
+    <deactivate flag="TirandoNaranja" />
+    <condition>
+      <active flag="TirandoNaranja" />
+    </condition>
+    <deactivate flag="TirandoVerde" />
+    <condition>
+      <active flag="TirandoVerde" />
+    </condition>
+  </macro>
+  <qr-code id="Amarillo">
+    <content>
+    </content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <activate flag="ScannedAmarillo" />
+      <condition />
+    </effect>
+  </qr-code>
+  <qr-code id="Marron">
+    <content>
+    </content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <activate flag="ScannedMarron" />
+      <condition />
+    </effect>
+  </qr-code>
+  <qr-code id="Naranja">
+    <content>
+    </content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <activate flag="ScannedNaranja" />
+      <condition />
+    </effect>
+  </qr-code>
+  <qr-code id="Verde">
+    <content>
+    </content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <activate flag="ScannedVerde" />
+      <condition />
+    </effect>
+  </qr-code>
+  <qr-code id="Azul">
+    <content>
+    </content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <activate flag="ScannedAzul" />
+      <condition />
+    </effect>
+  </qr-code>
+  <slidescene id="Balazos" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/BalazosAnimation.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
 </eAdventure>

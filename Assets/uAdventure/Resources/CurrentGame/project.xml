@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment> Project Configuration </comment>
+<entry key="Chapter0.Title.X">-78</entry>
+<entry key="Chapter0.Title.Y">98</entry>
+<entry key="Chapter0.Alumnos.X">249</entry>
+<entry key="Chapter0.Alumnos.Y">21</entry>
+<entry key="Chapter0.Antes.X">503</entry>
+<entry key="Chapter0.Antes.Y">39</entry>
+<entry key="Chapter0.Ahora.X">686</entry>
+<entry key="Chapter0.Ahora.Y">40</entry>
+<entry key="Chapter0.Unisucia.X">730</entry>
+<entry key="Chapter0.Unisucia.Y">221</entry>
+<entry key="Chapter0.TresErres.X">131</entry>
+<entry key="Chapter0.TresErres.Y">211</entry>
+<entry key="Chapter0.Reducir.X">243</entry>
+<entry key="Chapter0.Reducir.Y">233</entry>
+<entry key="Chapter0.Reutilizar.X">354</entry>
+<entry key="Chapter0.Reutilizar.Y">276</entry>
+<entry key="Chapter0.Reciclar.X">454</entry>
+<entry key="Chapter0.Reciclar.Y">311</entry>
+<entry key="Chapter0.ElMal.X">-82</entry>
+<entry key="Chapter0.ElMal.Y">371</entry>
+<entry key="Chapter0.CuartaErre.X">166</entry>
+<entry key="Chapter0.CuartaErre.Y">467</entry>
+<entry key="Chapter0.Fin.X">743</entry>
+<entry key="Chapter0.Fin.Y">379</entry>
+<entry key="Chapter0.FacultadFarmacia.X">535</entry>
+<entry key="Chapter0.FacultadFarmacia.Y">508</entry>
+<entry key="Chapter0.FacultadMedicina.X">688</entry>
+<entry key="Chapter0.FacultadMedicina.Y">511</entry>
 </properties>
