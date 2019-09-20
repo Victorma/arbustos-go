@@ -166,15 +166,30 @@ namespace uAdventure.Runner
             checkResources();
         }
 
-        protected void checkResources()
+        public void checkResources()
         {
             if(element == null || element.getResources() == null)
             {
                 return;
             }
 
+            var prevResource = this.resource;
             this.resource = element.getResources()
                 .Find(res => ConditionChecker.check(res.getConditions()));
+
+            if (prevResource != resource)
+            {
+                if (ResourceMode == ResourceType.ANIMATION)
+                {
+                    var toPlay = animationUri;
+                    animationUri = null;
+                    this.Play(toPlay);
+                }
+                else
+                {
+                    this.Adaptate();
+                }
+            }
         }
 
         public void Adaptate()

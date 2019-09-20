@@ -260,7 +260,6 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: AyudaBolsi</documentation>
         <effect>
           <trigger-conversation idTarget="AyudaBolsi" />
           <condition />
@@ -300,7 +299,6 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: PocionRamon</documentation>
         <condition>
           <inactive flag="IntroRamon" />
         </condition>
@@ -310,7 +308,6 @@
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: PistasRamon</documentation>
         <condition>
           <either>
             <inactive flag="MajueloEncontrado" />
@@ -323,7 +320,6 @@
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: CreacionPocionRamon</documentation>
         <condition>
           <inactive flag="PocionMedicina" />
         </condition>
@@ -333,7 +329,6 @@
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: FinalRamon</documentation>
         <effect>
           <trigger-conversation idTarget="FinalRamon" />
           <condition />
@@ -576,7 +571,8 @@
     </name>
     <default-initial-position x="400" y="450" />
     <characters>
-      <character-ref idTarget="SeveroMarga" x="172" y="375" scale="0.2489046" orientation="2" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="SeveroMarga" x="172" y="375" scale="0.2489046" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Bolsi" x="561" y="362" scale="0.06918136" orientation="2" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <scene id="FacultadMedicina" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -589,7 +585,8 @@
     </name>
     <default-initial-position x="400" y="450" />
     <characters>
-      <character-ref idTarget="Ramon" x="284" y="427" scale="0.5133095" orientation="2" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Ramon" x="146" y="425" scale="0.6052055" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Bolsi" x="604" y="418" scale="0.09437566" orientation="2" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <atrezzoobject id="Naranja">
@@ -686,7 +683,9 @@
       </condition>
     </map-element>
     <map-element targetId="Bandalf" layer="0" scale="1.006375" orientation="0">
-      <condition />
+      <condition>
+        <active flag="Intro" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(93.4, 707.0)</param>
         <param name="Rotation">0</param>
@@ -702,7 +701,7 @@
       </ext-elem-ref>
     </map-element>
   </map-scene>
-  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4448737440143, -3.72565829753608)" zoom="19" start="no">
+  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4438143306593, -3.72537666558955)" zoom="18" start="no">
     <map-element targetId="Naranja" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -983,22 +982,26 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Ciruela" layer="0" scale="0.1381304" orientation="0">
-      <condition />
+    <map-element targetId="Ciruela" layer="0" scale="0.17" orientation="0">
+      <condition>
+        <active flag="AerosolGrabbed" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4435424804688, -3.72694182395935)</param>
+        <param name="Position">(40.4435539245605, -3.72692155838013)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">26.91</param>
+        <param name="InteractionRange">36.03</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
     <map-element targetId="Saltacercas" layer="0" scale="0.06269838" orientation="0">
-      <condition />
+      <condition>
+        <active flag="EncontradosBalazos" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4444389343262, -3.72533917427063)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">54.77</param>
+        <param name="InteractionRange">51.7</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1031,11 +1034,13 @@
       </condition>
     </map-element>
     <map-element targetId="Majuelo" layer="0" scale="0.1763588" orientation="0">
-      <condition />
+      <condition>
+        <active flag="EncontradaOdontologia" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4429054260254, -3.72572135925293)</param>
+        <param name="Position">(40.4429779052734, -3.72566628456116)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">77.54</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1062,13 +1067,6 @@
         <greater-equals-than var="Total" value="10" />
       </condition>
     </map-element>
-    <map-element targetId="Bolsi" layer="0" scale="0.1628286" orientation="0">
-      <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
-        <param name="Position">(82.6, 601.2)</param>
-        <param name="Rotation">0</param>
-      </ext-elem-ref>
-    </map-element>
     <map-element targetId="Verde" layer="0" scale="0.1" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -1078,6 +1076,16 @@
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Bolsi" layer="0" scale="0.1407317" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(75.3, 596.2)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Contenedores" layer="0" scale="1" orientation="0">
+      <condition />
     </map-element>
   </map-scene>
   <object id="PlasticBag" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1097,10 +1105,6 @@
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
           <remove-element idTarget="PlasticBag" />
-          <condition />
-          <generate-object idTarget="PlasticBag" />
-          <condition />
-          <consume-object idTarget="PlasticBag" />
           <condition />
           <activate flag="Bolsi" />
           <condition />
@@ -1148,12 +1152,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="RaspaGrabbed" />
         </condition>
@@ -1181,7 +1180,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Cafe" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1222,12 +1221,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="CafeGrabbed" />
         </condition>
@@ -1255,7 +1249,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="PapelDeCocina" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1300,12 +1294,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="PapelDeCocinaGrabbed" />
         </condition>
@@ -1333,7 +1322,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Colilla" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1380,12 +1369,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="ColillaGrabbed" />
         </condition>
@@ -1413,7 +1397,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="CacaDeGato" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1454,12 +1438,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="CacaGrabbed" />
         </condition>
@@ -1487,7 +1466,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Goma" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1530,12 +1509,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="GomaGrabbed" />
         </condition>
@@ -1563,7 +1537,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Botella" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1608,12 +1582,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="BotellaGrabbed" />
         </condition>
@@ -1641,7 +1610,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Aluminio" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1682,16 +1651,11 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="AluminioGrabbed" />
         </condition>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Aerosol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1732,12 +1696,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="AerosolGrabbed" />
         </condition>
@@ -1765,7 +1724,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Botelladevidrio" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1806,12 +1765,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="BotellaDeVidrioGrabbed" />
         </condition>
@@ -1839,7 +1793,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Tarro" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1880,12 +1834,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="TarroGrabbed" />
         </condition>
@@ -1913,7 +1862,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Rimel" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1956,12 +1905,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="RimelGrabbed" />
         </condition>
@@ -1989,7 +1933,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Caja" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2030,12 +1974,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="CajaGrabbed" />
         </condition>
@@ -2063,7 +2002,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Apuntes" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2104,12 +2043,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="ApuntesGrabbed" />
         </condition>
@@ -2137,7 +2071,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Revista" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2178,12 +2112,7 @@
           <condition />
         </effect>
       </grab>
-      <custom name="Tirar" needsGoTo="no" keepDistance="0" not-effects="no">
-        <resources name="No name">
-          <asset type="buttonNormal" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonOver" uri="assets/special/EmptyAnimation" />
-          <asset type="buttonPressed" uri="assets/special/EmptyAnimation" />
-        </resources>
+      <use needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="RevistaGrabbed" />
         </condition>
@@ -2211,7 +2140,7 @@
           <macro-ref id="Normal" />
           <condition />
         </effect>
-      </custom>
+      </use>
     </actions>
   </object>
   <object id="Ciruela" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2220,10 +2149,8 @@
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
+      <name>Ciruela</name>
+      <brief>Tenemos que llevarle la ciruela, junto con el plumero de la pampa a Severo Ochoa y Margarita en la facultad de Farmacia</brief>
       <detailed>
       </detailed>
     </description>
@@ -2240,44 +2167,14 @@
       </grab>
     </actions>
   </object>
-  <object id="Saltacercas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
-    <resources name="No name">
-      <asset type="image" uri="assets/image/saltacercas.png" />
-      <asset type="icon" uri="assets/special/EmptyIcon.png" />
-    </resources>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-  </object>
-  <object id="Majuelo" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
-    <resources name="No name">
-      <asset type="image" uri="assets/image/frutomajuelo.png" />
-      <asset type="icon" uri="assets/special/EmptyIcon.png" />
-    </resources>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-  </object>
   <object id="Plumero" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/image/plumeropampa.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
+      <name>Plumero</name>
+      <brief>Tenemos que llevarle el plumero de la pampa, junto con la ciruela a Severo Ochoa y Margarita en la facultad de Farmacia</brief>
       <detailed>
       </detailed>
     </description>
@@ -2289,6 +2186,55 @@
           <generate-object idTarget="Plumero" />
           <condition />
           <activate flag="PlumeroEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Saltacercas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/saltacercas.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>Ala de Saltacercas</name>
+      <brief>Tenemos que llevarle el ala de saltacercas junto con el fruto del majuelo a Santiago Ramón y Cajal</brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Saltacercas" />
+          <condition />
+          <generate-object idTarget="Saltacercas" />
+          <condition />
+          <activate flag="SaltacercasEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Majuelo" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/frutomajuelo.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>Tenemos que llevarle el majuelo junto con el ala de saltacercas a Santiago Ramón y Cajal</brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Majuelo" />
+          <condition />
+          <generate-object idTarget="Majuelo" />
+          <condition />
+          <activate flag="MajueloEncontrado" />
           <condition />
         </effect>
       </grab>
@@ -2561,7 +2507,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="10" editor-x="5049" editor-y="130">
+    <dialogue-node nodeindex="10" editor-x="4979" editor-y="132">
       <speak-player>Genial!</speak-player>
       <condition />
       <speak-player>Entonces... ¿qué tengo que hacer?</speak-player>
@@ -2572,9 +2518,9 @@
       <condition />
       <speak-char idTarget="Bandalf">La ofensiva será crear unas pociones...</speak-char>
       <condition />
-      <speak-char idTarget="Bandalf">La defensiva será crear unos golems...</speak-char>
+      <speak-char idTarget="Bandalf">La defensiva será reciclar para provocar a Basauron...</speak-char>
       <condition />
-      <speak-char idTarget="Bandalf">Pero antes acompáñame, tengo que mostrarte algo...</speak-char>
+      <speak-char idTarget="Bandalf">Pero antes acompáñame, tengo que mostrarte algo cómo recojer la basura...</speak-char>
       <condition />
       <child nodeindex="11" />
       <effect>
@@ -2585,7 +2531,7 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="11" editor-x="5454" editor-y="130">
-      <speak-char idTarget="Bandalf">Quiero que bajes aquí al lado</speak-char>
+      <speak-char idTarget="Bandalf">Quiero que cruzes la calle junto al metro</speak-char>
       <condition />
       <speak-char idTarget="Bandalf">Junto al monumento hay una bosa de plástico</speak-char>
       <condition />
@@ -2632,7 +2578,7 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <activate flag="Bolsi" />
+        <activate flag="Alive" />
         <condition />
         <macro-ref id="Sad" />
         <condition />
@@ -2685,7 +2631,7 @@
       <condition />
       <speak-char idTarget="Bandalf">Ellos te ayudarán a crear las pociones</speak-char>
       <condition />
-      <speak-player>Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza</speak-player>
+      <speak-char idTarget="Bandalf">Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza</speak-char>
       <condition />
       <speak-player>Genial!</speak-player>
       <condition />
@@ -3229,7 +3175,12 @@
       <condition />
       <speak-player>Perfecto, voy a ello! Gracias!</speak-player>
       <condition />
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <activate flag="IntroSevero" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="PistasSevero">
@@ -3262,6 +3213,12 @@
       <end-conversation>
         <effect>
           <activate flag="PocionFarmacia" />
+          <condition />
+          <consume-object idTarget="Plumero" />
+          <condition />
+          <consume-object idTarget="Ciruela" />
+          <condition />
+          <trigger-conversation idTarget="SomethingFinished" />
           <condition />
         </effect>
       </end-conversation>
@@ -3371,6 +3328,12 @@
         <effect>
           <activate flag="PocionMedicina" />
           <condition />
+          <consume-object idTarget="Saltacercas" />
+          <condition />
+          <consume-object idTarget="Majuelo" />
+          <condition />
+          <trigger-conversation idTarget="SomethingFinished" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -3384,29 +3347,20 @@
   </graph-conversation>
   <graph-conversation id="AyudaBolsi">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
-      <speak-char idTarget="Bolsi">Hola compi, te recuerdo lo que estamos haciendo:</speak-char>
-      <condition />
-      <speak-player>Tenemos que buscar residuos por la plaza y reciclar al menos 10</speak-player>
-      <condition />
-      <speak-player>Tenemos que hacer una poción en la Facultad de Medicina</speak-player>
-      <condition />
-      <speak-player>Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal</speak-player>
-      <condition />
-      <speak-player>Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina</speak-player>
-      <condition />
-      <speak-player>Tenemos que hacer una poción en la Facultad de Farmacia</speak-player>
-      <condition />
-      <speak-player>Tenemos que buscar los ingredientes de la poción de Severo y Margarita</speak-player>
-      <condition />
-      <speak-player>Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia</speak-player>
-      <condition />
-      <speak-player>Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron</speak-player>
-      <condition />
-      <speak-player>Con qué necesitas ayuda</speak-player>
+      <speak-char idTarget="Bolsi">Hola compi, te recuerdo lo que estamos haciendo</speak-char>
       <condition />
       <child nodeindex="1" />
+      <effect>
+        <trigger-conversation idTarget="SomethingFinished" />
+        <condition />
+      </effect>
     </dialogue-node>
-    <option-node nodeindex="1" question="AyudaBolsi" keepShowing="yes" showUserOption="yes" editor-x="932" editor-y="869" x="932" y="869">
+    <dialogue-node nodeindex="1" editor-x="378" editor-y="199">
+      <speak-char idTarget="Bolsi">Con qué necesitas ayuda</speak-char>
+      <condition />
+      <child nodeindex="2" />
+    </dialogue-node>
+    <option-node nodeindex="2" question="AyudaBolsi" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="932" editor-y="869" x="932" y="869">
       <speak-player>Qué tenemos que hacer ahora?</speak-player>
       <condition />
       <child nodeindex="0" />
@@ -3414,7 +3368,7 @@
       <condition>
         <less-equals-than var="Recicladas" value="15" />
       </condition>
-      <child nodeindex="2" />
+      <child nodeindex="3" />
       <speak-player>Ayúdame a encontrar las facultades para las pociones</speak-player>
       <condition>
         <either>
@@ -3422,7 +3376,7 @@
           <inactive flag="PocionMedicina" />
         </either>
       </condition>
-      <child nodeindex="3" />
+      <child nodeindex="4" />
       <speak-player>Recuérdame las pistas para los ingredientes de la poción de Ramón</speak-player>
       <condition>
         <active flag="IntroRamon" />
@@ -3431,7 +3385,7 @@
           <inactive flag="SaltacercasEncontrado" />
         </either>
       </condition>
-      <child nodeindex="4" />
+      <child nodeindex="5" />
       <speak-player>Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita</speak-player>
       <condition>
         <active flag="IntroSevero" />
@@ -3440,19 +3394,23 @@
           <inactive flag="PlumeroEncontrado" />
         </either>
       </condition>
-      <child nodeindex="5" />
+      <child nodeindex="6" />
       <speak-player>Indícame dónde está la estatua de los portadores</speak-player>
       <condition>
         <active flag="PocionFarmacia" />
         <active flag="PocionMedicina" />
         <greater-equals-than var="Total" value="10" />
       </condition>
-      <child nodeindex="6" />
+      <child nodeindex="7" />
       <speak-player>No necesito nada más</speak-player>
       <condition />
-      <child nodeindex="7" />
+      <child nodeindex="8" />
+      <speak-player>
+      </speak-player>
+      <condition />
+      <child nodeindex="1" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="1853" editor-y="219">
+    <dialogue-node nodeindex="3" editor-x="1853" editor-y="219">
       <speak-char idTarget="Bolsi">Hay varios en la calle frente a medicina</speak-char>
       <condition />
       <speak-char idTarget="Bolsi">Te pondré una flecha verde que te indique dónde ir</speak-char>
@@ -3466,7 +3424,7 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="1924" editor-y="611">
+    <dialogue-node nodeindex="4" editor-x="1924" editor-y="611">
       <speak-char idTarget="Bolsi">Perfecto, aún tenemos pendiente</speak-char>
       <condition />
       <speak-char idTarget="Bolsi">La facultad de medicina</speak-char>
@@ -3477,9 +3435,9 @@
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
-      <child nodeindex="8" />
+      <child nodeindex="9" />
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="2231" editor-y="914">
+    <dialogue-node nodeindex="5" editor-x="2231" editor-y="914">
       <speak-char idTarget="Bolsi">El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje</speak-char>
       <condition>
         <active flag="SaltacercasEncontrado" />
@@ -3490,7 +3448,7 @@
       </condition>
       <end-conversation />
     </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="1931" editor-y="1047">
+    <dialogue-node nodeindex="6" editor-x="1931" editor-y="1047">
       <speak-char idTarget="Bolsi">Los ciruelos están junto al metro...</speak-char>
       <condition>
         <inactive flag="CiruelosEncontrados" />
@@ -3501,7 +3459,7 @@
       </condition>
       <end-conversation />
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1645" editor-y="1218">
+    <dialogue-node nodeindex="7" editor-x="1645" editor-y="1218">
       <speak-player>Está en el centro de la plaza. Te indico</speak-player>
       <condition />
       <end-conversation>
@@ -3513,24 +3471,24 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1148" editor-y="1318">
+    <dialogue-node nodeindex="8" editor-x="1148" editor-y="1318">
       <speak-char idTarget="Bolsi">Si necesitas algo me preguntas :)</speak-char>
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="8" question="AyudaFacultad" editor-x="2225" editor-y="624" x="2225" y="624">
+    <option-node nodeindex="9" question="AyudaFacultad" preListening="yes" editor-x="2225" editor-y="624" x="2225" y="624">
       <speak-player>Medicina</speak-player>
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
-      <child nodeindex="9" />
+      <child nodeindex="10" />
       <speak-player>Farmacia</speak-player>
       <condition>
         <inactive flag="PocionFarmacia" />
       </condition>
-      <child nodeindex="10" />
+      <child nodeindex="11" />
     </option-node>
-    <dialogue-node nodeindex="9" editor-x="2639" editor-y="454">
+    <dialogue-node nodeindex="10" editor-x="2639" editor-y="454">
       <speak-char idTarget="Bolsi">Perfecto, te indico la dirección de medicina</speak-char>
       <condition />
       <end-conversation>
@@ -3542,7 +3500,7 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="10" editor-x="2613" editor-y="689">
+    <dialogue-node nodeindex="11" editor-x="2613" editor-y="689">
       <speak-char idTarget="Bolsi">Perfecto, te indico dónde está farmacia</speak-char>
       <condition />
       <end-conversation>
@@ -3551,6 +3509,133 @@
             <step locks="False">Farmacia</step>
           </navigate>
           <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="SomethingFinished">
+    <dialogue-node nodeindex="0" editor-x="161" editor-y="65">
+      <speak-char idTarget="Bolsi">Tenemos que buscar residuos por la plaza y reciclar al menos 10</speak-char>
+      <condition>
+        <less-equals-than var="Recicladas" value="10" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que hacer una poción en la Facultad de Medicina</speak-char>
+      <condition>
+        <inactive flag="IntroRamon" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal</speak-char>
+      <condition>
+        <active flag="IntroRamon" />
+        <either>
+          <inactive flag="MajueloEncontrado" />
+          <inactive flag="SaltacercasEncontrado" />
+        </either>
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina</speak-char>
+      <condition>
+        <active flag="MajueloEncontrado" />
+        <inactive flag="PocionMedicina" />
+        <active flag="SaltacercasEncontrado" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que hacer una poción en la Facultad de Farmacia</speak-char>
+      <condition>
+        <inactive flag="IntroSevero" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que buscar los ingredientes de la poción de Severo y Margarita</speak-char>
+      <condition>
+        <active flag="IntroSevero" />
+        <either>
+          <inactive flag="CiruelosEncontrados" />
+          <inactive flag="PlumeroEncontrado" />
+        </either>
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia</speak-char>
+      <condition>
+        <active flag="CiruelosEncontrados" />
+        <active flag="PlumeroEncontrado" />
+        <inactive flag="PocionFarmacia" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron</speak-char>
+      <condition>
+        <active flag="PocionFarmacia" />
+        <active flag="PocionMedicina" />
+        <greater-equals-than var="Recicladas" value="10" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Reciclado">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Bolsi">Genial, primer objeto reciclado! Aún hay 14 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="1" />
+      </condition>
+      <speak-char idTarget="Bolsi">Segundo objeto reciclado! Aún hay 13 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="2" />
+      </condition>
+      <speak-char idTarget="Bolsi">Tercer objeto reciclado! Aún hay 12 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="3" />
+      </condition>
+      <speak-char idTarget="Bolsi">Cuarto objeto reciclado! Aún hay 11 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="4" />
+      </condition>
+      <speak-char idTarget="Bolsi">Quinto objeto reciclado! Aún hay 10 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="5" />
+      </condition>
+      <speak-char idTarget="Bolsi">Sexto objeto reciclado! Aún hay 9 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="6" />
+      </condition>
+      <speak-char idTarget="Bolsi">Séptimo objeto reciclado! Aún hay 8 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="7" />
+      </condition>
+      <speak-char idTarget="Bolsi">Octavo objeto reciclado! Aún hay 7 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="8" />
+      </condition>
+      <speak-char idTarget="Bolsi">Noveno objeto reciclado! Aún hay 6 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="9" />
+      </condition>
+      <speak-char idTarget="Bolsi">Décimo objeto reciclado! Aún hay 5 más! </speak-char>
+      <condition>
+        <equals var="Recicladas" value="10" />
+      </condition>
+      <speak-char idTarget="Bolsi">Undécimo objeto reciclado! Aún hay 4 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="11" />
+      </condition>
+      <speak-char idTarget="Bolsi">Duocécimo objeto reciclado! Aún hay 3 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="12" />
+      </condition>
+      <speak-char idTarget="Bolsi">Decimotercer objeto reciclado! Aún hay 2 más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="13" />
+      </condition>
+      <speak-char idTarget="Bolsi">Decimocuarto objeto reciclado! Aún queda uno más!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="14" />
+      </condition>
+      <speak-char idTarget="Bolsi">Éste era el último objeto reciclado! Ya están todos!</speak-char>
+      <condition>
+        <equals var="Recicladas" value="15" />
+      </condition>
+      <speak-char idTarget="Bolsi">Ya tenemos al menos diez objetos! </speak-char>
+      <condition>
+        <greater-equals-than var="Recicladas" value="10" />
+      </condition>
+      <end-conversation>
+        <effect>
+          <trigger-conversation idTarget="SomethingFinished" />
+          <condition>
+            <equals var="Recicladas" value="10" />
+          </condition>
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -3659,7 +3744,7 @@
           <inactive flag="Bolsi" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="BusquedaBolsi" />
+          <activate flag="EncontradoMetro" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
@@ -3688,7 +3773,7 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-zoned-scene idTarget="FacultadFarmacia" x="310" y="276" zoneId="InitialArea" transitionTime="500" transitionType="5" />
+          <trigger-zoned-scene idTarget="FacultadFarmacia" x="310" y="276" zoneId="Farmacia" transitionTime="500" transitionType="5" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
@@ -3734,11 +3819,11 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="9">
+      <geometry influence="34.7">
         <Polygon>
           <exterior>
             <LinearRing>
-              <posList>40.4426387919336 -3.72639707428122 40.442683700753 -3.72527116989901 40.4429473304288 -3.72536236500549 40.4429024217854 -3.72637025219106</posList>
+              <posList>40.4424550741449 -3.72641853195334 40.4424999829643 -3.72529262757113 40.4427636126401 -3.72538382267761 40.4427187039967 -3.72639170986318</posList>
             </LinearRing>
           </exterior>
         </Polygon>
@@ -3783,7 +3868,7 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-zoned-scene idTarget="FacultadMedicina" x="337" y="315" zoneId="InitialArea" transitionTime="500" transitionType="5" />
+          <trigger-zoned-scene idTarget="FacultadMedicina" x="337" y="315" zoneId="Medicina" transitionTime="500" transitionType="5" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
@@ -3835,7 +3920,7 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="15">
+      <geometry influence="40.36">
         <Point>
           <pos>40.4431698427234 -3.7251458047699</pos>
         </Point>
@@ -3912,7 +3997,7 @@
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
     <deactivate flag="Correcto" />
     <condition>
       <active flag="Correcto" />
@@ -3921,7 +4006,7 @@
     <condition>
       <active flag="Incorrecto" />
     </condition>
-    <qr-scanner selection-type="BlackList">
+    <qr-scanner selection-type="WhiteList">
       <message>Escanea el QR del contenedor adecuado</message>
       <qr-id>Amarillo</qr-id>
       <qr-id>Naranja</qr-id>

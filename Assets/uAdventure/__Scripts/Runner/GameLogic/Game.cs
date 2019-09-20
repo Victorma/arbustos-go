@@ -194,13 +194,20 @@ namespace uAdventure.Runner
             if (waitingRunTarget && runnerTarget.IsReady)
             {
                 waitingRunTarget = false;
-                waitingTransition = true;
-                transitionManager.DoTransition((_, __) =>
+                if (transitionManager.transition != null)
                 {
-                    waitingTransition = false;
-                    uAdventureRaycaster.Instance.Override = null;
+                    waitingTransition = true;
+                    transitionManager.DoTransition((_, __) =>
+                    {
+                        waitingTransition = false;
+                        uAdventureRaycaster.Instance.Override = null;
+                        Interacted();
+                    });
+                }
+                else
+                {
                     Interacted();
-                });
+                }
             }
 
             if (doTimeOut)
@@ -423,6 +430,7 @@ namespace uAdventure.Runner
         {
             if (runnerTarget != null)
             {
+                waitingRunTarget = true;
                 runnerTarget.RenderScene();
             }
         }
