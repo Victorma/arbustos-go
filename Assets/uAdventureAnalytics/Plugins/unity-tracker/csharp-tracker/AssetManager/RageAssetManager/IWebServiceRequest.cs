@@ -15,56 +15,55 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System;
-using System.Collections.Generic;
-
 namespace AssetPackage
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
-    ///     Request Settings.
+    /// Request Settings.
     /// </summary>
     public class RequestSetttings
     {
         /// <summary>
-        ///     The allowed responses.
-        /// </summary>
-        public List<int> allowedResponsCodes;
-
-        /// <summary>
-        ///     The body.
-        /// </summary>
-        public string body;
-
-        /// <summary>
-        ///     True to binary response.
-        /// </summary>
-        public bool hasBinaryResponse;
-
-        /// <summary>
-        ///     The method.
+        /// The method.
         /// </summary>
         public string method;
 
         /// <summary>
-        ///     The request headers.
-        /// </summary>
-        public Dictionary<string, string> requestHeaders;
-
-        /// <summary>
-        ///     URI of the document.
+        /// URI of the document.
         /// </summary>
         public Uri uri;
 
         /// <summary>
-        ///     Initializes a new instance of the AssetPackage.requestParameters
-        ///     class.
+        /// The request headers.
+        /// </summary>
+        public Dictionary<String, String> requestHeaders;
+
+        /// <summary>
+        /// The body.
+        /// </summary>
+        public String body;
+
+        /// <summary>
+        /// The allowed responses.
+        /// </summary>
+        public List<int> allowedResponsCodes;
+
+        /// <summary>
+        /// True to binary response.
+        /// </summary>
+        public Boolean hasBinaryResponse;
+
+        /// <summary>
+        /// Initializes a new instance of the AssetPackage.requestParameters
+        /// class.
         /// </summary>
         public RequestSetttings()
         {
             method = "GET";
-            requestHeaders = new Dictionary<string, string>();
-            body = string.Empty;
+            requestHeaders = new Dictionary<String, String>();
+            body = String.Empty;
             allowedResponsCodes = new List<int>();
             allowedResponsCodes.Add(200);
             hasBinaryResponse = false;
@@ -72,55 +71,57 @@ namespace AssetPackage
     }
 
     /// <summary>
-    ///     Response results.
+    /// Response results.
     /// </summary>
     public class RequestResponse : RequestSetttings
     {
-        public byte[] binaryResponse;
-
         /// <summary>
-        ///     The response code.
+        /// The response code.
         /// </summary>
         public int responseCode;
 
         /// <summary>
-        ///     The response headers.
-        /// </summary>
-        public Dictionary<string, string> responseHeaders;
-
-        /// <summary>
-        ///     Message describing the respons.
+        /// Message describing the respons.
         /// </summary>
         public string responsMessage;
 
         /// <summary>
-        ///     Initializes a new instance of the AssetPackage.RequestResponse class.
+        /// The response headers.
         /// </summary>
-        public RequestResponse()
+        public Dictionary<String, String> responseHeaders;
+
+        public byte[] binaryResponse;
+
+        /// <summary>
+        /// Initializes a new instance of the AssetPackage.RequestResponse class.
+        /// </summary>
+        public RequestResponse() : base()
         {
             hasBinaryResponse = false;
 
             binaryResponse = new byte[0];
 
             responseCode = 0;
-            responsMessage = string.Empty;
+            responsMessage = String.Empty;
 
-            responseHeaders = new Dictionary<string, string>();
+            responseHeaders = new Dictionary<String, String>();
         }
 
         /// <summary>
-        ///     Initializes a new instance of the AssetPackage.RequestResponse class.
+        /// Initializes a new instance of the AssetPackage.RequestResponse class.
         /// </summary>
+        ///
         /// <remarks>
-        ///     The body is not copied as it will contain thee response body instead.
+        /// The body is not copied as it will contain thee response body instead.
         /// </remarks>
+        ///
         /// <param name="settings"> Options for controlling the operation. </param>
         public RequestResponse(RequestSetttings settings) : this()
         {
             method = settings.method;
             requestHeaders = settings.requestHeaders;
             uri = settings.uri;
-            body = string.Empty;
+            body = String.Empty;
 
             allowedResponsCodes = settings.allowedResponsCodes;
 
@@ -128,31 +129,38 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Gets a value indicating whether result is allowed.
+        /// Gets a value indicating whether result is allowed.
         /// </summary>
+        ///
         /// <value>
-        ///     true if result allowed, false if not.
+        /// true if result allowed, false if not.
         /// </value>
         public bool ResultAllowed
         {
-            get { return allowedResponsCodes.Contains(responseCode); }
+            get
+            {
+                return allowedResponsCodes.Contains(responseCode);
+            }
         }
     }
 
     /// <summary>
-    ///     Interface for web service request.
+    /// Interface for web service request.
     /// </summary>
+    ///
     /// <remarks>
-    ///     Implemented on a Bridge.
+    /// Implemented on a Bridge.
     /// </remarks>
     public interface IWebServiceRequest
     {
         /// <summary>
-        ///     Web service request.
+        /// Web service request.
         /// </summary>
+        ///
         /// <returns>
-        ///     A RequestResponse.
+        /// A RequestResponse.
         /// </returns>
+        ///
         /// <param name="requestSettings">  Options for controlling the operation. </param>
         /// <param name="requestResponse"> The request response. </param>
         void WebServiceRequest(RequestSetttings requestSettings, out RequestResponse requestResponse);

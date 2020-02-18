@@ -1,25 +1,27 @@
-﻿using System;
-using System.IO;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-
-namespace AssetManagerPackage
+﻿namespace AssetManagerPackage
 {
+    using System;
+    using System.IO;
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using System.Text;
     /// <summary>
-    ///     A rage extensions.
+    /// A rage extensions.
     /// </summary>
     public static class RageExtensions
     {
         /// <summary>
-        ///     A Type extension method that assemblies the given type.
+        /// A Type extension method that assemblies the given type.
         /// </summary>
+        ///
         /// <remarks>
-        ///     Fix for incompatability between normal and portable code.
+        /// Fix for incompatability between normal and portable code.
         /// </remarks>
+        ///
         /// <param name="type"> The type to act on. </param>
+        ///
         /// <returns>
-        ///     An Assembly.
+        /// An Assembly.
         /// </returns>
         public static Assembly Assembly(this Type type)
         {
@@ -52,13 +54,15 @@ namespace AssetManagerPackage
 #endif
 
         /// <summary>
-        ///     A Type extension method that query if 'type' is class.
+        /// A Type extension method that query if 'type' is class.
         /// </summary>
+        ///
         /// <param name="type"> The type to act on. </param>
+        ///
         /// <returns>
-        ///     true if class, false if not.
+        /// true if class, false if not.
         /// </returns>
-        public static bool IsClassFix(this Type type)
+        public static Boolean IsClassFix(this Type type)
         {
 #if PORTABLE
             return type.GetTypeInfo().IsClass;
@@ -68,13 +72,15 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     A Type extension method that query if 'type' is primitive.
+        /// A Type extension method that query if 'type' is primitive.
         /// </summary>
+        ///
         /// <param name="type"> The type to act on. </param>
+        ///
         /// <returns>
-        ///     true if primitive, false if not.
+        /// true if primitive, false if not.
         /// </returns>
-        public static bool IsPrimitiveFix(this Type type)
+        public static Boolean IsPrimitiveFix(this Type type)
         {
 #if PORTABLE
             return type.GetTypeInfo().IsPrimitive;
@@ -84,13 +90,15 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     A Type extension method that query if 'type' is serializable.
+        /// A Type extension method that query if 'type' is serializable.
         /// </summary>
+        ///
         /// <param name="type"> The type to act on. </param>
+        ///
         /// <returns>
-        ///     true if serializable, false if not.
+        /// true if serializable, false if not.
         /// </returns>
-        public static bool IsSerializableFix(this Type type)
+        public static Boolean IsSerializableFix(this Type type)
         {
 #if PORTABLE
             return type.GetTypeInfo().IsSerializable;
@@ -100,14 +108,16 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     A Type extension method that query if 'type' is serializable.
+        /// A Type extension method that query if 'type' is serializable.
         /// </summary>
+        ///
         /// <param name="type"> The type to act on. </param>
         /// <param name="name"> The name. </param>
+        ///
         /// <returns>
-        ///     true if serializable, false if not.
+        /// true if serializable, false if not.
         /// </returns>
-        public static MethodInfo MethodInfoFix(this Type type, string name)
+        public static MethodInfo MethodInfoFix(this Type type, String name)
         {
 #if PORTABLE
             return type.GetTypeInfo().GetDeclaredMethod(name);
@@ -117,17 +127,20 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     A Type extension method that query if 'type' is serializable.
+        /// A Type extension method that query if 'type' is serializable.
         /// </summary>
+        ///
         /// <param name="type">  The type to act on. </param>
         /// <param name="name">  The name. </param>
         /// <param name="types"> The types. </param>
+        ///
         /// <returns>
-        ///     true if serializable, false if not.
+        /// true if serializable, false if not.
         /// </returns>
-        public static MethodInfo MethodInfoFix(this Type type, string name, Type[] types)
+        public static MethodInfo MethodInfoFix(this Type type, String name, Type[] types)
         {
 #if PORTABLE
+
 #warning we need to take types in account for some methods. Use type.GetTypeInfo().DeclaredMethods[0].GetParameters[0].ParamaterType
             return type.GetTypeInfo().GetDeclaredMethod(name/*, types*/);
 #else
@@ -136,46 +149,52 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Gets method information.
+        /// Gets method information.
         /// </summary>
+        ///
         /// <param name="expression"> The expression. </param>
+        ///
         /// <returns>
-        ///     The method information.
+        /// The method information.
         /// </returns>
         public static MethodInfo GetMethodInfo(Expression<Action> expression)
         {
             // Adapted from see http://blog.functionalfun.net/2009/10/getting-methodinfo-of-generic-method.html
             // 
-            return GetMethodInfo((LambdaExpression) expression);
+            return GetMethodInfo((LambdaExpression)expression);
         }
 
         /// <summary>
-        ///     Gets method information.
+        /// Gets method information.
         /// </summary>
+        ///
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="lex"> The expression. </param>
+        ///
         /// <returns>
-        ///     The method information.
+        /// The method information.
         /// </returns>
         public static MethodInfo GetMethodInfo<T>(Expression<Action<T>> lex)
         {
             // Adapted from see http://blog.functionalfun.net/2009/10/getting-methodinfo-of-generic-method.html
             // 
-            return GetMethodInfo((LambdaExpression) lex);
+            return GetMethodInfo((LambdaExpression)lex);
         }
 
         /// <summary>
-        ///     Gets method information.
+        /// Gets method information.
         /// </summary>
+        ///
         /// <param name="lex"> The expression. </param>
+        ///
         /// <returns>
-        ///     The method information.
+        /// The method information.
         /// </returns>
         public static MethodInfo GetMethodInfo(LambdaExpression lex)
         {
             // Adapted from http://blog.functionalfun.net/2009/10/getting-methodinfo-of-generic-method.html
             // 
-            var bodyExpression = lex.Body as MethodCallExpression;
+            MethodCallExpression bodyExpression = (lex.Body as MethodCallExpression);
 
             return bodyExpression == null ? null : bodyExpression.Method;
         }
@@ -183,25 +202,30 @@ namespace AssetManagerPackage
 
 
     /// <summary>
-    ///     A StringWriter UTF8.
+    /// A StringWriter UTF8.
     /// </summary>
+    ///
     /// <remarks>
-    ///     Fix-up for XDocument Serialization defaulting to utf-16.
+    /// Fix-up for XDocument Serialization defaulting to utf-16.
     /// </remarks>
     public class StringWriterUtf8 : StringWriter
     {
         #region Properties
 
         /// <summary>
-        ///     Gets the <see cref="T:System.Text.Encoding" /> in which the output is
-        ///     written.
+        /// Gets the <see cref="T:System.Text.Encoding" /> in which the output is
+        /// written.
         /// </summary>
+        ///
         /// <value>
-        ///     The Encoding in which the output is written.
+        /// The Encoding in which the output is written.
         /// </value>
         public override Encoding Encoding
         {
-            get { return Encoding.UTF8; }
+            get
+            {
+                return Encoding.UTF8;
+            }
         }
 
         #endregion Properties

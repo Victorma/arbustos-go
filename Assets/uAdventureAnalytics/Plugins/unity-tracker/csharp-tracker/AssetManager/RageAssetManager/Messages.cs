@@ -15,57 +15,59 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System.Collections.Generic;
-using System.Linq;
-
 namespace AssetManagerPackage
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     /// <summary>
-    ///     A Broadcast Messages class.
+    /// A Broadcast Messages class.
     /// </summary>
     public static class Messages
     {
-        #region Delegates
-
-        /// <summary>
-        ///     Interface for broadcast message callback.
-        /// </summary>
-        /// <param name="message"> The message id. </param>
-        /// <param name="parameters">  A variable-length parameters list containing arguments. </param>
-        public delegate void MessagesEventCallback(string message, params object[] parameters);
-
-        #endregion Delegates
-
         #region Fields
 
         /// <summary>
-        ///     The subscription ID generator.
+        /// The subscription ID generator.
         /// </summary>
-        private static int idGenerator;
+        private static Int32 idGenerator = 0;
 
         /// <summary>
-        ///     The messages is a dictionary of messages and their subscribers.
+        /// The messages is a dictionary of messages and their subscribers.
         /// </summary>
-        private static readonly Dictionary<string, Dictionary<string, MessagesEventCallback>> messages =
-            new Dictionary<string, Dictionary<string, MessagesEventCallback>>();
+        private static Dictionary<String, Dictionary<String, MessagesEventCallback>> messages = new Dictionary<String, Dictionary<String, MessagesEventCallback>>();
 
         #endregion Fields
+
+        #region Delegates
+
+        /// <summary>
+        /// Interface for broadcast message callback.
+        /// </summary>
+        ///
+        /// <param name="message"> The message id. </param>
+        /// <param name="parameters">  A variable-length parameters list containing arguments. </param>
+        public delegate void MessagesEventCallback(String message, params object[] parameters);
+
+        #endregion Delegates
 
         #region Methods
 
         /// <summary>
-        ///     Define a broadcast message.
+        /// Define a broadcast message.
         /// </summary>
+        ///
         /// <param name="message"> The message. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public static bool define(string message)
+        public static Boolean define(String message)
         {
             if (!messages.Keys.Contains(message))
             {
-                messages.Add(message, new Dictionary<string, MessagesEventCallback>());
+                messages.Add(message, new Dictionary<String, MessagesEventCallback>());
 
                 return true;
             }
@@ -74,24 +76,24 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Broadcast a message.
+        /// Broadcast a message.
         /// </summary>
+        ///
         /// <param name="message"> The message to broadcast. </param>
-        /// <param name="parameters">
-        ///     A variable-length parameters list containing
-        ///     arguments.
-        /// </param>
+        /// <param name="parameters">     A variable-length parameters list containing
+        ///                         arguments. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public static bool broadcast(string message, params object[] parameters)
+        public static Boolean broadcast(String message, params object[] parameters)
         {
             if (!messages.Keys.Contains(message))
             {
                 return false;
             }
 
-            foreach (var func in messages[message])
+            foreach (KeyValuePair<String, MessagesEventCallback> func in messages[message])
             {
                 func.Value(message, parameters);
             }
@@ -100,24 +102,27 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Subscribe to a broadcast message.
+        /// Subscribe to a broadcast message.
         /// </summary>
+        ///
         /// <remarks>
-        ///     if the message does not exist yet it's created on-the-fly.
+        /// if the message does not exist yet it's created on-the-fly.
         /// </remarks>
+        ///
         /// <param name="message">  The message. </param>
         /// <param name="callback"> The callback function. </param>
+        ///
         /// <returns>
-        ///     The broadcast subscription id.
+        /// The broadcast subscription id.
         /// </returns>
-        public static string subscribe(string message, MessagesEventCallback callback)
+        public static String subscribe(String message, MessagesEventCallback callback)
         {
             if (!messages.Keys.Contains(message))
             {
-                messages.Add(message, new Dictionary<string, MessagesEventCallback>());
+                messages.Add(message, new Dictionary<String, MessagesEventCallback>());
             }
 
-            var subscriptionId = (++idGenerator).ToString();
+            String subscriptionId = (++idGenerator).ToString();
 
             messages[message].Add(subscriptionId, callback);
 
@@ -125,19 +130,21 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Unsubscribes the given broadcast subscription id.
+        ///  Unsubscribes the given broadcast subscription id.
         /// </summary>
+        ///
         /// <param name="subscriptionId"> The broadcast subscription id. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public static bool unsubscribe(string subscriptionId)
+        public static Boolean unsubscribe(String subscriptionId)
         {
-            foreach (var message in messages.Keys)
+            foreach (String message in messages.Keys)
             {
-                var subscribers = messages[message];
+                Dictionary<String, MessagesEventCallback> subscribers = messages[message];
 
-                foreach (var subscriber in subscribers.Keys)
+                foreach (String subscriber in subscribers.Keys)
                 {
                     if (subscriptionId.Equals(subscriber))
                     {

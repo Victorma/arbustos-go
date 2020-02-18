@@ -15,23 +15,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml.Serialization;
-
 namespace AssetManagerPackage
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Xml;
+    using System.Xml.Serialization;
+
     /// <summary>
-    ///     Information about the rage version.
+    /// Information about the rage version.
     /// </summary>
     [XmlRoot("version")]
     public class RageVersionInfo
     {
         /// <summary>
-        ///     Initializes a new instance of the AssetManagerPackage.RageVersionInfo
-        ///     class.
+        /// Initializes a new instance of the AssetManagerPackage.RageVersionInfo
+        /// class.
         /// </summary>
         public RageVersionInfo()
         {
@@ -51,96 +52,127 @@ namespace AssetManagerPackage
         //</ version >
 
         /// <summary>
-        ///     Gets or sets the identifier.
+        /// Gets or sets the identifier.
         /// </summary>
+        ///
         /// <value>
-        ///     The identifier.
+        /// The identifier.
         /// </value>
         [XmlElement("id")]
-        public string Id { get; set; }
+        public String Id
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the major.
+        /// Gets or sets the major.
         /// </summary>
+        ///
         /// <value>
-        ///     The major.
+        /// The major.
         /// </value>
         [XmlElement("major")]
-        public int Major { get; set; }
+        public Int32 Major
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the minor.
+        /// Gets or sets the minor.
         /// </summary>
+        ///
         /// <value>
-        ///     The minor.
+        /// The minor.
         /// </value>
         [XmlElement("minor")]
-        public int Minor { get; set; }
+        public Int32 Minor
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the build.
+        /// Gets or sets the build.
         /// </summary>
+        ///
         /// <value>
-        ///     The build.
+        /// The build.
         /// </value>
         [XmlElement("build")]
-        public int Build { get; set; }
+        public Int32 Build
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the revision.
+        /// Gets or sets the revision.
         /// </summary>
+        ///
         /// <value>
-        ///     The revision.
+        /// The revision.
         /// </value>
         [XmlElement("revision")]
-        public int Revision { get; set; }
+        public Int32 Revision
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the maturity.
+        /// Gets or sets the maturity.
         /// </summary>
+        ///
         /// <value>
-        ///     The maturity.
+        /// The maturity.
         /// </value>
         [XmlElement("maturity")]
-        public string Maturity { get; set; }
+        public String Maturity
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the dependencies.
+        /// Gets or sets the dependencies.
         /// </summary>
+        ///
         /// <value>
-        ///     The dependencies.
+        /// The dependencies.
         /// </value>
         [XmlArray("dependencies")]
         [XmlArrayItem("depends")]
-        public Dependencies Dependencies { get; set; }
+        public Dependencies Dependencies
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Loads version information.
+        /// Loads version information.
         /// </summary>
+        ///
         /// <param name="xml"> The XML. </param>
-        public static RageVersionInfo LoadVersionInfo(string xml)
+        public static RageVersionInfo LoadVersionInfo(String xml)
         {
-            var ser = new XmlSerializer(typeof(RageVersionInfo));
 
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(xml)))
+            XmlSerializer ser = new XmlSerializer(typeof(RageVersionInfo));
+
+            using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(xml)))
             {
                 //! Use DataContractSerializer or DataContractJsonSerializer?
                 //
-                return (RageVersionInfo) ser.Deserialize(ms);
+                return (RageVersionInfo)ser.Deserialize(ms);
             }
         }
 
         /// <summary>
-        ///     Saves the version information.
+        /// Saves the version information.
         /// </summary>
+        ///
         /// <returns>
-        ///     A String.
+        /// A String.
         /// </returns>
-        public string SaveVersionInfo()
+        public String SaveVersionInfo()
         {
-            var ser = new XmlSerializer(GetType());
+            XmlSerializer ser = new XmlSerializer(GetType());
 
-            using (var textWriter = new StringWriterUtf8())
+            using (StringWriterUtf8 textWriter = new StringWriterUtf8())
             {
                 //! Use DataContractSerializer or DataContractJsonSerializer?
                 // See https://msdn.microsoft.com/en-us/library/bb412170(v=vs.100).aspx
@@ -157,49 +189,80 @@ namespace AssetManagerPackage
     }
 
     /// <summary>
-    ///     A dependencies.
+    /// A dependencies.
     /// </summary>
     [XmlRoot("dependencies")]
     public class Dependencies : List<Depends>
     {
+        /// <summary>
+        /// Initializes a new instance of the AssetManagerPackage.dependencies
+        /// class.
+        /// </summary>
+        public Dependencies() : base()
+        {
+            //
+        }
+
         //  <dependencies>
         //    <depends minVersion = "1.2.3" > Logger </ depends >
         //  </ dependencies >
+
     }
 
     /// <summary>
-    ///     A dependency.
+    /// A dependency.
     /// </summary>
     [XmlRoot("depends")]
     public class Depends
     {
+        /// <summary>
+        /// Initializes a new instance of the AssetManagerPackage.Dependency
+        /// class.
+        /// </summary>
+        public Depends()
+        {
+            //
+        }
+
         //    <depends minVersion = "1.2.3" > Logger </ depends >
 
         /// <summary>
-        ///     Gets or sets the minimum version.
+        /// Gets or sets the minimum version.
         /// </summary>
+        ///
         /// <value>
-        ///     The minimum version.
+        /// The minimum version.
         /// </value>
         [XmlAttribute("minVersion")]
-        public string minVersion { get; set; }
+        public String minVersion
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the maximum version.
+        /// Gets or sets the maximum version.
         /// </summary>
+        ///
         /// <value>
-        ///     The maximum version.
+        /// The maximum version.
         /// </value>
         [XmlAttribute("maxVersion")]
-        public string maxVersion { get; set; }
+        public String maxVersion
+        {
+            get; set;
+        }
 
         /// <summary>
-        ///     Gets or sets the name.
+        /// Gets or sets the name.
         /// </summary>
+        ///
         /// <value>
-        ///     The name.
+        /// The name.
         /// </value>
         [XmlText]
-        public string name { get; set; }
+        public String name
+        {
+            get; set;
+        }
     }
 }

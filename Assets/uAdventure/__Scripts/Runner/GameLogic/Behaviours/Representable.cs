@@ -172,8 +172,8 @@ namespace uAdventure.Runner
             {
                 return;
             }
-
             var prevResource = this.resource;
+
             this.resource = element.getResources()
                 .Find(res => ConditionChecker.check(res.getConditions()));
 

@@ -15,11 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace AssetPackage
 {
+    using System;
+
     /// <summary>
-    ///     Interface for settings.
+    /// Interface for settings.
     /// </summary>
     public interface ISettings
     {

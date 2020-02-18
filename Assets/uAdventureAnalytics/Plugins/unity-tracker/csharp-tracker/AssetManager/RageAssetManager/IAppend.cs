@@ -15,22 +15,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace AssetPackage
 {
+    using System;
+
     /// <summary>
-    ///     Interface for Append method.
+    /// Interface for Append method.
     /// </summary>
     public interface IAppend
     {
         #region Methods
 
         /// <summary>
-        ///     Append text to a file
+        /// Append text to a file
         /// </summary>
+        ///
         /// <param name="fileId">   The file identifier to delete. </param>
         /// <param name="fileData"> Information describing the file. </param>
-        void Append(string fileId, string fileData);
+        void Append(String fileId, String fileData);
 
         #endregion Methods
     }

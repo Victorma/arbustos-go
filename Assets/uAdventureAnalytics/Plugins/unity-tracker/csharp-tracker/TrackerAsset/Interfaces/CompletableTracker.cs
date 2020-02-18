@@ -15,12 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+using System.Collections;
 using AssetPackage;
+using AssetPackage.Utils;
 using AssetPackage.Exceptions;
 
 public class CompletableTracker : TrackerAsset.IGameObjectTracker
 {
+
+    private TrackerAsset tracker;
+
+    public void setTracker(TrackerAsset tracker)
+    {
+        this.tracker = tracker;
+    }
+
     /* COMPLETABLES */
 
     public enum Completable
@@ -36,42 +45,30 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
         Completable
     }
 
-    private TrackerAsset tracker;
-
-    public void setTracker(TrackerAsset tracker)
-    {
-        this.tracker = tracker;
-    }
-
     /// <summary>
-    ///     Player initialized a completable.
+    /// Player initialized a completable.
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     public void Initialized(string completableId)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Initialized),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(),
-                    completableId)
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(), completableId)
             });
         }
     }
 
     /// <summary>
-    ///     Player initialized a completable.
+    /// Player initialized a completable.
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="type">Completable type.</param>
     public void Initialized(string completableId, Completable type)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
@@ -82,38 +79,33 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player progressed a completable.
-    ///     Type = Completable
+    /// Player progressed a completable.
+    /// Type = Completable
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="value">New value for the completable's progress.</param>
     public void Progressed(string completableId, float value)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.setProgress(value);
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Progressed),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(),
-                    completableId)
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(), completableId)
             });
         }
     }
 
     /// <summary>
-    ///     Player progressed a completable.
+    /// Player progressed a completable.
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="value">New value for the completable's progress.</param>
     /// <param name="type">Completable type.</param>
     public void Progressed(string completableId, Completable type, float value)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.setProgress(value);
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
@@ -125,24 +117,21 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player completed a completable.
-    ///     Type = Completable
-    ///     Success = true
-    ///     Score = 1
+    /// Player completed a completable.
+    /// Type = Completable
+    /// Success = true
+    /// Score = 1
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     public void Completed(string completableId)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Completed),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(),
-                    completableId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Completable.Completable.ToString().ToLower(), completableId),
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Success = true,
                     Score = 1f
@@ -152,23 +141,21 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player completed a completable.
-    ///     Success = true
-    ///     Score = 1
+    /// Player completed a completable.
+    /// Success = true
+    /// Score = 1
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="type">Completable type.</param>
     public void Completed(string completableId, Completable type)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Completed),
                 Target = new TrackerAsset.TrackerEvent.TraceObject(type.ToString().ToLower(), completableId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Success = true,
                     Score = 1f
@@ -178,24 +165,22 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player completed a completable.
-    ///     Score = 1
+    /// Player completed a completable.
+    /// Score = 1
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="type">Completable type.</param>
     /// <param name="success">Completable success.</param>
     public void Completed(string completableId, Completable type, bool success)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.setSuccess(success);
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Completed),
                 Target = new TrackerAsset.TrackerEvent.TraceObject(type.ToString().ToLower(), completableId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Score = 1f
                 }
@@ -204,23 +189,21 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player completed a completable.
+    /// Player completed a completable.
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="type">Completable type.</param>
     /// <param name="score">Completable score.</param>
     public void Completed(string completableId, Completable type, float score)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.setScore(score);
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Completed),
                 Target = new TrackerAsset.TrackerEvent.TraceObject(type.ToString().ToLower(), completableId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Success = true
                 }
@@ -229,7 +212,7 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player completed a completable.
+    /// Player completed a completable.
     /// </summary>
     /// <param name="completableId">Completable identifier.</param>
     /// <param name="type">Completable type.</param>
@@ -237,9 +220,7 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
     /// <param name="score">Completable score.</param>
     public void Completed(string completableId, Completable type, bool success, float score)
     {
-        if (tracker.Utils.check<TargetXApiException>(completableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(completableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.setSuccess(success);
             tracker.setScore(score);
@@ -250,4 +231,5 @@ public class CompletableTracker : TrackerAsset.IGameObjectTracker
             });
         }
     }
+
 }

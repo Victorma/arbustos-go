@@ -18,7 +18,7 @@ namespace uAdventure.Editor
          * WINDOW CONSTS
          * ----------------------*/
 
-        public const float LEFT_MENU_WIDTH = 250;
+        public const float LEFT_MENU_WIDTH = 200;
         public const float TOP_MENU_HEIGHT = 15;
 
         /* -----------------------
@@ -127,7 +127,8 @@ namespace uAdventure.Editor
 				Controller.Instance.Init();
 			}
 
-            var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventure/Scenes/_Scene1.unity");
+            var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventureAnalytics/Plugins/SurveyManager/_Login.unity");
+// var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventure/Scenes/_Scene1.unity");
 
             if (initialScene)
             {

@@ -15,11 +15,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace AssetPackage
 {
     /// <summary>
-    ///     Interface for bridge.
+    /// Interface for bridge.
     /// </summary>
     public interface IBridge
     {

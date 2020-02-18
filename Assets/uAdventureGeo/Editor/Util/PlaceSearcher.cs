@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Networking;
+using uAdventure.Editor;
 
 namespace uAdventure.Geo
 {
@@ -17,7 +18,7 @@ namespace uAdventure.Geo
         /* ---------------------------------
          * Public variables
          * -------------------------------- */
-        
+
         public string Value
         {
             get { return addressDropdown.Value; }
@@ -36,21 +37,33 @@ namespace uAdventure.Geo
          * -------------------------------- */
 
         private DropDown addressDropdown;
+        const string spainSearchUrl = "http://rage.e-ucm.es/search/{0}?format=json";
         const string seachUrl = "http://nominatim.openstreetmap.org/search/{0}?format=json";
         public string namePlace = "";
         public string namePlaceСache = "";
         public StructSearchData DataStructure;
         private string lastSearch = "";
         private float timeSinceLastWrite;
+        private bool searched;
         private EditorApplication.CallbackFunction update;
         private UnityWebRequestAsyncOperation request;
         private SearchData[] addresses;
+
+        public int Source { get; set; }
+
+        public string[] Sources {
+            get
+            {
+                return new string[] { "Spain", "Worldwide (Has Limit)" };
+            }
+        }
 
         /* --------------------------------
          * Constructor
          * ------------------------------*/
         public void Awake()
         {
+            Source = 0;
             addressDropdown = new DropDown("");
             
             update = new EditorApplication.CallbackFunction(Update);
@@ -92,6 +105,7 @@ namespace uAdventure.Geo
             if (!selected && Value != prevAddress)
             {
                 timeSinceLastWrite = 0;
+                searched = false;
             }
 
             return selected;
@@ -102,12 +116,13 @@ namespace uAdventure.Geo
          * --------------------------------------- */
         private void PerformSearch()
         {
-            if (lastSearch != Value)
+            if (lastSearch != Value && !searched)
             {
                 if (Value != null && Value.Trim() != "")
                 {
                     lastSearch = Value;
-                    SearchInOSM(Value);
+                    searched = true;
+                    SearchInOSM(Value, Source == 0);
                 }
                 else
                 {
@@ -130,20 +145,29 @@ namespace uAdventure.Geo
             if (request != null && request.isDone)
             {
                 addresses = DataProcessingOSM(request.webRequest.downloadHandler.text);
-                addressDropdown.Elements = addresses.Select(a => a.label).ToList();
-                request = null;
-                // Request the repaint of the element 
-                if (OnRequestRepaint != null)
+                if(addresses == null || request.webRequest.isHttpError || request.webRequest.isNetworkError)
                 {
-                    OnRequestRepaint();
+                    Controller.Instance.ShowErrorDialog("Geo.PlaceSearcher.ErrorNoResults.Title", "Geo.PlaceSearcher.ErrorNoResults.Message");
+                    Debug.LogError("Cannot connect with address search server (err: " + request.webRequest.responseCode + "): " + request.webRequest.error);
+                } 
+                else
+                {
+                    addressDropdown.Elements = addresses.Select(a => a.label).ToList();
+                    // Request the repaint of the element 
+                    if (OnRequestRepaint != null)
+                    {
+                        OnRequestRepaint();
+                    }
                 }
+                request = null;
             }
         }
 
 
-        private void SearchInOSM(string namePlace)
+        private void SearchInOSM(string namePlace, bool spainOnly)
         {
-            UnityWebRequest www = UnityWebRequest.Get(String.Format(seachUrl, System.Uri.EscapeDataString(namePlace)));
+            var searchURL = spainOnly ? spainSearchUrl : seachUrl;
+            UnityWebRequest www = UnityWebRequest.Get(String.Format(searchURL, System.Uri.EscapeDataString(namePlace)));
             request = www.SendWebRequest();
         }
 
@@ -151,6 +175,11 @@ namespace uAdventure.Geo
         {
             JSONObject obj = new JSONObject(success);
             var dataCache = new List<SearchData>();
+
+            if(obj == null || obj.list == null)
+            {
+                return null;
+            }
 
             foreach (JSONObject jsonObject in obj.list)
             {

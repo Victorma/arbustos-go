@@ -115,11 +115,9 @@ namespace RAGE.Analytics
 		public void Start ()
 		{
 			if (!String.IsNullOrEmpty (username))
-            {
-                TrackerAsset.Instance.Login (username, password);
-            }
+				TrackerAsset.Instance.Login (username, password);
 
-            TrackerAsset.Instance.Start ();
+			TrackerAsset.Instance.Start ();
 			this.nextFlush = flushInterval;
 			UnityEngine.Object.DontDestroyOnLoad (this);
 		}

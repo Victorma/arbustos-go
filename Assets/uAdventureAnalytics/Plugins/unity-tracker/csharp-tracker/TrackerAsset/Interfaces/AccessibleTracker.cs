@@ -15,12 +15,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+using System.Collections;
 using AssetPackage;
+using AssetPackage.Utils;
 using AssetPackage.Exceptions;
 
 public class AccessibleTracker : TrackerAsset.IGameObjectTracker
 {
+
+    private TrackerAsset tracker;
+
+    public void setTracker(TrackerAsset tracker)
+    {
+        this.tracker = tracker;
+    }
+
+
     /* ACCESSIBLES */
 
     public enum Accessible
@@ -32,43 +42,31 @@ public class AccessibleTracker : TrackerAsset.IGameObjectTracker
         Accessible
     }
 
-    private TrackerAsset tracker;
-
-    public void setTracker(TrackerAsset tracker)
-    {
-        this.tracker = tracker;
-    }
-
     /// <summary>
-    ///     Player accessed a reachable.
-    ///     Type = Accessible
+    /// Player accessed a reachable.
+    /// Type = Accessible 
     /// </summary>
     /// <param name="reachableId">Reachable identifier.</param>
     public void Accessed(string reachableId)
     {
-        if (tracker.Utils.check<TargetXApiException>(reachableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(reachableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Accessed),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Accessible.Accessible.ToString().ToLower(),
-                    reachableId)
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Accessible.Accessible.ToString().ToLower(), reachableId)
             });
         }
     }
 
     /// <summary>
-    ///     Player accessed a reachable.
+    /// Player accessed a reachable.
     /// </summary>
     /// <param name="reachableId">Reachable identifier.</param>
     /// <param name="type">Reachable type.</param>
     public void Accessed(string reachableId, Accessible type)
     {
-        if (tracker.Utils.check<TargetXApiException>(reachableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(reachableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
@@ -79,35 +77,30 @@ public class AccessibleTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player skipped a reachable.
-    ///     Type = Accessible
+    /// Player skipped a reachable.
+    /// Type = Accessible
     /// </summary>
     /// <param name="reachableId">Reachable identifier.</param>
     public void Skipped(string reachableId)
     {
-        if (tracker.Utils.check<TargetXApiException>(reachableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(reachableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Skipped),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Accessible.Accessible.ToString().ToLower(),
-                    reachableId)
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Accessible.Accessible.ToString().ToLower(), reachableId)
             });
         }
     }
 
     /// <summary>
-    ///     Player skipped a reachable.
+    /// Player skipped a reachable.
     /// </summary>
     /// <param name="reachableId">Reachable identifier.</param>
     /// <param name="type">Reachable type.</param>
     public void Skipped(string reachableId, Accessible type)
     {
-        if (tracker.Utils.check<TargetXApiException>(reachableId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty."))
+        if (tracker.Utils.check<TargetXApiException>(reachableId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty."))
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
@@ -116,4 +109,6 @@ public class AccessibleTracker : TrackerAsset.IGameObjectTracker
             });
         }
     }
+
+
 }

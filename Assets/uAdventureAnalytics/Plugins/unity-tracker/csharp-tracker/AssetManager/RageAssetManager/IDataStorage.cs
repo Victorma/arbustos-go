@@ -15,61 +15,71 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace AssetPackage
 {
+    using System;
+
     /// <summary>
-    ///     Interface for data storage.
+    /// Interface for data storage.
     /// </summary>
     public interface IDataStorage
     {
         #region Methods
 
         /// <summary>
-        ///     Deletes the given fileId.
+        /// Deletes the given fileId.
         /// </summary>
+        ///
         /// <param name="fileId"> The file identifier to delete. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        bool Delete(string fileId);
+        Boolean Delete(String fileId);
 
         /// <summary>
-        ///     Check if exists the file with the given identifier.
+        /// Check if exists the file with the given identifier.
         /// </summary>
+        ///
         /// <param name="fileId"> The file identifier to delete. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        bool Exists(string fileId);
+        Boolean Exists(String fileId);
 
         /// <summary>
-        ///     Gets the files.
+        /// Gets the files.
         /// </summary>
+        ///
         /// <remarks>
-        ///     A List&lt;String&gt; gave problems when compiled as PCL and added to a
-        ///     Xamarin Forms project containing iOS, Android and WinPhone subprojects.
+        /// A List&lt;String&gt; gave problems when compiled as PCL and added to a
+        /// Xamarin Forms project containing iOS, Android and WinPhone subprojects.
         /// </remarks>
+        ///
         /// <returns>
-        ///     An array of filenames.
+        /// An array of filenames.
         /// </returns>
-        string[] Files();
+        String[] Files();
 
         /// <summary>
-        ///     Loads the given file.
+        /// Loads the given file.
         /// </summary>
+        ///
         /// <param name="fileId"> The file identifier to load. </param>
+        ///
         /// <returns>
-        ///     A String with with the file contents.
+        /// A String with with the file contents.
         /// </returns>
-        string Load(string fileId);
+        String Load(String fileId);
 
         /// <summary>
-        ///     Saves the given file.
+        /// Saves the given file.
         /// </summary>
+        ///
         /// <param name="fileId">   The file identifier to delete. </param>
         /// <param name="fileData"> Information describing the file. </param>
-        void Save(string fileId, string fileData);
+        void Save(String fileId, String fileData);
 
         #endregion Methods
     }

@@ -110,7 +110,10 @@ namespace uAdventure.Runner
         {
             get
             {
-                return data.getPlayerMode() == DescriptorData.MODE_PLAYER_1STPERSON;
+                var currentScene = GetChapterTarget(CurrentTarget) as Scene;
+                var hasHiddenPlayer = currentScene != null && currentScene.getPlayerLayer() == -2;
+
+                return data.getPlayerMode() == DescriptorData.MODE_PLAYER_1STPERSON || hasHiddenPlayer;
             }
         }
 
@@ -123,13 +126,17 @@ namespace uAdventure.Runner
             elementContexts = new Dictionary<string, List<ElementReference>>();
             varFlagChangeAmbits = new Stack<List<KeyValuePair<string, int>>>();
             memories = new Dictionary<string, Memory>();
+            currentChapter = 0;
+            playerContext = null;
+            currentTarget = data.getChapters()[currentChapter].getInitialChapterTarget().getId();
+            lastTarget = null;
         }
         
         public void OnGameSuspend()
         {
             if (data.isSaveOnSuspend())
             {
-                SerializeTo("suspend_state");
+                SerializeTo("save");
             }
         }
 
@@ -137,7 +144,7 @@ namespace uAdventure.Runner
         {
             if (data.isSaveOnSuspend())
             {
-                RestoreFrom("suspend_state");
+                RestoreFrom("save");
             }
         }
 
@@ -428,12 +435,14 @@ namespace uAdventure.Runner
         public void BeginChangeAmbit()
         {
             this.varFlagChangeAmbits.Push(new List<KeyValuePair<string, int>>());
+            Debug.Log("Open Change Ambit (" + varFlagChangeAmbits.Count + ")");
         }
 
         public List<KeyValuePair<string, int>> EndChangeAmbit(bool appendToParent = false)
         {
             var currentAmbit = this.varFlagChangeAmbits.Pop();
 
+            Debug.Log("Closed Change Ambit (" + varFlagChangeAmbits.Count + ")");
             if (appendToParent)
             {
                 if(varFlagChangeAmbits.Count > 0)
@@ -460,7 +469,7 @@ namespace uAdventure.Runner
             }
         }
 
-        public void Reset()
+        public void Restart()
         {
             currentChapter = 0;
             playerContext = null;
@@ -489,10 +498,17 @@ namespace uAdventure.Runner
             var json = JsonUtility.ToJson(this);
             Debug.Log(json);
             PlayerPrefs.SetString(field, JsonUtility.ToJson(this));
+            PlayerPrefs.Save();
         }
 
         public void RestoreFrom(string field)
         {
+            if (string.IsNullOrEmpty(PlayerPrefs.GetString(field)))
+            {
+                Debug.LogWarning("Could restore state: " + field);
+                return;
+            }
+
             JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(field), this);
             varFlags.Clear();
             for(int i = 0, totalVars = varFlagKeys.Count; i < totalVars; i++)

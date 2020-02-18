@@ -18,7 +18,7 @@ namespace uAdventure.Runner
 
         // Private fields
         private Inventory inventory;
-        private Dictionary<Element, GameObject> elementObjects;
+        private Dictionary<Element, GameObject> elementObjects = new Dictionary<Element, GameObject>();
 
         // Properties
         public GameObject InventoryHolder
@@ -49,7 +49,10 @@ namespace uAdventure.Runner
             }
             set
             {
-                MenuMB.Instance.hide(true);
+                if (MenuMB.Instance)
+                {
+                    MenuMB.Instance.hide(true);
+                }
                 if (inventory)
                 {
                     inventory.Opened = value;
@@ -91,7 +94,6 @@ namespace uAdventure.Runner
                 return;
             }
 
-            elementObjects = new Dictionary<Element, GameObject>();
             inventory.openButton.onClick.AddListener(delegate { Open(); });
             inventory.closeButton.onClick.AddListener(delegate { Close(); });
         }

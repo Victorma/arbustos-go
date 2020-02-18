@@ -15,9 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #region platform notes
-
 //
 //! Embedded Resources & Android (does seem to apply to pure android code, not the pcl/sap):
 //  See http://developer.xamarin.com/guides/android/application_fundamentals/resources_in_android/part_6_-_using_android_assets/ 
@@ -38,51 +36,50 @@
 //  WinPhone seems to prefer PCL type assemblies. If the asset code is recompiled as PCL the Android project fails on a List<String> return type. 
 //  The IDataStorage.Files() return type has been changed to String[].
 //  Xpath doesn't seem to be supported in PCL (so a rewrite to the XmlSerializer of Version code was neccesary.
-
 #endregion platform notes
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using AssetPackage;
 
 namespace AssetManagerPackage
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using AssetPackage;
+
     /// <summary>
-    ///     Manager for assets.
+    /// Manager for assets.
     /// </summary>
     public class AssetManager
     {
         #region Fields
 
         /// <summary>
-        ///     The instance.
+        /// The instance.
         /// </summary>
-        private static readonly AssetManager _instance = new AssetManager();
+        static readonly AssetManager _instance = new AssetManager();
 
         /// <summary>
-        ///     The assets.
+        /// The assets.
         /// </summary>
-        private readonly Dictionary<string, IAsset> assets = new Dictionary<string, IAsset>();
+        private Dictionary<String, IAsset> assets = new Dictionary<String, IAsset>();
 
         /// <summary>
-        ///     The identifier generator.
+        /// The identifier generator.
         /// </summary>
-        private int idGenerator;
+        private Int32 idGenerator = 0;
 
         /// <summary>
-        ///     The logger.
+        /// The logger.
         /// </summary>
-        private ILog logger;
+        private ILog logger = null;
 
         #endregion Fields
 
         #region Constructors
 
         /// <summary>
-        ///     Explicit static constructor tells # compiler not to mark type as beforefieldinit.
+        /// Explicit static constructor tells # compiler not to mark type as beforefieldinit.
         /// </summary>
         static AssetManager()
         {
@@ -90,7 +87,7 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Prevents a default instance of the AssetManager class from being created.
+        /// Prevents a default instance of the AssetManager class from being created.
         /// </summary>
         private AssetManager()
         {
@@ -102,80 +99,97 @@ namespace AssetManagerPackage
         #region Properties
 
         /// <summary>
-        ///     Visible when reflecting.
+        /// Visible when reflecting.
         /// </summary>
+        ///
         /// <value>
-        ///     The instance.
+        /// The instance.
         /// </value>
         public static AssetManager Instance
         {
-            get { return _instance; }
+            get
+            {
+                return _instance;
+            }
         }
 
         /// <summary>
-        ///     Gets or sets the bridge.
+        /// Gets or sets the bridge.
         /// </summary>
+        ///
         /// <value>
-        ///     The bridge.
+        /// The bridge.
         /// </value>
-        public IBridge Bridge { get; set; }
+        public IBridge Bridge
+        {
+            get;
+            set;
+        }
 
         #endregion Properties
 
         #region Methods
 
         /// <summary>
-        ///     Searches for the first asset by class.
+        /// Searches for the first asset by class.
         /// </summary>
+        ///
         /// <param name="claz"> The claz. </param>
+        ///
         /// <returns>
-        ///     The found asset by class.
+        /// The found asset by class.
         /// </returns>
-        public IAsset findAssetByClass(string claz)
+        public IAsset findAssetByClass(String claz)
         {
-            var mask = new Regex(string.Format(@"{0}_(\d+)", claz));
+            Regex mask = new Regex(String.Format(@"{0}_(\d+)", claz));
 
             return assets.First(p => mask.IsMatch(p.Key)).Value;
         }
 
         /// <summary>
-        ///     Searches for the first asset by identifier.
+        /// Searches for the first asset by identifier.
         /// </summary>
+        ///
         /// <param name="id"> The identifier. </param>
+        ///
         /// <returns>
-        ///     The found asset by identifier.
+        /// The found asset by identifier.
         /// </returns>
-        public IAsset findAssetById(string id)
+        public IAsset findAssetById(String id)
         {
             return assets[id];
         }
 
         /// <summary>
-        ///     Searches for assets by class.
+        /// Searches for assets by class.
         /// </summary>
+        ///
         /// <param name="claz"> The claz. </param>
+        ///
         /// <returns>
-        ///     The found assets by class.
+        /// The found assets by class.
         /// </returns>
-        public List<IAsset> findAssetsByClass(string claz)
+        public List<IAsset> findAssetsByClass(String claz)
         {
-            var mask = new Regex(string.Format(@"{0}_(\d+)", claz));
+            Regex mask = new Regex(String.Format(@"{0}_(\d+)", claz));
 
             // Return the values of all matching keys using the regex.
             return assets.Where(p => mask.IsMatch(p.Key)).Select(p => p.Value).ToList();
         }
 
         /// <summary>
-        ///     Registers the asset instance.
+        /// Registers the asset instance.
         /// </summary>
+        ///
         /// <param name="asset"> The asset. </param>
         /// <param name="claz">  The claz. </param>
+        ///
         /// <returns>
-        ///     A String.
+        /// A String.
         /// </returns>
-        public string registerAssetInstance(IAsset asset, string claz)
+        public String registerAssetInstance(IAsset asset, String claz)
         {
-            foreach (var kvp in assets)
+            foreach (KeyValuePair<String, IAsset> kvp in assets)
             {
                 if (asset.Equals(kvp.Value))
                 {
@@ -183,7 +197,7 @@ namespace AssetManagerPackage
                 }
             }
 
-            var Id = string.Format("{0}_{1}", claz, idGenerator++);
+            String Id = String.Format("{0}_{1}", claz, idGenerator++);
 
             Log(Severity.Verbose, "Registering Asset {0}/{1} as {2}", asset.GetType().Name, claz, Id);
 
@@ -195,31 +209,31 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Reports version and dependencies.
+        /// Reports version and dependencies.
         /// </summary>
+        ///
         /// <value>
-        ///     The version and dependencies report.
+        /// The version and dependencies report.
         /// </value>
-        public string VersionAndDependenciesReport
+        public String VersionAndDependenciesReport
         {
             get
             {
-                const int col1w = 40;
-                const int col2w = 32;
+                const Int32 col1w = 40;
+                const Int32 col2w = 32;
 
-                var report = new StringBuilder();
+                StringBuilder report = new StringBuilder();
 
                 report.AppendFormat("{0}{1}", "Asset".PadRight(col1w), "Depends on").AppendLine();
                 report.AppendFormat("{0}+{1}", "".PadRight(col1w - 1, '-'), "".PadRight(col2w, '-')).AppendLine();
 
-                foreach (var asset in assets)
+                foreach (KeyValuePair<String, IAsset> asset in assets)
                 {
-                    report.Append(string.Format("{0} v{1}", asset.Value.Class, asset.Value.Version)
-                        .PadRight(col1w - 1));
+                    report.Append(String.Format("{0} v{1}", asset.Value.Class, asset.Value.Version).PadRight(col1w - 1));
 
                     // Console.WriteLine("[{0}]\r\n{1}=v{2}\t;{3}", asset.Key, asset.Value.Class, asset.Value.Version, asset.Value.Maturity);
-                    var cnt = 0;
-                    foreach (var dependency in asset.Value.Dependencies)
+                    Int32 cnt = 0;
+                    foreach (KeyValuePair<String, String> dependency in asset.Value.Dependencies)
                     {
                         //! Better version matches (see Microsoft).
                         // 
@@ -231,7 +245,7 @@ namespace AssetManagerPackage
                         //? v0.0-*          (all versions)
                         //? v1.2.3-v2.2     (v1.2.3 or higher less than or equal to v2.1)
                         //
-                        var vrange = dependency.Value.Split('-');
+                        String[] vrange = dependency.Value.Split('-');
 
                         Version low = null;
 
@@ -253,18 +267,20 @@ namespace AssetManagerPackage
                                 {
                                     hi = new Version(vrange[1]);
                                 }
+                                break;
 
+                            default:
                                 break;
                         }
 
-                        var found = false;
+                        Boolean found = false;
 
                         if (low != null)
                         {
-                            foreach (var dep in findAssetsByClass(dependency.Key))
+                            foreach (IAsset dep in findAssetsByClass(dependency.Key))
                             {
                                 // Console.WriteLine("Dependency {0}={1}",dep.Class, dep.Version);
-                                var vdep = new Version(dep.Version);
+                                Version vdep = new Version(dep.Version);
                                 if (low <= vdep && vdep <= hi)
                                 {
                                     found = true;
@@ -272,8 +288,7 @@ namespace AssetManagerPackage
                                 }
                             }
 
-                            report.AppendFormat("|{0} v{1} [{2}]", dependency.Key, dependency.Value,
-                                found ? "resolved" : "missing").AppendLine();
+                            report.AppendFormat("|{0} v{1} [{2}]", dependency.Key, dependency.Value, found ? "resolved" : "missing").AppendLine();
                         }
                         else
                         {
@@ -301,25 +316,25 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Logs.
+        /// Logs.
         /// </summary>
+        ///
         /// <param name="loglevel"> The loglevel. </param>
         /// <param name="format">   Describes the format to use. </param>
-        /// <param name="args">
-        ///     A variable-length parameters list containing
-        ///     arguments.
-        /// </param>
-        public void Log(Severity loglevel, string format, params object[] args)
+        /// <param name="args">     A variable-length parameters list containing
+        ///                         arguments. </param>
+        public void Log(Severity loglevel, String format, params object[] args)
         {
-            Log(loglevel, string.Format(format, args));
+            Log(loglevel, String.Format(format, args));
         }
 
         /// <summary>
-        ///     Logs.
+        /// Logs.
         /// </summary>
+        ///
         /// <param name="loglevel"> The loglevel. </param>
         /// <param name="msg">      The message. </param>
-        public void Log(Severity loglevel, string msg)
+        public void Log(Severity loglevel, String msg)
         {
             logger = getInterface<ILog>();
 
@@ -330,17 +345,19 @@ namespace AssetManagerPackage
         }
 
         /// <summary>
-        ///     Gets the interface.
+        /// Gets the interface.
         /// </summary>
+        ///
         /// <typeparam name="T"> Generic type parameter. </typeparam>
+        ///
         /// <returns>
-        ///     The interface.
+        /// The interface.
         /// </returns>
         protected T getInterface<T>()
         {
             if (Bridge != null && Bridge is T)
             {
-                return (T) Bridge;
+                return (T)Bridge;
             }
 
             return default(T);
@@ -361,5 +378,6 @@ namespace AssetManagerPackage
         */
 
         #endregion Methods
+
     }
 }

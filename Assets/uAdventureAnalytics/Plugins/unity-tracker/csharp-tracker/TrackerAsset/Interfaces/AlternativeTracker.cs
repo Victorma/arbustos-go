@@ -15,12 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+using System.Collections;
 using AssetPackage;
+using AssetPackage.Utils;
 using AssetPackage.Exceptions;
 
 public class AlternativeTracker : TrackerAsset.IGameObjectTracker
 {
+
+    private TrackerAsset tracker;
+
+    public void setTracker(TrackerAsset tracker)
+    {
+        this.tracker = tracker;
+    }
+
     /* ALTERNATIVES */
 
     public enum Alternative
@@ -33,38 +42,26 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
         Alternative
     }
 
-    private TrackerAsset tracker;
-
-    public void setTracker(TrackerAsset tracker)
-    {
-        this.tracker = tracker;
-    }
-
     /// <summary>
-    ///     Player selected an option in a presented alternative
-    ///     Type = Alternative
+    /// Player selected an option in a presented alternative
+    /// Type = Alternative
     /// </summary>
     /// <param name="alternativeId">Alternative identifier.</param>
     /// <param name="optionId">Option identifier.</param>
     public void Selected(string alternativeId, string optionId)
     {
-        var check = true;
+        bool check = true;
 
-        check &= tracker.Utils.check<TargetXApiException>(alternativeId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty.");
-        check &= tracker.Utils.check<ValueExtensionException>(optionId,
-            "xAPI Exception: Selected alternative is null or empty",
-            "xAPI Exception: Selected alternative can't be null or empty");
+        check &= tracker.Utils.check<TargetXApiException>(alternativeId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty.");
+        check &= tracker.Utils.check<ValueExtensionException>(optionId, "xAPI Exception: Selected alternative is null or empty", "xAPI Exception: Selected alternative can't be null or empty");
 
         if (check)
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Selected),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Alternative.Alternative.ToString().ToLower(),
-                    alternativeId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Alternative.Alternative.ToString().ToLower(), alternativeId),
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Response = optionId
                 }
@@ -73,21 +70,17 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player selected an option in a presented alternative
+    /// Player selected an option in a presented alternative
     /// </summary>
     /// <param name="alternativeId">Alternative identifier.</param>
     /// <param name="optionId">Option identifier.</param>
     /// <param name="type">Alternative type.</param>
     public void Selected(string alternativeId, string optionId, Alternative type)
     {
-        var check = true;
+        bool check = true;
 
-        check &= tracker.Utils.check<TargetXApiException>(alternativeId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty.");
-        check &= tracker.Utils.check<ValueExtensionException>(optionId,
-            "xAPI Exception: Selected alternative is null or empty",
-            "xAPI Exception: Selected alternative can't be null or empty");
+        check &= tracker.Utils.check<TargetXApiException>(alternativeId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty.");
+        check &= tracker.Utils.check<ValueExtensionException>(optionId, "xAPI Exception: Selected alternative is null or empty", "xAPI Exception: Selected alternative can't be null or empty");
 
         if (check)
         {
@@ -95,7 +88,7 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Selected),
                 Target = new TrackerAsset.TrackerEvent.TraceObject(type.ToString().ToLower(), alternativeId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Response = optionId
                 }
@@ -104,30 +97,25 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player unlocked an option
-    ///     Type = Alternative
+    /// Player unlocked an option
+    /// Type = Alternative
     /// </summary>
     /// <param name="alternativeId">Alternative identifier.</param>
     /// <param name="optionId">Option identifier.</param>
     public void Unlocked(string alternativeId, string optionId)
     {
-        var check = true;
+        bool check = true;
 
-        check &= tracker.Utils.check<TargetXApiException>(alternativeId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty.");
-        check &= tracker.Utils.check<ValueExtensionException>(optionId,
-            "xAPI Exception: Selected alternative is null or empty",
-            "xAPI Exception: Selected alternative can't be null or empty");
+        check &= tracker.Utils.check<TargetXApiException>(alternativeId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty.");
+        check &= tracker.Utils.check<ValueExtensionException>(optionId, "xAPI Exception: Selected alternative is null or empty", "xAPI Exception: Selected alternative can't be null or empty");
 
         if (check)
         {
             tracker.Trace(new TrackerAsset.TrackerEvent(tracker)
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Unlocked),
-                Target = new TrackerAsset.TrackerEvent.TraceObject(Alternative.Alternative.ToString().ToLower(),
-                    alternativeId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Target = new TrackerAsset.TrackerEvent.TraceObject(Alternative.Alternative.ToString().ToLower(), alternativeId),
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Response = optionId
                 }
@@ -136,21 +124,17 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
     }
 
     /// <summary>
-    ///     Player unlocked an option
+    /// Player unlocked an option
     /// </summary>
     /// <param name="alternativeId">Alternative identifier.</param>
     /// <param name="optionId">Option identifier.</param>
     /// <param name="type">Alternative type.</param>
     public void Unlocked(string alternativeId, string optionId, Alternative type)
     {
-        var check = true;
+        bool check = true;
 
-        check &= tracker.Utils.check<TargetXApiException>(alternativeId,
-            "xAPI Exception: Target ID is null or empty. Ignoring.",
-            "xAPI Exception: Target ID can't be null or empty.");
-        check &= tracker.Utils.check<ValueExtensionException>(optionId,
-            "xAPI Exception: Selected alternative is null or empty",
-            "xAPI Exception: Selected alternative can't be null or empty");
+        check &= tracker.Utils.check<TargetXApiException>(alternativeId, "xAPI Exception: Target ID is null or empty. Ignoring.", "xAPI Exception: Target ID can't be null or empty.");
+        check &= tracker.Utils.check<ValueExtensionException>(optionId, "xAPI Exception: Selected alternative is null or empty", "xAPI Exception: Selected alternative can't be null or empty");
 
         if (check)
         {
@@ -158,11 +142,12 @@ public class AlternativeTracker : TrackerAsset.IGameObjectTracker
             {
                 Event = new TrackerAsset.TrackerEvent.TraceVerb(TrackerAsset.Verb.Unlocked),
                 Target = new TrackerAsset.TrackerEvent.TraceObject(type.ToString().ToLower(), alternativeId),
-                Result = new TrackerAsset.TrackerEvent.TraceResult
+                Result = new TrackerAsset.TrackerEvent.TraceResult()
                 {
                     Response = optionId
                 }
             });
         }
     }
+
 }

@@ -217,14 +217,10 @@ namespace uAdventure.Runner
             }
         }
 
-        public void Destroy()
-        {
-            Destroy(0f);
-        }
-
-        public void Destroy(float time)
+        public void Destroy(float time, System.Action onDestroy)
         {
             GameObject.DestroyImmediate(this.gameObject);
+            onDestroy();
         }
 
         private void LoadParents()
@@ -309,8 +305,8 @@ namespace uAdventure.Runner
                     SetBackground(movie.Movie);
                     break;
                 case GeneralScene.GeneralSceneSceneType.SCENE:
-                    InventoryManager.Instance.Show = true;
                     Scene scene = (Scene)SceneData;
+                    InventoryManager.Instance.Show = !SceneData.HideInventory;
                     Texture2D backgroundTexture = null;
                     foreach (ResourcesUni sr in scene.getResources())
                     {
@@ -413,8 +409,12 @@ namespace uAdventure.Runner
                     {
                         ready = true;
                     }
-                    
-                    Camera.main.GetComponent<PlayerFollower>().SettleInstant();
+
+                    var playerFollower = FindObjectOfType<PlayerFollower>();
+                    if (playerFollower)
+                    {
+                        playerFollower.SettleInstant();
+                    }
 
                     break;
                 case GeneralScene.GeneralSceneSceneType.SLIDESCENE:
@@ -564,7 +564,7 @@ namespace uAdventure.Runner
                 background.localScale = ToWorldSize(size);
                 background.localPosition = ToWorldPosition(Vector2.zero, size, ScenePivot, 20);
                 transform.localScale = (Vector3) (Vector2.one * (PixelsSceneHeight / size.y)) + new Vector3(0, 0, 1);
-                var playerFollower = Camera.main.GetComponent<PlayerFollower>();
+                var playerFollower = FindObjectOfType<PlayerFollower>();
                 if (playerFollower)
                 {
                     playerFollower.Background = background.gameObject;
@@ -703,7 +703,7 @@ namespace uAdventure.Runner
                     break;
                 case Cutscene.ENDCHAPTER:
                     // TODO: When we add more chapters, we must trigger the next chapter instead of quiting que aplication
-                    Application.Quit();
+                    GUIManager.Instance.ExitApplication();
                     break;
             }
 

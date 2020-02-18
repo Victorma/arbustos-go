@@ -15,35 +15,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml.Serialization;
-using AssetManagerPackage;
-
 namespace AssetPackage
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Xml.Serialization;
+
 #if PORTABLE
     // System.Reflection is needed for Portable Assemblies!
     using System.Reflection;
 #endif
 
+    using AssetManagerPackage;
+
     /// <summary>
-    ///     A base asset.
+    /// A base asset.
     /// </summary>
     public class BaseAsset : IAsset
     {
-        private ILog logger;
+        private ILog logger = null;
 
         #region Constructors
 
         /// <summary>
-        ///     Initializes a new instance of the AssetManagerPackage.BaseAsset class.
+        /// Initializes a new instance of the AssetManagerPackage.BaseAsset class.
         /// </summary>
         public BaseAsset()
         {
-            Id = AssetManager.Instance.registerAssetInstance(this, Class);
+            this.Id = AssetManager.Instance.registerAssetInstance(this, this.Class);
 
             //! List Embedded Resources.
             //foreach (String name in Assembly.GetCallingAssembly().GetManifestResourceNames())
@@ -51,10 +52,10 @@ namespace AssetPackage
             //    Console.WriteLine("{0}", name);
             //}
 
-            var xml = VersionAndDependencies();
-            if (!string.IsNullOrEmpty(xml))
+            String xml = VersionAndDependencies();
+            if (!String.IsNullOrEmpty(xml))
             {
-                VersionInfo = RageVersionInfo.LoadVersionInfo(xml);
+                this.VersionInfo = RageVersionInfo.LoadVersionInfo(xml);
             }
             else
             {
@@ -63,13 +64,14 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Initializes a new instance of the AssetPackage.BaseAsset class.
+        /// Initializes a new instance of the AssetPackage.BaseAsset class.
         /// </summary>
+        ///
         /// <param name="bridge"> The bridge. </param>
         public BaseAsset(IBridge bridge)
             : this()
         {
-            Bridge = bridge;
+            this.Bridge = bridge;
         }
 
         #endregion Constructors
@@ -77,42 +79,52 @@ namespace AssetPackage
         #region Properties
 
         /// <summary>
-        ///     Gets or sets the bridge.
+        /// Gets or sets the bridge.
         /// </summary>
+        ///
         /// <value>
-        ///     The bridge.
+        /// The bridge.
         /// </value>
-        public IBridge Bridge { get; set; }
-
-        /// <summary>
-        ///     Gets the class.
-        /// </summary>
-        /// <value>
-        ///     The class.
-        /// </value>
-        public string Class
+        public IBridge Bridge
         {
-            get { return GetType().Name; }
+            get;
+            set;
         }
 
         /// <summary>
-        ///     Gets the dependencies.
+        /// Gets the class.
         /// </summary>
+        ///
         /// <value>
-        ///     The dependencies.
+        /// The class.
         /// </value>
-        public Dictionary<string, string> Dependencies
+        public String Class
         {
             get
             {
-                var result = new Dictionary<string, string>();
+                return this.GetType().Name;
+            }
+        }
 
-                foreach (var dep in VersionInfo.Dependencies)
+        /// <summary>
+        /// Gets the dependencies.
+        /// </summary>
+        ///
+        /// <value>
+        /// The dependencies.
+        /// </value>
+        public Dictionary<String, String> Dependencies
+        {
+            get
+            {
+                Dictionary<String, String> result = new Dictionary<String, String>();
+
+                foreach (Depends dep in VersionInfo.Dependencies)
                 {
-                    var minv = dep.minVersion != null ? dep.minVersion : "0.0";
-                    var maxv = dep.maxVersion != null ? dep.maxVersion : "*";
+                    String minv = dep.minVersion != null ? dep.minVersion : "0.0";
+                    String maxv = dep.maxVersion != null ? dep.maxVersion : "*";
 
-                    result.Add(dep.name, string.Format("{0}-{1}", minv, maxv));
+                    result.Add(dep.name, String.Format("{0}-{1}", minv, maxv));
                 }
 
                 return result;
@@ -120,94 +132,118 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Gets a value indicating whether this object has settings.
+        /// Gets a value indicating whether this object has settings.
         /// </summary>
+        ///
         /// <value>
-        ///     true if this object has settings, false if not.
+        /// true if this object has settings, false if not.
         /// </value>
-        public bool hasSettings
-        {
-            get { return Settings != null; }
-        }
-
-        /// <summary>
-        ///     Gets the identifier.
-        /// </summary>
-        /// <value>
-        ///     The identifier.
-        /// </value>
-        public string Id { get; private set; }
-
-        /// <summary>
-        ///     Gets the maturity.
-        /// </summary>
-        /// <value>
-        ///     The maturity.
-        /// </value>
-        public string Maturity
-        {
-            get { return VersionInfo.Maturity; }
-        }
-
-        /// <summary>
-        ///     Gets or sets options for controlling the operation.
-        /// </summary>
-        /// <value>
-        ///     The settings.
-        /// </value>
-        public virtual ISettings Settings { get; set; }
-
-        /// <summary>
-        ///     Gets the version.
-        /// </summary>
-        /// <value>
-        ///     The version.
-        /// </value>
-        public string Version
+        public Boolean hasSettings
         {
             get
             {
-                return string.Format("{0}.{1}.{2}.{3}",
-                    VersionInfo.Major,
-                    VersionInfo.Minor,
-                    VersionInfo.Build,
-                    VersionInfo.Revision == 0 ? "" : VersionInfo.Revision.ToString()
-                ).TrimEnd('.');
+                return Settings != null;
             }
         }
 
         /// <summary>
-        ///     Gets information describing the version.
+        /// Gets the identifier.
         /// </summary>
+        ///
         /// <value>
-        ///     Information describing the version.
+        /// The identifier.
         /// </value>
-        public RageVersionInfo VersionInfo { get; private set; }
+        public String Id
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the maturity.
+        /// </summary>
+        ///
+        /// <value>
+        /// The maturity.
+        /// </value>
+        public String Maturity
+        {
+            get
+            {
+                return VersionInfo.Maturity;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets options for controlling the operation.
+        /// </summary>
+        ///
+        /// <value>
+        /// The settings.
+        /// </value>
+        public virtual ISettings Settings
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        ///
+        /// <value>
+        /// The version.
+        /// </value>
+        public String Version
+        {
+            get
+            {
+                return String.Format("{0}.{1}.{2}.{3}",
+                        VersionInfo.Major,
+                        VersionInfo.Minor,
+                        VersionInfo.Build,
+                        VersionInfo.Revision == 0 ? "" : VersionInfo.Revision.ToString()
+                    ).TrimEnd('.');
+            }
+        }
+
+        /// <summary>
+        /// Gets information describing the version.
+        /// </summary>
+        ///
+        /// <value>
+        /// Information describing the version.
+        /// </value>
+        public RageVersionInfo VersionInfo
+        {
+            get;
+            private set;
+        }
 
         #endregion Properties
 
         #region Methods
 
         /// <summary>
-        ///     Logs.
+        /// Logs.
         /// </summary>
+        ///
         /// <param name="severity"> The severity. </param>
         /// <param name="format">   Describes the format to use. </param>
-        /// <param name="args">
-        ///     A variable-length parameters list containing
-        ///     arguments.
-        /// </param>
-        public void Log(Severity severity, string format, params object[] args)
+        /// <param name="args">     A variable-length parameters list containing
+        ///                         arguments. </param>
+        public void Log(Severity severity, String format, params object[] args)
         {
-            Log(severity, string.Format(format, args));
+            Log(severity, String.Format(format, args));
         }
 
         /// <summary>
-        ///     Logs.
+        /// Logs.
         /// </summary>
+        ///
         /// <param name="severity"> The severity. </param>
         /// <param name="msg">      The message. </param>
-        public void Log(Severity severity, string msg)
+        public void Log(Severity severity, String msg)
         {
             logger = getInterface<ILog>();
 
@@ -218,22 +254,24 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Loads Settings object from Default (Design-time) Settings.
+        /// Loads Settings object from Default (Design-time) Settings.
         /// </summary>
+        ///
         /// <remarks>
-        ///     In Unity Resources.Load() must be used and the files will be loaded a Assets\\Resources
-        ///     Folder.
+        /// In Unity Resources.Load() must be used and the files will be loaded a Assets\\Resources
+        /// Folder.
         /// </remarks>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public bool LoadDefaultSettings()
+        public Boolean LoadDefaultSettings()
         {
-            var ds = getInterface<IDefaultSettings>();
+            IDefaultSettings ds = getInterface<IDefaultSettings>();
 
             if (ds != null && hasSettings && ds.HasDefaultSettings(Class, Id))
             {
-                var xml = ds.LoadDefaultSettings(Class, Id);
+                String xml = ds.LoadDefaultSettings(Class, Id);
 
                 Settings = SettingsFromXml(xml);
 
@@ -244,22 +282,25 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Loads Settings object as Run-time Settings.
+        /// Loads Settings object as Run-time Settings.
         /// </summary>
+        ///
         /// <remarks>
-        ///     The resulting file will be read using the IDataStorage interface.
+        /// The resulting file will be read using the IDataStorage interface.
         /// </remarks>
+        ///
         /// <param name="filename"> Filename of the file. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public bool LoadSettings(string filename)
+        public Boolean LoadSettings(String filename)
         {
-            var ds = getInterface<IDataStorage>();
+            IDataStorage ds = getInterface<IDataStorage>();
 
             if (ds != null && hasSettings && ds.Exists(filename))
             {
-                var xml = ds.Load(filename);
+                String xml = ds.Load(filename);
 
                 Settings = SettingsFromXml(xml);
 
@@ -270,18 +311,20 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Saves Settings object as Default (Design-time) Settings.
+        /// Saves Settings object as Default (Design-time) Settings.
         /// </summary>
+        ///
         /// <remarks>
-        ///     In Unity the file will be saved in a Assets\\Resources Folder in the editor environment (As
-        ///     resources are read-only at run-time).
+        /// In Unity the file will be saved in a Assets\\Resources Folder in the editor environment (As
+        /// resources are read-only at run-time).
         /// </remarks>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public bool SaveDefaultSettings(bool force)
+        public Boolean SaveDefaultSettings(bool force)
         {
-            var ds = getInterface<IDefaultSettings>();
+            IDefaultSettings ds = getInterface<IDefaultSettings>();
 
             if (ds != null && hasSettings && (force || !ds.HasDefaultSettings(Class, Id)))
             {
@@ -294,18 +337,21 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Save Settings object from Run-time Settings.
+        /// Save Settings object from Run-time Settings.
         /// </summary>
+        ///
         /// <remarks>
-        ///     The resulting file will be written using the IDataStorage interface.
+        /// The resulting file will be written using the IDataStorage interface.
         /// </remarks>
+        ///
         /// <param name="filename"> Filename of the file. </param>
+        ///
         /// <returns>
-        ///     true if it succeeds, false if it fails.
+        /// true if it succeeds, false if it fails.
         /// </returns>
-        public bool SaveSettings(string filename)
+        public Boolean SaveSettings(String filename)
         {
-            var ds = getInterface<IDataStorage>();
+            IDataStorage ds = getInterface<IDataStorage>();
 
             if (ds != null && hasSettings)
             {
@@ -318,35 +364,38 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Settings from XML.
+        /// Settings from XML.
         /// </summary>
+        ///
         /// <param name="xml"> The XML. </param>
+        ///
         /// <returns>
-        ///     The ISettings.
+        /// The ISettings.
         /// </returns>
-        public ISettings SettingsFromXml(string xml)
+        public ISettings SettingsFromXml(String xml)
         {
-            var ser = new XmlSerializer(Settings.GetType());
+            XmlSerializer ser = new XmlSerializer(Settings.GetType());
 
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(xml)))
+            using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(xml)))
             {
                 //! Use DataContractSerializer or DataContractJsonSerializer?
                 //
-                return (ISettings) ser.Deserialize(ms);
+                return (ISettings)ser.Deserialize(ms);
             }
         }
 
         /// <summary>
-        ///     Settings to XML.
+        /// Settings to XML.
         /// </summary>
+        ///
         /// <returns>
-        ///     A String.
+        /// A String.
         /// </returns>
-        public string SettingsToXml()
+        public String SettingsToXml()
         {
-            var ser = new XmlSerializer(Settings.GetType());
+            XmlSerializer ser = new XmlSerializer(Settings.GetType());
 
-            using (var textWriter = new StringWriterUtf8())
+            using (StringWriterUtf8 textWriter = new StringWriterUtf8())
             {
                 //! Use DataContractSerializer or DataContractJsonSerializer?
                 // See https://msdn.microsoft.com/en-us/library/bb412170(v=vs.100).aspx
@@ -362,12 +411,13 @@ namespace AssetPackage
         }
 
         /// <summary>
-        ///     Version and dependencies.
+        /// Version and dependencies.
         /// </summary>
+        ///
         /// <returns>
-        ///     A String.
+        /// A String.
         /// </returns>
-        internal string VersionAndDependencies()
+        internal String VersionAndDependencies()
         {
             // Not compatible with PCL
             // 
@@ -379,8 +429,7 @@ namespace AssetPackage
             //! asset_proof_of_concept_demo_CSharp.Resources.Asset.VersionAndDependencies.xml
             //! <namespace>.Resources.<AssetType>.VersionAndDependencies.xml
             //
-            var xml = GetEmbeddedResource(GetType().Namespace,
-                string.Format("Resources.{0}.VersionAndDependencies.xml", GetType().Name));
+            String xml = GetEmbeddedResource(GetType().Namespace, String.Format("Resources.{0}.VersionAndDependencies.xml", GetType().Name));
 
             //{
             // Load- embedded resource in-xamarin.
@@ -391,20 +440,22 @@ namespace AssetPackage
             // xml = er.RetrieveResource(path);
             //}
 
-            return string.IsNullOrEmpty(xml) ? string.Empty : xml;
+            return String.IsNullOrEmpty(xml) ? String.Empty : xml;
         }
 
         /// <summary>
-        ///     Gets embedded resource.
+        /// Gets embedded resource.
         /// </summary>
+        ///
         /// <param name="ns">  The namespace. </param>
         /// <param name="res"> The resource name. </param>
+        ///
         /// <returns>
-        ///     The embedded resource.
+        /// The embedded resource.
         /// </returns>
-        protected string GetEmbeddedResource(string ns, string res)
+        protected String GetEmbeddedResource(String ns, String res)
         {
-            var path = string.Format("{0}.{1}", ns, res);
+            String path = String.Format("{0}.{1}", ns, res);
 
             //! 0) AppDomain is not present in Unity/WP81
             //Console.WriteLine(AppDomain.CurrentDomain.GetAssemblies().
@@ -428,12 +479,12 @@ namespace AssetPackage
             //            using (Stream stream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(path))
             //#else
             //            //! 3) Fail to compile on Unity3D/WinPhone (getAssembly fails) but the code works!
-            using (var stream = GetType().Assembly().GetManifestResourceStream(path))
-                //#endif
+            using (Stream stream = GetType().Assembly().GetManifestResourceStream(path))
+            //#endif
             {
                 if (stream != null)
                 {
-                    using (var reader = new StreamReader(stream))
+                    using (StreamReader reader = new StreamReader(stream))
                     {
                         return reader.ReadToEnd();
                     }
@@ -441,26 +492,27 @@ namespace AssetPackage
             }
             //}
 
-            return string.Empty;
+            return String.Empty;
         }
 
         /// <summary>
-        ///     Gets the interface.
+        /// Gets the interface.
         /// </summary>
+        ///
         /// <typeparam name="T"> Generic type parameter. </typeparam>
+        ///
         /// <returns>
-        ///     The interface.
+        /// The interface.
         /// </returns>
         protected T getInterface<T>()
         {
             if (Bridge != null && Bridge is T)
             {
-                return (T) Bridge;
+                return (T)Bridge;
             }
-
-            if (AssetManager.Instance.Bridge != null && AssetManager.Instance.Bridge is T)
+            else if (AssetManager.Instance.Bridge != null && AssetManager.Instance.Bridge is T)
             {
-                return (T) AssetManager.Instance.Bridge;
+                return (T)(AssetManager.Instance.Bridge);
             }
 
             return default(T);

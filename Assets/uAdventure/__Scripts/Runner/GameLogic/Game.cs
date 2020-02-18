@@ -14,7 +14,6 @@ namespace uAdventure.Runner
         BOOK
     }
 
-    [RequireComponent(typeof(TransitionManager))]
     public class Game : Singleton<Game>, IPointerClickHandler
     {
 
@@ -31,12 +30,19 @@ namespace uAdventure.Runner
         public string gamePath = "", gameName = "", scene_name = "";
 
         // Execution
-        private bool waitingRunTarget = false, waitingTransition = false;
+        private bool waitingRunTarget = false, waitingTransition = false, waitingTargetDestroy = false;
         private Stack<KeyValuePair<Interactuable, ExecutionEvent>> executeStack;
         private IRunnerChapterTarget runnerTarget;
         private GameState game_state;
         private uAdventureRaycaster uAdventureRaycaster;
-        private TransitionManager transitionManager;
+        private TransitionManager TransitionManager 
+        { 
+            get 
+            {
+                var camera = FindObjectOfType<Camera>();
+                return camera ? camera.GetComponent<TransitionManager>() : null;
+            } 
+        }
 
         // GUI
         public GameObject Blur_Prefab;
@@ -50,12 +56,14 @@ namespace uAdventure.Runner
         private Book openedBook;
         private BookDrawer bookDrawer;
         private List<GameExtension> gameExtensions;
+        private bool started;
+        private int pulsing = 0;
 
         public delegate void TargetChangedDelegate(IChapterTarget newTarget);
 
         public TargetChangedDelegate OnTargetChanged;
 
-        public delegate void ElementInteractedDelegate(bool finished, Interactuable element, Action action);
+        public delegate void ElementInteractedDelegate(bool finished, Element element, Action action);
 
         public ElementInteractedDelegate OnElementInteracted;
 
@@ -95,6 +103,15 @@ namespace uAdventure.Runner
 
         protected void Awake()
         {
+            if (FindObjectsOfType(typeof(Game)).Length > 1)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
+            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(Camera.main);
+
             executeStack = new Stack<KeyValuePair<Interactuable, ExecutionEvent>>();
 
             skin = Resources.Load("basic") as GUISkin;
@@ -115,7 +132,7 @@ namespace uAdventure.Runner
                 }
             }
 
-            if (Game.GameToLoad != "")
+            if (!string.IsNullOrEmpty(Game.GameToLoad))
             {
                 gameName = Game.GameToLoad;
                 gamePath = ResourceManager.getCurrentDirectory() + System.IO.Path.DirectorySeparatorChar + "Games" + System.IO.Path.DirectorySeparatorChar;
@@ -155,7 +172,9 @@ namespace uAdventure.Runner
 
         protected void Start()
         {
-
+            started = true;
+            GameState.OnGameResume();
+            gameExtensions.ForEach(g => g.OnAfterGameLoad());
             uAdventureRaycaster = FindObjectOfType<uAdventureRaycaster>();
             if (!uAdventureRaycaster)
             {
@@ -166,14 +185,14 @@ namespace uAdventure.Runner
                 // When clicks are out, i capture them
                 uAdventureRaycaster.Base = this.gameObject;
             }
-
-            transitionManager = GetComponent<TransitionManager>();
-            if (!transitionManager)
+            if (!TransitionManager)
             {
                 Debug.LogError("No TransitionManager was found in the scene!");
             }
 
-            RunTarget(forceScene ? scene_name : GameState.InitialChapterTarget.getId());
+            RunTarget(forceScene ? scene_name : GameState.CurrentTarget);
+            gameExtensions.ForEach(g => g.OnGameReady());
+            uAdventureInputModule.LookingForTarget = null;
 
             TimerController.Instance.Timers = GameState.GetTimers();
             TimerController.Instance.Run();
@@ -182,8 +201,11 @@ namespace uAdventure.Runner
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            MenuMB.Instance.hide();
-            if (!waitingRunTarget && !waitingTransition && executeStack.Count > 0 && guistate != GUIState.ANSWERS_MENU)
+            if (MenuMB.Instance)
+            {
+                MenuMB.Instance.hide();
+            }
+            if (!waitingRunTarget && !waitingTargetDestroy && !waitingTransition && executeStack.Count > 0 && guistate != GUIState.ANSWERS_MENU)
             {
                 Interacted();
             }
@@ -194,19 +216,24 @@ namespace uAdventure.Runner
             if (waitingRunTarget && runnerTarget.IsReady)
             {
                 waitingRunTarget = false;
-                if (transitionManager.transition != null)
+                waitingTransition = true;
+                System.Action<Transition, Texture> afterTransition = (transition, texture) =>
                 {
-                    waitingTransition = true;
-                    transitionManager.DoTransition((_, __) =>
+                    waitingTransition = false;
+                    if (uAdventureRaycaster.Instance)
                     {
-                        waitingTransition = false;
                         uAdventureRaycaster.Instance.Override = null;
-                        Interacted();
-                    });
-                }
+                    }
+                    Interacted();
+                };
+
+                if (TransitionManager)
+                {
+                    TransitionManager.DoTransition(afterTransition);
+                } 
                 else
                 {
-                    Interacted();
+                    afterTransition(null, null);
                 }
             }
 
@@ -221,14 +248,8 @@ namespace uAdventure.Runner
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (Time.timeScale == 0)
+                if (!isSomethingRunning())
                 {
-                    Time.timeScale = 1;
-                    GUIManager.Instance.ShowConfigMenu();
-                }
-                else if (!isSomethingRunning())
-                {
-                    Time.timeScale = 0;
                     GUIManager.Instance.ShowConfigMenu();
                 }
             }
@@ -237,8 +258,9 @@ namespace uAdventure.Runner
         public void LoadGame()
         {
             GameState.RestoreFrom("save");
-            RunTarget(GameState.CurrentTarget);
             gameExtensions.ForEach(g => g.OnAfterGameLoad());
+            RunTarget(GameState.CurrentTarget);
+            gameExtensions.ForEach(g => g.OnGameReady());
             uAdventureInputModule.LookingForTarget = null;
         }
 
@@ -248,10 +270,47 @@ namespace uAdventure.Runner
             GameState.SerializeTo("save");
         }
 
+        public void AutoSave()
+        {
+            gameExtensions.ForEach(g => g.OnBeforeGameSave());
+            GameState.SerializeTo("save");
+        }
+
+        public void OnApplicationPause(bool paused)
+        {
+            if (!isSomethingRunning())
+            {
+                if (paused)
+                {
+                    GameState.OnGameSuspend();
+                }
+                else if (Application.isMobilePlatform)
+                {
+                    GameState.OnGameResume();
+                    if (started)
+                    {
+                        RunTarget(GameState.CurrentTarget);
+                        gameExtensions.ForEach(g => g.OnGameReady());
+                        uAdventureInputModule.LookingForTarget = null;
+                    }
+                }
+            }
+
+        }
+
         public bool Execute(Interactuable interactuable, ExecutionEvent callback = null)
         {
             // In case any menu is shown, we hide it
-            MenuMB.Instance.hide(true);
+            if (MenuMB.Instance)
+            {
+                MenuMB.Instance.hide(true);
+            }
+
+            if(executeStack.Count == 0)
+            {
+                AutoSave();
+            }
+
             // Then we execute anything
             if (executeStack.Count == 0 || executeStack.Peek().Key != interactuable)
             {
@@ -270,7 +329,7 @@ namespace uAdventure.Runner
                 }
                 catch (System.Exception ex)
                 {
-                    Debug.Log("Interacted execution exception: " + ex.Message);
+                    Debug.LogError("Interacted execution exception: " + ex.Message + ex.StackTrace);
                 }
 
                 if (requiresMore)
@@ -315,14 +374,31 @@ namespace uAdventure.Runner
                     }
                 }
             }
-            uAdventureRaycaster.Instance.Override = null;
+            if (uAdventureRaycaster.Instance)
+            {
+                uAdventureRaycaster.Instance.Override = null;
+            }
+            if (executeStack.Count == 0)
+            {
+                AutoSave();
+            }
+            // In case any bubble is bugged
+            GUIManager.Instance.DestroyBubbles();
             return false;
         }
 
-        public void Reset()
+        public void ClearAndRestart()
         {
-            GameState.Reset();
-            gameExtensions.ForEach(g => g.OnReset());
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            DestroyImmediate(this.gameObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+
+        public void Restart()
+        {
+            GameState.Restart();
+            gameExtensions.ForEach(g => g.Restart());
             RunTarget(GameState.CurrentTarget);
             uAdventureInputModule.LookingForTarget = null;
         }
@@ -338,10 +414,18 @@ namespace uAdventure.Runner
 
         private bool Interacted()
         {
+            if (pulsing > 0)
+            {
+                return false;
+            }
+
             if(guistate != GUIState.BOOK)
             {
                 guistate = GUIState.NOTHING;
-                GUIManager.Instance.DestroyBubbles();
+                if (GUIManager.Instance.InteractWithDialogue() == InteractuableResult.REQUIRES_MORE_INTERACTION)
+                {
+                    return true;
+                }
             }
             if (executeStack.Count > 0)
             {
@@ -350,7 +434,7 @@ namespace uAdventure.Runner
             return false;
         }
 
-        public void ElementInteracted(bool finished, Interactuable element, Action action)
+        public void ElementInteracted(bool finished, Element element, Action action)
         {
             if (OnElementInteracted != null)
             {
@@ -360,7 +444,7 @@ namespace uAdventure.Runner
 
         public bool isSomethingRunning()
         {
-            return executeStack.Count > 0;
+            return executeStack.Count > 0 || waitingRunTarget || waitingTransition || waitingTargetDestroy;
         }
 
         public Interactuable getNextInteraction()
@@ -383,45 +467,67 @@ namespace uAdventure.Runner
         public IRunnerChapterTarget RunTarget(string scene_id, int transition_time = 0, TransitionType transition_type = 0, Interactuable notifyObject = null, bool trace = true)
         {
             Debug.Log("Run target: " + scene_id);
-            GUIManager.Instance.ShowHand(false);
-            MenuMB.Instance.hide(true);
+            if (GUIManager.Instance)
+            {
+                GUIManager.Instance.ShowHand(false);
+            }
+            if (MenuMB.Instance)
+            {
+                MenuMB.Instance.hide(true);
+            }
 
             IChapterTarget target = GameState.GetChapterTarget(scene_id);
 
-            var transition = new Transition();
-            transition.setTime(transition_time);
-            transition.setType(transition_type);
-            transitionManager.PrepareTransition(transition);
+            if (TransitionManager != null)
+            {
+                var transition = new Transition();
+                transition.setTime(transition_time);
+                transition.setType(transition_type);
+                TransitionManager.PrepareTransition(transition);
+            }
 
             if (runnerTarget != null && runnerTarget.Data == target && scene_id == GameState.CurrentTarget)
             {
                 runnerTarget.RenderScene();
+                waitingRunTarget = true;
             }
             else
             {
+                waitingTargetDestroy = true;
+                System.Action runTarget = () =>
+                {
+
+                    // Here we connect with the IChapterTargetFactory and create an IRunnerChapterTarget
+
+                    runnerTarget = RunnerChapterTargetFactory.Instance.Instantiate(target);
+                    runnerTarget.Data = target;
+                    waitingTargetDestroy = false;
+                    waitingRunTarget = true;
+                    GameState.CurrentTarget = target.getId();
+
+                    if (trace && OnTargetChanged != null)
+                    {
+                        OnTargetChanged(target);
+                    }
+                };
+
                 if (runnerTarget != null)
                 {
-                    runnerTarget.Destroy();
+                    runnerTarget.Destroy(0f, runTarget);
                 }
-
-                // Here we connect with the IChapterTargetFactory and create an IRunnerChapterTarget
-
-                runnerTarget = RunnerChapterTargetFactory.Instance.Instantiate(target);
-                runnerTarget.Data = target;
-                GameState.CurrentTarget = target.getId();
+                else
+                {
+                    runTarget();
+                }
             }
-
-            if (trace && OnTargetChanged != null)
-            {
-                OnTargetChanged(target);
-            }
-
-            waitingRunTarget = true;
             if(notifyObject != null)
             {
                 executeStack.Push(new KeyValuePair<Interactuable, ExecutionEvent>(notifyObject, null));
             }
-            uAdventureRaycaster.Instance.Override = this.gameObject;
+            if (uAdventureRaycaster.Instance)
+            {
+                uAdventureRaycaster.Instance.Override = this.gameObject;
+            }
             
             return runnerTarget;
         }
@@ -450,6 +556,11 @@ namespace uAdventure.Runner
         #region Misc
         public void showActions(List<Action> actions, Vector2 position, IActionReceiver actionReceiver = null)
         {
+            if (!MenuMB.Instance)
+            {
+                return;
+            }
+
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             MenuMB.Instance.transform.position = new Vector3(pos.x, pos.y, pos.z) + mouseRay.direction.normalized * 10;
@@ -510,11 +621,22 @@ namespace uAdventure.Runner
             GUIManager.Instance.Talk(text, character);
         }
 
+        public void Talk(ConversationLine line, string character)
+        {
+            GUIManager.Instance.Talk(line, character);
+        }
+
         public void ShowBook(string bookId)
         {
             guistate = GUIState.BOOK;
             bookDrawer.Book = GameState.FindElement<Book>(bookId);
             bookDrawer.RefreshResources();
+        }
+
+        public void CloseBook()
+        {
+            guistate = GUIState.NOTHING;
+            bookDrawer.Book = null;
         }
 
         public bool ShowingBook
@@ -524,6 +646,8 @@ namespace uAdventure.Runner
                 return bookDrawer.Book != null;
             }
         }
+
+        private List<GUILayoutOption> auxLimitList = new List<GUILayoutOption>();
 
         protected void OnGUI()
         {
@@ -541,22 +665,29 @@ namespace uAdventure.Runner
                     using(new GUIUtil.SkinScope(skin))
                     {
                         float guiscale = Screen.width / 800f;
+                        var buttonImageWidth = (200f / 600f) * Screen.height;
                         skin.box.fontSize = Mathf.RoundToInt(guiscale * 20);
                         skin.button.fontSize = Mathf.RoundToInt(guiscale * 20);
+                        skin.button.alignment = TextAnchor.MiddleCenter;
+                        skin.button.imagePosition = ImagePosition.ImageAbove;
+                        skin.button.stretchHeight = false;
+                        skin.button.stretchWidth = true;
                         skin.label.fontSize = Mathf.RoundToInt(guiscale * 20);
                         skin.GetStyle("optionLabel").fontSize = Mathf.RoundToInt(guiscale * 36);
                         skin.GetStyle("talk_player").fontSize = Mathf.RoundToInt(guiscale * 20);
                         skin.GetStyle("emptyProgressBar").fontSize = Mathf.RoundToInt(guiscale * 20);
-
-                        using (new GUILayout.AreaScope(new Rect(Screen.width * 0.1f, Screen.height * 0.1f, Screen.width * 0.8f, Screen.height * 0.8f)))
+                        OptionConversationNode options = (OptionConversationNode)guioptions.getNode();
+                        var areawidth = Screen.width * 0.8f;
+                        using (new GUILayout.AreaScope(new Rect(Screen.width * 0.1f, Screen.height * 0.1f, areawidth, Screen.height * 0.8f)))
                         {
-                            using (new GUILayout.VerticalScope())
+                            using (new GUILayout.VerticalScope(GUILayout.ExpandWidth(true)))
                             {
-                                OptionConversationNode options = (OptionConversationNode)guioptions.getNode();
+                                var restWidth = 1f;
+                                var initedHorizontal = false;
 
-                                if (options.isKeepShowing())
+                                if (options.isKeepShowing() && GUIManager.Instance.Line != null)
                                 {
-                                    var text = GUIManager.Instance.Last;
+                                    var text = GUIManager.Instance.Line.getText();
                                     if (text[0] == '#')
                                         text = text.Remove(0, Mathf.Max(0, text.IndexOf(' ') + 1));
 
@@ -565,27 +696,115 @@ namespace uAdventure.Runner
 
                                     GUIUtil.DrawTextBorder(textRect, textContent, Color.black, "optionLabel");
                                     GUIUtil.DrawText(textRect, textContent, ((GUIStyle)"optionLabel").normal.textColor, "optionLabel");
-                                }
-                                foreach (var i in order)
-                                {
-                                    ConversationLine ono = options.getLine(i);
-                                    if (ConditionChecker.check(options.getLineConditions(i)) && GUILayout.Button(ono.getText()))
+
+                                    var resources = GUIManager.Instance.Line.getResources().Checked().FirstOrDefault();
+                                    if (resources != null)
                                     {
-                                        OptionSelected(i);
+                                        var image = resources.existAsset("image") ? Game.Instance.ResourceManager.getImage(resources.getAssetPath("image")) : null;
+                                        if (image)
+                                        {
+                                            GUILayout.BeginHorizontal();
+                                            initedHorizontal = true;
+                                            restWidth = 0.7f;
+                                            var imageRatio = image.width / (float) image.height;
+                                            var imageWidth = areawidth * 0.28f;
+                                            var imageHeight = Mathf.Min(imageWidth / imageRatio, Screen.height * 0.45f);
+                                            using (new GUILayout.VerticalScope(GUILayout.Width(areawidth * 0.3f)))
+                                            {
+                                                GUILayout.FlexibleSpace();
+                                                GUILayout.Box(image, GUILayout.Width(imageWidth), GUILayout.Height(imageHeight));
+                                                GUILayout.FlexibleSpace();
+                                            }
+                                        }
                                     }
                                 }
 
-                                if (doTimeOut)
+                                using (new GUILayout.VerticalScope(GUILayout.Width(areawidth * restWidth)))
                                 {
-                                    if (Event.current.type == EventType.Repaint && elapsedTime > options.Timeout)
+                                    if (options.Horizontal)
                                     {
-                                        OptionSelected(options.getChildCount() - 1);
+                                        GUILayout.FlexibleSpace();
+                                    }
+                                    var elementsLeft = options.getLineCount();
+                                    while (elementsLeft > 0)
+                                    {
+                                        if (options.Horizontal)
+                                        {
+                                            GUILayout.BeginHorizontal();
+                                            GUILayout.FlexibleSpace();
+                                        }
+                                        else
+                                        {
+                                            GUILayout.BeginVertical();
+                                        }
+                                        var start = options.getLineCount() - elementsLeft;
+                                        var amount = options.MaxElemsPerRow > 0 ? options.MaxElemsPerRow : options.getLineCount();
+                                        var end = Mathf.Clamp(start + amount, 0, options.getLineCount());
+                                        var eachWidth = (areawidth * restWidth / (end - start)) - 20;
+                                        for (int i = start; i < end; i++)
+                                        {
+                                            ConversationLine ono = options.getLine(order[i]);
+                                            var content = new GUIContent(ono.getText());
+                                            var resources = ono.getResources().Checked().FirstOrDefault();
+                                            auxLimitList.Clear();
+                                            if(end - start > 1 && options.Horizontal)
+                                            {
+                                                auxLimitList.Add(GUILayout.Width(eachWidth));
+                                            }
+
+                                            if (resources != null && resources.existAsset("image") && !string.IsNullOrEmpty(resources.getAssetPath("image")))
+                                            {
+                                                var imagePath = resources.getAssetPath("image");
+                                                var image = ResourceManager.getImage(imagePath);
+                                                if (image)
+                                                {
+                                                    content.image = image;
+                                                    if (image.height > buttonImageWidth)
+                                                    {
+                                                        auxLimitList.Add(GUILayout.Height(buttonImageWidth - 20));
+                                                    }
+                                                }
+                                            }
+
+                                            if (ConditionChecker.check(options.getLineConditions(order[i])) && GUILayout.Button(content, auxLimitList.ToArray()))
+                                            {
+                                                OptionSelected(order[i]);
+                                            }
+                                        }
+                                        elementsLeft = options.getLineCount() - end;
+                                        if (options.Horizontal)
+                                        {
+                                            GUILayout.FlexibleSpace();
+                                            GUILayout.EndHorizontal();
+                                        }
+                                        else
+                                        {
+                                            GUILayout.EndVertical();
+                                        }
+
+                                        if (doTimeOut)
+                                        {
+                                            if (Event.current.type == EventType.Repaint && elapsedTime > options.Timeout)
+                                            {
+                                                OptionSelected(options.getChildCount() - 1);
+                                            }
+
+                                            var timeLeft = Mathf.Max(0, options.Timeout - elapsedTime);
+                                            var timeLeftText = Mathf.Round(timeLeft * 10) / 10 + " s";
+                                            GUILayout.FlexibleSpace();
+                                            DrawProgressBar(GUILayoutUtility.GetRect(0, 0, "emptyProgressBar", GUILayout.ExpandWidth(true), GUILayout.Height(50)), timeLeftText, 1 - (elapsedTime / options.Timeout));
+                                        }
                                     }
 
-                                    var timeLeft = Mathf.Max(0, options.Timeout - elapsedTime);
-                                    var timeLeftText = Mathf.Round(timeLeft * 10) / 10 + " s";
-                                    GUILayout.FlexibleSpace();
-                                    DrawProgressBar(GUILayoutUtility.GetRect(0, 0, "emptyProgressBar", GUILayout.ExpandWidth(true), GUILayout.Height(50)), timeLeftText, 1 - (elapsedTime / options.Timeout));
+                                    if (initedHorizontal)
+                                    {
+                                        GUILayout.EndHorizontal();
+                                    }
+
+                                    if (options.Horizontal)
+                                    {
+                                        GUILayout.FlexibleSpace();
+                                    }
                                 }
                             }
                         }
@@ -638,11 +857,13 @@ namespace uAdventure.Runner
 
         private IEnumerator PulseOnTimeCorrutine(EffectHolderNode effect, int time)
         {
+            pulsing++;
             yield return new WaitForSeconds(time);
             if (effect != null)
             {
                 effect.doPulse();
             }
+            pulsing--;
             Interacted();
         }
 

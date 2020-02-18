@@ -6,19 +6,43 @@ using Action = System.Action;
 
 namespace uAdventure.Runner
 {
-    [RequireComponent(typeof(MeshRenderer))]
     public class TransitionManager : MonoBehaviour
     {
         [SerializeField] private Material transitionMaterial;
         private Texture transitionTexture;
         private RenderTexture renderTexture;
         private bool transitioning;
-        public Transition transition;
+        private Transition transition;
+        private Coroutine transitionRoutine;
+        private float endTime;
+        private Action<Transition, Texture> onFinish;
+        private bool _shuttingDown = false;
 
         void Awake()
         {
             renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
             renderTexture.Create();
+            Update();
+        }
+
+        void Update()
+        {
+            if(!transitioning && (renderTexture == null || renderTexture.width != Screen.width || renderTexture.height != Screen.height))
+            {
+                if (renderTexture)
+                {
+                    renderTexture.Release();
+                    Destroy(renderTexture);
+                }
+
+                renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+                renderTexture.Create();
+            }
+
+            if (transitioning && transitionRoutine != null && Time.time > endTime)
+            {
+                FinalizeTransition(transition, transitionTexture, onFinish);
+            }
         }
 
         public void UseMaterial(Material material)
@@ -28,39 +52,84 @@ namespace uAdventure.Runner
 
         public void PrepareTransition(Transition transition)
         {
+            if (transitionRoutine != null)
+            {
+                Debug.LogError("The transition manager was already transitioning!");
+                return;
+            }
+
             CreateTransitionTexture();
             PrepareTransition(transition, renderTexture);
         }
 
         public void PrepareTransition(Transition transition, Texture transitionTexture)
         {
+            if (transitionRoutine != null)
+            {
+                Debug.LogError("The transition manager was already transitioning!");
+                return;
+            }
+
+            this.transitioning = true;
             this.transitionTexture = transitionTexture;
             this.transition = transition;
-            this.transitioning = true;
         }
 
         public void DoTransition(Action<Transition, Texture> onFinish)
         {
-            if (transition == null)
+            if (transitionRoutine != null)
             {
-                onFinish(null, null);
+                Debug.LogError("The transition was already started!");
+                FinalizeTransition(transition, transitionTexture, onFinish);
                 return;
             }
 
-            StartCoroutine(TransitionRoutine(transition, onFinish));
+            if (transition == null || transition.getType() == TransitionType.NoTransition || transition.getTime() == 0)
+            {
+                FinalizeTransition(transition, transitionTexture, onFinish);
+                return;
+            }
+
+            this.endTime = Time.time + transition.getTime() / 1000f;
+            this.onFinish = onFinish;
+            this.transitionRoutine = StartCoroutine(TransitionRoutine(transition));
+        }
+
+        public void CopyFrom(TransitionManager otherTransitionManager)
+        {
+            if (transitionRoutine != null || otherTransitionManager.transitionRoutine != null)
+            {
+                Debug.LogError("The other transition manager is already doing a transition!");
+                return;
+            }
+
+            this.transitionMaterial = otherTransitionManager.transitionMaterial;
+            this.transitionTexture  = otherTransitionManager.transitionTexture;
+            this.renderTexture      = otherTransitionManager.renderTexture;
+            this.transitioning      = otherTransitionManager.transitioning;
+            this.transition         = otherTransitionManager.transition;
+        }
+
+        private void OnDestroy()
+        {
+            _shuttingDown = true;
         }
 
         private void ResetMaterial()
         {
+            if (_shuttingDown)
+            {
+                return;
+            }
+
             transitionMaterial.SetFloat("_DirectionX", 0);
             transitionMaterial.SetFloat("_DirectionY", 0);
             transitionMaterial.SetFloat("_Progress", 0);
             transitionMaterial.SetFloat("_Blend", 0);
         }
 
-        private IEnumerator TransitionRoutine(Transition transition, Action<Transition, Texture> onFinish)
+        private IEnumerator TransitionRoutine(Transition transition)
         {
-            transitioning = true;
             var timeLeft = transition.getTime()/1000f;
             var totalTime = timeLeft;
             var fade = false;
@@ -69,9 +138,6 @@ namespace uAdventure.Runner
 
             switch (transition.getType())
             {
-                default: // TransitionType.NoTransition:
-                    FinalizeTransition(transition, transitionTexture, onFinish);
-                    yield break;
                 case TransitionType.FadeIn:
                     fade = true;
                     break;
@@ -95,8 +161,6 @@ namespace uAdventure.Runner
                 transitionMaterial.SetFloat(fade ? "_Blend" : "_Progress", Mathf.Clamp01(1 - (timeLeft / totalTime)));
                 yield return null;
             }
-
-            FinalizeTransition(transition, transitionTexture, onFinish);
         }
 
         private void FinalizeTransition(Transition transition, Texture transitionTexture, Action<Transition, Texture> onFinish)
@@ -104,6 +168,7 @@ namespace uAdventure.Runner
             transitioning = false;
             this.transition = null;
             ResetMaterial();
+            transitionRoutine = null;
             transitionMaterial.SetTexture("_MainTex", transitionTexture);
             transitionMaterial.SetTexture("_TransitionTex", null);
             onFinish(transition, transitionTexture);

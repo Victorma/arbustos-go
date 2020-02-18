@@ -42,11 +42,17 @@ namespace uAdventure.Geo
 
         public float update = .1f; // 5 meters
         public float accuracy = 1; // 10 meters
+        private bool inMapScene = false;
+        private bool inZoneControl = false;
+        private bool hidden = false;
+        private GUIMap guiMap;
+        private Rect debugWindowRect = new Rect(0, 0, 200, 200);
+        private Texture2D pointer;
 
         void Awake()
         {
             instance = this;
-            OnReset();
+            Restart();
         }
 
         public void Start()
@@ -55,9 +61,23 @@ namespace uAdventure.Geo
             {
                 StartCoroutine(StartLocation());
             }
+
+            if (Application.isPlaying)
+            {
+                Game.TargetChangedDelegate checkTarget = (newTarget) =>
+                {
+                    inMapScene = newTarget is MapScene;
+                    inZoneControl = GameObject.FindObjectOfType<ZoneControl>();
+                };
+
+                Game.Instance.OnTargetChanged += checkTarget;
+                checkTarget(Game.Instance.GameState.GetChapterTarget(Game.Instance.GameState.CurrentTarget));
+            }
+
+            pointer = Resources.Load<Texture2D>("pointer");
         }
 
-        public override void OnReset()
+        public override void Restart()
         {
             memory = new Memory();
             memory.Set("using_debug_location", false);
@@ -68,15 +88,14 @@ namespace uAdventure.Geo
             CreateNavigationAndZoneControl();
         }
 
-        public override void OnAfterGameLoad()
+        public override void OnGameReady()
         {
             this.memory = Game.Instance.GameState.GetMemory("geo_extension") ?? memory;
             CreateNavigationAndZoneControl();
         }
 
-        public override void OnBeforeGameSave()
-        {
-        }
+        public override void OnBeforeGameSave() { }
+        public override void OnAfterGameLoad() { }
 
         private void CreateNavigationAndZoneControl()
         {
@@ -150,12 +169,17 @@ namespace uAdventure.Geo
 
         void Update()
         {
+            if (!Application.isEditor && !IsStarted())
+            {
+                StartCoroutine(StartLocation());
+            }
+
             time += Time.deltaTime;
             timeSinceLastPositionUpdate += Time.deltaTime;
 
             if (time > blinkingTime)
             {
-                time = time - Mathf.Floor(time / blinkingTime) * blinkingTime;
+                time -= Mathf.Floor(time / blinkingTime) * blinkingTime;
             }
 
             if (Game.Instance.CurrentTargetRunner.Data is MapScene && !geochar)
@@ -170,7 +194,6 @@ namespace uAdventure.Geo
                 if (IsStarted() || UsingDebugLocation || geochar)
                 {
                     var mapScene = Game.Instance.CurrentTargetRunner.Data as MapScene;
-                    Debug.Log(Location);
                     if (mapScene != null)
                     {
                         TrackerExtension.Movement.Moved(mapScene.Id, Location);
@@ -205,8 +228,67 @@ namespace uAdventure.Geo
                     break;
             }
 
-            if (Event.current.type == EventType.Repaint)
+            if (paintSimbol && Event.current.type == EventType.Repaint)
+            {
                 GUI.DrawTexture(new Rect(Screen.width - iconWidth - 5, 5, iconWidth, iconHeight), paintSimbol);
+            }
+
+            if (Application.isEditor)
+            {
+                if (guiMap == null)
+                {
+                    guiMap = new GUIMap();
+                }
+
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                    hidden = !hidden;
+                }
+
+                if (!hidden && (inMapScene || inZoneControl))
+                {
+                    debugWindowRect = GUI.Window(12341234, debugWindowRect, (id) =>
+                    {
+                        var mapRect = new Rect(2, 18, 196, 180);
+                        using (new GUILayout.AreaScope(mapRect))
+                        {
+                            guiMap.Center = GeoExtension.Instance.Location;
+                            guiMap.Zoom = 17;
+                            guiMap.DrawMap(new Rect(0, 0, 196, 180));
+                            // Calculate the player pixel relative to the map
+                            var playerMeters = MapzenGo.Helpers.GM.LatLonToMeters(GeoExtension.Instance.Location);
+                            var playerPixel = MapzenGo.Helpers.GM.MetersToPixels(playerMeters, guiMap.Zoom);
+                            var playerPixelRelative = playerPixel + guiMap.PATR;
+
+                            // Do the point handling
+                            var pointControl = GUIUtility.GetControlID("PlayerPosition".GetHashCode(), FocusType.Passive);
+                            var oldPlayerPixel = playerPixelRelative.ToVector2();
+                            var newPlayerPixel = HandlePointMovement(pointControl, oldPlayerPixel, 60,
+                                (point, isOver, isActive) =>
+                                {
+                                    var locationRect = new Rect(0, 0, 30, 30);
+                                    locationRect.center = point;
+                                    locationRect.y -= locationRect.height / 2f;
+                                    GUI.DrawTexture(locationRect, pointer);
+                                });
+
+                            if (oldPlayerPixel != newPlayerPixel)
+                            {
+                                // If changed, restore the point to the geochar
+                                playerPixel = newPlayerPixel.ToVector2d() - guiMap.PATR;
+                                playerMeters = MapzenGo.Helpers.GM.PixelsToMeters(playerPixel, guiMap.Zoom);
+                                GeoExtension.Instance.Location = MapzenGo.Helpers.GM.MetersToLatLon(playerMeters);
+                            }
+
+                            guiMap.ProcessEvents(mapRect);
+
+                            GUI.Label(new Rect(0, 0, 196, 40), "Drag the pointer to move");
+                        }
+                        GUI.DragWindow();
+                    },
+                       "Debug Location");
+                }
+            }
         }
 
         public bool IsLocationValid()
@@ -246,6 +328,46 @@ namespace uAdventure.Geo
                     memory.Set("debug_location", value);
                 }
             }
+        }
+
+
+
+        private static Vector2 HandlePointMovement(int controlId, Vector2 point, float maxDistance, System.Action<Vector2, bool, bool> draw)
+        {
+            var cursorRect = new Rect(0, 0, maxDistance * 1.5f, maxDistance * 1.5f) { center = point };
+
+            var isOver = (point - Event.current.mousePosition).magnitude < maxDistance;
+            var isActive = GUIUtility.hotControl == controlId;
+
+            switch (Event.current.type)
+            {
+                case EventType.Repaint: draw(point, isOver, isActive); break;
+                case EventType.MouseDown:
+                    if (isOver)
+                    {
+                        GUIUtility.hotControl = controlId;
+                        Event.current.Use();
+                    }
+                    break;
+                case EventType.MouseDrag:
+                    if (isActive)
+                    {
+                        point.x += Event.current.delta.x;
+                        point.y += Event.current.delta.y;
+                        GUI.changed = true;
+                        Event.current.Use();
+                    }
+                    break;
+                case EventType.MouseUp:
+                    if (isActive)
+                    {
+                        GUIUtility.hotControl = 0;
+                        Event.current.Use();
+                    }
+                    break;
+            }
+
+            return point;
         }
     }
 }

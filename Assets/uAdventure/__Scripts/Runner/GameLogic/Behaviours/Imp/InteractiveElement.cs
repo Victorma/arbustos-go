@@ -12,7 +12,7 @@ namespace uAdventure.Runner
     {
         private bool interactable = false;
         private bool dragging = false;
-        private IEnumerable<Action> dragActions;
+        private IEnumerable<Action> targetActions;
         private readonly Dictionary<EffectHolder, Action> executingAction = new Dictionary<EffectHolder, Action>();
 
         protected Element element;
@@ -99,7 +99,7 @@ namespace uAdventure.Runner
                         }
                         break;
                     case Item.BehaviourType.NORMAL:
-                        var availableActions = Element.getActions().Valid(AvailableActions).ToList();
+                        var availableActions = Element.getActions().Valid(AvailableActions).Distinct().ToList();
                         ActionsUtil.AddExamineIfNotExists(Element, availableActions);
 
                         //if there is an action, we show them
@@ -141,10 +141,12 @@ namespace uAdventure.Runner
 
         public void OnConfirmWantsDrag(PointerEventData data)
         {
-            dragActions = from action in Element.getActions().Valid(AvailableActions)
-                          where action.getType() == Action.DRAG_TO && ConditionChecker.check(action.getConditions())
-                          group action by action.getTargetId() into sameTargetActions
-                          select sameTargetActions.First();
+            if (!AvailableActions.Contains(Action.DRAG_TO))
+            {
+                return;
+            }
+
+            var dragActions = GetDistinctInteractiveActionsOfType(Action.DRAG_TO);
 
             if (dragActions.Any())
             {
@@ -182,6 +184,14 @@ namespace uAdventure.Runner
                 case Action.DRAG_TO:
                     OnBeginDrag(null);
                     dragging = true;
+                    targetActions = GetDistinctInteractiveActionsOfType(action.getType());
+                    uAdventureInputModule.LookingForTarget = this.gameObject;
+                    break;
+                case Action.GIVE_TO:
+                case Action.CUSTOM_INTERACT:
+                case Action.USE_WITH:
+                    dragging = true;
+                    targetActions = GetDistinctInteractiveActionsOfType(action.getType());
                     uAdventureInputModule.LookingForTarget = this.gameObject;
                     break;
                 default:
@@ -199,9 +209,15 @@ namespace uAdventure.Runner
                     break;
             }
         }
+
+        private List<Action> GetDistinctInteractiveActionsOfType(int type)
+        {
+            return Element.getActions().Where(a => a.getType() == type).DistinctTarget().ToList();
+        }
+
         private void OnActionStarted(object interactuable)
         {
-            Game.Instance.ElementInteracted(false, this, interactuable as Action);
+            Game.Instance.ElementInteracted(false, Element, interactuable as Action);
         }
 
         private void OnActionFinished(object interactuable)
@@ -210,17 +226,13 @@ namespace uAdventure.Runner
             if(interactuable is EffectHolder)
             {
                 var effectHolder = interactuable as EffectHolder;
-                if (executingAction.ContainsKey(effectHolder))
-                {
-                    action = executingAction[effectHolder];
-                    executingAction.Remove(effectHolder);
-                }
+                action = Element.getActions().Where(a => a.Effects == effectHolder.originalEffects).FirstOrDefault();
             }
 
             if (action == null)
                 return;
 
-            Game.Instance.ElementInteracted(false, this, action);
+            Game.Instance.ElementInteracted(true, Element, action);
         }
 
         public void OnTargetSelected(PointerEventData data)
@@ -237,7 +249,6 @@ namespace uAdventure.Runner
                 this.GetComponent<Collider>().enabled = true;
             }
 
-            dragging = false;
             data.Use();
 
             if (target != null)
@@ -245,7 +256,7 @@ namespace uAdventure.Runner
                 string id = target.name;
                 if (id != null)
                 {
-                    var tmpActions = dragActions.Where(a => a.getTargetId() == id);
+                    var tmpActions = targetActions.Where(a => a.getTargetId() == id);
                     var action = tmpActions.Any() ? tmpActions.First() : null;
 
                     if (action != null)
@@ -254,6 +265,8 @@ namespace uAdventure.Runner
                     }
                 }
             }
+
+            dragging = false;
         }
 
         // Abstract methods

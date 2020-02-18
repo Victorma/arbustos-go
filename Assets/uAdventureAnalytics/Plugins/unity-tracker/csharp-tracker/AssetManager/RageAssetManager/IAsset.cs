@@ -15,73 +15,103 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System.Collections.Generic;
-
 namespace AssetPackage
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
-    ///     Interface for asset.
+    /// Interface for asset.
     /// </summary>
     public interface IAsset
     {
         #region Properties
 
         /// <summary>
-        ///     Gets the class.
+        /// Gets the class.
         /// </summary>
+        ///
         /// <value>
-        ///     The class.
+        /// The class.
         /// </value>
-        string Class { get; }
+        String Class
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Gets the dependencies.
+        /// Gets the dependencies.
         /// </summary>
+        ///
         /// <value>
-        ///     The dependencies (A Dictionary of class=version pairs).
+        /// The dependencies (A Dictionary of class=version pairs).
         /// </value>
-        Dictionary<string, string> Dependencies { get; }
+        Dictionary<String, String> Dependencies
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Gets the identifier.
+        /// Gets the identifier.
         /// </summary>
+        ///
         /// <value>
-        ///     The identifier.
+        /// The identifier.
         /// </value>
-        string Id { get; }
+        String Id
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Gets the maturity.
+        /// Gets the maturity.
         /// </summary>
+        ///
         /// <value>
-        ///     The maturity.
+        /// The maturity.
         /// </value>
-        string Maturity { get; }
+        String Maturity
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Gets or sets options for controlling the operation.
+        /// Gets or sets options for controlling the operation.
         /// </summary>
+        ///
         /// <value>
-        ///     The settings.
+        /// The settings.
         /// </value>
-        ISettings Settings { get; set; }
+        ISettings Settings
+        {
+            get;
+            set;
+        }
 
         /// <summary>
-        ///     Gets the version.
+        /// Gets the version.
         /// </summary>
+        ///
         /// <value>
-        ///     The version.
+        /// The version.
         /// </value>
-        string Version { get; }
+        String Version
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Gets or sets the bridge.
+        /// Gets or sets the bridge.
         /// </summary>
+        ///
         /// <value>
-        ///     The bridge.
+        /// The bridge.
         /// </value>
-        IBridge Bridge { get; set; }
+        IBridge Bridge
+        {
+            get;
+            set;
+        }
 
         #endregion Properties
     }

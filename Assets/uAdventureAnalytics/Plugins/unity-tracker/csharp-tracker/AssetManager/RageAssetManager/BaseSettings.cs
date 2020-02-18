@@ -15,21 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System.ComponentModel;
-using System.Reflection;
-
 namespace AssetPackage
 {
+    using System;
+    using System.ComponentModel;
+    using System.Reflection;
+
     /// <summary>
-    ///     A base settings.
+    /// A base settings.
     /// </summary>
     public class BaseSettings : ISettings
     {
         #region Constructors
 
         /// <summary>
-        ///     Initializes a new instance of the Swiss.BaseSettings class.
+        /// Initializes a new instance of the Swiss.BaseSettings class.
         /// </summary>
         public BaseSettings()
         {
@@ -42,20 +42,21 @@ namespace AssetPackage
         #region Methods
 
         /// <summary>
-        ///     Set the value of (Public Instance) properties to the <see cref="DefaultValueAttribute" />'s
-        ///     Value of that property.
+        /// Set the value of (Public Instance) properties to the <see cref="DefaultValueAttribute"/>'s
+        /// Value of that property.
         /// </summary>
         private void UpdateDefaultValues()
         {
-            UpdateDefaultValues(this);
+            BaseSettings.UpdateDefaultValues(this);
         }
 
         /// <summary>
-        ///     Set the value of (Public Instance) properties to the
-        ///     <see cref="DefaultValueAttribute" />'s Value of that property.
+        /// Set the value of (Public Instance) properties to the
+        /// <see cref="DefaultValueAttribute"/>'s Value of that property.
         /// </summary>
+        ///
         /// <param name="obj"> The object. </param>
-        public static void UpdateDefaultValues(object obj)
+        public static void UpdateDefaultValues(Object obj)
         {
             // GetProperties not PCL
             // BindingFlags not PCL
@@ -63,40 +64,46 @@ namespace AssetPackage
 #if PORTABLE
             foreach (PropertyInfo pi in obj.GetType().GetRuntimeProperties())
 #else
-            foreach (var pi in obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
+            foreach (PropertyInfo pi in obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
 #endif
 
             {
-                var found = false;
+                Boolean found = false;
 
                 if (pi.CanWrite)
                 {
-                    foreach (var att in pi.GetCustomAttributes(typeof(DefaultValueAttribute), false))
+                    foreach (Object att in pi.GetCustomAttributes(typeof(DefaultValueAttribute), false))
                     {
                         if (att is DefaultValueAttribute)
                         {
                             // Pretty Print Assigned Values.
                             // 
-                            var val = ((DefaultValueAttribute) att).Value;
+                            Object val = ((DefaultValueAttribute)att).Value;
 
                             if (val == null)
                             {
                                 val = "null";
                             }
-                            else if (val is string && string.IsNullOrEmpty(val.ToString()))
+                            else if (val is String && String.IsNullOrEmpty(val.ToString()))
                             {
                                 val = "\"\"";
                             }
                             else
                             {
-                                val = string.Format("{0}", val);
+                                val = String.Format("{0}", val);
                             }
 
                             found = true;
 
                             if (pi.CanWrite)
                             {
-                                pi.SetValue(obj, ((DefaultValueAttribute) att).Value, new object[] { });
+                                pi.SetValue(obj, ((DefaultValueAttribute)att).Value, new object[] { });
+
+                                // Debug.WriteLine(String.Format("Updated {0}.{1} to {2}", obj.GetType().Name, pi.Name, val));
+                            }
+                            else
+                            {
+                                // Debug.WriteLine(String.Format("Error Updating Default Value of {0}.{1}", obj.GetType().Name, pi.Name));
                             }
 
                             break;

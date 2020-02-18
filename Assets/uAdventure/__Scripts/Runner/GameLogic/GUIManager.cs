@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using uAdventure.Core;
+using UnityEngine.SceneManagement;
+using AssetPackage;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace uAdventure.Runner
 {
@@ -10,19 +14,22 @@ namespace uAdventure.Runner
         private static GUIManager instance;
         private GameObject bubble;
         private bool get_talker = false;
-        private string talkerToFind, lastText;
+        private string talkerToFind;
+        private ConversationLine line;
         private GUIProvider guiprovider;
         private bool locked = false;
         private string current_cursor = "";
+        private bool started = false;
+
 
         public static GUIManager Instance
         {
             get { return instance; }
         }
 
-        public string Last
+        public ConversationLine Line
         {
-            get { return lastText; }
+            get { return line; }
         }
 
         public GUIProvider Provider
@@ -32,12 +39,24 @@ namespace uAdventure.Runner
 
         protected void Awake()
         {
+            if(instance != null)
+            {
+                DestroyImmediate(this.gameObject);
+                return;
+            }
+
+            DontDestroyOnLoad(this.gameObject);
             instance = this;
         }
 
         protected void Start()
         {
+            started = true;
             guiprovider = new GUIProvider(Game.Instance.GameState.Data);
+            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                this.GetComponent<UnityEngine.UI.CanvasScaler>().referenceResolution = new Vector2(600, 400);
+            }
         }
 
         protected void Update()
@@ -45,12 +64,17 @@ namespace uAdventure.Runner
             if (get_talker && GameObject.Find(talkerToFind) != null)
             {
                 get_talker = false;
-                Talk(lastText, talkerToFind);
+                Talk(line.getText(), talkerToFind);
             }
         }
 
         public void SetCursor(string cursor)
         {
+            if (!started)
+            {
+                Start();
+            }
+
             if (cursor != current_cursor)
             {
                 if (!locked)
@@ -74,27 +98,60 @@ namespace uAdventure.Runner
             SetCursor(show ? "over" : "default");
         }
 
+        public InteractuableResult InteractWithDialogue()
+        {
+            if(bubble != null)
+            {
+                return bubble.GetComponent<Bubble>().Interacted();
+            }
+            else
+            {
+                return InteractuableResult.IGNORES;
+            }
+        }
+
         public void Talk(string text, int x, int y, Color textColor, Color textBorderColor)
         {
-            lastText = text;
+            line = new ConversationLine("", text);
             ShowBubble(GenerateBubble(text, x, y, textColor, textBorderColor));
         }
 
         public void Talk(string text, int x, int y, Color textColor, Color textBorderColor, Color backgroundColor, Color borderColor)
         {
-            lastText = text;
+            line = new ConversationLine("", text);
             ShowBubble(GenerateBubble(text, x, y, textColor, textBorderColor, backgroundColor, borderColor));
+        }
+        public void Talk(ConversationLine line, string talkerName = null)
+        {
+            var resources = line.getResources().Checked().FirstOrDefault();
+            if (resources != null)
+            {
+                var image = resources.existAsset("image") ? Game.Instance.ResourceManager.getImage(resources.getAssetPath("image")) : null;
+                var audio = resources.existAsset("audio") ? Game.Instance.ResourceManager.getAudio(resources.getAssetPath("audio")) : null;
+                var tts = resources.existAsset("tts") ? resources.getAssetPath("tts") == "yes" : false;
+                Talk(line.getText(), image, audio, tts, talkerName);
+            }
+            else
+            {
+                Talk(line.getText(), null, null, false, talkerName);
+            }
+            this.line = line;
         }
 
         public void Talk(string text, string talkerName = null)
         {
-            lastText = text;
+            Talk(text, null, null, false, talkerName);
+        }
+
+        public void Talk(string text, Texture2D image, AudioClip audio, bool synthetizeVoice, string talkerName = null)
+        {
+            line = new ConversationLine("", text);
             GameObject talkerObject = null;
+            BubbleData bubbleData;
             if (talkerName == null || talkerName == Player.IDENTIFIER)
             {
                 text = text.Replace("[]", "[" + Player.IDENTIFIER + "]");
                 NPC player = Game.Instance.GameState.Player;
-                BubbleData bubbleData;
 
                 if (Game.Instance.GameState.IsFirstPerson || PlayerMB.Instance == null)
                 {
@@ -109,6 +166,9 @@ namespace uAdventure.Runner
                     }
                     bubbleData = GenerateBubble(player, text, talkerObject);
                 }
+                bubbleData.Image = image;
+                bubbleData.TTS = synthetizeVoice;
+                bubbleData.Audio = audio;
 
                 ShowBubble(bubbleData);
             }
@@ -121,7 +181,11 @@ namespace uAdventure.Runner
                 }
 
                 NPC cha = Game.Instance.GameState.GetCharacter(talkerName);
-                ShowBubble(GenerateBubble(cha, text, talkerObject));
+                bubbleData = GenerateBubble(cha, text, talkerObject);
+                bubbleData.Image = image;
+                bubbleData.TTS = synthetizeVoice;
+                bubbleData.Audio = audio;
+                ShowBubble(bubbleData);
             }
             if (talkerObject)
             {
@@ -140,7 +204,7 @@ namespace uAdventure.Runner
 
             if (bubble != null)
             {
-                bubble.GetComponent<Bubble>().destroy();
+                bubble.GetComponent<Bubble>().Destroy();
             }
             if (data.Line.Length > 0 && data.Line[0] == '#')
             {
@@ -179,7 +243,7 @@ namespace uAdventure.Runner
                         talker.Play("stand");
                     }
                 } 
-                this.bubble.GetComponent<Bubble>().destroy();
+                this.bubble.GetComponent<Bubble>().Destroy();
             }
         }
 
@@ -283,7 +347,9 @@ namespace uAdventure.Runner
 
         public void ShowConfigMenu()
         {
-            this.Config_Menu_Ref.SetActive(!Config_Menu_Ref.activeSelf);
+            var nextState = !Config_Menu_Ref.activeSelf;
+            Time.timeScale = nextState ? 0 : 1;
+            this.Config_Menu_Ref.SetActive(nextState);
         }
 
         public void OnClickLoad()
@@ -298,12 +364,63 @@ namespace uAdventure.Runner
 
         public void ResetAndExit()
         {
-            Game.Instance.Reset();
+            Game.Instance.Restart();
+        }
+        public void ClearData()
+        {
+            Game.Instance.ClearAndRestart();
         }
 
         public void ExitApplication()
         {
-            Application.Quit();
+            if (PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN" && PlayerPrefs.HasKey("LimesurveyPost"))
+            {
+                string path = Application.persistentDataPath;
+
+                if (!path.EndsWith("/"))
+                {
+                    path += "/";
+                }
+
+                Dictionary<string, string> headers = new Dictionary<string, string>();
+
+                Net net = new Net(this);
+
+                WWWForm data = new WWWForm();
+
+                TrackerAssetSettings trackersettings = (TrackerAssetSettings)TrackerAsset.Instance.Settings;
+                string backupfile = Application.persistentDataPath + System.IO.Path.DirectorySeparatorChar + trackersettings.BackupFile;
+
+                data.AddField("token", PlayerPrefs.GetString("LimesurveyToken"));
+                data.AddBinaryData("traces", System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(backupfile)));
+
+                //d//ata.headers.Remove ("Content-Type");// = "multipart/form-data";
+
+                net.POST(PlayerPrefs.GetString("LimesurveyHost") + "classes/collector", data, new SavedTracesListener());
+
+                System.IO.File.AppendAllText(path + PlayerPrefs.GetString("LimesurveyToken") + ".csv", System.IO.File.ReadAllText(backupfile));
+                PlayerPrefs.SetString("CurrentSurvey", "post");
+                SceneManager.LoadScene("_Survey");
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+        class SavedTracesListener : Net.IRequestListener
+        {
+            public void Result(string data)
+            {
+                Debug.Log("------------------------");
+                Debug.Log(data);
+            }
+
+            public void Error(string error)
+            {
+                Debug.Log("------------------------");
+                Debug.Log(error);
+            }
         }
     }
 }

@@ -95,6 +95,11 @@ namespace uAdventure.Editor
 
         public TT CreateElement(int type, string id, params object[] extraParams)
         {
+            if (!string.IsNullOrEmpty(id) && !Controller.Instance.isElementIdValid(id))
+            {
+                id = Controller.Instance.makeElementValid(id);
+            }
+
             var dataControl = elementCreators.First(ec => ec.TypeDescriptors.Select(td => td.Type).Contains(type)).CreateElement(type, id, extraParams);
 
             if (dataControl != null)
@@ -229,11 +234,13 @@ namespace uAdventure.Editor
             public ElementFactoryView()
             {
                 Titles = new Dictionary<int, string>();
+                DefaultIds = new Dictionary<int, string>();
                 Messages = new Dictionary<int, string>();
                 Errors = new Dictionary<int, string>();
             }
 
             public Dictionary<int, string> Titles { get; set; }
+            public Dictionary<int, string> DefaultIds { get; set; }
             public Dictionary<int, string> Messages { get; set; }
             public Dictionary<int, string> Errors { get; set; }
             public IElementFactory<TT> ElementFactory { get; set; }
@@ -301,7 +308,14 @@ namespace uAdventure.Editor
                 var message = elementFactoryView.Messages[type].Traslate();
                 if (elementFactory.RequiresId(type))
                 {
-                    controller.ShowInputDialog(title, message, (o, s) => continueAddingElement(type, s));
+                    if (elementFactoryView.DefaultIds.ContainsKey(type))
+                    {
+                        controller.ShowInputDialog(title, message, elementFactoryView.DefaultIds[type], (o, s) => continueAddingElement(type, s));
+                    }
+                    else
+                    {
+                        controller.ShowInputDialog(title, message, (o, s) => continueAddingElement(type, s));
+                    }
                 }
                 else if (elementFactory.ReferencesId(type))
                 {

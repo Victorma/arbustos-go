@@ -27,7 +27,20 @@ namespace uAdventure.Runner
             set
             {
                 lookingForTarget = value;
-                targetSelectedHandler = value == null ? null : ExecuteEvents.GetEventHandler<ITargetSelectedHandler>(value);
+                GetEventHandler(value);
+            }
+        }
+
+        private static void GetEventHandler(GameObject value)
+        {
+            targetSelectedHandler = value == null ? null : ExecuteEvents.GetEventHandler<ITargetSelectedHandler>(value);
+            if (!targetSelectedHandler && value)
+            {
+                var component = value.GetComponent<ITargetSelectedHandler>() ?? value.GetComponentInChildren<ITargetSelectedHandler>();
+                if (component != null)
+                {
+                    targetSelectedHandler = value;
+                }
             }
         }
 
@@ -45,6 +58,20 @@ namespace uAdventure.Runner
         {
             // Nothing to do so far, this was related to remote connection
             return false;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            if(FindObjectsOfType<uAdventureInputModule>().Length > 1)
+            {
+                DestroyImmediate(this.gameObject);
+            }
+            else
+            {
+                DontDestroyOnLoad(this.gameObject);
+            }
         }
 
         public override void Process()

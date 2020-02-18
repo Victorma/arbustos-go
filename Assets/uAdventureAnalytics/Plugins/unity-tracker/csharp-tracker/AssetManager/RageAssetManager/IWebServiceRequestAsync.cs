@@ -15,32 +15,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-using System;
-using System.Collections.Generic;
-
 namespace AssetPackage
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
-    ///     Interface for web service response.
+    /// Interface for web service response.
     /// </summary>
+    ///
     /// <remarks>
-    ///     Implemented by assets requesting result notification of a
-    ///     IWebServiceRequest.
+    /// Implemented by assets requesting result notification of a
+    /// IWebServiceRequest.
     /// </remarks>
     [Obsolete("Use IWebServiceRequest instead")]
     public interface IWebServiceResponseAsync
     {
         /// <summary>
-        ///     Called when a WebRequest results in an Error.
+        /// Called when a WebRequest results in an Error.
         /// </summary>
+        ///
         /// <param name="url"> URL of the document. </param>
         /// <param name="msg"> The error message. </param>
         void Error(string url, string msg);
 
         /// <summary>
-        ///     Called after a Successfull WebRequest (no Exceptions).
+        /// Called after a Successfull WebRequest (no Exceptions).
         /// </summary>
+        ///
         /// <param name="url">     URL of the document. </param>
         /// <param name="code">    The code. </param>
         /// <param name="headers"> The headers. </param>
@@ -49,17 +51,22 @@ namespace AssetPackage
     }
 
     /// <summary>
-    ///     Interface for web service request.
+    /// Interface for web service request.
     /// </summary>
+    ///
     /// <remarks>
-    ///     Implemented on a Bridge.
-    ///     Will be replaced by the code from IWebServiceRequest2 once tested.
+    /// Implemented on a Bridge.
+    /// Will be replaced by the code from IWebServiceRequest2 once tested.
     /// </remarks>
     public interface IWebServiceRequestAsync
     {
+
+#warning Add Tag or Data parameter to this call so we can identify it in IWebServiceResponse?
+
         /// <summary>
-        ///     Web service request.
+        /// Web service request.
         /// </summary>
+        ///
         /// <param name="method">      The method. </param>
         /// <param name="uri">         URI of the document. </param>
         /// <param name="headers">     The headers. </param>
@@ -71,6 +78,6 @@ namespace AssetPackage
             Dictionary<string, string> headers,
             string body,
             IWebServiceResponseAsync response
-        );
+            );
     }
 }
