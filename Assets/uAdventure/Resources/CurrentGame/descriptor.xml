@@ -4,13 +4,13 @@
   <title>Adventure title</title>
   <description>
   </description>
-  <configuration keepShowing="no" keyboard-navigation="disabled" defaultClickAction="showDetails" perspective="regular" dragBehaviour="considerNonTargets" autosave="no" save-on-suspend="no">
+  <configuration keepShowing="no" keyboard-navigation="disabled" defaultClickAction="showDetails" perspective="regular" dragBehaviour="considerNonTargets" autosave="no" save-on-suspend="yes">
     <gui type="contextual" inventoryPosition="top_bottom" />
     <mode playerTransparent="yes" />
     <graphics mode="windowed" />
   </configuration>
   <extension-objects>
-    <tracker rawCopy="yes" storageType="LOCAL" traceFormat="CSV" host="" trackingCode="" flushInterval="3" debug="no" />
+    <tracker rawCopy="yes" storageType="NET" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5e3a832b5ee978008a6d47a1d2b7rbz41bc" flushInterval="3" debug="yes" />
   </extension-objects>
   <contents>
     <chapter path="chapter1.xml">
