@@ -453,26 +453,36 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="298" y="258" width="438" height="114" hasInfluenceArea="no" idTarget="Start" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="1000" not-effects="no">
+      <exit rectangular="yes" x="298" y="258" width="438" height="114" hasInfluenceArea="no" idTarget="Disclaimer" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="1000" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <post-effect>
-          <trigger-conversation idTarget="Intro" />
+          <activate flag="SeeingDisclaimer" />
           <condition />
         </post-effect>
       </exit>
     </exits>
   </scene>
-  <scene id="Alumnos" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="Disclaimer" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/casaestudiante.jpg" />
+      <asset type="background" uri="assets/background/disclaimer.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+  </scene>
+  <scene id="MetroCIU" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/ciu.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
     <characters>
-      <character-ref idTarget="Bandalf" x="523" y="635" scale="0.4670743" orientation="2" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Bandalf" x="630" y="1045" scale="1.377005" orientation="2" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <scene id="Antes" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -693,13 +703,13 @@
       <condition />
     </map-element>
   </map-scene>
-  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436117962075, -3.72705721855071)" zoom="19" start="no">
+  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437016125164, -3.72640007734232)" zoom="18" start="no">
     <map-element targetId="PlasticBag" layer="0" scale="0.17" orientation="0">
       <condition>
         <active flag="Intro" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4436340332031, -3.72690439224243)</param>
+        <param name="Position">(40.4437217712402, -3.7261278629303)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -707,7 +717,7 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Alumnos" layer="0" scale="1" orientation="0">
+    <map-element targetId="MetroCIUArea" layer="0" scale="1" orientation="0">
       <condition>
         <inactive flag="Intro" />
       </condition>
@@ -2806,7 +2816,7 @@
       <condition />
       <child nodeindex="8" />
       <effect>
-        <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="500" transitionType="5" />
+        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="5" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4035,7 +4045,7 @@
       </condition>
       <child nodeindex="44" />
       <effect>
-        <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="500" transitionType="2" />
+        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="2" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4977,7 +4987,7 @@
       </exit-action>
     </actions>
   </geoelement>
-  <geoelement id="Alumnos">
+  <geoelement id="MetroCIUArea">
     <description>
       <name>
       </name>
@@ -4987,11 +4997,11 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="10">
+      <geometry influence="4.47">
         <Polygon>
           <exterior>
             <LinearRing>
-              <posList>40.4434762440089 -3.72810378200092 40.443466037581 -3.727981398684 40.4437840898013 -3.72804845390937 40.4437534706534 -3.72816010839024</posList>
+              <posList>40.4435027811301 -3.72692897444974 40.4435129875514 -3.72680122671482 40.4436207871132 -3.72682536659594 40.4436003744264 -3.72693970328582</posList>
             </LinearRing>
           </exterior>
         </Polygon>
@@ -5000,7 +5010,7 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-scene idTarget="Alumnos" x="512" y="503" transitionTime="1000" transitionType="5" />
+          <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="1000" transitionType="5" />
           <condition />
           <speak-player>* Toca al mago para interactuar con él *</speak-player>
           <condition />
@@ -5265,7 +5275,7 @@
     <geometries>
       <geometry influence="1000">
         <Point>
-          <pos>40.4436804 -3.7268294</pos>
+          <pos>40.4437926702403 -3.72605424165429</pos>
         </Point>
       </geometry>
     </geometries>
@@ -5356,7 +5366,7 @@
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
     <deactivate flag="Correcto" />
     <condition>
       <active flag="Correcto" />
@@ -5732,4 +5742,15 @@
       <img src="assets/image/naranja2.jpg" />
     </text>
   </book>
+  <timer time="3" usesEndCondition="no" multipleStarts="no" runsInLoop="no" showTime="no" displayName="disclaimerseen" countDown="yes" showWhenStopped="no">
+    <init-condition>
+      <active flag="SeeingDisclaimer" />
+    </init-condition>
+    <effect>
+      <trigger-scene idTarget="Start" x="512" y="473" transitionTime="1000" transitionType="5" />
+      <condition />
+      <trigger-conversation idTarget="Intro" />
+      <condition />
+    </effect>
+  </timer>
 </eAdventure>

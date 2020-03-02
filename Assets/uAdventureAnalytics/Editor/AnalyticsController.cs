@@ -10,13 +10,21 @@ namespace uAdventure.Analytics
         /**
          * Id for Completables
          */
-
         public const int COMPLETABLE = 67;
 
+        /**
+         * Id for Milestones
+         */
         public const int MILESTONE = 68;
 
+        /**
+         * Id for Progress
+         */
         public const int PROGRESS = 69;
 
+        /**
+         * Id for Score
+         */
         public const int SCORE = 70;
 
         private static AnalyticsController instance;
@@ -28,6 +36,7 @@ namespace uAdventure.Analytics
         private ChapterDataControl lastSelectedChapterDataControl;
         private CompletableListDataControl completableListDataControl;
         private readonly TrackerConfigDataControl trackerConfigDataControl;
+        private readonly SurveyManagerConfigDataControl surveyManagerConfigDataControl;
 
         public CompletableListDataControl Completables
         {
@@ -46,6 +55,14 @@ namespace uAdventure.Analytics
             get { return trackerConfigDataControl; }
         }
 
+        /**
+         * @return the surveymanager config
+         */
+        public SurveyManagerConfigDataControl SurveyManagerConfig
+        {
+            get { return surveyManagerConfigDataControl; }
+        }
+
         public int SelectedGeoElement { get; set; }
         public int SelectedMapScene { get; set; }
 
@@ -57,6 +74,12 @@ namespace uAdventure.Analytics
                 trackerConfigs.Add(new TrackerConfig());
             }
             trackerConfigDataControl = new TrackerConfigDataControl(trackerConfigs[0]);
+            var surveyManagerConfigs = Controller.Instance.AdventureData.getAdventureData().getObjects<SurveyManagerConfig>();
+            if (surveyManagerConfigs.Count == 0)
+            {
+                surveyManagerConfigs.Add(new SurveyManagerConfig());
+            }
+            surveyManagerConfigDataControl = new SurveyManagerConfigDataControl(surveyManagerConfigs[0]);
             UpdateChapter();
         }
 

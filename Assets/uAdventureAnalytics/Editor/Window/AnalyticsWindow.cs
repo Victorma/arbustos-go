@@ -11,7 +11,8 @@ namespace uAdventure.Analytics
         private enum AnalyticsWindowType
         {
             Completables,
-            TrackerConfig
+            TrackerConfig,
+            SurveyManager
         }
 
 
@@ -31,12 +32,14 @@ namespace uAdventure.Analytics
                 text = "Analytics.Title"
             };
 
-            windows = new BaseWindow[2]
+            windows = new BaseWindow[]
             {
                 new CompletablesWindow(aStartPos,
                     new GUIContent(TC.get("Completables")), "Window"),
                 new TrackerConfigWindow(aStartPos,
-                    new GUIContent(TC.get("TrackerConfig")), "Window")
+                    new GUIContent(TC.get("TrackerConfig")), "Window"),
+                new SurveyManagerWindow(aStartPos,
+                    new GUIContent(TC.get("SurveyManager")), "Window")
             };
 
             foreach (var window in windows)
@@ -49,7 +52,8 @@ namespace uAdventure.Analytics
             tabs = new List<KeyValuePair<string, AnalyticsWindowType>>()
             {
                 new KeyValuePair<string, AnalyticsWindowType>(TC.get("Completables"), AnalyticsWindowType.Completables),
-                new KeyValuePair<string, AnalyticsWindowType>(TC.get("TrackerConfig"), AnalyticsWindowType.TrackerConfig)
+                new KeyValuePair<string, AnalyticsWindowType>(TC.get("TrackerConfig"), AnalyticsWindowType.TrackerConfig),
+                new KeyValuePair<string, AnalyticsWindowType>(TC.get("SurveyManager"), AnalyticsWindowType.SurveyManager)
             };
         }
 

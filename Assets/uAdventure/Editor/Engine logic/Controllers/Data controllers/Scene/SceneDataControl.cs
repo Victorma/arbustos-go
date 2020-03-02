@@ -149,13 +149,16 @@ namespace uAdventure.Editor
             if (background)
             {
                 var previousBackground = Controller.ResourceManager.getImage(getPreviewBackground());
-                previousBackgroundSize = new Vector2(previousBackground.width, previousBackground.height);
-
-                if ((previousBackground.width != background.width || previousBackground.height != background.height) && 
-                    !Controller.Instance.ShowStrictConfirmDialog("Different Size", "The selected background dimensions " +
-                               "are not the same as the previous background, do you want the elements to maintain its relative position and scale?"))
+                if (previousBackground)
                 {
-                    maintainRelative = false;
+                    previousBackgroundSize = new Vector2(previousBackground.width, previousBackground.height);
+
+                    if ((previousBackground.width != background.width || previousBackground.height != background.height) &&
+                        !Controller.Instance.ShowStrictConfirmDialog("Different Size", "The selected background dimensions " +
+                                   "are not the same as the previous background, do you want the elements to maintain its relative position and scale?"))
+                    {
+                        maintainRelative = false;
+                    }
                 }
 
                 var foreground = Controller.ResourceManager.getImage(getPreviewForeground());

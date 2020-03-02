@@ -17,7 +17,7 @@ public class NameSaver : MonoBehaviour {
 
     public void SaveName()
     {
-		string path = Application.persistentDataPath;
+		string path = Application.temporaryCachePath;
 
 		if (!path.EndsWith ("/")) {
 			path += "/";

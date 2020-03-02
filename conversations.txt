@@ -1,0 +1,768 @@
+Conversation: Intro
+Node: 1
+ - Player: Hola viajero
+ - Player: #O Una voz que habla... 
+ - Player: #O Justo lo que me faltaba para rematar el estrés de volver a clase
+ - Player: No soy una voz, soy Bandalf y esto es telepatía
+ - Player: He conectado mi mundo, Baland, con el tuyo para encontrarte
+ - Player: #O Baland... Algo así como Narnia?
+ - Player: Más o menos...
+ - Player: Pero en este caso mi mundo está amenazado y casi no nos queda tiempo
+ - Player: La falta de reciclaje en tu mundo está llevando a mi mundo al desastre
+Node: 2
+ * After Node: 1: La falta de reciclaje en tu mundo está llevando a mi mundo al desastre
+ - Player: Te ayudaré
+ - Player: Bueh y a mí qué
+Node: 3
+ * After Node: 2: Te ayudaré
+ - Player: Fantástico, manos a la obra
+Node: 4
+ * After Node: 2: Bueh y a mí qué
+ - Player: Jajaja, qué iluso, no tienes elección...
+Node: 5
+ * After Node: 3: Fantástico, manos a la obra
+ * After Node: 4: Jajaja, qué iluso, no tienes elección...
+ - Player: Nuestros mundos están conectados y se destruirán si no hacemos algo
+ - Player: #O No! Qué puedo hacer yo?
+ - Player: Mucho! Ven a verme a la casa del estudiante
+ - Player: No conozco mucho tu mundo, pero gracias a mi magia podrás interactuar con el mío a través de tu móvil
+ - Player: Voy a invocar una flecha verde que indicará mi posición...
+Node: 6
+ * After Node: 5: Voy a invocar una flecha verde que indicará mi posición...
+ - Player: #! *Wosh!*
+ - Player: Soy un crack. Te espero allí
+
+Conversation: BandalfIntro
+Node: 1
+ - Bandalf: Sí, soy Bandalf
+ - Player: Cómo?
+ - Bandalf: Ibas a preguntarlo, verdad?
+ - Player: Yo... Eh... Sí.
+ - Bandalf: Soy mago, me adelanto a todo ;)
+ - Bandalf: Necesito tu ayuda y no hay tiempo que perder con más preguntas.
+ - Player: Pero... Sí no he podido preguntar nada!
+ - Bandalf: Verás...
+ - Bandalf: Una amenaza se cierne sobre nuestros mundos.
+ - Bandalf: El planeta está muriéndose. 
+ - Bandalf: Si seguimos consumiendo de manera tan inconsciente vamos a acabar...
+ - Player: Mal, verdad?
+ - Bandalf: Vaya, veo que no hace falta ser mago para darse cuenta...
+ - Bandalf: Verás...
+Node: 2
+ * After Node: 1: Verás...
+ - Bandalf: Esta era la Universidad Complutense en los años 50
+ - Bandalf: El campus de Ciudad Universitaria se creó en 1927 por el rey Alfonso XIII
+ - Bandalf: Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente.
+ - Bandalf: En la segunda república añadieron ciencias, letras y arquitectura, no todo era curar gente jeje
+ - Bandalf: Después, llegó la guerra, y se tuvieron que reconstruir muchos edificios
+ - Bandalf: Tal vez luego debas ir a ver balazos por medicina o farmacia
+Node: 3
+ * After Node: 2: Tal vez luego debas ir a ver balazos por medicina o farmacia
+ - Bandalf: Después, se rompió con la ordenanza y se constuyeron todo tipo de edificios
+ - Bandalf: Pero no todo es construir, la UCM está ubicada en la Dehesa de la Villa y tiene más de cien hectáreas de patrimonio verde
+ - Bandalf: La UCM es tan importante que en 1999 se declaró Bien de Interés Cultural
+ - Player: Y todo se va a ir al traste a menos que hagamos algo...
+Node: 4
+ * After Node: 3: Y todo se va a ir al traste a menos que hagamos algo...
+ - Bandalf: Los residuos están acabando con la universidad
+ - Bandalf: Consumimos, desperdiciamos y nos despreocupamos
+ - Player: ...
+ - Bandalf: Contaminación, extinciones, calentamiento...
+ - Bandalf: Poco a poco empezamos a sufrir las consecuencias
+ - Bandalf: Pero por suerte tengo la herramienta para ayudar a evitarlo...
+Node: 5
+ * After Node: 4: Pero por suerte tengo la herramienta para ayudar a evitarlo...
+ - Bandalf: Las tres erres!
+Node: 6
+ * After Node: 5: Las tres erres!
+ - Bandalf: Reducir!
+ - Bandalf: Consumir menos, evitar el sobreenvasado...
+ - Bandalf: O dejar de olvidarte la bolsa antes de ir a la compra, gañán!
+Node: 7
+ * After Node: 6: O dejar de olvidarte la bolsa antes de ir a la compra, gañán!
+ - Bandalf: Reutilizar!
+ - Bandalf: Tarros, bolsas, corchos... Hasta túnicas de segunda mano!
+Node: 8
+ * After Node: 7: Tarros, bolsas, corchos... Hasta túnicas de segunda mano!
+ - Bandalf: Reciclar!
+ - Bandalf: De la que nos ocuparemos hoy!
+ - Bandalf: Debemos aprender a separar correctamente la basura en los cinco contenedores
+ - Bandalf: Marrón, Amarillo, Verde, Azul y Naranja. 
+ - Bandalf: Con ellos podemos librarnos del mal...
+Node: 9
+ * After Node: 8: Con ellos podemos librarnos del mal...
+ - Bandalf: Él es Basauron
+ - Bandalf: Un monstruo cuyo poder puede acabar con todo lo que conocemos
+ - Bandalf: Su sombra se cierne sobre nosotros y atacará de un momento a otro
+ - Bandalf: Por ello debemos protejernos, y para eso te necesito!
+ - Bandalf: Te voy a entregar un arma...
+ - Bandalf: Un arma muy poderosa...
+ - Bandalf: La CUARTA R
+Node: 10
+ * After Node: 9: La CUARTA R
+ - Bandalf: RECOGER!
+ - Bandalf: La universidad, llena de juventud, se llena de residuos
+ - Bandalf: Y hoy recogeremos y reciclaremos juntos...
+ - Bandalf: Para salvar el mundo de Basauron!
+Node: 11
+ * After Node: 10: Para salvar el mundo de Basauron!
+ - Player: Genial!
+ - Player: Entonces... ¿Cómo empiezo?
+ - Bandalf: Perfecto, acompáñame, tengo que mostrarte algo cómo recoger la basura...
+Node: 12
+ * After Node: 11: Perfecto, acompáñame, tengo que mostrarte algo cómo recoger la basura...
+ - Bandalf: Cruza la calle y busca junto al metro...
+ - Bandalf: Tienes que recoger una bolsa de plástico
+
+Conversation: BuscandoBolsi
+Node: 1
+ - Bandalf: Sigue la flecha verde hasta el metro
+ - Bandalf: Allí encontrarás una bolsa
+ - Bandalf: Recójela!
+
+Conversation: EncontradoBolsi
+Node: 1
+ - Bandalf: #! Mira!
+ - Bandalf: #! La bolsa de basura que buscábamos!
+ - Bandalf: Todos los objetos que conectan tu mundo con el mío están ocultos
+ - Bandalf: Sin embargo, podrás interactuar con ellos a través de tu pantalla!
+ - Bandalf: Toca la bolsa de basura y pulsa en el símbolo de recoger para recogerla
+
+Conversation: CreacionBolsi
+Node: 1
+ - Bandalf: Perfecto!
+ - Bandalf: Ahora voy a hacer mi magia!
+ - Bandalf: Bíbidi, bó...
+ - Bandalf: No, espera, eso tiene copyright
+ - Bandalf: Por el poder de la reutilización!
+ - Bandalf: Ven a la vida!!!
+Node: 2
+ * After Node: 1: Ven a la vida!!!
+ - Player: Woah!
+ - Bandalf: Heh, soy todo un mago!
+ - Bandalf: Bolsi! Saluda!
+ - Bolsi: Ho...
+ - Bolsi: Holi...
+ - Bandalf: No tengas miedo pequeña
+Node: 3
+ * After Node: 2: No tengas miedo pequeña
+ - Bolsi: Soy Bolsi y te ayudaré a partir de ahora en tu aventura!
+ - Bandalf: Así me gusta!
+ - Bandalf: Hay muchos otros residuos en la plaza que deberás reciclar
+ - Bandalf: En total, hay 15 residuos y deberás encontrar al menos 10 para poder atraer la atención de Basauron
+ - Bandalf: Busca cuantos más puedas y luego recíclalos en los contenedores frente a medicina!
+ - Bolsi: Yo te ayudaré a reciclar explicándote cada residuo que encuentres!
+Node: 4
+ * After Node: 3: Yo te ayudaré a reciclar explicándote cada residuo que encuentres!
+ - Bandalf: Por otro lado, mientras buscas y reciclas los residuos, te voy a encargar dos tareas
+ - Bandalf: Necesito que fabriques un par de pociones
+ - Bandalf: En medicina y farmacia hay dos viejos amigos: Ramón y Cajal y Severo Ochoa
+ - Bandalf: Ellos te dirán como hacer las pociones
+ - Bandalf: Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza
+ - Player: Genial!
+ - Bandalf: Recuerda:
+ - Bandalf: Busca y recicla al menos 10 objetos de la plaza
+ - Bandalf: Ve a Medicina y a Farmacia a encontrarte con Ramón y Cajal y Severo Ochoa
+ - Bandalf: Después nos veremos en la estatua en el centro de la plaza
+
+Conversation: LlegadaPortadores
+Node: 1
+ - Bandalf: Bueno, ya estamos en el centro de la plaza
+ - Bandalf: Esta es la Plaza de Ramón y Cajal, uno de los puntos más icónicos de la Ciudad Universitaria
+ - Player: Ramón y Cajal? Como el hospital?
+ - Bandalf: Hospital? Vaya, si que ha llegado Santiago lejos!
+ - Player: Santiago?
+ - Bandalf: Verás, hace muchos años, antes de la guerra civil, aquí daba clase un buen amigo mío
+ - Bandalf: Santiago Ramón y Cajal
+ - Bandalf: 
+
+Conversation: BatallaFinal
+Node: 1
+ - Bandalf: Bien, qué perfecto...
+ - Bandalf: Estamos junto a la estatua de los portadores de la antorcha para derrotal al mal
+ - Bandalf: Nuestra sabiduría nos permitirá derrotarle
+ - Bandalf: Parece que la llegada de basauron es inminente...
+Node: 2
+ * After Node: 1: Parece que la llegada de basauron es inminente...
+ - Player: Ahí viene!
+Node: 3
+ * After Node: 2: Ahí viene!
+ - Basauron: #! MUAHAHAHAHA
+ - Basauron: #! Soy Basauron, señor oscuro de la basura!
+ - Basauron: #! Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! 
+ - Player: Adelante Bandalf! Peleemos!
+ - Bandalf: Tómate la pocion!
+ - Bandalf: Con ella podrás ver sus residuos y separarlos para derrotarlo!
+ - Player: Vale!
+ - Player: #O Glup
+ - Player: #O Glup
+ - Player: #O Glup
+ - Player: Viscoso pero sabroso!
+ - Player: #! Bien Basauron! Vamos a acabar contigo!
+ - Basauron: #! Y ahora, muere!!
+Node: 4
+ * After Node: 3: #! Y ahora, muere!!
+ - Basauron: Es mi momento, voy a acabar con la humanidad
+ - Basauron: Mi basura innundará el mundo!
+ - Player: #O  * Basauron va a tirarte basura *
+ - Player: #O * Separa la basura correctamente para derrotarle *
+ - Player: #O * Acierta el máximo número de preguntas para derrotar a Basauron *
+ - Player: Viene un botellín de cerveza!
+Node: 5
+ * After Node: 4: Viene un botellín de cerveza!
+ - Player: Verde
+ - Player: Azul
+ - Player: Amarillo
+ - Player: Marrón
+ - Player: Naranja
+Node: 6
+ * After Node: 5: Verde
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 7
+ * After Node: 5: Azul
+ * After Node: 5: Amarillo
+ * After Node: 5: Marrón
+ * After Node: 5: Naranja
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 8
+ * After Node: 6: #! ARG, lo has reciclado bien...
+ * After Node: 7: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene un tetrabrick!
+Node: 9
+ * After Node: 8: Viene un tetrabrick!
+ - Player: Amarillo
+ - Player: Verde
+ - Player: Azul
+ - Player: Naranja
+ - Player: Marrón
+Node: 10
+ * After Node: 9: Amarillo
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 11
+ * After Node: 9: Verde
+ * After Node: 9: Azul
+ * After Node: 9: Naranja
+ * After Node: 9: Marrón
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 12
+ * After Node: 10: #! ARG, lo has reciclado bien...
+ * After Node: 11: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene una huevera!
+Node: 13
+ * After Node: 12: Viene una huevera!
+ - Player: Azul
+ - Player: Verde
+ - Player: Amarillo
+ - Player: Naranja
+ - Player: Marrón
+Node: 14
+ * After Node: 13: Azul
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 15
+ * After Node: 13: Verde
+ * After Node: 13: Amarillo
+ * After Node: 13: Naranja
+ * After Node: 13: Marrón
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 16
+ * After Node: 14: #! ARG, lo has reciclado bien...
+ * After Node: 15: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene una lata!
+Node: 17
+ * After Node: 16: Viene una lata!
+ - Player: Azul
+ - Player: Naranja
+ - Player: Amarillo
+ - Player: Verde
+ - Player: Marrón
+Node: 18
+ * After Node: 17: Azul
+ * After Node: 17: Naranja
+ * After Node: 17: Verde
+ * After Node: 17: Marrón
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 19
+ * After Node: 17: Amarillo
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 20
+ * After Node: 18: #! Mal!!! Mi basura innundará tu mundo!
+ * After Node: 19: #! ARG, lo has reciclado bien...
+ - Player: Viene un jarrón roto!
+Node: 21
+ * After Node: 20: Viene un jarrón roto!
+ - Player: Naranja
+ - Player: Amarillo
+ - Player: Verde
+ - Player: Azul
+ - Player: Marrón
+Node: 22
+ * After Node: 21: Naranja
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 23
+ * After Node: 21: Amarillo
+ * After Node: 21: Verde
+ * After Node: 21: Azul
+ * After Node: 21: Marrón
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 24
+ * After Node: 22: #! ARG, lo has reciclado bien...
+ * After Node: 23: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene un jueguete roto!
+Node: 25
+ * After Node: 24: Viene un jueguete roto!
+ - Player: Naranja
+ - Player: Verde
+ - Player: Azul
+ - Player: Marrón
+ - Player: Amarillo
+Node: 26
+ * After Node: 25: Naranja
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 27
+ * After Node: 25: Verde
+ * After Node: 25: Azul
+ * After Node: 25: Marrón
+ * After Node: 25: Amarillo
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 28
+ * After Node: 26: #! ARG, lo has reciclado bien...
+ * After Node: 27: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene un hueso de fruta!
+Node: 29
+ * After Node: 28: Viene un hueso de fruta!
+ - Player: Marrón
+ - Player: Verde
+ - Player: Azul
+ - Player: Naranja
+ - Player: Amarillo
+Node: 30
+ * After Node: 29: Marrón
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 31
+ * After Node: 29: Verde
+ * After Node: 29: Azul
+ * After Node: 29: Naranja
+ * After Node: 29: Amarillo
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 32
+ * After Node: 30: #! ARG, lo has reciclado bien...
+ * After Node: 31: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene propaganda electoral!
+Node: 33
+ * After Node: 32: Viene propaganda electoral!
+ - Player: Azul
+ - Player: Verde
+ - Player: Naranja
+ - Player: Marrón
+ - Player: Amarillo
+Node: 34
+ * After Node: 33: Azul
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 35
+ * After Node: 33: Verde
+ * After Node: 33: Naranja
+ * After Node: 33: Marrón
+ * After Node: 33: Amarillo
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 36
+ * After Node: 34: #! ARG, lo has reciclado bien...
+ * After Node: 35: #! Mal!!! Mi basura innundará tu mundo!
+ - Player: Viene un pintauñas vacío!
+Node: 37
+ * After Node: 36: Viene un pintauñas vacío!
+ - Player: Azul
+ - Player: Amarillo
+ - Player: Naranja
+ - Player: Verde
+ - Player: Marrón
+Node: 38
+ * After Node: 37: Azul
+ * After Node: 37: Amarillo
+ * After Node: 37: Naranja
+ * After Node: 37: Marrón
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 39
+ * After Node: 37: Verde
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 40
+ * After Node: 38: #! Mal!!! Mi basura innundará tu mundo!
+ * After Node: 39: #! ARG, lo has reciclado bien...
+ - Player: Viene un corcho!
+Node: 41
+ * After Node: 40: Viene un corcho!
+ - Player: Marrón
+ - Player: Verde
+ - Player: Azul
+ - Player: Amarillo
+ - Player: Naranja
+Node: 42
+ * After Node: 41: Marrón
+ - Basauron: #! ARG, lo has reciclado bien...
+Node: 43
+ * After Node: 41: Verde
+ * After Node: 41: Azul
+ * After Node: 41: Amarillo
+ * After Node: 41: Naranja
+ - Basauron: #! Mal!!! Mi basura innundará tu mundo!
+Node: 44
+ * After Node: 42: #! ARG, lo has reciclado bien...
+ * After Node: 43: #! Mal!!! Mi basura innundará tu mundo!
+ - Basauron: #! ARG! Eres un tipo duro...
+ - Basauron: Veo que la humanidad aún tiene esperanza porque sabes separar muy bien la basura
+ - Basauron: Sin embargo, no ceses tu trabajo o volveré!
+ - Basauron: #! Vaya, no tienes ni idea de separar la basura!
+ - Basauron: Has perdido este combate y la tierra sufrirá las consecuencias...
+ - Basauron: #! Pero aún no es tarde! 
+ - Basauron: Aprende a separar correctamente y vuelve a enfrentarte al reto!
+Node: 45
+ * After Node: 44: Aprende a separar correctamente y vuelve a enfrentarte al reto!
+ - Bandalf: Bueno, me voy a volver a mi mundo... El portal interdimensional se cierra... 
+ - Bandalf: Suerte en tu aventura!!!
+
+Conversation: PocionSevero
+Node: 1
+ - Player: Hola!
+ - SeveroMarga: Buenas tardes, somos Severo Ochoa, licenciado en Medicina y Bioquímico y Margarita Salas licenciada en Química y Bioquímica también, mi discípula
+ - Player: Vereis, vengo en nombre de Bandalf...
+ - SeveroMarga: Bandalf! Hacía años que no oía ese nombre... Durante mi formación en la Universidad Central (la antigua complutense), conocí a Bandalf
+ - SeveroMarga: Luego me fui a EEUU donde trabajé mucho tiempo con Margarita y no volví a saber de él, pero pasamos grandes momentos juntos
+ - SeveroMarga: Claro que te ayudaremos, qué necesitas?
+ - Player: Necesito que nos ayudeis a luchar contra Basauron...
+ - SeveroMarga: Genial! Te ayudaremos a hacer una poción para combatirlo!
+ - SeveroMarga: Verás, nosotros somos unos genios de la Bioquímica. Hemos hecho grandes avances en el ARN, ADN entre otras cosas.
+ - SeveroMarga: Por ello recibí un Premio Nobel en Fisiología y Medicina en 1959
+ - SeveroMarga: Yo, Margarita, he recibido múltiples premios, entre ellos doctorados honoris causa y premios a la mujer progresista y a la excelencia química
+ - SeveroMarga: Se me ocurre que hagamos una poción genética que mejore tus capacidades celulares!
+ - SeveroMarga: Debes traernos: Una ciruela y un plumero de la pampa...
+ - SeveroMarga: La ciruela debería estar cerca del metro de ciudad universitaria
+ - SeveroMarga: El plumero debería estar cerca de una estatua mía que hay por aquí cerca
+ - SeveroMarga: Traenos los ingredientes y te haremos la poción!
+ - Player: Perfecto, voy a ello! Gracias!
+
+Conversation: PistasSevero
+Node: 1
+ - SeveroMarga: Aún te faltan ingredientes:
+ - SeveroMarga: La pista para encontrar el plumero es que está junto a mi estatua...
+ - SeveroMarga: La pista para encontrar los ciruelos se encuentra junto al metro...
+ - Player: Gracias!
+
+Conversation: CreacionPocionSevero
+Node: 1
+ - SeveroMarga: Genial, ya tienes todos los ingredientes...
+ - SeveroMarga: Toma tu poción!
+ - Player: Gracias!
+ - SeveroMarga: Suerte en la batalla, manda recuerdos a Bandalf!
+
+Conversation: FinalSevero
+Node: 1
+ - SeveroMarga: Suerte en la batalla contra Basauron! Da recuerdos a Bandalf!
+
+Conversation: PocionRamon
+Node: 1
+ - Player: Disculpe señor...
+ - Ramon: Perdone jóven, estoy muy ocupado trabajando en mi teoría neuronal...
+ - Player: Teoría neuronal?
+ - Player: En fin, esto es muy urgente... Vengo en nombre de Bandalf para...
+ - Ramon: Bandalf!
+ - Ramon: Hacía mucho que no escuchaba ese nombre!
+ - Ramon: Conocí a Bandalf en Zaragoza durante mis estudios de medicina... 
+ - Ramon: Deja que me presente, soy Santiago Ramón y Cajal, catedrático de Histología, Hitoquimia Normal y Anatomía Patológica de la facultad de Medicina
+ - Ramon: Bandalf y yo pasamos grandes momentos juntos, pero finalmente desapareció porque previó que algo oscuro se acercaba...
+ - Player: Verá señor, por eso estoy aquí...
+ - Player: Bandalf prevee la llegada de Basauron, señor oscuro de la basura y necesitamos tu ayuda para derrotarle
+ - Ramon: No se hable más, tengo una idea genial
+ - Ramon: Te ayudaré a preparar una poción para combatir contra Basauron
+ - Ramon: Verás, he recibido el Premio Nobel de Fisiología y Medicina por mis descubrimientos sobre neurociencia
+ - Ramon: Entre otras cosas, escribí la Doctrina de la Neurona y la Histología del Sistema Nervioso del Hombre y los Vertebrados
+ - Player: Wow, podría decirse que entendemos cómo funcionan las neuronas gracias a ti?
+ - Ramon: Bueno... Jeje... Algo así. Cosas como que las neuronas son independientes y la sinapsis con aportaciones mías...
+ - Ramon: Pero ahora el tiempo apremia y debo aplicar mis conocimientos para crear una poción para que tus neuronas funcionen al 100% durante el combate!
+ - Player: Genial!
+ - Ramon: Para ello necesito dos cosas: un fruto del majuelo y un ala de saltacercas...
+ - Ramon: Son cosas inverosímiles, pero así es la magia jejeje
+ - Ramon: Esta plaza es bastante interesante y la fauna y flora de ella nos ayudarán.
+ - Ramon: Deberías encontrar un majuelo cerca de odontología...
+ - Ramon: Y el ala de saltacercas creo que se le calló cuando la guerra... En la fachada de medicina donde haya restos de balazos de la guerra podrías encontrar una...
+ - Player: Genial! Muchas gracias!
+ - Ramon: Suerte! Estaré esperándote!
+
+Conversation: PistasRamon
+Node: 1
+ - Player: Necesito ayuda para encontrar los ingredientes...
+ - Ramon: Perfecto, aún te queda...
+ - Ramon: El fruto del majuelo, que está cerca de odontología
+ - Ramon: El ala del saltacercas... Prueba a buscar por la fachada de medicina
+ - Player: Gracias!
+
+Conversation: CreacionPocionRamon
+Node: 1
+ - Player: Bueno, ya lo tengo todo
+ - Ramon: Perfecto, dame tus incredientes y haré la poción
+ - Ramon: * Hace cosas de científico *
+ - Ramon: Aquí tienes
+ - Ramon: Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte
+
+Conversation: FinalRamon
+Node: 1
+ - Ramon: Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte
+
+Conversation: AyudaBolsi
+Node: 1
+ * After Node: 3: Qué tenemos que hacer ahora?
+ - Bolsi: Hola compi, te recuerdo lo que estamos haciendo
+Node: 2
+ * After Node: 1: Hola compi, te recuerdo lo que estamos haciendo
+ - Bolsi: Con qué necesitas ayuda
+Node: 3
+ * After Node: 2: Con qué necesitas ayuda
+ - Player: Qué tenemos que hacer ahora?
+ - Player: Indícame dónde están los contenedores de reciclaje
+ - Player: Ayúdame a encontrar las facultades para las pociones
+ - Player: Recuérdame las pistas para los ingredientes de la poción de Ramón
+ - Player: Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita
+ - Player: Indícame dónde está la estatua de los portadores
+ - Player: No necesito nada más
+Node: 4
+ * After Node: 3: Indícame dónde están los contenedores de reciclaje
+ - Bolsi: Hay varios en la calle frente a medicina
+ - Bolsi: Te pondré una flecha verde que te indique dónde ir
+Node: 5
+ * After Node: 3: Ayúdame a encontrar las facultades para las pociones
+ - Bolsi: Perfecto, aún tenemos pendiente
+ - Bolsi: La facultad de medicina
+ - Bolsi: La facultad de farmacia
+Node: 6
+ * After Node: 3: Recuérdame las pistas para los ingredientes de la poción de Ramón
+ - Bolsi: El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje
+ - Bolsi: El fruto del majuelo está frente a odontología
+Node: 7
+ * After Node: 3: Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita
+ - Bolsi: Los ciruelos están junto al metro...
+ - Bolsi: El plumero de la pampa está cerca de la estatua de Severo... La estatua creo que está cerca de farmacia...
+Node: 8
+ * After Node: 3: Indícame dónde está la estatua de los portadores
+ - Player: Está en el centro de la plaza. Te indico
+Node: 9
+ * After Node: 3: No necesito nada más
+ - Bolsi: Si necesitas algo me preguntas :)
+Node: 10
+ * After Node: 5: La facultad de farmacia
+ - Player: Medicina
+ - Player: Farmacia
+Node: 11
+ * After Node: 10: Medicina
+ - Bolsi: Perfecto, te indico la dirección de medicina
+Node: 12
+ * After Node: 10: Farmacia
+ - Bolsi: Perfecto, te indico dónde está farmacia
+
+Conversation: SomethingFinished
+Node: 1
+ - Bolsi: Tenemos que buscar residuos por la plaza y reciclar al menos 10
+ - Bolsi: Tenemos que hacer una poción en la Facultad de Medicina
+ - Bolsi: Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal
+ - Bolsi: Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina
+ - Bolsi: Tenemos que hacer una poción en la Facultad de Farmacia
+ - Bolsi: Tenemos que buscar los ingredientes de la poción de Severo y Margarita
+ - Bolsi: Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia
+ - Bolsi: Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron
+
+Conversation: Reciclado
+Node: 1
+ - Bolsi: Genial, primer objeto reciclado! Aún hay 14 más!
+ - Bolsi: Segundo objeto reciclado! Aún hay 13 más!
+ - Bolsi: Tercer objeto reciclado! Aún hay 12 más!
+ - Bolsi: Cuarto objeto reciclado! Aún hay 11 más!
+ - Bolsi: Quinto objeto reciclado! Aún hay 10 más!
+ - Bolsi: Sexto objeto reciclado! Aún hay 9 más!
+ - Bolsi: Séptimo objeto reciclado! Aún hay 8 más!
+ - Bolsi: Octavo objeto reciclado! Aún hay 7 más!
+ - Bolsi: Noveno objeto reciclado! Aún hay 6 más!
+ - Bolsi: Décimo objeto reciclado! Aún hay 5 más! 
+ - Bolsi: Undécimo objeto reciclado! Aún hay 4 más!
+ - Bolsi: Duocécimo objeto reciclado! Aún hay 3 más!
+ - Bolsi: Decimotercer objeto reciclado! Aún hay 2 más!
+ - Bolsi: Decimocuarto objeto reciclado! Aún queda uno más!
+ - Bolsi: Éste era el último objeto reciclado! Ya están todos!
+ - Bolsi: Ya tenemos al menos diez objetos! 
+
+Objeto: PlasticBag
+ - Al cogerlo:
+Objeto: Raspa
+ - Al cogerlo:
+  * Bolsi: Genial, una raspa!
+  * Bolsi: Las raspas van al orgánico
+  * Bolsi: Los residuos orgánicos sirven para hacer abono y energía
+  * Bolsi: Cada 100kg se convierten en 30kg de abono
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: La raspa, al igual que todos los restos de comida, van al marrón!
+Objeto: Cafe
+ - Al cogerlo:
+  * Bolsi: Genial, restos de café!
+  * Bolsi: Los restos de café van al orgánico
+  * Bolsi: Con ellos, también los filtros, cáscaras de pipas, corcho, serrín y plantas
+  * Bolsi: Incluso los huesos de la fruta!
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los restos del café, al igual que el filtro, van al marrón!
+Objeto: PapelDeCocina
+ - Al cogerlo:
+  * Bolsi: Genial, papel de cocina sucio!
+  * Bolsi: Los restos de papel de cocina manchados de comida van al orgánico
+  * Bolsi: El papel, normalmente, se recicla en el contenedor azul
+  * Bolsi: Sin embargo, éste está sucio de comida o grasa, por lo que debe ir al orgánico
+  * Bolsi: Esto es necesario dado que la grasa interfiere en el proceso de reciclaje del papel
+  * Bolsi: Por otro lado, si está manchado de químicos o pintura, debe ir al naranja
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los restos de papel de cocina y servilletas sucias van al orgánico!
+Objeto: Colilla
+ - Al cogerlo:
+  * Bolsi: Genial, una colilla!
+  * Bolsi: Las colillas van al naranja
+  * Bolsi: Las colillas pueden permanecer hasta 10 años en el suelo
+  * Bolsi: A priori no parece mucho...
+  * Bolsi: Sin embargo, pese a degradarse, al contener sustancias químicas dañinas como el alquitrán o el amoníaco son muy dañinas para el suelo
+  * Bolsi: Por eso debemos tirarlas a las papeleras!
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las colillas van al contenedor naranja!
+Objeto: CacaDeGato
+ - Al cogerlo:
+  * Bolsi: Puaj caca de gato!
+  * Bolsi: La caca de gato va al naranja
+  * Bolsi: Al contrario de lo que puedas pensar, los restos de tus animales no van al orgánico
+  * Bolsi: Esto incluye las cacas y la arena sucia, por ejemplo
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los residuos de animales deben ir al resto!
+Objeto: Goma
+ - Al cogerlo:
+  * Bolsi: Genial, una goma!
+  * Bolsi: Las gomas van al naranja
+  * Bolsi: No todos los plásticos son reciclables
+  * Bolsi: Sólo aquellos identificados por el símbolo adecuado con el triángulo del 1 al 7
+  * Bolsi: Otros plásticos como los juguetes de los niños no lo son y deben ir al resto o pueden donarse a organizaciones.
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las gomas no son reciclables, van al resto!
+Objeto: Botella
+ - Al cogerlo:
+  * Bolsi: Genial, una botella!
+  * Bolsi: Las gomas van al amarillo
+  * Bolsi: Algunas botellas son reutilizables
+  * Bolsi: Las más adecuadas son las del número 4 (polietileno de baja densidad) y 5 (polipropileno) o aquellas BPA Free
+  * Bolsi: Sin embargo, aquellas identificadas con un 1 (polietileno) que son las más comunes, no es recomendable reutilizarlas...
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las botellas de plástico, al igual que los envases, van al amarillo!
+Objeto: Aluminio
+ - Al cogerlo:
+  * Bolsi: Genial, papel de aluminio!
+  * Bolsi: El papel de aluminio va al amarillo
+  * Bolsi: Reciclar el aluminio supone un 95% menos de energía que extraerlo de la bauxita
+  * Bolsi: Por ello debemos reciclar las latas de bebida y conservas, así como el papel de aluminio
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: El aluminio y las latas van al amarillo!
+Objeto: Aerosol
+ - Al cogerlo:
+  * Bolsi: Genial, un aerosol!
+  * Bolsi: Los aerosoles van al amarillo
+  * Bolsi: Los aerosoles y las chapas deben de reciclarse, aunque sólo si están vacíos
+  * Bolsi: Los aerosoles que estén llenos deben de llevarse al punto limpio para evitar explosiones o incendios
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los aerosoles vacíos van al amarillo!
+Objeto: Botelladevidrio
+ - Al cogerlo:
+  * Bolsi: Genial, una botella de vidrio!
+  * Bolsi: Las botellas de vidrio van al verde
+  * Bolsi: Las botellas de vidrio son totalmente reciclables, pero sus tapones deben ser separados a los contenedores correspondientes
+  * Bolsi: Por ejemplo, el corcho debe ir al orgánico y las chapas al amarillo.
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las botellas de vidrio deben reciclarse en el contenedor verde!
+Objeto: Tarro
+ - Al cogerlo:
+  * Bolsi: Genial, un tarro!
+  * Bolsi: Los tarros son de vidrio y van al verde
+  * Bolsi: El vidrio se transforma en calcín que se funde en nuevo vidrio un número ilimitado de veces
+  * Bolsi: I LI MI TA DO!
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los tarros son de vidrio, van al verde!
+Objeto: Rimel
+ - Al cogerlo:
+  * Bolsi: Genial, un bote de rimel!
+  * Bolsi: Los botes de cosmético son de vidrio y van al verde
+  * Bolsi: El vidrio y el cristal son muy diferentes
+  * Bolsi: Sólo el vidrio es reciclable y se deposita en el contenedor verde
+  * Bolsi: Los vasos, copas, espejos, etc, no son reciclables
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Los frascos de los cosméticos que son de vidrio van al verde!
+Objeto: Caja
+ - Al cogerlo:
+  * Bolsi: Genial, una caja de cartón!
+  * Bolsi: Las cajas van al contenedor azul y debemos plegarlas para que no ocupen mucho espacio!
+  * Bolsi: Sin embargo, si está sucia (ej caja de pizza) debe ir al orgánico dado que la grasa no permite reciclarlas
+  * Bolsi: Una idea es recortar las partes con comida y separar lo reciclable
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las cajas de cartón limpias van al azul (debidamente plegadas)!
+Objeto: Apuntes
+ - Al cogerlo:
+  * Bolsi: Genial, unos apuntes!
+  * Bolsi: El papel va al contenedor azul
+  * Bolsi: Se debe de ahorrar papel y debemos tratar de imprimir la menor cantidad posible
+  * Bolsi: Los libros podemos llevarlos a una librería para que se puedan reutilizar
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: El papel, aunque esté escrito, va al azul!
+Objeto: Revista
+ - Al cogerlo:
+  * Bolsi: Genial, una revista vieja!
+  * Bolsi: Las revistas van al contenedor azul
+  * Bolsi: Podemos utilizarla para manualidades, pero si se mancha de pintura...
+  * Bolsi: Debemos tirarla al naranja, dado que está sucio, pero no de comida
+ - Al tirarlo:
+  * Cuando if Correcto then: Player: Bien hecho!
+  * Cuando if Incorrecto then: Bolsi: Las revistas van al azul!
+Objeto: Ciruela
+ - Al cogerlo:
+Objeto: Plumero
+ - Al cogerlo:
+Objeto: Saltacercas
+ - Al cogerlo:
+Objeto: Majuelo
+ - Al cogerlo:
+Lugar: EstatuaSevero
+ - Enter:
+  * Bolsi: Genial! Has encontrado el monumento a Severo! El ingrediente estará aquí cerca...
+Lugar: Odontología
+ - Enter:
+  * Bolsi: Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!
+  * Bolsi: El fruto del majuelo estará aquí cerca...
+Lugar: Fachada de Medicina
+ - Enter:
+  * Bolsi: Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...
+  * Player: Foto 1
+  * Player: Foto 2
+  * Player: Foto 3
+  * Bolsi: Mola verdad?
+ Foto 3
+  * Bolsi: Mola verdad?
+ingrediente estará aquí cerca...
+Lugar: Odontología
+ - Enter:
+  * Bolsi: Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!
+  * Bolsi: El fruto del majuelo estará aquí cerca...
+Lugar: Fachada de Medicina
+ - Enter:
+  * Bolsi: Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...
+  * Player: Foto 1
+  * Player: Foto 2
+  * Player: Foto 3
+  * Bolsi: Mola verdad?

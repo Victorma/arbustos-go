@@ -435,14 +435,12 @@ namespace uAdventure.Runner
         public void BeginChangeAmbit()
         {
             this.varFlagChangeAmbits.Push(new List<KeyValuePair<string, int>>());
-            Debug.Log("Open Change Ambit (" + varFlagChangeAmbits.Count + ")");
         }
 
         public List<KeyValuePair<string, int>> EndChangeAmbit(bool appendToParent = false)
         {
             var currentAmbit = this.varFlagChangeAmbits.Pop();
 
-            Debug.Log("Closed Change Ambit (" + varFlagChangeAmbits.Count + ")");
             if (appendToParent)
             {
                 if(varFlagChangeAmbits.Count > 0)

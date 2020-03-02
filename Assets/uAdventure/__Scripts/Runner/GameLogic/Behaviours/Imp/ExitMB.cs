@@ -84,9 +84,7 @@ namespace uAdventure.Runner
 
             // If no exited, accesible doesnt matter
             if (!exited)
-            {
                 return;
-            }
 
             // If no destination accesible doesnt matter
             var destination = Game.Instance.GameState.GetChapterTarget(ed.getNextSceneId());
@@ -127,13 +125,13 @@ namespace uAdventure.Runner
         public InteractuableResult Interacted(PointerEventData pointerData = null)
         {
             var ed = area.Element as Exit;
-            var sceneMB = FindObjectOfType<SceneMB>();
             if (Game.Instance.GameState.IsFirstPerson)
             {
                 Exit();
             }
             else
             {
+                var sceneMB = FindObjectOfType<SceneMB>();
                 var scene = sceneMB.SceneData as Scene;
                 Rectangle actionArea = null;
                 if (scene != null && scene.getTrajectory() == null)

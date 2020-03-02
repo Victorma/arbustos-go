@@ -127,8 +127,7 @@ namespace uAdventure.Editor
 				Controller.Instance.Init();
 			}
 
-            var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventureAnalytics/Plugins/SurveyManager/_Login.unity");
-// var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventure/Scenes/_Scene1.unity");
+            var initialScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/uAdventure/Scenes/_Scene1.unity");
 
             if (initialScene)
             {

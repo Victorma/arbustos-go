@@ -82,7 +82,7 @@ namespace uAdventure.Geo
             var folder = path.Remove(firstBar).Replace(".", "_");
             var tile = path.Substring(firstBar + 1).Replace("/", "_");
 
-            return Application.persistentDataPath + "/" + folder + "/" + tile;
+            return Application.temporaryCachePath + "/" + folder + "/" + tile;
         }
 
         public static void SavePNG(Texture2D texture, string filePath)

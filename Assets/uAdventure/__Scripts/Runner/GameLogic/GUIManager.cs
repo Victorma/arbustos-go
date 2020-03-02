@@ -375,7 +375,7 @@ namespace uAdventure.Runner
         {
             if (PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN" && PlayerPrefs.HasKey("LimesurveyPost"))
             {
-                string path = Application.persistentDataPath;
+                string path = Application.temporaryCachePath;
 
                 if (!path.EndsWith("/"))
                 {
@@ -389,7 +389,7 @@ namespace uAdventure.Runner
                 WWWForm data = new WWWForm();
 
                 TrackerAssetSettings trackersettings = (TrackerAssetSettings)TrackerAsset.Instance.Settings;
-                string backupfile = Application.persistentDataPath + System.IO.Path.DirectorySeparatorChar + trackersettings.BackupFile;
+                string backupfile = Application.temporaryCachePath + System.IO.Path.DirectorySeparatorChar + trackersettings.BackupFile;
 
                 data.AddField("token", PlayerPrefs.GetString("LimesurveyToken"));
                 data.AddBinaryData("traces", System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText(backupfile)));
