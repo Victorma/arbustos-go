@@ -179,6 +179,7 @@ namespace uAdventure.Analytics
             string domain = "";
             int port = 80;
             bool secure = false;
+            bool online = PlayerPrefs.GetInt("online") == 1;
 
             try
             {
@@ -219,7 +220,7 @@ namespace uAdventure.Analytics
             }
 
             TrackerAsset.StorageTypes storage;
-            switch (config.getStorageType())
+            switch (online ? config.getStorageType() : TrackerConfig.StorageType.LOCAL)
             {
                 case TrackerConfig.StorageType.NET:
                     storage = TrackerAsset.StorageTypes.net;
@@ -245,7 +246,7 @@ namespace uAdventure.Analytics
             TrackerAsset.Instance.Settings = tracker_settings;
             TrackerAsset.Instance.StrictMode = false;
 
-            if (PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN")
+            if (online && PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN")
             {
                 TrackerAsset.Instance.Login(PlayerPrefs.GetString("LimesurveyToken"), PlayerPrefs.GetString("LimesurveyToken"));
             }

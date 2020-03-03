@@ -11,14 +11,16 @@ public class LimeSurveyValidator : MonoBehaviour {
 	string survey_pre = "", survey_post = "", master_token_online = "", master_token_offline = "";
 
     public Text token, response, loading;
+    public GameObject advice;
     public GameObject form;
-    
-	void Start () {
+    public GameObject previewForm;
+
+    void Start () {
         connection = new Net(this);
 
         host = "https://analytics.e-ucm.es/api/proxy/surveymanager/";
-        survey_pre = "799245";
-        survey_post = "843283";
+        survey_pre = "546761";
+        survey_post = "772336";
 
         master_token_online = "online";
         master_token_offline = "offline";
@@ -29,6 +31,14 @@ public class LimeSurveyValidator : MonoBehaviour {
 		if(survey_post != "")
         	PlayerPrefs.SetString("LimesurveyPost", survey_post);
         PlayerPrefs.Save();
+
+        if (PlayerPrefs.GetInt("online", -1) == 0)
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
+
+        PreviewManager.Instance.InPreviewMode = false;
 
         var token = PlayerPrefs.GetString("name");
         if (!string.IsNullOrEmpty(token))
@@ -45,13 +55,19 @@ public class LimeSurveyValidator : MonoBehaviour {
         else
         {
             loading.gameObject.SetActive(false);
-            form.gameObject.SetActive(true);
+            advice.gameObject.SetActive(true);
         }
     }
     
     void Update () {
-	
-	}
+
+    }
+    public void accept()
+    {
+        advice.gameObject.SetActive(false);
+        form.gameObject.SetActive(true);
+        previewForm.gameObject.SetActive(true);
+    }
 
     public void validate()
     {
@@ -113,6 +129,17 @@ public class LimeSurveyValidator : MonoBehaviour {
         connection.GET(host + "surveys/completed?survey=" + survey + ((token.Length > 0) ? "&token=" + token : ""), new CompleteListener(response, token, this));
     }
 
+    public void preview()
+    {
+        PlayerPrefs.SetInt("online", 0);
+        PreviewManager.Instance.InPreviewMode = true;
+        loading.text = "Cargando...";
+        previewForm.gameObject.SetActive(false);
+        form.gameObject.SetActive(false);
+        loading.gameObject.SetActive(true);
+        SceneManager.LoadScene("_Scene1");
+    }
+
     public class ValidateListener : Net.IRequestListener
     {
         Text response;
@@ -135,7 +162,7 @@ public class LimeSurveyValidator : MonoBehaviour {
 				response.text = error != ""? error : "Can't Connect";
 
             validator.loading.gameObject.SetActive(false);
-            validator.form.gameObject.SetActive(true);
+            validator.advice.gameObject.SetActive(true);
         }
 
         public void Result(string data)
@@ -170,6 +197,7 @@ public class LimeSurveyValidator : MonoBehaviour {
 			response.text = result["message"];
             validator.loading.gameObject.SetActive(false);
             validator.form.gameObject.SetActive(true);
+            validator.previewForm.gameObject.SetActive(true);
         }
 
         public void Result(string data)
@@ -181,7 +209,7 @@ public class LimeSurveyValidator : MonoBehaviour {
 
 			if (type == "pre")
             {
-                validator.loading.text = "Loading game...";
+                validator.loading.text = "Iniciando juego...";
                 SceneManager.LoadScene("_Scene1");
             }
 			else if (type == "post")

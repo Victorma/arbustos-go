@@ -81,6 +81,12 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="Final" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Basauron" behaviour="first-action">
@@ -338,31 +344,10 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="IntroRamon" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="PocionRamon" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <either>
-            <inactive flag="MajueloEncontrado" />
-            <inactive flag="SaltacercasEncontrado" />
-          </either>
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="PistasRamon" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
           <inactive flag="PocionMedicina" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="CreacionPocionRamon" />
+          <trigger-conversation idTarget="PocionRamon" />
           <condition />
         </effect>
       </talk-to>
@@ -407,31 +392,10 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="IntroSevero" />
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="PocionSevero" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <either>
-            <inactive flag="PlumeroEncontrado" />
-            <inactive flag="CiruelosEncontrados" />
-          </either>
-        </condition>
-        <effect>
-          <trigger-conversation idTarget="PistasSevero" />
-          <condition />
-        </effect>
-      </talk-to>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
           <inactive flag="PocionFarmacia" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="CreacionPocionSevero" />
+          <trigger-conversation idTarget="PocionSevero" />
           <condition />
         </effect>
       </talk-to>
@@ -453,12 +417,15 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="298" y="258" width="438" height="114" hasInfluenceArea="no" idTarget="Disclaimer" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="1000" not-effects="no">
+      <exit rectangular="yes" x="375" y="275" width="547" height="138" hasInfluenceArea="no" idTarget="Start" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <post-effect>
           <activate flag="SeeingDisclaimer" />
           <condition />
         </post-effect>
+      </exit>
+      <exit rectangular="yes" x="372" y="435" width="544" height="139" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -628,6 +595,60 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
+  <scene id="AbreMochila" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/mochila.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bolsi" x="402" y="542" scale="1" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="SeleccionaResiduo" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/residuo.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bolsi" x="578" y="501" scale="1" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Enfoca" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/enfoca.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bolsi" x="177" y="941" scale="1.373467" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Creditos" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/creditos.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="364" y="612" width="543" height="139" hasInfluenceArea="no" idTarget="Title" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
   <atrezzoobject id="Naranja">
     <resources name="No name">
       <asset type="image" uri="assets/image/naranja.png" />
@@ -746,7 +767,7 @@
       </condition>
     </map-element>
   </map-scene>
-  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4438122893835, -3.72515404224083)" zoom="18" start="no">
+  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4442001305176, -3.725897014138)" zoom="18" start="no">
     <map-element targetId="Marron" layer="0" scale="0.15" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -755,6 +776,17 @@
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Bandalf" layer="0" scale="0.2" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4423179626465, -3.72467112541199)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">56.9</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
@@ -820,7 +852,7 @@
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
-        <param name="Hint">False</param>
+        <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
@@ -983,7 +1015,7 @@
         <active flag="EncontradoMetro" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4435539245605, -3.72692155838013)</param>
+        <param name="Position">(40.4435424804688, -3.72685194015503)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">36.03</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -1022,13 +1054,11 @@
     </map-element>
     <map-element targetId="EstatuaSevero" layer="0" scale="1" orientation="0">
       <condition>
-        <active flag="IntroSevero" />
         <inactive flag="PocionFarmacia" />
       </condition>
     </map-element>
     <map-element targetId="Metro" layer="0" scale="1" orientation="0">
       <condition>
-        <active flag="IntroSevero" />
         <inactive flag="PocionFarmacia" />
       </condition>
     </map-element>
@@ -1037,7 +1067,7 @@
         <active flag="EncontradaOdontologia" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4428825378418, -3.72569036483765)</param>
+        <param name="Position">(40.4428939819336, -3.72548389434814)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">34.34</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -1051,20 +1081,11 @@
     <map-element targetId="Fachada de Medicina" layer="0" scale="1" orientation="0">
       <condition>
         <inactive flag="PocionMedicina" />
-        <active flag="IntroRamon" />
       </condition>
     </map-element>
     <map-element targetId="Odontología" layer="0" scale="1" orientation="0">
       <condition>
-        <active flag="IntroRamon" />
         <inactive flag="PocionMedicina" />
-      </condition>
-    </map-element>
-    <map-element targetId="LosPortadores" layer="0" scale="1" orientation="0">
-      <condition>
-        <active flag="PocionFarmacia" />
-        <active flag="PocionMedicina" />
-        <greater-equals-than var="Total" value="10" />
       </condition>
     </map-element>
     <map-element targetId="Verde" layer="0" scale="0.15" orientation="0">
@@ -1087,6 +1108,17 @@
     </map-element>
     <map-element targetId="Contenedores" layer="0" scale="1" orientation="0">
       <condition />
+    </map-element>
+    <map-element targetId="Azul" layer="0" scale="0.1480977" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4426155090332, -3.72489929199219)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">False</param>
+        <param name="Hint">False</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
     </map-element>
   </map-scene>
   <map-scene id="Ending" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437035466029, -3.72620791196831)" zoom="19" start="no">
@@ -2429,7 +2461,7 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O Baland... Algo así como Narnia?</text>
+        <text>#O Baland... ¿Algo así como Narnia?</text>
       </speak-player>
       <condition />
       <speak-player>
@@ -2471,7 +2503,7 @@
       <condition />
       <child nodeindex="4" />
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="733" editor-y="419">
+    <dialogue-node nodeindex="3" editor-x="555" editor-y="443">
       <speak-player>
         <resources name="No name" />
         <text>Jajaja, qué iluso, no tienes elección...</text>
@@ -2479,7 +2511,7 @@
       <condition />
       <child nodeindex="4" />
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="1299" editor-y="302">
+    <dialogue-node nodeindex="4" editor-x="1086" editor-y="304">
       <speak-player>
         <resources name="No name" />
         <text>Nuestros mundos están conectados y se destruirán si no hacemos algo</text>
@@ -2487,12 +2519,12 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O No! Qué puedo hacer yo?</text>
+        <text>#O No! ¿Qué puedo hacer yo?</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Mucho! Ven a verme a la casa del estudiante</text>
+        <text>Mucho! Ven a verme al Metro de Ciudad Universitaria</text>
       </speak-player>
       <condition />
       <speak-player>
@@ -2508,7 +2540,7 @@
       <child nodeindex="5" />
       <effect>
         <navigate navigation-type="Ordered">
-          <step locks="False">Alumnos</step>
+          <step locks="False">MetroCIUArea</step>
         </navigate>
         <condition />
       </effect>
@@ -2536,12 +2568,12 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Cómo?</text>
+        <text>¿Cómo?</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ibas a preguntarlo, verdad?</text>
+        <text>Ibas a preguntarlo, ¿verdad?</text>
       </speak-char>
       <condition />
       <speak-player>
@@ -2556,12 +2588,12 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Necesito tu ayuda y no hay tiempo que perder con más preguntas.</text>
+        <text>Necesito tu ayuda y no hay tiempo que perder con más preguntas</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Pero... Sí no he podido preguntar nada!</text>
+        <text>Pero... ¡Sí no he podido preguntar nada!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2571,12 +2603,12 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Una amenaza se cierne sobre nuestros mundos.</text>
+        <text>Una amenaza se cierne sobre nuestros mundos</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>El planeta está muriéndose. </text>
+        <text>El planeta está muriéndose</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2586,7 +2618,7 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Mal, verdad?</text>
+        <text>Mal, ¿verdad?</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2605,7 +2637,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="1" editor-x="735" editor-y="82">
+    <dialogue-node nodeindex="1" editor-x="870" editor-y="106">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Esta era la Universidad Complutense en los años 50</text>
@@ -2618,7 +2650,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente.</text>
+        <text>Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2642,7 +2674,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="1478" editor-y="73">
+    <dialogue-node nodeindex="2" editor-x="1515" editor-y="469">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Después, se rompió con la ordenanza y se constuyeron todo tipo de edificios</text>
@@ -2669,7 +2701,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="2009" editor-y="69">
+    <dialogue-node nodeindex="3" editor-x="1739" editor-y="70">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Los residuos están acabando con la universidad</text>
@@ -2709,35 +2741,35 @@
     <dialogue-node nodeindex="4" editor-x="2453" editor-y="82">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Las tres erres!</text>
+        <text>¡Las tres erres!</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>REDUCIR!</text>
+        <text>¡REDUCIR!</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>REUTILIZAR!</text>
+        <text>¡REUTILIZAR!</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>RECICLAR!</text>
+        <text>¡RECICLAR!</text>
       </speak-player>
       <condition />
       <child nodeindex="5" />
     </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="2858" editor-y="77">
+    <dialogue-node nodeindex="5" editor-x="2903" editor-y="126">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!</text>
+        <text>¡Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Marrón, Amarillo, Verde, Azul y Naranja. </text>
+        <text>Marrón, Amarillo, Verde, Azul y Naranja</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2751,7 +2783,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="4018" editor-y="94">
+    <dialogue-node nodeindex="6" editor-x="3888" editor-y="66">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Él es Basauron</text>
@@ -2769,7 +2801,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Por ello debemos protejernos, y para eso te necesito!</text>
+        <text>Por ello debemos protejernos, ¡y para eso te necesito!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2784,7 +2816,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>La CUARTA R</text>
+        <text>LA CUARTA R</text>
       </speak-char>
       <condition />
       <child nodeindex="7" />
@@ -2796,7 +2828,7 @@
     <dialogue-node nodeindex="7" editor-x="4339" editor-y="471">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>RECOGER!</text>
+        <text>¡RECOGER!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2811,7 +2843,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Para salvar el mundo de Basauron!</text>
+        <text>¡Para salvar el mundo de Basauron!</text>
       </speak-char>
       <condition />
       <child nodeindex="8" />
@@ -2823,7 +2855,7 @@
     <dialogue-node nodeindex="8" editor-x="4819" editor-y="95">
       <speak-player>
         <resources name="No name" />
-        <text>Genial!</text>
+        <text>¡Genial!</text>
       </speak-player>
       <condition />
       <speak-player>
@@ -2833,7 +2865,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Perfecto, acompáñame, tengo que mostrarte algo cómo recoger la basura...</text>
+        <text>Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...</text>
       </speak-char>
       <condition />
       <child nodeindex="9" />
@@ -2844,15 +2876,15 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="5454" editor-y="130">
+    <dialogue-node nodeindex="9" editor-x="5282" editor-y="403">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Cruza la calle y busca junto al metro...</text>
+        <text>Ve junto a la estatua "Los portadores de la antorcha" en el centro de la plaza</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Tienes que recoger una bolsa de plástico</text>
+        <text>Tienes que recoger una bolsa de plástico que aparecerá en tu pantalla</text>
       </speak-char>
       <condition />
       <end-conversation>
@@ -2879,7 +2911,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Recójela!</text>
+        <text>¡Recógela!</text>
       </speak-char>
       <condition />
       <end-conversation />
@@ -2889,12 +2921,12 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>#! Mira!</text>
+        <text>#! ¡Mira!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>#! La bolsa de basura que buscábamos!</text>
+        <text>#! ¡La bolsa de basura que buscábamos!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2904,7 +2936,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Sin embargo, podrás interactuar con ellos a través de tu pantalla!</text>
+        <text>Sin embargo, ¡podrás interactuar con ellos a través de tu pantalla!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2919,12 +2951,12 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Perfecto!</text>
+        <text>¡Perfecto!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ahora voy a hacer mi magia!</text>
+        <text>¡Ahora voy a hacer mi magia!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2939,12 +2971,12 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Por el poder de la reutilización!</text>
+        <text>¡Por el poder de la reutilización!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ven a la vida!!!</text>
+        <text>¡¡Ven a la vida!!!</text>
       </speak-char>
       <condition />
       <child nodeindex="1" />
@@ -2958,17 +2990,17 @@
     <dialogue-node nodeindex="1" editor-x="636" editor-y="48">
       <speak-player>
         <resources name="No name" />
-        <text>Woah!</text>
+        <text>¡Woah!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Heh, soy todo un mago!</text>
+        <text>Heh, ¡soy todo un mago!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Bolsi! Saluda!</text>
+        <text>¡Bolsi! ¡Saluda!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bolsi">
@@ -2992,15 +3024,15 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="998" editor-y="316">
+    <dialogue-node nodeindex="2" editor-x="395" editor-y="366">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Soy Bolsi y te ayudaré a partir de ahora en tu aventura!</text>
+        <text>¡Soy Bolsi y te ayudaré a partir de ahora en tu aventura!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Así me gusta!</text>
+        <text>¡Así me gusta!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -3010,25 +3042,30 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>En total, hay 15 residuos y deberás encontrar al menos 10 para poder atraer la atención de Basauron</text>
+        <text>En total, hay 15 residuos y deberás encontrar al menos 8 para poder atraer la atención de Basauron</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Busca cuantos más puedas y luego recíclalos en los contenedores frente a medicina!</text>
+        <text>Busca cuantos más puedas y luego recíclalos en los contenedores en la esquina de la plaza junto a Medicina</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Yo te ayudaré a reciclar explicándote cada residuo que encuentres!</text>
+        <text>Yo te ayudaré a encontrarlos si me preguntas</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>¡Y te ayudaré a reciclar explicándote cada residuo que encuentres!</text>
       </speak-char>
       <condition />
       <child nodeindex="3" />
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="1792" editor-y="278">
+    <dialogue-node nodeindex="3" editor-x="1426" editor-y="460">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Toma esta guía de reciclaje, podrás consultarla cuando quieras en tu inventario!</text>
+        <text>Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!</text>
       </speak-char>
       <condition />
       <child nodeindex="4" />
@@ -3037,35 +3074,50 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="2069" editor-y="94">
+    <dialogue-node nodeindex="4" editor-x="1688" editor-y="97">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Por otro lado, mientras buscas y reciclas los residuos, te voy a encargar dos tareas</text>
+        <text>Por otro lado, mientras buscas y reciclas los residuos, puedes utilizar la naturaleza para volverte más fuerte</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Necesito que fabriques un par de pociones</text>
+        <text>Si quieres tener ayuda en la batalla contra basauron, opcionalmente, podemos fabricar unas pociones</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>En medicina y farmacia hay dos viejos amigos: Ramón y Cajal y Severo Ochoa</text>
+        <text>En Medicina y Farmacia hay tres viejos amigos: Santiago Ramón y Cajal y Severo Ochoa con Margarita Salas</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ellos te dirán como hacer las pociones</text>
+        <text>A Santiago deberás llevarle el fruto de un majuelo y un ala de saltacercas</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza</text>
+        <text>A Severo y Margarita deberás llevarle una ciruela y un plumero de la pampa</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>¡Yo puedo darte pistas si no los encuentras! Jijiji</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>¡Cada una de ellas te dará una vida extra en la batalla final!</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Despues, te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Genial!</text>
+        <text>¡Genial!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -3075,12 +3127,12 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Busca y recicla al menos 10 objetos de la plaza</text>
+        <text>Busca y recicla al menos 8 objetos de la plaza</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ve a Medicina y a Farmacia a encontrarte con Ramón y Cajal y Severo Ochoa</text>
+        <text>Ve a Medicina y a Farmacia a encontrarte con Santiago, Severo y Margarita</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -3145,25 +3197,10 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="BatallaFinal">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+    <dialogue-node nodeindex="0" editor-x="97" editor-y="80">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Bien, qué perfecto...</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Estamos junto a la estatua de los portadores de la antorcha para derrotal al mal</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Nuestra sabiduría nos permitirá derrotarle</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Parece que la llegada de basauron es inminente...</text>
+        <text>Bien, con los residuos que has reciclado hemos conseguido provocar a Basauron</text>
       </speak-char>
       <condition />
       <child nodeindex="1" />
@@ -3180,7 +3217,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="1020" editor-y="50">
+    <dialogue-node nodeindex="2" editor-x="439" editor-y="311">
       <speak-char idTarget="Basauron">
         <resources name="No name" />
         <text>#! MUAHAHAHAHA</text>
@@ -3188,62 +3225,97 @@
       <condition />
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>#! Soy Basauron, señor oscuro de la basura!</text>
+        <text>#! ¡Soy Basauron, Señor Oscuro de la basura!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>#! Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! </text>
+        <text>#! ¡Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! </text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Adelante Bandalf! Peleemos!</text>
+        <text>¡Adelante Bandalf! ¡Peleemos!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Tómate la pocion!</text>
+        <text>¡Tómate las pociones que hayas fabricado!</text>
       </speak-char>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Con ella podrás ver sus residuos y separarlos para derrotarlo!</text>
+        <text>¡Tendrás protección a fallos si fallas!</text>
       </speak-char>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
         <text>Vale!</text>
       </speak-player>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
         <text>#O Glup</text>
       </speak-player>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
         <text>#O Glup</text>
       </speak-player>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
         <text>#O Glup</text>
       </speak-player>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
         <text>Viscoso pero sabroso!</text>
       </speak-player>
-      <condition />
+      <condition>
+        <either>
+          <active flag="PocionFarmacia" />
+          <active flag="PocionMedicina" />
+        </either>
+      </condition>
       <speak-player>
         <resources name="No name" />
-        <text>#! Bien Basauron! Vamos a acabar contigo!</text>
+        <text>#! ¡Bien Basauron! ¡Vamos a acabar contigo!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>#! Y ahora, muere!!</text>
+        <text>#! ¡Y ahora MUERE!</text>
       </speak-char>
       <condition />
       <child nodeindex="3" />
@@ -3252,7 +3324,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="1597" editor-y="50">
+    <dialogue-node nodeindex="3" editor-x="1373" editor-y="83">
       <speak-char idTarget="Basauron">
         <resources name="No name" />
         <text>Es mi momento, voy a acabar con la humanidad</text>
@@ -3260,12 +3332,12 @@
       <condition />
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>Mi basura innundará el mundo!</text>
+        <text>¡Mi basura innundará el mundo!</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O  * Basauron va a tirarte basura *</text>
+        <text>#O * Basauron va a tirarte basura *</text>
       </speak-player>
       <condition />
       <speak-player>
@@ -3282,7 +3354,7 @@
         <resources name="No name">
           <asset type="image" uri="assets/image/bottle.png" />
         </resources>
-        <text>Viene un botellín de cerveza!</text>
+        <text>¡Viene un botellín de cerveza!</text>
       </speak-player>
       <condition />
       <child nodeindex="4" />
@@ -4010,14 +4082,14 @@
       </condition>
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>Sin embargo, no ceses tu trabajo o volveré!</text>
+        <text>¡Sin embargo, no ceses tu trabajo o volveré!</text>
       </speak-char>
       <condition>
         <greater-equals-than var="Recicladas" value="7" />
       </condition>
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>#! Vaya, no tienes ni idea de separar la basura!</text>
+        <text>#! ¡Vaya, no tienes ni idea de separar la basura!</text>
       </speak-char>
       <condition>
         <less-equals-than var="Recicladas" value="6" />
@@ -4031,14 +4103,14 @@
       </condition>
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>#! Pero aún no es tarde! </text>
+        <text>#! ¡Pero aún no es tarde! </text>
       </speak-char>
       <condition>
         <less-equals-than var="Recicladas" value="6" />
       </condition>
       <speak-char idTarget="Basauron">
         <resources name="No name" />
-        <text>Aprende a separar correctamente y vuelve a enfrentarte al reto!</text>
+        <text>¡Aprende a separar correctamente y vuelve a enfrentarte al reto!</text>
       </speak-char>
       <condition>
         <less-equals-than var="Recicladas" value="6" />
@@ -4049,7 +4121,7 @@
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="44" editor-x="9449" editor-y="66">
+    <dialogue-node nodeindex="44" editor-x="9514" editor-y="86">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Bueno, me voy a volver a mi mundo... El portal interdimensional se cierra... </text>
@@ -4057,7 +4129,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Suerte en tu aventura!!!</text>
+        <text>¡¡¡Suerte en tu aventura!!!</text>
       </speak-char>
       <condition />
       <end-conversation>
@@ -4069,15 +4141,42 @@
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="PocionSevero">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+    <dialogue-node nodeindex="0" editor-x="140" editor-y="282">
       <speak-player>
         <resources name="No name" />
-        <text>Hola!</text>
+        <text>¡Hola!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="SeveroMarga">
         <resources name="No name" />
-        <text>Buenas tardes, somos Severo Ochoa, licenciado en Medicina y Bioquímico y Margarita Salas licenciada en Química y Bioquímica también, mi discípula</text>
+        <text>Hola, ¿qué necesitas?</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="InfoSevero" keepShowing="yes" preListening="yes" editor-x="195" editor-y="579" x="195" y="579">
+      <speak-player>
+        <text>¿Quienes sois?</text>
+      </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>
+        <text>¿Podeis fabricarme la poción?</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>
+        <text>Nada</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="805" editor-y="55">
+      <speak-char idTarget="SeveroMarga">
+        <resources name="No name" />
+        <text>Somos Severo Ochoa, licenciado en Medicina y Bioquímico y Margarita Salas licenciada en Química y Bioquímica también, mi discípula</text>
       </speak-char>
       <condition />
       <speak-player>
@@ -4155,33 +4254,57 @@
         <text>Perfecto, voy a ello! Gracias!</text>
       </speak-player>
       <condition />
-      <end-conversation>
-        <effect>
-          <activate flag="IntroSevero" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <child nodeindex="1" />
+      <effect>
+        <activate flag="IntroSevero" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="817" editor-y="457">
+      <child nodeindex="1" />
+      <effect>
+        <trigger-conversation idTarget="PistasSevero" />
+        <condition>
+          <either>
+            <inactive flag="PlumeroEncontrado" />
+            <inactive flag="CiruelosEncontrados" />
+          </either>
+        </condition>
+        <trigger-conversation idTarget="CreacionPocionSevero" />
+        <condition>
+          <active flag="PlumeroEncontrado" />
+          <active flag="CiruelosEncontrados" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="820" editor-y="682">
+      <speak-char idTarget="SeveroMarga">
+        <resources name="No name" />
+        <text>¡Adios!</text>
+      </speak-char>
+      <condition />
+      <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="ProgresoSevero">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+    <dialogue-node nodeindex="0" editor-x="137" editor-y="131">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Ya sólo nos queda encontrar el plumero de la pampa de Severo y Margarita!</text>
+        <text>¡Ya sólo nos queda encontrar el plumero de la pampa de Severo y Margarita!</text>
       </speak-char>
       <condition>
         <inactive flag="PlumeroEncontrado" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Ya sólo nos queda encontrar la ciruela de Severo y Margarita!</text>
+        <text>¡Ya sólo nos queda encontrar la ciruela de Severo y Margarita!</text>
       </speak-char>
       <condition>
         <inactive flag="CiruelosEncontrados" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Perfecto! Ya podemos volver con Severo y Margarita para hacer su poción!</text>
+        <text>¡Perfecto! ¡Ya podemos ir con Severo y Margarita para hacer su poción!</text>
       </speak-char>
       <condition>
         <active flag="CiruelosEncontrados" />
@@ -4213,32 +4336,32 @@
       </condition>
       <speak-player>
         <resources name="No name" />
-        <text>Gracias!</text>
+        <text>¡Gracias!</text>
       </speak-player>
       <condition />
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="CreacionPocionSevero">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+    <dialogue-node nodeindex="0" editor-x="80" editor-y="61">
       <speak-char idTarget="SeveroMarga">
         <resources name="No name" />
-        <text>Genial, ya tienes todos los ingredientes...</text>
+        <text>Veo que traes todos los ingredientes</text>
       </speak-char>
       <condition />
       <speak-char idTarget="SeveroMarga">
         <resources name="No name" />
-        <text>Toma tu poción!</text>
+        <text>¡Toma tu poción!</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Gracias!</text>
+        <text>¡Gracias!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="SeveroMarga">
         <resources name="No name" />
-        <text>Suerte en la batalla, manda recuerdos a Bandalf!</text>
+        <text>¡Suerte en la batalla, manda recuerdos a Bandalf!</text>
       </speak-char>
       <condition />
       <end-conversation>
@@ -4251,6 +4374,8 @@
           <condition />
           <trigger-conversation idTarget="SomethingFinished" />
           <condition />
+          <cancel-action />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -4259,19 +4384,46 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="SeveroMarga">
         <resources name="No name" />
-        <text>Suerte en la batalla contra Basauron! Da recuerdos a Bandalf!</text>
+        <text>¡Suerte en la batalla contra Basauron!</text>
       </speak-char>
       <condition />
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="PocionRamon">
-    <dialogue-node nodeindex="0" editor-x="49" editor-y="50">
+    <dialogue-node nodeindex="0" editor-x="41" editor-y="120">
       <speak-player>
         <resources name="No name" />
-        <text>Disculpe señor...</text>
+        <text>Hola</text>
       </speak-player>
       <condition />
+      <speak-char idTarget="Ramon">
+        <resources name="No name" />
+        <text>¿Qué necesitas?</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="InfoRamon" keepShowing="yes" preListening="yes" editor-x="89" editor-y="435" x="89" y="435">
+      <speak-player>
+        <text>¿Quién eres?</text>
+      </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>
+        <text>¿Puedes crearme una poción?</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>
+        <text>Nada</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="512" editor-y="51">
       <speak-char idTarget="Ramon">
         <resources name="No name" />
         <text>Perdone jóven, estoy muy ocupado trabajando en mi teoría neuronal...</text>
@@ -4344,7 +4496,7 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Wow, podría decirse que entendemos cómo funcionan las neuronas gracias a ti?</text>
+        <text>Wow, ¿podría decirse que entendemos cómo funcionan las neuronas gracias a ti?</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Ramon">
@@ -4354,55 +4506,44 @@
       <condition />
       <speak-char idTarget="Ramon">
         <resources name="No name" />
-        <text>Pero ahora el tiempo apremia y debo aplicar mis conocimientos para crear una poción para que tus neuronas funcionen al 100% durante el combate!</text>
+        <text>¿Pero ahora el tiempo apremia y debo aplicar mis conocimientos para crear una poción para que tus neuronas funcionen al 100% durante el combate!</text>
       </speak-char>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Genial!</text>
+        <text>¡Genial! ¡Muchas gracias!</text>
       </speak-player>
       <condition />
+      <child nodeindex="1" />
+      <effect>
+        <activate flag="IntroRamon" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="802" editor-y="408">
+      <child nodeindex="1" />
+      <effect>
+        <trigger-conversation idTarget="PistasRamon" />
+        <condition>
+          <either>
+            <inactive flag="MajueloEncontrado" />
+            <inactive flag="SaltacercasEncontrado" />
+          </either>
+        </condition>
+        <trigger-conversation idTarget="CreacionPocionRamon" />
+        <condition>
+          <active flag="SaltacercasEncontrado" />
+          <active flag="MajueloEncontrado" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="516" editor-y="625">
       <speak-char idTarget="Ramon">
         <resources name="No name" />
-        <text>Para ello necesito dos cosas: un fruto del majuelo y un ala de saltacercas...</text>
+        <text>¡Adiós!</text>
       </speak-char>
       <condition />
-      <speak-char idTarget="Ramon">
-        <resources name="No name" />
-        <text>Son cosas inverosímiles, pero así es la magia jejeje</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Ramon">
-        <resources name="No name" />
-        <text>Esta plaza es bastante interesante y la fauna y flora de ella nos ayudarán.</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Ramon">
-        <resources name="No name" />
-        <text>Deberías encontrar un majuelo cerca de odontología...</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Ramon">
-        <resources name="No name" />
-        <text>Y el ala de saltacercas creo que se le calló cuando la guerra... En la fachada de medicina donde haya restos de balazos de la guerra podrías encontrar una...</text>
-      </speak-char>
-      <condition />
-      <speak-player>
-        <resources name="No name" />
-        <text>Genial! Muchas gracias!</text>
-      </speak-player>
-      <condition />
-      <speak-char idTarget="Ramon">
-        <resources name="No name" />
-        <text>Suerte! Estaré esperándote!</text>
-      </speak-char>
-      <condition />
-      <end-conversation>
-        <effect>
-          <activate flag="IntroRamon" />
-          <condition />
-        </effect>
-      </end-conversation>
+      <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="ProgresoRamon">
@@ -4434,14 +4575,9 @@
   </graph-conversation>
   <graph-conversation id="PistasRamon">
     <dialogue-node nodeindex="0" editor-x="51" editor-y="50">
-      <speak-player>
-        <resources name="No name" />
-        <text>Necesito ayuda para encontrar los ingredientes...</text>
-      </speak-player>
-      <condition />
       <speak-char idTarget="Ramon">
         <resources name="No name" />
-        <text>Perfecto, aún te queda...</text>
+        <text>Aún te faltan ingredientes...</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Ramon">
@@ -4468,11 +4604,6 @@
   </graph-conversation>
   <graph-conversation id="CreacionPocionRamon">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
-      <speak-player>
-        <resources name="No name" />
-        <text>Bueno, ya lo tengo todo</text>
-      </speak-player>
-      <condition />
       <speak-char idTarget="Ramon">
         <resources name="No name" />
         <text>Perfecto, dame tus incredientes y haré la poción</text>
@@ -4503,6 +4634,8 @@
           <condition />
           <trigger-conversation idTarget="SomethingFinished" />
           <condition />
+          <cancel-action />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -4511,7 +4644,7 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Ramon">
         <resources name="No name" />
-        <text>Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte</text>
+        <text>¡Suerte con la batalla contra Basauron!</text>
       </speak-char>
       <condition />
       <end-conversation />
@@ -4538,7 +4671,7 @@
       <condition />
       <child nodeindex="2" />
     </dialogue-node>
-    <option-node nodeindex="2" question="AyudaBolsi" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="932" editor-y="869" x="932" y="869">
+    <option-node nodeindex="2" question="AyudaBolsi" showUserOption="yes" preListening="yes" editor-x="671" editor-y="860" x="671" y="860">
       <speak-player>
         <text>Qué tenemos que hacer ahora?</text>
         <resources name="No name" />
@@ -4554,6 +4687,12 @@
       </condition>
       <child nodeindex="3" />
       <speak-player>
+        <text>Explícame cómo reciclar residuos</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>
         <text>Ayúdame a encontrar las facultades para las pociones</text>
         <resources name="No name" />
       </speak-player>
@@ -4563,47 +4702,47 @@
           <inactive flag="PocionMedicina" />
         </either>
       </condition>
-      <child nodeindex="4" />
+      <child nodeindex="5" />
       <speak-player>
-        <text>Recuérdame las pistas para los ingredientes de la poción de Ramón</text>
+        <text>Pistas para los ingredientes de la poción de Santiago</text>
         <resources name="No name" />
       </speak-player>
       <condition>
-        <active flag="IntroRamon" />
+        <inactive flag="PocionMedicina" />
         <either>
           <inactive flag="MajueloEncontrado" />
           <inactive flag="SaltacercasEncontrado" />
         </either>
       </condition>
-      <child nodeindex="5" />
+      <child nodeindex="6" />
       <speak-player>
-        <text>Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita</text>
+        <text>Pistas para los ingredientes de la poción de Severo y Margarita</text>
         <resources name="No name" />
       </speak-player>
       <condition>
-        <active flag="IntroSevero" />
+        <inactive flag="PocionFarmacia" />
         <either>
           <inactive flag="CiruelosEncontrados" />
           <inactive flag="PlumeroEncontrado" />
         </either>
       </condition>
-      <child nodeindex="6" />
+      <child nodeindex="7" />
       <speak-player>
-        <text>Indícame dónde está la estatua de los portadores</text>
+        <text>Indícame dónde está Bandalf para luchar con Basauron</text>
         <resources name="No name" />
       </speak-player>
       <condition>
         <active flag="PocionFarmacia" />
         <active flag="PocionMedicina" />
-        <greater-equals-than var="Total" value="10" />
+        <greater-equals-than var="Total" value="8" />
       </condition>
-      <child nodeindex="7" />
+      <child nodeindex="8" />
       <speak-player>
         <text>No necesito nada más</text>
         <resources name="No name" />
       </speak-player>
       <condition />
-      <child nodeindex="8" />
+      <child nodeindex="9" />
     </option-node>
     <dialogue-node nodeindex="3" editor-x="1853" editor-y="219">
       <speak-char idTarget="Bolsi">
@@ -4625,7 +4764,15 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="1924" editor-y="611">
+    <dialogue-node nodeindex="4" editor-x="1574" editor-y="1508">
+      <end-conversation>
+        <effect>
+          <trigger-conversation idTarget="TutorialReciclaje" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="1802" editor-y="609">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Perfecto, aún tenemos pendiente</text>
@@ -4645,26 +4792,26 @@
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
-      <child nodeindex="9" />
+      <child nodeindex="10" />
     </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="2231" editor-y="914">
+    <dialogue-node nodeindex="6" editor-x="2231" editor-y="914">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje</text>
       </speak-char>
       <condition>
-        <active flag="SaltacercasEncontrado" />
+        <inactive flag="SaltacercasEncontrado" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>El fruto del majuelo está frente a odontología</text>
       </speak-char>
       <condition>
-        <active flag="MajueloEncontrado" />
+        <inactive flag="MajueloEncontrado" />
       </condition>
       <end-conversation />
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1931" editor-y="1047">
+    <dialogue-node nodeindex="7" editor-x="1931" editor-y="1047">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Los ciruelos están junto al metro...</text>
@@ -4681,22 +4828,22 @@
       </condition>
       <end-conversation />
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1645" editor-y="1218">
+    <dialogue-node nodeindex="8" editor-x="1645" editor-y="1218">
       <speak-player>
         <resources name="No name" />
-        <text>Está en el centro de la plaza. Te indico</text>
+        <text>Está junto a los contenedores. Te indico</text>
       </speak-player>
       <condition />
       <end-conversation>
         <effect>
           <navigate navigation-type="Ordered">
-            <step locks="False">LosPortadores</step>
+            <step locks="False">Bandalf</step>
           </navigate>
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="1148" editor-y="1318">
+    <dialogue-node nodeindex="9" editor-x="1148" editor-y="1318">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Si necesitas algo me preguntas :)</text>
@@ -4704,7 +4851,7 @@
       <condition />
       <end-conversation />
     </dialogue-node>
-    <option-node nodeindex="9" question="AyudaFacultad" preListening="yes" editor-x="2225" editor-y="624" x="2225" y="624">
+    <option-node nodeindex="10" question="AyudaFacultad" preListening="yes" editor-x="2225" editor-y="624" x="2225" y="624">
       <speak-player>
         <text>Medicina</text>
         <resources name="No name" />
@@ -4712,7 +4859,7 @@
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
-      <child nodeindex="10" />
+      <child nodeindex="11" />
       <speak-player>
         <text>Farmacia</text>
         <resources name="No name" />
@@ -4720,9 +4867,9 @@
       <condition>
         <inactive flag="PocionFarmacia" />
       </condition>
-      <child nodeindex="11" />
+      <child nodeindex="12" />
     </option-node>
-    <dialogue-node nodeindex="10" editor-x="2639" editor-y="454">
+    <dialogue-node nodeindex="11" editor-x="2639" editor-y="454">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Perfecto, te indico la dirección de medicina</text>
@@ -4737,7 +4884,7 @@
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="11" editor-x="2613" editor-y="689">
+    <dialogue-node nodeindex="12" editor-x="2613" editor-y="689">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Perfecto, te indico dónde está farmacia</text>
@@ -4757,24 +4904,17 @@
     <dialogue-node nodeindex="0" editor-x="161" editor-y="65">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que buscar residuos por la plaza y reciclar al menos 10</text>
+        <text>Tenemos que buscar residuos por la plaza y reciclar al menos 8</text>
       </speak-char>
       <condition>
         <less-equals-than var="Total" value="10" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que hacer una poción en la Facultad de Medicina</text>
+        <text>(Opcional) Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal</text>
       </speak-char>
       <condition>
-        <inactive flag="IntroRamon" />
-      </condition>
-      <speak-char idTarget="Bolsi">
-        <resources name="No name" />
-        <text>Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal</text>
-      </speak-char>
-      <condition>
-        <active flag="IntroRamon" />
+        <inactive flag="PocionMedicina" />
         <either>
           <inactive flag="MajueloEncontrado" />
           <inactive flag="SaltacercasEncontrado" />
@@ -4782,7 +4922,7 @@
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina</text>
+        <text>(Opcional) Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina</text>
       </speak-char>
       <condition>
         <active flag="MajueloEncontrado" />
@@ -4791,17 +4931,10 @@
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que hacer una poción en la Facultad de Farmacia</text>
+        <text>(Opcional) Tenemos que buscar los ingredientes de la poción de Severo y Margarita</text>
       </speak-char>
       <condition>
-        <inactive flag="IntroSevero" />
-      </condition>
-      <speak-char idTarget="Bolsi">
-        <resources name="No name" />
-        <text>Tenemos que buscar los ingredientes de la poción de Severo y Margarita</text>
-      </speak-char>
-      <condition>
-        <active flag="IntroSevero" />
+        <inactive flag="PocionFarmacia" />
         <either>
           <inactive flag="CiruelosEncontrados" />
           <inactive flag="PlumeroEncontrado" />
@@ -4809,7 +4942,7 @@
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia</text>
+        <text>(Opcional) Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia</text>
       </speak-char>
       <condition>
         <active flag="CiruelosEncontrados" />
@@ -4818,7 +4951,7 @@
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron</text>
+        <text>Tenemos que encontrarnos con Bandalf junto a los contenedores</text>
       </speak-char>
       <condition>
         <active flag="PocionFarmacia" />
@@ -4937,10 +5070,10 @@
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Ya tenemos al menos diez objetos! Cuando hayas acabado de tirar residuos ve al centro de la plaza a encontrarte con Bandalf!</text>
+        <text>Ya tenemos al ocho objetos! Cuando hayas acabado de tirar residuos busca a Bandalf junto a los contenedores!</text>
       </speak-char>
       <condition>
-        <greater-equals-than var="Total" value="10" />
+        <greater-equals-than var="Total" value="8" />
       </condition>
       <end-conversation>
         <effect>
@@ -4948,6 +5081,115 @@
           <condition>
             <equals var="Total" value="10" />
           </condition>
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="Final">
+    <dialogue-node nodeindex="0" editor-x="173" editor-y="176">
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>¿Quieres provocar a Basauron ya?</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="Provocar" keepShowing="yes" showUserOption="yes" preListening="yes" editor-x="607" editor-y="179" x="607" y="179">
+      <speak-player>
+        <text>Sí</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>
+        <text>No</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="1234" editor-y="108">
+      <end-conversation>
+        <effect>
+          <speak-char idTarget="Bandalf">Todavía no puedes, debes reciclar al menos 8 residuos. Búscalos en tu mochila</speak-char>
+          <condition>
+            <less-than var="Total" value="8" />
+          </condition>
+          <trigger-conversation idTarget="Final" />
+          <condition>
+            <greater-equals-than var="Total" value="8" />
+          </condition>
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1234" editor-y="343">
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="TutorialReciclaje">
+    <dialogue-node nodeindex="0" editor-x="153" editor-y="143">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Para reciclar un residuo debes hacer lo siguiente:</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="1" />
+      <effect>
+        <trigger-scene idTarget="AbreMochila" x="445" y="419" transitionTime="500" transitionType="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="1" editor-x="688" editor-y="143">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Toca la mochila para ver los objetos que tienes</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="2" />
+      <effect>
+        <trigger-scene idTarget="SeleccionaResiduo" x="378" y="391" transitionTime="500" transitionType="4" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="1205" editor-y="143">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>En la mochila verás tanto la guía de reciclaje como los diferentes objetos que has recogido hasta ahora</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Toca el residuo que quieras reciclar</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="3" />
+      <effect>
+        <trigger-scene idTarget="Enfoca" x="640" y="720" transitionTime="500" transitionType="4" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="1769" editor-y="143">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Y finalmente escanea el código QR del contenedor en el que quieras tirar el residuo</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="4" />
+      <effect>
+        <trigger-scene idTarget="Plaza" x="512" y="473" transitionTime="500" transitionType="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="2373" editor-y="143">
+      <speak-player>
+        <resources name="No name" />
+        <text>Si necesitas volver a ver el tutorial pregúntame</text>
+      </speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="Tutorial" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -5085,7 +5327,7 @@
         <Polygon>
           <exterior>
             <LinearRing>
-              <posList>40.4449503815821 -3.72654783937368 40.4450034539259 -3.72599359781351 40.4452754664725 -3.72584339410866 40.4451897345509 -3.72682142469317</posList>
+              <posList>40.4449340516939 -3.72652638170156 40.4449871240377 -3.72597214014139 40.4452591365843 -3.72582193643654 40.4451734046627 -3.72679996702105</posList>
             </LinearRing>
           </exterior>
         </Polygon>
@@ -5112,7 +5354,7 @@
     <geometries>
       <geometry influence="16.2">
         <Point>
-          <pos>40.4447985730759 -3.72672401191735</pos>
+          <pos>40.4446271082585 -3.72661672363446</pos>
         </Point>
       </geometry>
     </geometries>
@@ -5176,7 +5418,7 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="25">
+      <geometry influence="9.8">
         <Polygon>
           <exterior>
             <LinearRing>
@@ -5205,7 +5447,7 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="25">
+      <geometry influence="19.6">
         <Polygon>
           <exterior>
             <LinearRing>
@@ -5261,7 +5503,20 @@
         </Point>
       </geometry>
     </geometries>
-    <actions />
+    <actions>
+      <enter-action>
+        <condition>
+          <inactive flag="Tutorial" />
+        </condition>
+        <effect>
+          <speak-char idTarget="Bolsi">Veo que has encontrado los contenedores principales de la plaza! Te explico cómo reciclar...</speak-char>
+          <condition />
+          <trigger-conversation idTarget="TutorialReciclaje" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <geoelement id="VolverAPrincipal">
     <description>
@@ -5366,7 +5621,7 @@
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
     <deactivate flag="Correcto" />
     <condition>
       <active flag="Correcto" />
@@ -5667,7 +5922,7 @@
     <score type="VARIABLE" method="SINGLE" id="Total" />
   </completable>
   <completable id="RamonPocion" repeatable="false" type="completable">
-    <start-milestone type="CHARACTER" targetId="Ramon" />
+    <start-milestone type="SCENE" targetId="Plaza" />
     <end-milestone type="CONDITION">
       <condition>
         <active flag="PocionMedicina" />
@@ -5681,7 +5936,7 @@
     <score type="VARIABLE" method="SINGLE" id="Recicladas" />
   </completable>
   <completable id="SeveroPocion" repeatable="false" type="completable">
-    <start-milestone type="CHARACTER" targetId="SeveroMarga" />
+    <start-milestone type="SCENE" targetId="Plaza" />
     <end-milestone type="CONDITION">
       <condition>
         <active flag="PocionFarmacia" />
@@ -5742,15 +5997,26 @@
       <img src="assets/image/naranja2.jpg" />
     </text>
   </book>
-  <timer time="3" usesEndCondition="no" multipleStarts="no" runsInLoop="no" showTime="no" displayName="disclaimerseen" countDown="yes" showWhenStopped="no">
+  <timer time="0" usesEndCondition="no" multipleStarts="no" runsInLoop="no" showTime="no" displayName="opendisclaimer" countDown="yes" showWhenStopped="no">
     <init-condition>
       <active flag="SeeingDisclaimer" />
     </init-condition>
     <effect>
-      <trigger-scene idTarget="Start" x="512" y="473" transitionTime="1000" transitionType="5" />
+      <trigger-scene idTarget="Disclaimer" x="512" y="473" transitionTime="0" transitionType="0" />
+      <condition />
+    </effect>
+  </timer>
+  <timer time="5" usesEndCondition="no" multipleStarts="no" runsInLoop="no" showTime="no" displayName="disclaimerseen" countDown="yes" showWhenStopped="no">
+    <init-condition>
+      <active flag="SeeingDisclaimer" />
+    </init-condition>
+    <effect>
+      <trigger-last-scene />
       <condition />
       <trigger-conversation idTarget="Intro" />
-      <condition />
+      <condition>
+        <inactive flag="Intro" />
+      </condition>
     </effect>
   </timer>
 </eAdventure>

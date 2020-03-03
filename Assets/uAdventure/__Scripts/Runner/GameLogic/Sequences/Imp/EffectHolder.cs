@@ -182,8 +182,18 @@ namespace uAdventure.Runner
 
                             break;
                         case EffectType.TRIGGER_LAST_SCENE:
-                            runsOnce = false;
-                            Game.Instance.SwitchToLastTarget();
+                            if (!waitForLoadPulse)
+                            {
+                                runsOnce = false;
+                                var trace = !(additionalInfo.ContainsKey("disable_trace") && (bool)additionalInfo["disable_trace"]);
+                                Game.Instance.SwitchToLastTarget();
+                                waitForLoadPulse = true;
+                                forceWait = true;
+                            }
+                            else
+                            {
+                                waitForLoadPulse = false;
+                            }
                             break;
                         case EffectType.TRIGGER_CONVERSATION:
                             runsOnce = false;
@@ -345,6 +355,10 @@ namespace uAdventure.Runner
                             {
                                 forceWait = true;
                             }
+                            break;
+                        case EffectType.CANCEL_ACTION:
+                            Game.Instance.ActionCanceled();
+                            forceWait = true;
                             break;
                         case EffectType.CUSTOM_EFFECT:
                             runsOnce = false;

@@ -116,21 +116,7 @@ namespace uAdventure.Runner
 
             skin = Resources.Load("basic") as GUISkin;
 
-            if (!string.IsNullOrEmpty(gamePath))
-            {
-                ResourceManager = ResourceManagerFactory.CreateExternal(gamePath + gameName);
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(gameName))
-                {
-                    ResourceManager = ResourceManagerFactory.CreateLocal(gameName, useSystemIO ? ResourceManager.LoadingType.SystemIO : ResourceManager.LoadingType.ResourcesLoad);
-                }
-                else
-                {
-                    ResourceManager = ResourceManagerFactory.CreateLocal("CurrentGame/", useSystemIO ? ResourceManager.LoadingType.SystemIO : ResourceManager.LoadingType.ResourcesLoad);
-                }
-            }
+            ResourceManager = ResourceManagerFactory.CreateLocal("CurrentGame/", ResourceManager.LoadingType.ResourcesLoad);
 
             if (!string.IsNullOrEmpty(Game.GameToLoad))
             {
@@ -332,7 +318,7 @@ namespace uAdventure.Runner
                     Debug.LogError("Interacted execution exception: " + ex.Message + ex.StackTrace);
                 }
 
-                if (requiresMore)
+                if (requiresMore && !actionCanceled)
                 {
                     uAdventureRaycaster.Instance.Override = this.gameObject;
                     return true;
@@ -340,37 +326,58 @@ namespace uAdventure.Runner
                 else
                 {
                     Debug.Log("Execution finished " + toExecute.ToString());
-                    if (preInteractSize != executeStack.Count)
+                    if (!actionCanceled)
                     {
-                        Debug.Log("The size was different");
-                        var backupStack = new Stack<KeyValuePair<Interactuable, ExecutionEvent>>();
-                        // We backup the new stacked things
-                        while (executeStack.Count > preInteractSize)
+                        if (preInteractSize != executeStack.Count)
                         {
-                            backupStack.Push(executeStack.Pop());
+                            Debug.Log("The size was different");
+                            var backupStack = new Stack<KeyValuePair<Interactuable, ExecutionEvent>>();
+                            // We backup the new stacked things
+                            while (executeStack.Count > preInteractSize)
+                            {
+                                backupStack.Push(executeStack.Pop());
+                            }
+                            // Then we remove our entry
+                            executeStack.Pop();
+                            // Then we reinsert the backuped stuff
+                            while (backupStack.Count > 0)
+                            {
+                                executeStack.Push(backupStack.Pop());
+                            }
                         }
-                        // Then we remove our entry
-                        executeStack.Pop();
-                        // Then we reinsert the backuped stuff
-                        while (backupStack.Count > 0)
+                        else
                         {
-                            executeStack.Push(backupStack.Pop());
+                            executeStack.Pop();
                         }
                     }
-                    else
+                     try
                     {
-                        executeStack.Pop();
-                    }
-                    try
-                    {
-                        if (toExecute.Value != null)
+                        if (actionCanceled)
                         {
-                            toExecute.Value(toExecute.Key);
+                            while (executeStack.Count > 0)
+                            {
+                                var removed = executeStack.Pop();
+                                if (removed.Value != null)
+                                {
+                                    removed.Value(removed.Key);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (toExecute.Value != null)
+                            {
+                                toExecute.Value(toExecute.Key);
+                            }
                         }
                     }
                     catch (System.Exception ex)
                     {
                         Debug.Log("Execution OnFinished execution exception: " + ex.Message);
+                        if (actionCanceled)
+                        {
+                            executeStack.Clear();
+                        }
                     }
                 }
             }
@@ -384,6 +391,7 @@ namespace uAdventure.Runner
             }
             // In case any bubble is bugged
             GUIManager.Instance.DestroyBubbles();
+            actionCanceled = false;
             return false;
         }
 
@@ -543,10 +551,10 @@ namespace uAdventure.Runner
 
         public void SwitchToLastTarget()
         {
-            GeneralScene scene = GameState.GetLastScene();
+            IChapterTarget scene = GameState.PreviousChapterTarget;
 
             if (scene != null)
-                RunTarget(scene.getId());
+                RunTarget(scene.getId(), 1000, TransitionType.FadeIn);
         }
 
         #endregion Rendering
@@ -569,6 +577,14 @@ namespace uAdventure.Runner
             MenuMB.Instance.show();
             // TODO why isnt position used?
             //this.clicked_on = position;
+        }
+
+        public void ActionCanceled()
+        {
+            if (isSomethingRunning())
+            {
+                this.actionCanceled = true;
+            }
         }
 
         public void showOptions(ConversationNodeHolder options)
@@ -648,6 +664,7 @@ namespace uAdventure.Runner
         }
 
         private List<GUILayoutOption> auxLimitList = new List<GUILayoutOption>();
+        private bool actionCanceled;
 
         protected void OnGUI()
         {

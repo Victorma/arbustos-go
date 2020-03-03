@@ -10,7 +10,7 @@
     <graphics mode="windowed" />
   </configuration>
   <extension-objects>
-    <tracker rawCopy="yes" storageType="NET" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5e3a832b5ee978008a6d47a1d2b7rbz41bc" flushInterval="3" debug="yes" />
+    <tracker rawCopy="yes" storageType="NET" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5e5dd6eee3490e008a48b34aatwyrbuunx4" flushInterval="3" debug="yes" />
     <survey-manager-config show-survey="no" start-survey="0" end-survey="0" />
   </extension-objects>
   <contents>

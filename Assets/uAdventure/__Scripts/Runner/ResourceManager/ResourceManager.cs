@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Ionic.Zip;
 using uAdventure.Core;
 using System;
 using System.Text.RegularExpressions;
@@ -371,9 +370,7 @@ namespace uAdventure.Runner
             string filename = dir[dir.Length - 1].Split('.')[0];
 
             string exportLocation = getCurrentDirectory() + System.IO.Path.DirectorySeparatorChar + "Games" + System.IO.Path.DirectorySeparatorChar + filename;
-
-            ZipUtil.Unzip(file, exportLocation);
-
+            
             foreach (string f in System.IO.Directory.GetFiles(exportLocation))
             {
                 if (!f.Contains(".xml"))

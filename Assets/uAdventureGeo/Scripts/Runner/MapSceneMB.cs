@@ -212,6 +212,20 @@ namespace uAdventure.Geo
                 isPinching = false;
             }
         }
+
+        protected void OnGUI()
+        {
+            using(new GUILayout.AreaScope(new Rect(0,0, Screen.width, Screen.height)))
+            using(new GUILayout.HorizontalScope())
+            {
+                GUILayout.FlexibleSpace();
+                using(new GUILayout.VerticalScope())
+                {
+                    GUILayout.FlexibleSpace();
+                    GUILayout.Box("© OpenStreetMap contributors | https://openstreetmap.org");
+                }
+            }
+        }
     }
 
 

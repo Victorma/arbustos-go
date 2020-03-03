@@ -76,7 +76,7 @@ public class GeoPositionedCharacter : MonoBehaviour
             }
         }
 
-        if (Application.isEditor && !moving && !GeoExtension.Instance.IsStarted()) // Debug GPS location
+        if ((Application.isEditor || PreviewManager.Instance.InPreviewMode) && !moving && !GeoExtension.Instance.IsStarted()) // Debug GPS location
         {
             var movement = new Vector3(Input.GetAxis("Horizontal") * 10, 0, Input.GetAxis("Vertical") * 10);
             thirdPersonCharacter.Move(movement, false, false);

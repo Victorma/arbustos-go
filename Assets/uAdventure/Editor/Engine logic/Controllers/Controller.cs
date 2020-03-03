@@ -2190,7 +2190,7 @@ namespace uAdventure.Editor
                 File.WriteAllBytes(ffmpegPath + "/ffmpeg.zip", www.bytes);
                 // Unzip it
                 EditorUtility.DisplayProgressBar("Extracting...", "Extracting MMPEG to " + ffmpegPath, 0f);
-                ZipUtil.Unzip(ffmpegPath + "/ffmpeg.zip", ffmpegPath);
+                //ZipUtil.Unzip(ffmpegPath + "/ffmpeg.zip", ffmpegPath);
                 EditorUtility.DisplayProgressBar("Extracting...", "Extracting MMPEG to " + ffmpegPath, 1f);
                 EditorUtility.ClearProgressBar();
                 // Delete the zip

@@ -2,6 +2,7 @@
 using System.Collections;
 using AssetPackage;
 using uAdventure.Runner;
+using uAdventure.Core;
 
 namespace uAdventure.Geo
 {
@@ -20,7 +21,7 @@ namespace uAdventure.Geo
             get { return memory.Get<bool>("using_debug_location"); }
             set
             {
-                if (Application.isEditor && Application.isPlaying)
+                if ((Application.isEditor || PreviewManager.Instance.InPreviewMode) && Application.isPlaying)
                 {
                     memory.Set("using_debug_location", value);
                 }
@@ -46,7 +47,7 @@ namespace uAdventure.Geo
         private bool inZoneControl = false;
         private bool hidden = false;
         private GUIMap guiMap;
-        private Rect debugWindowRect = new Rect(0, 0, 200, 200);
+        private Rect debugWindowRect = new Rect(0, 0, Application.isMobilePlatform ? 300 : 200, Application.isMobilePlatform ? 300 : 200);
         private Texture2D pointer;
 
         void Awake()
@@ -57,7 +58,7 @@ namespace uAdventure.Geo
 
         public void Start()
         {
-            if (!IsStarted())
+            if (!PreviewManager.Instance.InPreviewMode && !IsStarted())
             {
                 StartCoroutine(StartLocation());
             }
@@ -169,7 +170,7 @@ namespace uAdventure.Geo
 
         void Update()
         {
-            if (!Application.isEditor && !IsStarted())
+            if (!Application.isEditor && !PreviewManager.Instance.InPreviewMode && !IsStarted())
             {
                 StartCoroutine(StartLocation());
             }
@@ -233,7 +234,7 @@ namespace uAdventure.Geo
                 GUI.DrawTexture(new Rect(Screen.width - iconWidth - 5, 5, iconWidth, iconHeight), paintSimbol);
             }
 
-            if (Application.isEditor)
+            if (Application.isEditor || PreviewManager.Instance.InPreviewMode)
             {
                 if (guiMap == null)
                 {
@@ -249,12 +250,13 @@ namespace uAdventure.Geo
                 {
                     debugWindowRect = GUI.Window(12341234, debugWindowRect, (id) =>
                     {
-                        var mapRect = new Rect(2, 18, 196, 180);
+                        var scale = Application.isMobilePlatform ? 1.5f : 1f;
+                        var mapRect = new Rect(2, 18, 196 * scale, 180 * scale);
                         using (new GUILayout.AreaScope(mapRect))
                         {
                             guiMap.Center = GeoExtension.Instance.Location;
                             guiMap.Zoom = 17;
-                            guiMap.DrawMap(new Rect(0, 0, 196, 180));
+                            guiMap.DrawMap(new Rect(0, 0, 196 * scale, 180 * scale));
                             // Calculate the player pixel relative to the map
                             var playerMeters = MapzenGo.Helpers.GM.LatLonToMeters(GeoExtension.Instance.Location);
                             var playerPixel = MapzenGo.Helpers.GM.MetersToPixels(playerMeters, guiMap.Zoom);
@@ -263,17 +265,22 @@ namespace uAdventure.Geo
                             // Do the point handling
                             var pointControl = GUIUtility.GetControlID("PlayerPosition".GetHashCode(), FocusType.Passive);
                             var oldPlayerPixel = playerPixelRelative.ToVector2();
-                            var newPlayerPixel = HandlePointMovement(pointControl, oldPlayerPixel, 60,
+                            var newPlayerPixel = HandlePointMovement(pointControl, oldPlayerPixel, 60 * scale,
                                 (point, isOver, isActive) =>
                                 {
-                                    var locationRect = new Rect(0, 0, 30, 30);
+                                    var locationRect = new Rect(0, 0, 30 * scale, 30 * scale);
                                     locationRect.center = point;
                                     locationRect.y -= locationRect.height / 2f;
                                     GUI.DrawTexture(locationRect, pointer);
                                 });
-
                             if (oldPlayerPixel != newPlayerPixel)
                             {
+                                if (Application.isMobilePlatform)
+                                {
+                                    var ydif = newPlayerPixel.y - oldPlayerPixel.y;
+                                    newPlayerPixel.y -= 2 * ydif;
+                                }
+
                                 // If changed, restore the point to the geochar
                                 playerPixel = newPlayerPixel.ToVector2d() - guiMap.PATR;
                                 playerMeters = MapzenGo.Helpers.GM.PixelsToMeters(playerPixel, guiMap.Zoom);
@@ -282,11 +289,11 @@ namespace uAdventure.Geo
 
                             guiMap.ProcessEvents(mapRect);
 
-                            GUI.Label(new Rect(0, 0, 196, 40), "Drag the pointer to move");
+                            GUI.Label(new Rect(0, 0, 196 * scale, 40 * scale), "Drag the pointer to move");
                         }
                         GUI.DragWindow();
                     },
-                       "Debug Location");
+                       "Simulated Location");
                 }
             }
         }
@@ -322,7 +329,7 @@ namespace uAdventure.Geo
             }
             set
             {
-                if (Application.isEditor && Application.isPlaying)
+                if ((Application.isEditor || PreviewManager.Instance.InPreviewMode) && Application.isPlaying)
                 {
                     UsingDebugLocation = true;
                     memory.Set("debug_location", value);

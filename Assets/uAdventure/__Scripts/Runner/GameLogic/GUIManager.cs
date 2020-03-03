@@ -373,7 +373,7 @@ namespace uAdventure.Runner
 
         public void ExitApplication()
         {
-            if (PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN" && PlayerPrefs.HasKey("LimesurveyPost"))
+            if (!PreviewManager.Instance.InPreviewMode && PlayerPrefs.HasKey("LimesurveyToken") && PlayerPrefs.GetString("LimesurveyToken") != "ADMIN" && PlayerPrefs.HasKey("LimesurveyPost"))
             {
                 string path = Application.temporaryCachePath;
 
