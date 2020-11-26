@@ -11,7 +11,7 @@
   </configuration>
   <extension-objects>
     <tracker rawCopy="yes" storageType="NET" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5e5dd6eee3490e008a48b34aatwyrbuunx4" flushInterval="3" debug="yes" />
-    <survey-manager-config show-survey="no" start-survey="0" end-survey="0" />
+    <survey-manager-config show-survey="yes" start-survey="0" end-survey="0" />
   </extension-objects>
   <contents>
     <chapter path="chapter1.xml">

@@ -14,7 +14,7 @@ namespace uAdventure.Analytics
         {
             return new SurveyManagerConfig
             {
-                ShowSurveyOnStart = ExParsers.ParseDefault(element.GetAttribute("show-survey"), "no") == "yes",
+                ShowSurveyOnStart = (element.GetAttribute("show-survey") ?? "no") == "yes",
                 StartSurvey = ExParsers.ParseDefault(element.GetAttribute("start-survey"), 0),
                 EndSurvey = ExParsers.ParseDefault(element.GetAttribute("end-survey"), 0)
             };

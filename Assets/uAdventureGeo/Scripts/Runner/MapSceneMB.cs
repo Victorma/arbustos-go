@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 
 namespace uAdventure.Geo
 {
-    public class MapSceneMB : MonoBehaviour, IRunnerChapterTarget
+    public class MapSceneMB : MonoBehaviour, IRunnerChapterTarget, IPointerClickHandler
     {
         public TileManager tileManager;
         public uAdventurePlugin uAdventurePlugin;
@@ -185,8 +185,7 @@ namespace uAdventure.Geo
             //geoCharacter.MoveTo(GM.MetersToLatLon(GM.LatLonToMeters(mapScene.LatLon.y, mapScene.LatLon.x) + new Vector2d(100, 100)));
             //geoCharacter.MoveTo(new Vector2d(-3.707398, 40.415363));
             //character.Move(new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical")), false, false);
-            if ((uAdventureRaycaster.Instance.Override == null || uAdventureRaycaster.Instance.Override == gameObject) && Input.touchCount >= 2)
-            {
+            if ((uAdventureRaycaster.Instance.Override == null || uAdventureRaycaster.Instance.Override == gameObject) && Input.touchCount >= 2) {
                 var touch0 = Input.GetTouch(0);
                 var touch1 = Input.GetTouch(1);
                 if (!isPinching)
@@ -196,8 +195,8 @@ namespace uAdventure.Geo
                     startDist = (touch1.position - touch0.position).sqrMagnitude;
                     startOrtho = Camera.main.orthographicSize;
                 }
-                
-                if((touch0.phase == TouchPhase.Moved || touch0.phase == TouchPhase.Stationary) &&
+
+                if ((touch0.phase == TouchPhase.Moved || touch0.phase == TouchPhase.Stationary) &&
                     (touch1.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Stationary))
                 {
                     var currentDist = (touch1.position - touch0.position).sqrMagnitude;
@@ -205,7 +204,7 @@ namespace uAdventure.Geo
                     var ortho = startOrtho * distGrowth;
                     Camera.main.orthographicSize = LastOrthoSize = Mathf.Clamp(ortho, MinOrthoSize, MaxOrthoSize);
                 }
-            } 
+            }
             else if (isPinching)
             {
                 uAdventureRaycaster.Instance.Override = null;
@@ -224,6 +223,20 @@ namespace uAdventure.Geo
                     GUILayout.FlexibleSpace();
                     GUILayout.Box("© OpenStreetMap contributors | https://openstreetmap.org");
                 }
+            }
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (!Application.isMobilePlatform)
+            {
+                GeoExtension.Instance.UsingDebugLocation = true;
+                eventData.Use();
+                var tileManagerRelative = GM.LatLonToMeters(tileManager.Latitude, tileManager.Longitude);
+                var localPosition = tileManager.transform.worldToLocalMatrix.MultiplyPoint(eventData.pointerCurrentRaycast.worldPosition);
+                var meters = localPosition.ToVector2xz().ToVector2d();
+                var latLon = GM.MetersToLatLon(tileManagerRelative + meters);
+                GeoExtension.Instance.Location = latLon;
             }
         }
     }

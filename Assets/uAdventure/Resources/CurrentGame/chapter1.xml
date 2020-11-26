@@ -5194,6 +5194,90 @@
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="TirarAlternative">
+    <option-node nodeindex="0" question="TirarAlternative" random="yes" max-elements-per-row="3" alignment="MiddleCenter" horizontal="yes" editor-x="249" editor-y="182" x="249" y="182">
+      <speak-player>
+        <text>Amarillo</text>
+        <resources name="No name">
+          <asset type="image" uri="assets/image/amarillo.png" />
+        </resources>
+      </speak-player>
+      <condition />
+      <child nodeindex="1" />
+      <speak-player>
+        <text>Azul</text>
+        <resources name="No name">
+          <asset type="image" uri="assets/image/azul.png" />
+        </resources>
+      </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>
+        <text>Marron</text>
+        <resources name="No name">
+          <asset type="image" uri="assets/image/marron.png" />
+        </resources>
+      </speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>
+        <text>Naranja</text>
+        <resources name="No name">
+          <asset type="image" uri="assets/image/naranja.png" />
+        </resources>
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>
+        <text>Verde</text>
+        <resources name="No name">
+          <asset type="image" uri="assets/image/verde.png" />
+        </resources>
+      </speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="1" editor-x="860" editor-y="3">
+      <end-conversation>
+        <effect>
+          <activate flag="ScannedAmarillo" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="2" editor-x="860" editor-y="197">
+      <end-conversation>
+        <effect>
+          <activate flag="ScannedAzul" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="860" editor-y="391">
+      <end-conversation>
+        <effect>
+          <activate flag="ScannedMarron" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="860" editor-y="585">
+      <end-conversation>
+        <effect>
+          <activate flag="ScannedNaranja" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="813" editor-y="779">
+      <end-conversation>
+        <effect>
+          <activate flag="ScannedVerde" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
   <geoelement id="InitialArea">
     <description>
       <name>
@@ -5621,7 +5705,7 @@
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
     <deactivate flag="Correcto" />
     <condition>
       <active flag="Correcto" />
@@ -5639,6 +5723,14 @@
       <qr-id>Azul</qr-id>
     </qr-scanner>
     <condition />
+    <trigger-conversation idTarget="TirarAlternative" />
+    <condition>
+      <inactive flag="ScannedAmarillo" />
+      <inactive flag="ScannedAzul" />
+      <inactive flag="ScannedMarron" />
+      <inactive flag="ScannedNaranja" />
+      <inactive flag="ScannedVerde" />
+    </condition>
     <activate flag="Correcto" />
     <condition>
       <active flag="ScannedAmarillo" />
