@@ -170,8 +170,10 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: es.eucm.arbustosgo
-    iPhone: es.eucm.arbustosgo
+    Android: com.eUCM.ElSeorDeLosArbustosGO
+    Standalone: com.e-UCM.ElSeorDeLosArbustosGO
+    WebGL: com.e-UCM.ElSeorDeLosArbustosGO
+    iPhone: com.e-UCM.ElSeorDeLosArbustosGO
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
@@ -251,7 +253,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 2
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Victo/Github/arbustos-go/user.keystore
+  AndroidKeystoreName: '{inproject}: user.keystore'
   AndroidKeyaliasName: arbustos-go
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
@@ -641,7 +643,9 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 1
+    UNet: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
