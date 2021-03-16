@@ -149,16 +149,13 @@ namespace uAdventure.Editor
             if (background)
             {
                 var previousBackground = Controller.ResourceManager.getImage(getPreviewBackground());
-                if (previousBackground)
-                {
-                    previousBackgroundSize = new Vector2(previousBackground.width, previousBackground.height);
+                previousBackgroundSize = new Vector2(previousBackground.width, previousBackground.height);
 
-                    if ((previousBackground.width != background.width || previousBackground.height != background.height) &&
-                        !Controller.Instance.ShowStrictConfirmDialog("Different Size", "The selected background dimensions " +
-                                   "are not the same as the previous background, do you want the elements to maintain its relative position and scale?"))
-                    {
-                        maintainRelative = false;
-                    }
+                if ((previousBackground.width != background.width || previousBackground.height != background.height) && 
+                    !Controller.Instance.ShowStrictConfirmDialog("Different Size", "The selected background dimensions " +
+                               "are not the same as the previous background, do you want the elements to maintain its relative position and scale?"))
+                {
+                    maintainRelative = false;
                 }
 
                 var foreground = Controller.ResourceManager.getImage(getPreviewForeground());
@@ -732,7 +729,7 @@ namespace uAdventure.Editor
 
         public void setPlayerScale(float scale)
         {
-
+            scale = Mathf.Max(0, scale);
             //scene.setPlayerScale(scale);
             Controller.Instance.AddTool(new ChangePlayerScaleTool(scene, scale));
         }

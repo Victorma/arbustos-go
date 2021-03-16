@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
 using System.Collections.Generic;
 
 using uAdventure.Core;
-using UniRx;
 using System;
 
 namespace uAdventure.Editor
@@ -326,12 +324,12 @@ namespace uAdventure.Editor
             disposables.ForEach(d => d.Observer.OnNext(this));
         }
 
-        public IDisposable Subscribe(IObserver<DataControl> observer)
+        public System.IDisposable Subscribe(IObserver<DataControl> observer)
         {
             return new DataControlDisposable(this, observer);
         }
 
-        public sealed class DataControlDisposable : IDisposable
+        public sealed class DataControlDisposable : System.IDisposable
         {
             private readonly IObserver<DataControl> observer;
             private readonly DataControl toObserve;

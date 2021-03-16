@@ -110,9 +110,11 @@ namespace uAdventure.Geo
                 },
                 onRemoveCallback = list =>
                 {
-                    if (list.index > -1)
+                    if (workingGeoElement.SelectedGeometry > -1)
                     {
-                        workingGeoElement.SelectedGeometry = 0;
+                        workingGeoElement.SelectedGeometry = Mathf.Max(0, workingGeoElement.SelectedGeometry - 1);
+                        Center(workingGeoElement.GMLGeometries[workingGeoElement.SelectedGeometry]);
+                        list.index = workingGeoElement.SelectedGeometry;
                     }
                 }
             };
@@ -146,8 +148,9 @@ namespace uAdventure.Geo
             EditorGUI.BeginChangeCheck();
             GUILayout.Label("Geo.GeoElement.Geometry.Type.Title".Traslate());
             var newType = (GMLGeometry.GeometryType)GUILayout.Toolbar((int) geometry.Type, typeNames);
-            if (EditorGUI.EndChangeCheck()) 
+            if (EditorGUI.EndChangeCheck())
             {
+                geometry.CurrentEditor = MapEditor.Current ?? componentBasedEditor;
                 geometry.Type = newType;
             }
 

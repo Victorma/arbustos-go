@@ -5,7 +5,7 @@ Node: 1
  - Player: #O Justo lo que me faltaba para rematar el estrés de volver a clase
  - Player: No soy una voz, soy Bandalf y esto es telepatía
  - Player: He conectado mi mundo, Baland, con el tuyo para encontrarte
- - Player: #O Baland... Algo así como Narnia?
+ - Player: #O Baland... ¿Algo así como Narnia?
  - Player: Más o menos...
  - Player: Pero en este caso mi mundo está amenazado y casi no nos queda tiempo
  - Player: La falta de reciclaje en tu mundo está llevando a mi mundo al desastre
@@ -23,8 +23,8 @@ Node: 5
  * After Node: 3: Fantástico, manos a la obra
  * After Node: 4: Jajaja, qué iluso, no tienes elección...
  - Player: Nuestros mundos están conectados y se destruirán si no hacemos algo
- - Player: #O No! Qué puedo hacer yo?
- - Player: Mucho! Ven a verme a la casa del estudiante
+ - Player: #O No! ¿Qué puedo hacer yo?
+ - Player: Mucho! Ven a verme al Metro de Ciudad Universitaria
  - Player: No conozco mucho tu mundo, pero gracias a mi magia podrás interactuar con el mío a través de tu móvil
  - Player: Voy a invocar una flecha verde que indicará mi posición...
 Node: 6
@@ -35,24 +35,24 @@ Node: 6
 Conversation: BandalfIntro
 Node: 1
  - Bandalf: Sí, soy Bandalf
- - Player: Cómo?
- - Bandalf: Ibas a preguntarlo, verdad?
+ - Player: ¿Cómo?
+ - Bandalf: Ibas a preguntarlo, ¿verdad?
  - Player: Yo... Eh... Sí.
  - Bandalf: Soy mago, me adelanto a todo ;)
- - Bandalf: Necesito tu ayuda y no hay tiempo que perder con más preguntas.
- - Player: Pero... Sí no he podido preguntar nada!
+ - Bandalf: Necesito tu ayuda y no hay tiempo que perder con más preguntas
+ - Player: Pero... ¡Sí no he podido preguntar nada!
  - Bandalf: Verás...
- - Bandalf: Una amenaza se cierne sobre nuestros mundos.
- - Bandalf: El planeta está muriéndose. 
+ - Bandalf: Una amenaza se cierne sobre nuestros mundos
+ - Bandalf: El planeta está muriéndose
  - Bandalf: Si seguimos consumiendo de manera tan inconsciente vamos a acabar...
- - Player: Mal, verdad?
+ - Player: Mal, ¿verdad?
  - Bandalf: Vaya, veo que no hace falta ser mago para darse cuenta...
  - Bandalf: Verás...
 Node: 2
  * After Node: 1: Verás...
  - Bandalf: Esta era la Universidad Complutense en los años 50
  - Bandalf: El campus de Ciudad Universitaria se creó en 1927 por el rey Alfonso XIII
- - Bandalf: Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente.
+ - Bandalf: Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente
  - Bandalf: En la segunda república añadieron ciencias, letras y arquitectura, no todo era curar gente jeje
  - Bandalf: Después, llegó la guerra, y se tuvieron que reconstruir muchos edificios
  - Bandalf: Tal vez luego debas ir a ver balazos por medicina o farmacia
@@ -72,97 +72,96 @@ Node: 4
  - Bandalf: Pero por suerte tengo la herramienta para ayudar a evitarlo...
 Node: 5
  * After Node: 4: Pero por suerte tengo la herramienta para ayudar a evitarlo...
- - Bandalf: Las tres erres!
+ - Bandalf: ¡Las tres erres!
+ - Player: ¡REDUCIR!
+ - Player: ¡REUTILIZAR!
+ - Player: ¡RECICLAR!
 Node: 6
- * After Node: 5: Las tres erres!
- - Bandalf: Reducir!
- - Bandalf: Consumir menos, evitar el sobreenvasado...
- - Bandalf: O dejar de olvidarte la bolsa antes de ir a la compra, gañán!
+ * After Node: 5: ¡RECICLAR!
+ - Bandalf: ¡Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!
+ - Bandalf: Marrón, Amarillo, Verde, Azul y Naranja
+ - Bandalf: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
 Node: 7
- * After Node: 6: O dejar de olvidarte la bolsa antes de ir a la compra, gañán!
- - Bandalf: Reutilizar!
- - Bandalf: Tarros, bolsas, corchos... Hasta túnicas de segunda mano!
-Node: 8
- * After Node: 7: Tarros, bolsas, corchos... Hasta túnicas de segunda mano!
- - Bandalf: Reciclar!
- - Bandalf: De la que nos ocuparemos hoy!
- - Bandalf: Debemos aprender a separar correctamente la basura en los cinco contenedores
- - Bandalf: Marrón, Amarillo, Verde, Azul y Naranja. 
- - Bandalf: Con ellos podemos librarnos del mal...
-Node: 9
- * After Node: 8: Con ellos podemos librarnos del mal...
+ * After Node: 6: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
  - Bandalf: Él es Basauron
  - Bandalf: Un monstruo cuyo poder puede acabar con todo lo que conocemos
  - Bandalf: Su sombra se cierne sobre nosotros y atacará de un momento a otro
- - Bandalf: Por ello debemos protejernos, y para eso te necesito!
+ - Bandalf: Por ello debemos protejernos, ¡y para eso te necesito!
  - Bandalf: Te voy a entregar un arma...
  - Bandalf: Un arma muy poderosa...
- - Bandalf: La CUARTA R
-Node: 10
- * After Node: 9: La CUARTA R
- - Bandalf: RECOGER!
+ - Bandalf: LA CUARTA R
+Node: 8
+ * After Node: 7: LA CUARTA R
+ - Bandalf: ¡RECOGER!
  - Bandalf: La universidad, llena de juventud, se llena de residuos
  - Bandalf: Y hoy recogeremos y reciclaremos juntos...
- - Bandalf: Para salvar el mundo de Basauron!
-Node: 11
- * After Node: 10: Para salvar el mundo de Basauron!
- - Player: Genial!
+ - Bandalf: ¡Para salvar el mundo de Basauron!
+Node: 9
+ * After Node: 8: ¡Para salvar el mundo de Basauron!
+ - Player: ¡Genial!
  - Player: Entonces... ¿Cómo empiezo?
- - Bandalf: Perfecto, acompáñame, tengo que mostrarte algo cómo recoger la basura...
-Node: 12
- * After Node: 11: Perfecto, acompáñame, tengo que mostrarte algo cómo recoger la basura...
- - Bandalf: Cruza la calle y busca junto al metro...
- - Bandalf: Tienes que recoger una bolsa de plástico
+ - Bandalf: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
+Node: 10
+ * After Node: 9: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
+ - Bandalf: Ve junto a la estatua "Los portadores de la antorcha" en el centro de la plaza
+ - Bandalf: Tienes que recoger una bolsa de plástico que aparecerá en tu pantalla
 
 Conversation: BuscandoBolsi
 Node: 1
  - Bandalf: Sigue la flecha verde hasta el metro
  - Bandalf: Allí encontrarás una bolsa
- - Bandalf: Recójela!
+ - Bandalf: ¡Recógela!
 
 Conversation: EncontradoBolsi
 Node: 1
- - Bandalf: #! Mira!
- - Bandalf: #! La bolsa de basura que buscábamos!
+ - Bandalf: #! ¡Mira!
+ - Bandalf: #! ¡La bolsa de basura que buscábamos!
  - Bandalf: Todos los objetos que conectan tu mundo con el mío están ocultos
- - Bandalf: Sin embargo, podrás interactuar con ellos a través de tu pantalla!
+ - Bandalf: Sin embargo, ¡podrás interactuar con ellos a través de tu pantalla!
  - Bandalf: Toca la bolsa de basura y pulsa en el símbolo de recoger para recogerla
 
 Conversation: CreacionBolsi
 Node: 1
- - Bandalf: Perfecto!
- - Bandalf: Ahora voy a hacer mi magia!
+ - Bandalf: ¡Perfecto!
+ - Bandalf: ¡Ahora voy a hacer mi magia!
  - Bandalf: Bíbidi, bó...
  - Bandalf: No, espera, eso tiene copyright
- - Bandalf: Por el poder de la reutilización!
- - Bandalf: Ven a la vida!!!
+ - Bandalf: ¡Por el poder de la reutilización!
+ - Bandalf: ¡¡Ven a la vida!!!
 Node: 2
- * After Node: 1: Ven a la vida!!!
- - Player: Woah!
- - Bandalf: Heh, soy todo un mago!
- - Bandalf: Bolsi! Saluda!
+ * After Node: 1: ¡¡Ven a la vida!!!
+ - Player: ¡Woah!
+ - Bandalf: Heh, ¡soy todo un mago!
+ - Bandalf: ¡Bolsi! ¡Saluda!
  - Bolsi: Ho...
  - Bolsi: Holi...
  - Bandalf: No tengas miedo pequeña
 Node: 3
  * After Node: 2: No tengas miedo pequeña
- - Bolsi: Soy Bolsi y te ayudaré a partir de ahora en tu aventura!
- - Bandalf: Así me gusta!
+ - Bolsi: ¡Soy Bolsi y te ayudaré a partir de ahora en tu aventura!
+ - Bandalf: ¡Así me gusta!
  - Bandalf: Hay muchos otros residuos en la plaza que deberás reciclar
- - Bandalf: En total, hay 15 residuos y deberás encontrar al menos 10 para poder atraer la atención de Basauron
- - Bandalf: Busca cuantos más puedas y luego recíclalos en los contenedores frente a medicina!
- - Bolsi: Yo te ayudaré a reciclar explicándote cada residuo que encuentres!
+ - Bandalf: En total, hay 15 residuos y deberás encontrar al menos 8 para poder atraer la atención de Basauron
+ - Bandalf: Busca cuantos más puedas y luego recíclalos en los contenedores en la esquina de la plaza junto a Medicina
+ - Bolsi: Yo te ayudaré a encontrarlos si me preguntas
+ - Bolsi: ¡Y te ayudaré a reciclar explicándote cada residuo que encuentres!
 Node: 4
- * After Node: 3: Yo te ayudaré a reciclar explicándote cada residuo que encuentres!
- - Bandalf: Por otro lado, mientras buscas y reciclas los residuos, te voy a encargar dos tareas
- - Bandalf: Necesito que fabriques un par de pociones
- - Bandalf: En medicina y farmacia hay dos viejos amigos: Ramón y Cajal y Severo Ochoa
- - Bandalf: Ellos te dirán como hacer las pociones
- - Bandalf: Después nos veremos en la estatua de los portadores de la antorcha en el centro de la plaza
- - Player: Genial!
+ * After Node: 3: ¡Y te ayudaré a reciclar explicándote cada residuo que encuentres!
+ - Bolsi: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
+Node: 5
+ * After Node: 4: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
+ - Bandalf: Por otro lado, mientras buscas y reciclas los residuos, puedes utilizar la naturaleza para volverte más fuerte
+ - Bandalf: Si quieres tener ayuda en la batalla contra basauron, opcionalmente, podemos fabricar unas pociones
+ - Bandalf: En Medicina y Farmacia hay tres viejos amigos: Santiago Ramón y Cajal y Severo Ochoa con Margarita Salas
+ - Bandalf: A Santiago deberás llevarle el fruto de un majuelo y un ala de saltacercas
+ - Bandalf: A Severo y Margarita deberás llevarle una ciruela y un plumero de la pampa
+ - Bolsi: ¡Yo puedo darte pistas si no los encuentras! Jijiji
+ - Bandalf: ¡Cada una de ellas te dará una vida extra en la batalla final!
+ - Bandalf: Despues, te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos
+ - Player: ¡Genial!
  - Bandalf: Recuerda:
- - Bandalf: Busca y recicla al menos 10 objetos de la plaza
- - Bandalf: Ve a Medicina y a Farmacia a encontrarte con Ramón y Cajal y Severo Ochoa
+ - Bandalf: Busca y recicla al menos 8 objetos de la plaza
+ - Bandalf: Ve a Medicina y a Farmacia a encontrarte con Santiago, Severo y Margarita
  - Bandalf: Después nos veremos en la estatua en el centro de la plaza
 
 Conversation: LlegadaPortadores
@@ -178,38 +177,35 @@ Node: 1
 
 Conversation: BatallaFinal
 Node: 1
- - Bandalf: Bien, qué perfecto...
- - Bandalf: Estamos junto a la estatua de los portadores de la antorcha para derrotal al mal
- - Bandalf: Nuestra sabiduría nos permitirá derrotarle
- - Bandalf: Parece que la llegada de basauron es inminente...
+ - Bandalf: Bien, con los residuos que has reciclado hemos conseguido provocar a Basauron
 Node: 2
- * After Node: 1: Parece que la llegada de basauron es inminente...
+ * After Node: 1: Bien, con los residuos que has reciclado hemos conseguido provocar a Basauron
  - Player: Ahí viene!
 Node: 3
  * After Node: 2: Ahí viene!
  - Basauron: #! MUAHAHAHAHA
- - Basauron: #! Soy Basauron, señor oscuro de la basura!
- - Basauron: #! Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! 
- - Player: Adelante Bandalf! Peleemos!
- - Bandalf: Tómate la pocion!
- - Bandalf: Con ella podrás ver sus residuos y separarlos para derrotarlo!
+ - Basauron: #! ¡Soy Basauron, Señor Oscuro de la basura!
+ - Basauron: #! ¡Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! 
+ - Player: ¡Adelante Bandalf! ¡Peleemos!
+ - Bandalf: ¡Tómate las pociones que hayas fabricado!
+ - Bandalf: ¡Tendrás protección a fallos si fallas!
  - Player: Vale!
  - Player: #O Glup
  - Player: #O Glup
  - Player: #O Glup
  - Player: Viscoso pero sabroso!
- - Player: #! Bien Basauron! Vamos a acabar contigo!
- - Basauron: #! Y ahora, muere!!
+ - Player: #! ¡Bien Basauron! ¡Vamos a acabar contigo!
+ - Basauron: #! ¡Y ahora MUERE!
 Node: 4
- * After Node: 3: #! Y ahora, muere!!
+ * After Node: 3: #! ¡Y ahora MUERE!
  - Basauron: Es mi momento, voy a acabar con la humanidad
- - Basauron: Mi basura innundará el mundo!
- - Player: #O  * Basauron va a tirarte basura *
+ - Basauron: ¡Mi basura innundará el mundo!
+ - Player: #O * Basauron va a tirarte basura *
  - Player: #O * Separa la basura correctamente para derrotarle *
  - Player: #O * Acierta el máximo número de preguntas para derrotar a Basauron *
- - Player: Viene un botellín de cerveza!
+ - Player: ¡Viene un botellín de cerveza!
 Node: 5
- * After Node: 4: Viene un botellín de cerveza!
+ * After Node: 4: ¡Viene un botellín de cerveza!
  - Player: Verde
  - Player: Azul
  - Player: Amarillo
@@ -409,22 +405,18 @@ Node: 44
  * After Node: 43: #! Mal!!! Mi basura innundará tu mundo!
  - Basauron: #! ARG! Eres un tipo duro...
  - Basauron: Veo que la humanidad aún tiene esperanza porque sabes separar muy bien la basura
- - Basauron: Sin embargo, no ceses tu trabajo o volveré!
- - Basauron: #! Vaya, no tienes ni idea de separar la basura!
+ - Basauron: ¡Sin embargo, no ceses tu trabajo o volveré!
+ - Basauron: #! ¡Vaya, no tienes ni idea de separar la basura!
  - Basauron: Has perdido este combate y la tierra sufrirá las consecuencias...
- - Basauron: #! Pero aún no es tarde! 
- - Basauron: Aprende a separar correctamente y vuelve a enfrentarte al reto!
+ - Basauron: #! ¡Pero aún no es tarde! 
+ - Basauron: ¡Aprende a separar correctamente y vuelve a enfrentarte al reto!
 Node: 45
- * After Node: 44: Aprende a separar correctamente y vuelve a enfrentarte al reto!
+ * After Node: 44: ¡Aprende a separar correctamente y vuelve a enfrentarte al reto!
  - Bandalf: Bueno, me voy a volver a mi mundo... El portal interdimensional se cierra... 
- - Bandalf: Suerte en tu aventura!!!
+ - Bandalf: ¡¡¡Suerte en tu aventura!!!
 
 Conversation: PocionSevero
-Node: 1
- - Player: Hola!
- - SeveroMarga: Buenas tardes, somos Severo Ochoa, licenciado en Medicina y Bioquímico y Margarita Salas licenciada en Química y Bioquímica también, mi discípula
- - Player: Vereis, vengo en nombre de Bandalf...
- - SeveroMarga: Bandalf! Hacía años que no oía ese nombre... Durante mi formación en la Universidad Central (la antigua complutense), conocí a Bandalf
+ Central (la antigua complutense), conocí a Bandalf
  - SeveroMarga: Luego me fui a EEUU donde trabajé mucho tiempo con Margarita y no volví a saber de él, pero pasamos grandes momentos juntos
  - SeveroMarga: Claro que te ayudaremos, qué necesitas?
  - Player: Necesito que nos ayudeis a luchar contra Basauron...

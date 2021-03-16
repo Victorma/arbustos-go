@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment> Project Configuration </comment>
-<entry key="Chapter0.Title.X">-147</entry>
-<entry key="Chapter0.Title.Y">38</entry>
+<entry key="Chapter0.Title.X">-236</entry>
+<entry key="Chapter0.Title.Y">29</entry>
 <entry key="Chapter0.Alumnos.X">94</entry>
 <entry key="Chapter0.Alumnos.Y">43</entry>
 <entry key="Chapter0.Antes.X">306</entry>
@@ -39,4 +39,18 @@
 <entry key="Chapter0.MetroCIU.Y">75</entry>
 <entry key="Chapter0.Disclaimer.X">131</entry>
 <entry key="Chapter0.Disclaimer.Y">32</entry>
+<entry key="Simva.RefreshToken">eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2Y2IwZWFmNC1iOWM1LTQ0ZWQtODYzZC05ZGRjMWU5ZmEyODMifQ.eyJpYXQiOjE2MTU4NTk1NjksImp0aSI6IjE5NGU4MTZmLWJkOTUtNDFlYi1iZWJkLTZiNjUyNDZkYjMyMSIsImlzcyI6Imh0dHBzOi8vc3NvLnNpbXZhLmUtdWNtLmVzL2F1dGgvcmVhbG1zL3NpbXZhIiwiYXVkIjoiaHR0cHM6Ly9zc28uc2ltdmEuZS11Y20uZXMvYXV0aC9yZWFsbXMvc2ltdmEiLCJzdWIiOiIxODBmNzExZi1iZjE1LTRlNDQtYjNlYS05M2YwN2NiYTZkM2MiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoidWFkdmVudHVyZSIsInNlc3Npb25fc3RhdGUiOiIzODNhODU5My04MGEwLTRmYzEtOTExOC00NTFhMGVmMjVkNjAiLCJzY29wZSI6Im9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwifQ.NR2_wU2xUoX0LiQKSefReTL_RBxKI_cXI1x4ku2P5Pg</entry>
+<entry key="Chapter0.Dehesa.X">193</entry>
+<entry key="Chapter0.Dehesa.Y">-22</entry>
+<entry key="Chapter0.AbreMochila.X">150</entry>
+<entry key="Chapter0.AbreMochila.Y">-36</entry>
+<entry key="Chapter0.SeleccionaResiduo.X">-181</entry>
+<entry key="Chapter0.SeleccionaResiduo.Y">-32</entry>
+<entry key="Chapter0.Enfoca.X">140</entry>
+<entry key="Chapter0.Enfoca.Y">-12</entry>
+<entry key="Chapter0.Creditos.X">96</entry>
+<entry key="Chapter0.Creditos.Y">-3</entry>
+<entry key="Chapter0.Guia.X">151</entry>
+<entry key="Chapter0.Guia.Y">504</entry>
 </properties>
+

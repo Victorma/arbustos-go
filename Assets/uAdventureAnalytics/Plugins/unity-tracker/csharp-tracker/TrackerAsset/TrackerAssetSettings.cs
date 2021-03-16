@@ -38,7 +38,7 @@ namespace AssetPackage
             string timestamp = Math.Round(System.DateTime.Now.ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds).ToString();
             LogFile = timestamp + ".log";
             BackupStorage = true;
-            BackupFile = "complete.log";
+            BackupFile = timestamp + "_backup.log";
         }
 
         /// <summary>
@@ -93,6 +93,58 @@ namespace AssetPackage
         /// The full pathname of the base file.
         /// </value>
         public String BasePath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the url path to the login endpoint
+        /// </summary>
+        ///
+        /// <value>
+        /// The url path for the login endpoint
+        /// </value>
+        public String LoginEndpoint
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the url path to the start endpoint
+        /// </summary>
+        ///
+        /// <value>
+        /// The url path for the start endpoint
+        /// </value>
+        public String StartEndpoint
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the url path to the Track endpoint
+        /// </summary>
+        ///
+        /// <value>
+        /// The url path for the track endpoint
+        /// </value>
+        public String TrackEndpoint
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// If active, it will use Bearer on track endpoint auth
+        /// </summary>
+        ///
+        /// <value>
+        /// The value for UseBearerOnTrackEndpoint
+        /// </value>
+        public Boolean UseBearerOnTrackEndpoint
         {
             get;
             set;

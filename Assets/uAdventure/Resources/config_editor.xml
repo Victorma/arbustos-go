@@ -28,4 +28,11 @@
 <entry key="RecentFile.0.DateOpened">uAdventure.Editor.RecentFile</entry>
 <entry key="RecentFile.1.FilePath">C:\Users\dijks\Desktop\Export\test1</entry>
 <entry key="RecentFile.1.DateOpened">RecentFile</entry>
+<entry key="ExtraProperties">&lt;properties&gt;
+&lt;comment&gt; Project Configuration &lt;/comment&gt;
+&lt;entry key=&quot;shownWelcome&quot;&gt;yes&lt;/entry&gt;
+&lt;entry key=&quot;layoutSet&quot;&gt;yes&lt;/entry&gt;
+&lt;/properties&gt;
+</entry>
 </properties>
+

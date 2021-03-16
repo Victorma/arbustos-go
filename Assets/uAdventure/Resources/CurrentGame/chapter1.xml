@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE eAdventure PUBLIC "SYSTEM" "eadventure.dtd">
-<eAdventure version="2">
+<eAdventure version="3">
   <player>
     <resources name="No name">
       <asset type="standup" uri="assets/special/EmptyAnimation" />
@@ -68,7 +67,7 @@
           <inactive flag="Intro" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="BandalfIntro" />
+          <trigger-conversation idTarget="BandalfIntro" guid="62b0ebe0-6f30-4680-bc11-498f541fb200" />
           <condition />
         </effect>
       </talk-to>
@@ -77,13 +76,13 @@
           <inactive flag="Bolsi" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="BuscandoBolsi" />
+          <trigger-conversation idTarget="BuscandoBolsi" guid="c330a484-5750-4b67-89aa-b526b889163a" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="Final" />
+          <trigger-conversation idTarget="Final" guid="1d7ec5a8-0cd7-404f-a693-d904ff21ac1a" />
           <condition />
         </effect>
       </talk-to>
@@ -305,7 +304,7 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="AyudaBolsi" />
+          <trigger-conversation idTarget="AyudaBolsi" guid="3c900eb8-b574-41fb-a8e8-bc88a4d0735d" />
           <condition />
         </effect>
       </talk-to>
@@ -347,13 +346,13 @@
           <inactive flag="PocionMedicina" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="PocionRamon" />
+          <trigger-conversation idTarget="PocionRamon" guid="8688403a-c44c-4cba-a2a1-ef4b054a0182" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="FinalRamon" />
+          <trigger-conversation idTarget="FinalRamon" guid="18e40531-41c0-4281-a2cf-3846497c39d8" />
           <condition />
         </effect>
       </talk-to>
@@ -395,13 +394,13 @@
           <inactive flag="PocionFarmacia" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="PocionSevero" />
+          <trigger-conversation idTarget="PocionSevero" guid="488ebccf-9227-40b7-8414-50d337743adf" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-conversation idTarget="FinalSevero" />
+          <trigger-conversation idTarget="FinalSevero" guid="72ef18b5-b1bf-4275-9aec-d0467cbbb1b3" />
           <condition />
         </effect>
       </talk-to>
@@ -420,11 +419,11 @@
       <exit rectangular="yes" x="375" y="275" width="547" height="138" hasInfluenceArea="no" idTarget="Start" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <post-effect>
-          <activate flag="SeeingDisclaimer" />
+          <activate flag="SeeingDisclaimer" guid="658ee23f-eda4-4d95-b91d-98495f6dbe7e" />
           <condition />
         </post-effect>
       </exit>
-      <exit rectangular="yes" x="372" y="435" width="544" height="139" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="372" y="435" width="544" height="139" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="5" transitionTime="100" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -450,6 +449,19 @@
     <default-initial-position x="400" y="450" />
     <characters>
       <character-ref idTarget="Bandalf" x="630" y="1045" scale="1.377005" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="Dehesa" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/16185232Master.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Bandalf" x="182" y="817" scale="0.4548014" orientation="2" layer="0" hasInfluenceArea="no" />
     </characters>
   </scene>
   <scene id="Antes" hideInventory="yes" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -649,6 +661,19 @@
       </exit>
     </exits>
   </scene>
+  <scene id="Guia" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/guia.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <objects>
+      <object-ref idTarget="Exit" x="817" y="132" scale="0.5059701" layer="0" hasInfluenceArea="no" />
+    </objects>
+  </scene>
   <atrezzoobject id="Naranja">
     <resources name="No name">
       <asset type="image" uri="assets/image/naranja.png" />
@@ -720,427 +745,462 @@
     </description>
   </atrezzoobject>
   <map-scene id="Begin" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436015898043, -3.72803354263299)" zoom="18" start="no">
-    <map-element targetId="InitialArea" layer="0" scale="1" orientation="0">
+    <map-element targetId="InitialArea" layer="0">
       <condition />
     </map-element>
   </map-scene>
   <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437016125164, -3.72640007734232)" zoom="18" start="no">
-    <map-element targetId="PlasticBag" layer="0" scale="0.17" orientation="0">
+    <map-element targetId="PlasticBag" layer="0">
       <condition>
         <active flag="Intro" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.17" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4437217712402, -3.7261278629303)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="MetroCIUArea" layer="0" scale="1" orientation="0">
+    <map-element targetId="MetroCIUArea" layer="0">
       <condition>
         <inactive flag="Intro" />
       </condition>
     </map-element>
-    <map-element targetId="Bandalf" layer="0" scale="1.006375" orientation="0">
+    <map-element targetId="Bandalf" layer="0">
       <condition>
         <active flag="Intro" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
-        <param name="Position">(93.4, 707.0)</param>
+      <ext-elem-ref scale="1.006375" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(93.4, 707)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Bolsi" layer="0" scale="0.98" orientation="0">
+    <map-element targetId="Bolsi" layer="0">
       <condition>
         <active flag="Bolsi" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+      <ext-elem-ref scale="0.98" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(270.2, 643.9)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="VolverAPrincipal" layer="0" scale="1" orientation="2">
+    <map-element targetId="VolverAPrincipal" layer="0">
       <condition>
         <active flag="Busqueda" />
       </condition>
     </map-element>
   </map-scene>
   <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4442001305176, -3.725897014138)" zoom="18" start="no">
-    <map-element targetId="Marron" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Marron" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4425354003906, -3.72466588020325)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Bandalf" layer="0" scale="0.2" orientation="2">
+    <map-element targetId="Bandalf" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.2" orientation="2" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4423179626465, -3.72467112541199)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">56.9</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Naranja" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Naranja" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4425277709961, -3.72476243972778)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Amarillo" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Amarillo" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4425239562988, -3.724853515625)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Verde" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Verde" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.443531036377, -3.7252345085144)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Azul" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Azul" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4434585571289, -3.72522377967834)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Azul" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Azul" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4446754455566, -3.72559666633606)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Raspa" layer="0" scale="0.1643412" orientation="0">
+    <map-element targetId="Raspa" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1643412" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.443042755127, -3.72621083259583)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Botella" layer="0" scale="0.1558116" orientation="0">
+    <map-element targetId="Botella" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1558116" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4439544677734, -3.72592115402222)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Cafe" layer="0" scale="0.2809854" orientation="0">
+    <map-element targetId="Cafe" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.2809854" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4433212280273, -3.72571730613709)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="PapelDeCocina" layer="0" scale="0.1015296" orientation="0">
+    <map-element targetId="PapelDeCocina" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1015296" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4439353942871, -3.7262966632843)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Colilla" layer="0" scale="0.1348396" orientation="0">
+    <map-element targetId="Colilla" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1348396" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.443790435791, -3.72654867172241)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="CacaDeGato" layer="0" scale="0.1157233" orientation="0">
+    <map-element targetId="CacaDeGato" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1157233" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4432716369629, -3.72617316246033)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Goma" layer="0" scale="0.12" orientation="0">
+    <map-element targetId="Goma" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.12" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4445877075195, -3.7259533405304)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Aluminio" layer="0" scale="0.1881879" orientation="0">
+    <map-element targetId="Aluminio" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1881879" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4442138671875, -3.7259156703949)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Botelladevidrio" layer="0" scale="0.239112" orientation="0">
+    <map-element targetId="Botelladevidrio" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.239112" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4435729980469, -3.7258083820343)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Aerosol" layer="0" scale="0.1436894" orientation="0">
+    <map-element targetId="Aerosol" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1436894" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4442481994629, -3.72658634185791)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Tarro" layer="0" scale="0.1410068" orientation="0">
+    <map-element targetId="Tarro" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1410068" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4441261291504, -3.72624826431274)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Rimel" layer="0" scale="0.2238836" orientation="0">
+    <map-element targetId="Rimel" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.2238836" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.444149017334, -3.72564744949341)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Caja" layer="0" scale="0.1061089" orientation="0">
+    <map-element targetId="Caja" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1061089" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4432601928711, -3.72542214393616)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Apuntes" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Apuntes" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4435577392578, -3.72628593444824)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Revista" layer="0" scale="0.09788848" orientation="0">
+    <map-element targetId="Revista" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.09788848" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4429893493652, -3.72510576248169)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Ciruela" layer="0" scale="0.17" orientation="0">
+    <map-element targetId="Ciruela" layer="0">
       <condition>
         <active flag="EncontradoMetro" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.17" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4435424804688, -3.72685194015503)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">36.03</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Saltacercas" layer="0" scale="0.08493283" orientation="0">
+    <map-element targetId="Saltacercas" layer="0">
       <condition>
         <active flag="EncontradosBalazos" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.08493283" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4444007873535, -3.72537398338318)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">51.7</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Farmacia" layer="0" scale="1" orientation="0">
+    <map-element targetId="Farmacia" layer="0">
       <condition />
     </map-element>
-    <map-element targetId="Plumero" layer="0" scale="0.1496907" orientation="0">
+    <map-element targetId="Plumero" layer="0">
       <condition>
         <active flag="MonumentoSeveroEncontrado" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1496907" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4445381164551, -3.72668147087097)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">39.6</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="EstatuaSevero" layer="0" scale="1" orientation="0">
+    <map-element targetId="EstatuaSevero" layer="0">
       <condition>
         <inactive flag="PocionFarmacia" />
       </condition>
     </map-element>
-    <map-element targetId="Metro" layer="0" scale="1" orientation="0">
+    <map-element targetId="Metro" layer="0">
       <condition>
         <inactive flag="PocionFarmacia" />
       </condition>
     </map-element>
-    <map-element targetId="Majuelo" layer="0" scale="0.31" orientation="0">
+    <map-element targetId="Majuelo" layer="0">
       <condition>
         <active flag="EncontradaOdontologia" />
       </condition>
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.31" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4428939819336, -3.72548389434814)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">34.34</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="Hint">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Medicina" layer="0" scale="1" orientation="0">
+    <map-element targetId="Medicina" layer="0">
       <condition />
     </map-element>
-    <map-element targetId="Fachada de Medicina" layer="0" scale="1" orientation="0">
+    <map-element targetId="Fachada de Medicina" layer="0">
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
     </map-element>
-    <map-element targetId="Odontología" layer="0" scale="1" orientation="0">
+    <map-element targetId="Odontología" layer="0">
       <condition>
         <inactive flag="PocionMedicina" />
       </condition>
     </map-element>
-    <map-element targetId="Verde" layer="0" scale="0.15" orientation="0">
+    <map-element targetId="Verde" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4446105957031, -3.7255871295929)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Bolsi" layer="0" scale="0.91" orientation="0">
+    <map-element targetId="Bolsi" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+      <ext-elem-ref scale="0.91" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(75.3, 596.2)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Contenedores" layer="0" scale="1" orientation="0">
+    <map-element targetId="Contenedores" layer="0">
       <condition />
     </map-element>
-    <map-element targetId="Azul" layer="0" scale="0.1480977" orientation="2">
+    <map-element targetId="Azul" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+      <ext-elem-ref scale="0.1480977" orientation="2" transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4426155090332, -3.72489929199219)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">False</param>
         <param name="Hint">False</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
   </map-scene>
   <map-scene id="Ending" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437035466029, -3.72620791196831)" zoom="19" start="no">
-    <map-element targetId="Bandalf" layer="0" scale="0.8855089" orientation="0">
+    <map-element targetId="Bandalf" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
-        <param name="Position">(105.4, 628.0)</param>
+      <ext-elem-ref scale="0.8855089" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(105.4, 628)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Bolsi" layer="0" scale="0.89" orientation="0">
+    <map-element targetId="Bolsi" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+      <ext-elem-ref scale="0.89" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(228.2, 603.8)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Basauron" layer="0" scale="0.7722171" orientation="0">
+    <map-element targetId="Basauron" layer="0">
       <condition />
-      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+      <ext-elem-ref scale="0.7722171" orientation="0" transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(538.1, 614.1)</param>
         <param name="Rotation">0</param>
+        <actions />
       </ext-elem-ref>
     </map-element>
   </map-scene>
@@ -1160,11 +1220,11 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="PlasticBag" />
+          <remove-element idTarget="PlasticBag" guid="4eb47d91-fe63-427b-a2e3-d41a2579c6df" />
           <condition />
-          <activate flag="Bolsi" />
+          <activate flag="Bolsi" guid="bf46962f-85ab-4aab-a276-623be9167ba1" />
           <condition />
-          <trigger-conversation idTarget="CreacionBolsi" />
+          <trigger-conversation idTarget="CreacionBolsi" guid="7e3de585-29be-44f3-a34b-7893c0cd86c5" />
           <condition />
         </effect>
       </grab>
@@ -1186,25 +1246,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Raspa" />
+          <remove-element idTarget="Raspa" guid="72217346-41d1-4f88-b22e-23e75e94476a" />
           <condition />
-          <generate-object idTarget="Raspa" />
+          <generate-object idTarget="Raspa" guid="da4b85ec-5f2b-47ed-8968-dff765014bc0" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="fceca22c-b51c-4a92-8f7f-714c143dad87" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una raspa!</speak-char>
+          <speak-char idTarget="Bolsi" guid="d7655420-8a77-4717-9455-fab17e27a3dc">Genial, una raspa!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las raspas van al orgánico</speak-char>
+          <speak-char idTarget="Bolsi" guid="2b0cdce8-001f-4d35-b3ea-a6ea33d68ea7">Las raspas van al orgánico</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="3c9802d2-4d27-4765-82d6-b2c52abb9ac4" />
           <condition />
-          <speak-char idTarget="Bolsi">Los residuos orgánicos sirven para hacer abono y energía</speak-char>
+          <speak-char idTarget="Bolsi" guid="12cdb3e2-71db-4b8f-a07c-3b5e778a6d07">Los residuos orgánicos sirven para hacer abono y energía</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Cada 100kg se convierten en 30kg de abono</speak-char>
+          <speak-char idTarget="Bolsi" guid="8b90f8c4-0180-4222-89ac-a987c7e05996">Cada 100kg se convierten en 30kg de abono</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="bb021144-6063-432d-8d17-e6a06711f9e8" />
           <condition />
-          <activate flag="RaspaGrabbed" />
+          <activate flag="RaspaGrabbed" guid="6ffa5537-4b6d-4db5-8aa1-7de99e74b859" />
           <condition />
         </effect>
       </grab>
@@ -1213,29 +1273,29 @@
           <active flag="RaspaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoMarron" />
+          <activate flag="TirandoMarron" guid="4c88f8f1-451f-4824-9258-27ff84af3d3c" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="f1c157a0-a3e9-4738-85cf-6d8e77eb0eec" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="19de5e8f-936e-4bd6-9091-d72a52fc3102">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Raspa" />
+          <consume-object idTarget="Raspa" guid="20160e2c-b8ab-4bf1-970b-077c72b1a84b" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="9bdd2794-6b32-4a14-a195-9f7b4b83577b" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">La raspa, al igual que todos los restos de comida, van al marrón!</speak-char>
+          <speak-char idTarget="Bolsi" guid="795220bc-5f67-4f19-aaee-99d757fe3939">La raspa, al igual que todos los restos de comida, van al marrón!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="32568ffc-fa0a-4200-9f6b-b8ae540986ac" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="427efd3f-db01-4715-9e6d-9d236a7eb2d1" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1259,25 +1319,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Cafe" />
+          <remove-element idTarget="Cafe" guid="f9e41302-06f0-4a39-a6d6-259162594a87" />
           <condition />
-          <generate-object idTarget="Cafe" />
+          <generate-object idTarget="Cafe" guid="1eb5adb6-ec6a-4fe1-9421-5bee4a946db9" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="bfb45aa6-5b76-4c4a-8e2e-247acbf69307" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, restos de café!</speak-char>
+          <speak-char idTarget="Bolsi" guid="6c986439-d8b3-4e8a-84a1-5de47e6f7fb9">Genial, restos de café!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los restos de café van al orgánico</speak-char>
+          <speak-char idTarget="Bolsi" guid="80931083-96e9-42a4-a31e-c6590d0d10a8">Los restos de café van al orgánico</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="c5690a61-4c0a-4063-996c-9efe4db6dd87" />
           <condition />
-          <speak-char idTarget="Bolsi">Con ellos, también los filtros, cáscaras de pipas, corcho, serrín y plantas</speak-char>
+          <speak-char idTarget="Bolsi" guid="c4e3cdd7-d12d-40cd-863a-23ae6e83221f">Con ellos, también los filtros, cáscaras de pipas, corcho, serrín y plantas</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Incluso los huesos de la fruta!</speak-char>
+          <speak-char idTarget="Bolsi" guid="8fd2ca7b-788c-4847-ba0d-aeb60cd90dde">Incluso los huesos de la fruta!</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="568793a8-5b1e-4435-b894-6f1182bc3314" />
           <condition />
-          <activate flag="CafeGrabbed" />
+          <activate flag="CafeGrabbed" guid="c43bd799-5171-4a47-94f3-047355d9402c" />
           <condition />
         </effect>
       </grab>
@@ -1286,29 +1346,29 @@
           <active flag="CafeGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoMarron" />
+          <activate flag="TirandoMarron" guid="76b55b86-b742-4652-87ca-080c2b4d8140" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="8062b9ee-5274-4b02-998f-244364e98e7e" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="be51dc9b-cf70-4074-b645-7c90b5d9ede0">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Cafe" />
+          <consume-object idTarget="Cafe" guid="2fc9996c-6f69-481b-8919-e6d4ccef683d" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="706aabdc-201a-4cbc-9260-d38f0fd86ef3" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los restos del café, al igual que el filtro, van al marrón!</speak-char>
+          <speak-char idTarget="Bolsi" guid="bad0db36-539e-4cb0-b25d-ae8f58c9b49b">Los restos del café, al igual que el filtro, van al marrón!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="0cee745d-d0a8-44f7-a8e7-6ebf3d57abe6" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="2e423d1a-8711-45a6-802d-edcf5e4ccc67" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1332,29 +1392,29 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="PapelDeCocina" />
+          <remove-element idTarget="PapelDeCocina" guid="ed21a5c4-a247-4835-999d-afc91c911f5e" />
           <condition />
-          <generate-object idTarget="PapelDeCocina" />
+          <generate-object idTarget="PapelDeCocina" guid="ad26507b-0a4e-471e-b127-c85fa0621574" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="cd0f6df0-d916-4d18-a889-abbde5a87096" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, papel de cocina sucio!</speak-char>
+          <speak-char idTarget="Bolsi" guid="90ad294f-7251-4a7f-aa17-2dbeeb10358b">Genial, papel de cocina sucio!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los restos de papel de cocina manchados de comida van al orgánico</speak-char>
+          <speak-char idTarget="Bolsi" guid="431a80b3-88b7-4e6f-b1c3-2418bdc7a545">Los restos de papel de cocina manchados de comida van al orgánico</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="7796d978-0be8-4c00-97f1-b516f0fcd1e1" />
           <condition />
-          <speak-char idTarget="Bolsi">El papel, normalmente, se recicla en el contenedor azul</speak-char>
+          <speak-char idTarget="Bolsi" guid="219add91-4d57-48c2-ba51-09ce074857c6">El papel, normalmente, se recicla en el contenedor azul</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Sin embargo, éste está sucio de comida o grasa, por lo que debe ir al orgánico</speak-char>
+          <speak-char idTarget="Bolsi" guid="062efb66-34a2-4b33-a61f-0183742b1db2">Sin embargo, éste está sucio de comida o grasa, por lo que debe ir al orgánico</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Esto es necesario dado que la grasa interfiere en el proceso de reciclaje del papel</speak-char>
+          <speak-char idTarget="Bolsi" guid="c078d079-c5cf-4c59-8257-f8271bf40cfc">Esto es necesario dado que la grasa interfiere en el proceso de reciclaje del papel</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Por otro lado, si está manchado de químicos o pintura, debe ir al naranja</speak-char>
+          <speak-char idTarget="Bolsi" guid="b18d7520-69cf-42ac-b527-f2833bf1f42d">Por otro lado, si está manchado de químicos o pintura, debe ir al naranja</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="3bf433ac-35c5-4e21-aebc-20edcd13e623" />
           <condition />
-          <activate flag="PapelDeCocinaGrabbed" />
+          <activate flag="PapelDeCocinaGrabbed" guid="d09af115-ea51-4cd7-8c00-a4751f923c17" />
           <condition />
         </effect>
       </grab>
@@ -1363,29 +1423,29 @@
           <active flag="PapelDeCocinaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoMarron" />
+          <activate flag="TirandoMarron" guid="8ecd7b0d-65cc-47f5-a0b5-62c38b336a09" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="83e61be7-1276-4677-b6ab-0adae5bfff49" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="a55a0e5c-e91b-4061-a686-fc7510095222">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="PapelDeCocina" />
+          <consume-object idTarget="PapelDeCocina" guid="3d1a1885-48cc-48d6-93e8-cd4492f9c14d" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="0d427e8a-e6fc-4d01-91c2-943fa9418ca0" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los restos de papel de cocina y servilletas sucias van al orgánico!</speak-char>
+          <speak-char idTarget="Bolsi" guid="46fe6ddf-3c2b-47d4-94ae-d9ab14b5b1ae">Los restos de papel de cocina y servilletas sucias van al orgánico!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="cf076ee2-ee60-4a49-9b71-5d92e9d9b51e" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="a5834e59-9516-491a-8b93-5720e31f7d6e" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1409,31 +1469,31 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Colilla" />
+          <remove-element idTarget="Colilla" guid="4ed15c2b-9bbc-478b-b1da-c03a6a89abd2" />
           <condition />
-          <generate-object idTarget="Colilla" />
+          <generate-object idTarget="Colilla" guid="848cfdc1-76ac-453f-8300-ad34e2232901" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="b942fbd7-8b61-4330-819e-d4b413242fbf" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una colilla!</speak-char>
+          <speak-char idTarget="Bolsi" guid="5415b040-9344-4998-ae25-20aad92a3e0f">Genial, una colilla!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las colillas van al naranja</speak-char>
+          <speak-char idTarget="Bolsi" guid="61bc8017-5105-473c-ad66-5d266a6e2f72">Las colillas van al naranja</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="49b27a9a-b6d6-4de7-9cfb-2e2b96f4d7e2" />
           <condition />
-          <speak-char idTarget="Bolsi">Las colillas pueden permanecer hasta 10 años en el suelo</speak-char>
+          <speak-char idTarget="Bolsi" guid="edb15853-11f6-4672-8f31-7a81bb4df21b">Las colillas pueden permanecer hasta 10 años en el suelo</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">A priori no parece mucho...</speak-char>
+          <speak-char idTarget="Bolsi" guid="d734071f-b3bc-425b-b9f3-d0fdd57c1472">A priori no parece mucho...</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Sin embargo, pese a degradarse, al contener sustancias químicas dañinas como el alquitrán o el amoníaco son muy dañinas para el suelo</speak-char>
+          <speak-char idTarget="Bolsi" guid="cfb50ffc-91bf-4251-8fa1-0d7f1f5be52d">Sin embargo, pese a degradarse, al contener sustancias químicas dañinas como el alquitrán o el amoníaco son muy dañinas para el suelo</speak-char>
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="b9b544dc-c031-4ff6-b674-21af04bd112d" />
           <condition />
-          <speak-char idTarget="Bolsi">Por eso debemos tirarlas a las papeleras!</speak-char>
+          <speak-char idTarget="Bolsi" guid="6a430b6c-44ca-4cc5-935e-0ec93b8b3dc1">Por eso debemos tirarlas a las papeleras!</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="d80d0ceb-abd9-4081-9d37-f53be4835b4a" />
           <condition />
-          <activate flag="ColillaGrabbed" />
+          <activate flag="ColillaGrabbed" guid="4257d38e-60d8-4fb4-b46b-dce95ca65f6a" />
           <condition />
         </effect>
       </grab>
@@ -1442,29 +1502,29 @@
           <active flag="ColillaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoNaranja" />
+          <activate flag="TirandoNaranja" guid="f0c80a03-48c8-4771-b459-7260ccff33c4" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="2533f3de-7f75-4683-ad0f-060fdc638ded" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="f9ddd334-046d-46c9-84d5-c22cebc86317">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Colilla" />
+          <consume-object idTarget="Colilla" guid="5a4c7eca-36f8-49eb-aab9-368286cf07e0" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="de8e7d4a-4628-4f40-96fe-a99ac3ed63cc" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las colillas van al contenedor naranja!</speak-char>
+          <speak-char idTarget="Bolsi" guid="7e29efb5-d987-45e1-a09d-a5c4c7e48775">Las colillas van al contenedor naranja!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="07ce4710-d109-4469-80e4-7c63f5189fb3" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="826f43be-445f-497f-85bb-5c5c5b102519" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1488,25 +1548,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="CacaDeGato" />
+          <remove-element idTarget="CacaDeGato" guid="bae91dcb-c754-4120-aa9f-e993436a888e" />
           <condition />
-          <generate-object idTarget="CacaDeGato" />
+          <generate-object idTarget="CacaDeGato" guid="30ac4c7e-9475-484d-9efd-5879589166ea" />
           <condition />
-          <macro-ref id="Sad" />
+          <macro-ref id="Sad" guid="4d9198af-e69a-490f-8a82-5cd11f0a35fe" />
           <condition />
-          <speak-char idTarget="Bolsi">Puaj caca de gato!</speak-char>
+          <speak-char idTarget="Bolsi" guid="35b3f832-430f-4a2d-b222-20ad5dbc1c57">Puaj caca de gato!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">La caca de gato va al naranja</speak-char>
+          <speak-char idTarget="Bolsi" guid="9f57bf88-a7ea-408e-bf8f-ccf1ad7a7bfa">La caca de gato va al naranja</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="fad2ac4d-450c-4a9e-9b8c-676bb7ce5521" />
           <condition />
-          <speak-char idTarget="Bolsi">Al contrario de lo que puedas pensar, los restos de tus animales no van al orgánico</speak-char>
+          <speak-char idTarget="Bolsi" guid="9b7ad844-1f99-489b-ac60-8c00f24b4d36">Al contrario de lo que puedas pensar, los restos de tus animales no van al orgánico</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Esto incluye las cacas y la arena sucia, por ejemplo</speak-char>
+          <speak-char idTarget="Bolsi" guid="039207be-52af-4dd9-acf6-480a988f7e65">Esto incluye las cacas y la arena sucia, por ejemplo</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="13a4a4db-8874-491f-b9a7-740627f69f3a" />
           <condition />
-          <activate flag="CacaGrabbed" />
+          <activate flag="CacaGrabbed" guid="f58528e2-8bea-46e1-ac2a-be5d76245faf" />
           <condition />
         </effect>
       </grab>
@@ -1515,29 +1575,29 @@
           <active flag="CacaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoNaranja" />
+          <activate flag="TirandoNaranja" guid="d45e3b71-0449-421e-b39c-34f91cb02bbf" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="18992e43-0576-472d-87de-0435a4ae915e" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="3211de5d-345c-4883-9cfb-bcfebe5c4462">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="CacaDeGato" />
+          <consume-object idTarget="CacaDeGato" guid="ab7963b8-a92d-4a36-b7f9-1bec308c61d7" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="8982c662-5081-4c01-ad04-f6f2ae8eb85b" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los residuos de animales deben ir al resto!</speak-char>
+          <speak-char idTarget="Bolsi" guid="fe7b96cc-f1bf-4a0b-9451-c9fc9b77a2fa">Los residuos de animales deben ir al resto!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="9b5413a1-d24f-49d1-8732-24161f1c2237" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="019d7cdc-6d53-4455-b671-c254b971e620" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1561,27 +1621,27 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Goma" />
+          <remove-element idTarget="Goma" guid="594aa089-4193-4cc8-8ff1-6b10b5febb62" />
           <condition />
-          <generate-object idTarget="Goma" />
+          <generate-object idTarget="Goma" guid="016544fe-b696-4bab-83d5-d0a5f35f00de" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="a9526437-23d2-4bf9-bb5d-f5917f9974d0" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una goma!</speak-char>
+          <speak-char idTarget="Bolsi" guid="23d94230-e789-4603-9c3e-271a0d65cf07">Genial, una goma!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las gomas van al naranja</speak-char>
+          <speak-char idTarget="Bolsi" guid="a3480d2b-c2c5-4e9b-9b22-360e85cf8791">Las gomas van al naranja</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="c5c60221-53a0-4aee-96ba-fd874608c7d2" />
           <condition />
-          <speak-char idTarget="Bolsi">No todos los plásticos son reciclables</speak-char>
+          <speak-char idTarget="Bolsi" guid="45a339b3-f13e-4d52-8317-eaa44df0c59e">No todos los plásticos son reciclables</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Sólo aquellos identificados por el símbolo adecuado con el triángulo del 1 al 7</speak-char>
+          <speak-char idTarget="Bolsi" guid="34196200-3ff3-4bc1-9193-d15d1bf56667">Sólo aquellos identificados por el símbolo adecuado con el triángulo del 1 al 7</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Otros plásticos como los juguetes de los niños no lo son y deben ir al resto o pueden donarse a organizaciones.</speak-char>
+          <speak-char idTarget="Bolsi" guid="1a9dbee0-ea90-4d8a-af47-bbbcef8d8acc">Otros plásticos como los juguetes de los niños no lo son y deben ir al resto o pueden donarse a organizaciones.</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="dc201e04-2516-4afe-b1d2-b0557af47a5b" />
           <condition />
-          <activate flag="GomaGrabbed" />
+          <activate flag="GomaGrabbed" guid="0be2ceb2-8f77-4d7d-85b8-8830bd432a27" />
           <condition />
         </effect>
       </grab>
@@ -1590,29 +1650,29 @@
           <active flag="GomaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoNaranja" />
+          <activate flag="TirandoNaranja" guid="6f13495a-44a8-4383-92a6-64ddf7465320" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="1dbcad20-1c48-4a70-b08f-d079579bca98" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="1b3308eb-bb92-4adb-9677-890f0802a085">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Goma" />
+          <consume-object idTarget="Goma" guid="9ba1a962-97e2-4e84-8abc-2ea39a9d47d4" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="75ba92aa-bc5c-4596-9610-d4af08ef8269" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las gomas no son reciclables, van al resto!</speak-char>
+          <speak-char idTarget="Bolsi" guid="55e9bbfe-8a2d-4f9e-b171-e11b4eb1b340">Las gomas no son reciclables, van al resto!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="2abb114d-abcb-4e6c-aa63-54f2a602c052" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="1e1c974d-9128-4074-b42a-3cf0b8485ed4" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1636,29 +1696,29 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Botella" />
+          <remove-element idTarget="Botella" guid="ea343c4c-505f-4b2f-8969-20969189108b" />
           <condition />
-          <generate-object idTarget="Botella" />
+          <generate-object idTarget="Botella" guid="0dc11b96-f18f-47a6-be98-77ba292f532e" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="f2f3919a-c0a4-4f8d-8a5c-54ec8dfedeb8" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una botella!</speak-char>
+          <speak-char idTarget="Bolsi" guid="77899249-6ca9-446d-a34f-9f191a878cbd">Genial, una botella!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las gomas van al amarillo</speak-char>
+          <speak-char idTarget="Bolsi" guid="a2a3f52e-c499-46d7-926b-7d98756aef0b">Las gomas van al amarillo</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="2a3bef13-ad3c-4250-aa07-9e396703a864" />
           <condition />
-          <speak-char idTarget="Bolsi">Algunas botellas son reutilizables</speak-char>
+          <speak-char idTarget="Bolsi" guid="09c29ec7-f187-42eb-8d02-d701355e21c1">Algunas botellas son reutilizables</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las más adecuadas son las del número 4 (polietileno de baja densidad) y 5 (polipropileno) o aquellas BPA Free</speak-char>
+          <speak-char idTarget="Bolsi" guid="381eafc9-5380-4dab-b14e-4ad7ac50ecaf">Las más adecuadas son las del número 4 (polietileno de baja densidad) y 5 (polipropileno) o aquellas BPA Free</speak-char>
           <condition />
-          <macro-ref id="Sad" />
+          <macro-ref id="Sad" guid="7c36aa13-0f03-49f6-971a-3bc230cc472b" />
           <condition />
-          <speak-char idTarget="Bolsi">Sin embargo, aquellas identificadas con un 1 (polietileno) que son las más comunes, no es recomendable reutilizarlas...</speak-char>
+          <speak-char idTarget="Bolsi" guid="f1bfd516-63d0-4fa5-b535-fd40be843120">Sin embargo, aquellas identificadas con un 1 (polietileno) que son las más comunes, no es recomendable reutilizarlas...</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="169370ea-4e8f-485e-a9c4-b21bee48a1ba" />
           <condition />
-          <activate flag="BotellaGrabbed" />
+          <activate flag="BotellaGrabbed" guid="ce0310be-5526-4503-9b2e-216b7bc31fa5" />
           <condition />
         </effect>
       </grab>
@@ -1667,29 +1727,29 @@
           <active flag="BotellaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAmarillo" />
+          <activate flag="TirandoAmarillo" guid="8cde2551-b6fa-453a-8ece-f55a04656355" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="85a93608-1af6-41d1-aa55-8b29243b696a" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="2a821bc5-1f5e-48e4-9465-dd02315d4e26">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Botella" />
+          <consume-object idTarget="Botella" guid="09b8c175-258f-4e19-8e2f-b3ee14e1e830" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="8477c9a9-3ae5-463d-800c-4437863c5d15" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las botellas de plástico, al igual que los envases, van al amarillo!</speak-char>
+          <speak-char idTarget="Bolsi" guid="e62443e8-8112-4b12-b15a-3f71036e9c59">Las botellas de plástico, al igual que los envases, van al amarillo!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="f309ba85-4f41-42e1-9e3b-b3c27ce50e72" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="62a38a58-2fb6-4d91-9d82-eeeed0e37e05" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1713,25 +1773,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Aluminio" />
+          <remove-element idTarget="Aluminio" guid="795f59e5-f867-4440-9cdc-e323f3e84561" />
           <condition />
-          <generate-object idTarget="Aluminio" />
+          <generate-object idTarget="Aluminio" guid="0e25da82-204d-4e30-87d6-f0cd602b9d9b" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="80b0df0a-4ed2-4b1b-bf5d-f53ef963652e" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, papel de aluminio!</speak-char>
+          <speak-char idTarget="Bolsi" guid="6dc92df4-deef-47a7-a29c-57fbbd1db326">Genial, papel de aluminio!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">El papel de aluminio va al amarillo</speak-char>
+          <speak-char idTarget="Bolsi" guid="322b0341-bb42-4511-b4e9-8e7337701cd3">El papel de aluminio va al amarillo</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="36261a47-fe1e-43e3-91ff-595c1cd226cf" />
           <condition />
-          <speak-char idTarget="Bolsi">Reciclar el aluminio supone un 95% menos de energía que extraerlo de la bauxita</speak-char>
+          <speak-char idTarget="Bolsi" guid="de201ec2-367f-4851-bfcc-f415b3dd3e36">Reciclar el aluminio supone un 95% menos de energía que extraerlo de la bauxita</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Por ello debemos reciclar las latas de bebida y conservas, así como el papel de aluminio</speak-char>
+          <speak-char idTarget="Bolsi" guid="c7492156-5267-4ba4-aef1-9194833d591e">Por ello debemos reciclar las latas de bebida y conservas, así como el papel de aluminio</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="cb353864-9e44-44bf-abdc-1a023dedb35f" />
           <condition />
-          <activate flag="AluminioGrabbed" />
+          <activate flag="AluminioGrabbed" guid="c3b82087-aa35-4f14-bc42-0e1265d19780" />
           <condition />
         </effect>
       </grab>
@@ -1740,29 +1800,29 @@
           <active flag="AluminioGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAmarillo" />
+          <activate flag="TirandoAmarillo" guid="ab3f4734-afc3-49c2-9459-790a2167144e" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="0f27b6ff-e378-4136-83b8-2cc296c979cd" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="ed8be37b-8024-43c1-b307-283ed505fbf0">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Aluminio" />
+          <consume-object idTarget="Aluminio" guid="6bed9ad3-4681-4a84-a2ed-fa114ec5e4da" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="ebac6f17-3bd6-4f5b-a31b-cc7bbf5b0912" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">El aluminio y las latas van al amarillo!</speak-char>
+          <speak-char idTarget="Bolsi" guid="d5c85d16-8d34-4fd8-b718-d491c12454f9">El aluminio y las latas van al amarillo!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="f1b16131-f6c4-40c7-852d-c3b5034ce6c2" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="3026645f-6c83-46cb-a7eb-7c8ff4d297e5" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1786,25 +1846,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Aerosol" />
+          <remove-element idTarget="Aerosol" guid="f2a8fe96-05bf-4b5f-97da-99872a6138c7" />
           <condition />
-          <generate-object idTarget="Aerosol" />
+          <generate-object idTarget="Aerosol" guid="4832cea0-3902-4b40-b852-c28c21fb2926" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="41362feb-bccc-4f38-a2aa-ea9c41521c76" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, un aerosol!</speak-char>
+          <speak-char idTarget="Bolsi" guid="df23bfe0-27e7-405d-b38f-97baf104c801">Genial, un aerosol!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los aerosoles van al amarillo</speak-char>
+          <speak-char idTarget="Bolsi" guid="b59ed4e0-dafa-40a5-9e15-5e35b61fe104">Los aerosoles van al amarillo</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="37a9d901-fc3b-4688-98c6-df93e266918d" />
           <condition />
-          <speak-char idTarget="Bolsi">Los aerosoles y las chapas deben de reciclarse, aunque sólo si están vacíos</speak-char>
+          <speak-char idTarget="Bolsi" guid="7541a718-167f-4963-a7d9-683cf794c1ca">Los aerosoles y las chapas deben de reciclarse, aunque sólo si están vacíos</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los aerosoles que estén llenos deben de llevarse al punto limpio para evitar explosiones o incendios</speak-char>
+          <speak-char idTarget="Bolsi" guid="a9e36a25-6f17-4a70-b362-06160a06d44e">Los aerosoles que estén llenos deben de llevarse al punto limpio para evitar explosiones o incendios</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="a028951c-a430-443b-85d4-69e701628c8a" />
           <condition />
-          <activate flag="AerosolGrabbed" />
+          <activate flag="AerosolGrabbed" guid="dbc32d02-c83a-4e7e-ad64-6bc17abd98ab" />
           <condition />
         </effect>
       </grab>
@@ -1813,29 +1873,29 @@
           <active flag="AerosolGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAmarillo" />
+          <activate flag="TirandoAmarillo" guid="79fbe9cd-9a9e-4f76-ab26-1126df63082c" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="6b339006-e44c-4c5d-9cc5-b1159bc042cd" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="ec0e421a-844c-410d-803e-67327e392c16">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Aerosol" />
+          <consume-object idTarget="Aerosol" guid="784b0a10-1df2-4d8a-b7f5-91731b36b7b2" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="62984665-fa09-438e-b7e5-b91337adf252" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los aerosoles vacíos van al amarillo!</speak-char>
+          <speak-char idTarget="Bolsi" guid="f5c11c84-7966-46c9-8dad-e2b279c8879b">Los aerosoles vacíos van al amarillo!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="30875887-20a0-4f7f-8757-65ae97ceb1a0" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="4fed813b-e44e-4cc4-8dc6-0aaebce450e6" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1859,25 +1919,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Botelladevidrio" />
+          <remove-element idTarget="Botelladevidrio" guid="1f463447-995e-4e7f-a016-7a2163a64fd0" />
           <condition />
-          <generate-object idTarget="Botelladevidrio" />
+          <generate-object idTarget="Botelladevidrio" guid="c1d3a711-506d-49e7-9f32-254462bbe034" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="83ca12e5-029d-4765-92b6-138f9688e677" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una botella de vidrio!</speak-char>
+          <speak-char idTarget="Bolsi" guid="d7622141-781e-4ae7-846d-87435f5cb19d">Genial, una botella de vidrio!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las botellas de vidrio van al verde</speak-char>
+          <speak-char idTarget="Bolsi" guid="12b00234-d26d-4c79-ad92-17773d062a0f">Las botellas de vidrio van al verde</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="e20a188f-eeb6-4a9c-9f1c-1b752a450386" />
           <condition />
-          <speak-char idTarget="Bolsi">Las botellas de vidrio son totalmente reciclables, pero sus tapones deben ser separados a los contenedores correspondientes</speak-char>
+          <speak-char idTarget="Bolsi" guid="d16f7c99-d32f-415e-ba08-1fe9eb76ab9b">Las botellas de vidrio son totalmente reciclables, pero sus tapones deben ser separados a los contenedores correspondientes</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Por ejemplo, el corcho debe ir al orgánico y las chapas al amarillo.</speak-char>
+          <speak-char idTarget="Bolsi" guid="343875e3-389d-40cd-ad4b-ce03d0cbbc5c">Por ejemplo, el corcho debe ir al orgánico y las chapas al amarillo.</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="765f6737-3940-42dc-b94c-6cba7a8a002a" />
           <condition />
-          <activate flag="BotellaDeVidrioGrabbed" />
+          <activate flag="BotellaDeVidrioGrabbed" guid="7a68904c-1b74-45a1-8478-eb2a93b9a50f" />
           <condition />
         </effect>
       </grab>
@@ -1886,29 +1946,29 @@
           <active flag="BotellaDeVidrioGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoVerde" />
+          <activate flag="TirandoVerde" guid="656aca54-009a-40c4-acc6-61e79826d450" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="e49b709c-e7d8-45ed-aebf-2babce463bde" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="20ca9038-7585-4c65-90ce-0a0fd2f4c4b6">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Botelladevidrio" />
+          <consume-object idTarget="Botelladevidrio" guid="20eff529-c4c3-42a0-a3b7-65b8e7aaa5da" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="c79ff983-b478-4c1f-9d01-3e9527e953ab" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las botellas de vidrio deben reciclarse en el contenedor verde!</speak-char>
+          <speak-char idTarget="Bolsi" guid="cd3f9338-3cca-4969-b4d0-83ef261ecf88">Las botellas de vidrio deben reciclarse en el contenedor verde!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="ad70d638-bd0e-4600-938c-64a3752c51ed" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="d5fe46ed-6a8f-4e96-9838-58f5b6819205" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -1932,25 +1992,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Tarro" />
+          <remove-element idTarget="Tarro" guid="d9011b36-c948-4666-9487-b286c480fa58" />
           <condition />
-          <generate-object idTarget="Tarro" />
+          <generate-object idTarget="Tarro" guid="bc36f845-cc4a-4b5a-8983-6c9992d089bd" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="5089e97b-47ed-43d2-8ed3-76e176d4693b" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, un tarro!</speak-char>
+          <speak-char idTarget="Bolsi" guid="111259d8-8f20-4a51-861c-96ff0aa38e61">Genial, un tarro!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los tarros son de vidrio y van al verde</speak-char>
+          <speak-char idTarget="Bolsi" guid="d57d26eb-0895-4fe8-b96f-3b353b00391d">Los tarros son de vidrio y van al verde</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="0dc1ccf9-60c8-48cf-b823-74c9b4936e01" />
           <condition />
-          <speak-char idTarget="Bolsi">El vidrio se transforma en calcín que se funde en nuevo vidrio un número ilimitado de veces</speak-char>
+          <speak-char idTarget="Bolsi" guid="5e059ec6-0839-4fa3-bd31-284b775197fb">El vidrio se transforma en calcín que se funde en nuevo vidrio un número ilimitado de veces</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">I LI MI TA DO!</speak-char>
+          <speak-char idTarget="Bolsi" guid="11dc9234-62eb-4fff-8142-5ec550dbf647">I LI MI TA DO!</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="19527775-10c4-43de-9b39-eaffa71e100c" />
           <condition />
-          <activate flag="TarroGrabbed" />
+          <activate flag="TarroGrabbed" guid="97224a07-c89a-482f-957d-7bcb510ea10d" />
           <condition />
         </effect>
       </grab>
@@ -1959,29 +2019,29 @@
           <active flag="TarroGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoVerde" />
+          <activate flag="TirandoVerde" guid="12b53dbc-f5cb-4f99-9f4f-55c37b7040e7" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="3337be2e-8c44-4ddb-bc1e-fc077bfc80cd" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="6a7aada6-654d-47d3-adb9-d744cc24c6aa">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Tarro" />
+          <consume-object idTarget="Tarro" guid="2bcc97a9-988c-4e35-a055-fa65f632ab54" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="165455be-421d-4145-ad68-2da547e0872d" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los tarros son de vidrio, van al verde!</speak-char>
+          <speak-char idTarget="Bolsi" guid="62dafe01-2a53-49e5-b59f-0087a9955376">Los tarros son de vidrio, van al verde!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="93c7d5c7-b102-4c9e-9f11-4b354058a08e" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="f01a59d8-a5a0-4597-886e-18c5089b0963" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -2005,27 +2065,27 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Rimel" />
+          <remove-element idTarget="Rimel" guid="e442f28f-605f-4f7b-b252-6f1aadbcb7fe" />
           <condition />
-          <generate-object idTarget="Rimel" />
+          <generate-object idTarget="Rimel" guid="cde742f5-10d9-4c51-93b4-932f5969bb1e" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="9b491637-8470-478b-849b-5b6e29dbebea" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, un bote de rimel!</speak-char>
+          <speak-char idTarget="Bolsi" guid="c9479f09-7da0-4123-b65d-24121e090ac2">Genial, un bote de rimel!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los botes de cosmético son de vidrio y van al verde</speak-char>
+          <speak-char idTarget="Bolsi" guid="322dde29-cd6d-4d62-ae7c-34ffa7d25b98">Los botes de cosmético son de vidrio y van al verde</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="b4e6d1ea-3d8f-4723-bb03-eaf39a04b87f" />
           <condition />
-          <speak-char idTarget="Bolsi">El vidrio y el cristal son muy diferentes</speak-char>
+          <speak-char idTarget="Bolsi" guid="4f46f080-9448-4af4-9733-0a34be1f6a10">El vidrio y el cristal son muy diferentes</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Sólo el vidrio es reciclable y se deposita en el contenedor verde</speak-char>
+          <speak-char idTarget="Bolsi" guid="f10ea82a-6031-4373-be67-ec4d78ff2931">Sólo el vidrio es reciclable y se deposita en el contenedor verde</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los vasos, copas, espejos, etc, no son reciclables</speak-char>
+          <speak-char idTarget="Bolsi" guid="0659d1a6-7294-4670-bac6-e14d4857c4d6">Los vasos, copas, espejos, etc, no son reciclables</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="0a5ae2ff-07d7-4d82-905f-828872fc7142" />
           <condition />
-          <activate flag="RimelGrabbed" />
+          <activate flag="RimelGrabbed" guid="b83d57f1-acf8-4db8-a68a-7c07c65cd3cd" />
           <condition />
         </effect>
       </grab>
@@ -2034,29 +2094,29 @@
           <active flag="RimelGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoVerde" />
+          <activate flag="TirandoVerde" guid="2605a09f-fb4c-4dfa-a43a-7f388fd10292" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="ec9b250c-e960-48a0-9c5b-bb62ee52f56d" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="49c3979c-8334-4f91-8246-bdcb56e5bd2f">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Rimel" />
+          <consume-object idTarget="Rimel" guid="9da4cac0-6d45-44ce-913f-05f609d0f704" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="671ac15b-bcaf-4b46-9efb-467fc7b2391b" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Los frascos de los cosméticos que son de vidrio van al verde!</speak-char>
+          <speak-char idTarget="Bolsi" guid="ef14bcb0-22b1-4a0a-b15b-94569608a19c">Los frascos de los cosméticos que son de vidrio van al verde!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="1c9ff827-2480-4315-b925-f009fcef68c3" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="9da5c0c3-0eb9-4e27-bbfd-e3ea9c85d15f" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -2080,25 +2140,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Caja" />
+          <remove-element idTarget="Caja" guid="106c3b28-d8d7-45a6-a98c-df7cb8a46b28" />
           <condition />
-          <generate-object idTarget="Caja" />
+          <generate-object idTarget="Caja" guid="ef656e3b-2b55-4d0f-bfce-844e6cbb17b0" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="933de5b5-88c9-4c98-9a3a-f624b23f211e" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una caja de cartón!</speak-char>
+          <speak-char idTarget="Bolsi" guid="f3f6ffe0-ea91-4732-87f7-dad9c9b40a26">Genial, una caja de cartón!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las cajas van al contenedor azul y debemos plegarlas para que no ocupen mucho espacio!</speak-char>
+          <speak-char idTarget="Bolsi" guid="02057a81-4861-4e3f-b1e0-60f2983408ea">Las cajas van al contenedor azul y debemos plegarlas para que no ocupen mucho espacio!</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="7de66c40-3b2e-4607-8066-a07f27e3e6a7" />
           <condition />
-          <speak-char idTarget="Bolsi">Sin embargo, si está sucia (ej caja de pizza) debe ir al orgánico dado que la grasa no permite reciclarlas</speak-char>
+          <speak-char idTarget="Bolsi" guid="926c8c3d-1175-4a44-9d74-f7713dbaabf9">Sin embargo, si está sucia (ej caja de pizza) debe ir al orgánico dado que la grasa no permite reciclarlas</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Una idea es recortar las partes con comida y separar lo reciclable</speak-char>
+          <speak-char idTarget="Bolsi" guid="70cb28d7-0704-4c92-92a8-008f936fe69d">Una idea es recortar las partes con comida y separar lo reciclable</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="dde01b74-a639-44c6-ac29-6da3e3454712" />
           <condition />
-          <activate flag="CajaGrabbed" />
+          <activate flag="CajaGrabbed" guid="8a63e331-207c-48d1-8c50-7aa59c9630e5" />
           <condition />
         </effect>
       </grab>
@@ -2107,29 +2167,29 @@
           <active flag="CajaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAzul" />
+          <activate flag="TirandoAzul" guid="77f45bd7-858b-4939-8ecc-2230899293f4" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="3bcd3e04-6ab7-4422-bbbd-063397aa7c2c" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="b6dc3794-aff0-4f08-94fa-47fa20fddaf3">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Caja" />
+          <consume-object idTarget="Caja" guid="303bb71d-c656-4958-9176-324400603d03" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="99ff27d8-6689-4a85-be2d-aad0817fadc3" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las cajas de cartón limpias van al azul (debidamente plegadas)!</speak-char>
+          <speak-char idTarget="Bolsi" guid="d42a3360-19fb-49f0-810e-51a9ac8626a1">Las cajas de cartón limpias van al azul (debidamente plegadas)!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="35bdc6dd-ecd8-44d3-8d4d-16e565d8b410" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="c5226e7f-9332-4b8e-a4ff-8bfaa7f33c56" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -2153,25 +2213,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Apuntes" />
+          <remove-element idTarget="Apuntes" guid="322db6d7-96b8-460d-899a-fd8bbf6cd621" />
           <condition />
-          <generate-object idTarget="Apuntes" />
+          <generate-object idTarget="Apuntes" guid="2709c730-c01e-410e-8214-e1a128faad5a" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="ff09cb6d-ef1b-433f-b766-d95732f68826" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, unos apuntes!</speak-char>
+          <speak-char idTarget="Bolsi" guid="4d47fa25-e8ae-45aa-9659-2f56a5382276">Genial, unos apuntes!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">El papel va al contenedor azul</speak-char>
+          <speak-char idTarget="Bolsi" guid="6b69808a-7eb5-44e6-96b1-f510dd83d8d5">El papel va al contenedor azul</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="ab12abd2-c7dc-43dd-935b-1e81ff235826" />
           <condition />
-          <speak-char idTarget="Bolsi">Se debe de ahorrar papel y debemos tratar de imprimir la menor cantidad posible</speak-char>
+          <speak-char idTarget="Bolsi" guid="df0289a6-8f19-477a-a066-f87af0fae8d4">Se debe de ahorrar papel y debemos tratar de imprimir la menor cantidad posible</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Los libros podemos llevarlos a una librería para que se puedan reutilizar</speak-char>
+          <speak-char idTarget="Bolsi" guid="34f58893-43f6-4264-b60e-2bfbf265eed0">Los libros podemos llevarlos a una librería para que se puedan reutilizar</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="6850f8d1-977a-4732-81e3-68069687aa4f" />
           <condition />
-          <activate flag="ApuntesGrabbed" />
+          <activate flag="ApuntesGrabbed" guid="e8dc3d9b-61a8-4f9b-9553-2638d3f4b6ad" />
           <condition />
         </effect>
       </grab>
@@ -2180,29 +2240,29 @@
           <active flag="ApuntesGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAzul" />
+          <activate flag="TirandoAzul" guid="e05e118f-5cc2-4306-976d-567fc4b66337" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="29cc5afa-1996-4107-963d-13da6664aeb7" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="eb758f52-afd8-42a6-bee4-10879887d1d2">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Apuntes" />
+          <consume-object idTarget="Apuntes" guid="be3c60b9-2f52-4cc1-9fbf-7d3f6e6589b0" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="f9d42732-e97a-4599-bf35-fad6068eac4b" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">El papel, aunque esté escrito, va al azul!</speak-char>
+          <speak-char idTarget="Bolsi" guid="6044b175-7138-49ed-9afe-e7d6a6ca47e3">El papel, aunque esté escrito, va al azul!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="b034e358-db24-4592-a109-397ec74802f1" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="c58bd5c9-6ea3-4acd-8253-49251f4f167f" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -2226,25 +2286,25 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Revista" />
+          <remove-element idTarget="Revista" guid="9dc046fa-172b-4d80-82d5-00945c9a3fce" />
           <condition />
-          <generate-object idTarget="Revista" />
+          <generate-object idTarget="Revista" guid="c8047528-7b06-4e6c-a0f7-ca0ef2a3dbe1" />
           <condition />
-          <macro-ref id="Happy" />
+          <macro-ref id="Happy" guid="a54ca5ab-0292-4dee-84c6-c37ccf39e14e" />
           <condition />
-          <speak-char idTarget="Bolsi">Genial, una revista vieja!</speak-char>
+          <speak-char idTarget="Bolsi" guid="f752b427-3d41-4354-a64c-8e0ffb5dbdb8">Genial, una revista vieja!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Las revistas van al contenedor azul</speak-char>
+          <speak-char idTarget="Bolsi" guid="9b869aa2-d2b1-4435-b014-886bfe9767f8">Las revistas van al contenedor azul</speak-char>
           <condition />
-          <macro-ref id="Confident" />
+          <macro-ref id="Confident" guid="8fa3ce78-b521-44c1-9562-e745723fc58a" />
           <condition />
-          <speak-char idTarget="Bolsi">Podemos utilizarla para manualidades, pero si se mancha de pintura...</speak-char>
+          <speak-char idTarget="Bolsi" guid="cc9b10e1-4d30-414f-bfe3-86bc02dbd1bf">Podemos utilizarla para manualidades, pero si se mancha de pintura...</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">Debemos tirarla al naranja, dado que está sucio, pero no de comida</speak-char>
+          <speak-char idTarget="Bolsi" guid="48af9f85-eee5-4594-9278-e258db4d58bd">Debemos tirarla al naranja, dado que está sucio, pero no de comida</speak-char>
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="aeb6a566-37f8-4b40-8308-9b1867336a9b" />
           <condition />
-          <activate flag="RevistaGrabbed" />
+          <activate flag="RevistaGrabbed" guid="b2bfcbda-caab-4742-89d1-4918e2978ac8" />
           <condition />
         </effect>
       </grab>
@@ -2253,29 +2313,29 @@
           <active flag="RevistaGrabbed" />
         </condition>
         <effect>
-          <activate flag="TirandoAzul" />
+          <activate flag="TirandoAzul" guid="6f23c255-ced0-44ad-ba15-6e76727b55fb" />
           <condition />
-          <macro-ref id="Tirar" />
+          <macro-ref id="Tirar" guid="47975d59-87b3-42dc-82eb-0de8ff4120af" />
           <condition />
-          <speak-player>Bien hecho!</speak-player>
+          <speak-player guid="30d5bbfd-720b-4c04-97b9-439b94b16ee6">Bien hecho!</speak-player>
           <condition>
             <active flag="Correcto" />
           </condition>
-          <consume-object idTarget="Revista" />
+          <consume-object idTarget="Revista" guid="a08ac7b7-94f3-49c0-80f4-495b7f165a32" />
           <condition>
             <active flag="Correcto" />
           </condition>
-          <macro-ref id="Mad" />
+          <macro-ref id="Mad" guid="32dfeaf6-7ef6-41f7-b3e7-60555af6b051" />
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <speak-char idTarget="Bolsi">Las revistas van al azul!</speak-char>
+          <speak-char idTarget="Bolsi" guid="9c8c84e5-1cb8-45e4-aa57-4dd1efc74cc0">Las revistas van al azul!</speak-char>
           <condition>
             <active flag="Incorrecto" />
           </condition>
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="acf902e5-6009-4d8a-a964-8fe20d88aaff" />
           <condition />
-          <trigger-conversation idTarget="Reciclado" />
+          <trigger-conversation idTarget="Reciclado" guid="0ca25f87-768d-4816-8008-ab7f0215e33f" />
           <condition>
             <active flag="Correcto" />
           </condition>
@@ -2297,13 +2357,13 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Ciruela" />
+          <remove-element idTarget="Ciruela" guid="951b66c5-f71e-47ad-9d69-421832a14685" />
           <condition />
-          <generate-object idTarget="Ciruela" />
+          <generate-object idTarget="Ciruela" guid="f06b1168-c323-40f3-892b-be9c1fc34f37" />
           <condition />
-          <activate flag="CiruelosEncontrados" />
+          <activate flag="CiruelosEncontrados" guid="22ad4846-fd0b-4b75-a0c9-fdec4ead96c9" />
           <condition />
-          <trigger-conversation idTarget="ProgresoSevero" />
+          <trigger-conversation idTarget="ProgresoSevero" guid="cbf93668-27c0-4ddc-be46-97912b5cda9b" />
           <condition />
         </effect>
       </grab>
@@ -2323,13 +2383,13 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Plumero" />
+          <remove-element idTarget="Plumero" guid="0625c38e-f17c-418b-a196-121732ad92d2" />
           <condition />
-          <generate-object idTarget="Plumero" />
+          <generate-object idTarget="Plumero" guid="00c0c5ca-1baf-4183-8095-78e259186cac" />
           <condition />
-          <activate flag="PlumeroEncontrado" />
+          <activate flag="PlumeroEncontrado" guid="d08ec108-b2c6-4bb5-99dc-4477804e31a4" />
           <condition />
-          <trigger-conversation idTarget="ProgresoSevero" />
+          <trigger-conversation idTarget="ProgresoSevero" guid="95ff9f84-d43d-4ed0-b7b5-e6b11bae52b5" />
           <condition />
         </effect>
       </grab>
@@ -2349,13 +2409,13 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Saltacercas" />
+          <remove-element idTarget="Saltacercas" guid="2ecfab0d-9bfc-47e9-b822-69933cd500bc" />
           <condition />
-          <generate-object idTarget="Saltacercas" />
+          <generate-object idTarget="Saltacercas" guid="5dcdcddc-4fbb-473f-907e-8c05d492baec" />
           <condition />
-          <activate flag="SaltacercasEncontrado" />
+          <activate flag="SaltacercasEncontrado" guid="1d16e8d7-94ae-468d-9e9d-2fbdb31f738c" />
           <condition />
-          <trigger-conversation idTarget="ProgresoRamon" />
+          <trigger-conversation idTarget="ProgresoRamon" guid="a945a6c7-b357-43e2-9921-a91300b30b21" />
           <condition />
         </effect>
       </grab>
@@ -2376,13 +2436,13 @@
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <remove-element idTarget="Majuelo" />
+          <remove-element idTarget="Majuelo" guid="e24da00a-a86c-46e4-aad7-7570d3758c2e" />
           <condition />
-          <generate-object idTarget="Majuelo" />
+          <generate-object idTarget="Majuelo" guid="5ed40654-cad8-4f03-a665-694819cfc746" />
           <condition />
-          <activate flag="MajueloEncontrado" />
+          <activate flag="MajueloEncontrado" guid="4c52abfd-4920-49f6-b5df-edfaeec2f575" />
           <condition />
-          <trigger-conversation idTarget="ProgresoRamon" />
+          <trigger-conversation idTarget="ProgresoRamon" guid="21541420-5333-4bb3-8c32-be098b06ad77" />
           <condition />
         </effect>
       </grab>
@@ -2404,7 +2464,7 @@
     <actions>
       <use needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="500" transitionType="5" />
+          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="500" transitionType="5" guid="4c8044d5-dd19-4e35-b6dd-dbf1e01c3ff7" />
           <condition />
         </effect>
       </use>
@@ -2426,7 +2486,29 @@
     <actions>
       <use needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
-          <trigger-book idTarget="GuiaReciclaje" />
+          <trigger-book idTarget="GuiaReciclaje" guid="a97fd4b5-bcb7-4722-bb3c-5edc7580f475" />
+          <condition />
+        </effect>
+      </use>
+    </actions>
+  </object>
+  <object id="ObjetoGuiaArboles" returnsWhenDragged="yes" behaviour="first-action" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/unnamed.jpg" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <use needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-scene idTarget="Guia" x="450" y="453" transitionTime="500" transitionType="2" guid="7b64eb83-5ad7-456a-94e6-b0a10621317e" />
           <condition />
         </effect>
       </use>
@@ -2446,37 +2528,27 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O Justo lo que me faltaba para rematar el estrés de volver a clase</text>
-      </speak-player>
-      <condition />
-      <speak-player>
-        <resources name="No name" />
         <text>No soy una voz, soy Bandalf y esto es telepatía</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>He conectado mi mundo, Baland, con el tuyo para encontrarte</text>
+        <text>He conectado mi mundo, Baland, con el tuyo para encontrar ayuda</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O Baland... ¿Algo así como Narnia?</text>
+        <text>#O Baland... ¿Basura-landia?</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Más o menos...</text>
+        <text>Sí, elegimos ese nombre para recordarnos nuestro peor enemigo: La Basura</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Pero en este caso mi mundo está amenazado y casi no nos queda tiempo</text>
-      </speak-player>
-      <condition />
-      <speak-player>
-        <resources name="No name" />
-        <text>La falta de reciclaje en tu mundo está llevando a mi mundo al desastre</text>
+        <text>Y ahora mismo la situación es crítica, aunque aún hay tiempo...</text>
       </speak-player>
       <condition />
       <child nodeindex="1" />
@@ -2495,15 +2567,15 @@
       <condition />
       <child nodeindex="3" />
     </option-node>
-    <dialogue-node nodeindex="2" editor-x="828" editor-y="69">
+    <dialogue-node nodeindex="2" editor-x="577" editor-y="371">
       <speak-player>
         <resources name="No name" />
-        <text>Fantástico, manos a la obra</text>
+        <text>¡Genial! Te explico...</text>
       </speak-player>
       <condition />
       <child nodeindex="4" />
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="555" editor-y="443">
+    <dialogue-node nodeindex="3" editor-x="660" editor-y="547">
       <speak-player>
         <resources name="No name" />
         <text>Jajaja, qué iluso, no tienes elección...</text>
@@ -2511,7 +2583,7 @@
       <condition />
       <child nodeindex="4" />
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="1086" editor-y="304">
+    <dialogue-node nodeindex="4" editor-x="1197" editor-y="299">
       <speak-player>
         <resources name="No name" />
         <text>Nuestros mundos están conectados y se destruirán si no hacemos algo</text>
@@ -2519,17 +2591,17 @@
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>#O No! ¿Qué puedo hacer yo?</text>
+        <text>#O ¡No! ¿Qué puedo hacer yo?</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Mucho! Ven a verme al Metro de Ciudad Universitaria</text>
+        <text>¡Mucho! Ven a verme al Metro de Ciudad Universitaria</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>No conozco mucho tu mundo, pero gracias a mi magia podrás interactuar con el mío a través de tu móvil</text>
+        <text>Gracias a mi magia podrás interactuar con mi mundo a través de tu móvil</text>
       </speak-player>
       <condition />
       <speak-player>
@@ -2537,23 +2609,37 @@
         <text>Voy a invocar una flecha verde que indicará mi posición...</text>
       </speak-player>
       <condition />
+      <speak-player>
+        <resources name="No name" />
+        <text>#! ¡Navigatio!</text>
+      </speak-player>
+      <condition />
       <child nodeindex="5" />
       <effect>
-        <navigate navigation-type="Ordered">
+        <wait-time time="1" guid="80bdd1a5-77e4-4d72-a329-e1a197b4b41b" />
+        <condition />
+        <navigate navigation-type="Ordered" guid="24516a85-d343-4865-8a95-5f46e5ce920c">
           <step locks="False">MetroCIUArea</step>
         </navigate>
+        <condition />
+        <wait-time time="1" guid="cb77f78b-c770-4457-9b6e-bf9c9b5d16b9" />
         <condition />
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="5" editor-x="1962" editor-y="302">
       <speak-player>
         <resources name="No name" />
-        <text>#! *Wosh!*</text>
+        <text>#O ¡Increíble!</text>
       </speak-player>
       <condition />
       <speak-player>
         <resources name="No name" />
-        <text>Soy un crack. Te espero allí</text>
+        <text>Soy un crack</text>
+      </speak-player>
+      <condition />
+      <speak-player>
+        <resources name="No name" />
+        <text>Sigue la flecha, te espero allí</text>
       </speak-player>
       <condition />
       <end-conversation />
@@ -2588,7 +2674,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Necesito tu ayuda y no hay tiempo que perder con más preguntas</text>
+        <text>Necesito tu ayuda. No hay tiempo que perder con preguntas</text>
       </speak-char>
       <condition />
       <speak-player>
@@ -2598,7 +2684,7 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Verás...</text>
+        <text>¡SHHHH!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2633,75 +2719,131 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <trigger-scene idTarget="Antes" x="480" y="540" transitionTime="500" transitionType="2" />
+        <trigger-scene idTarget="Dehesa" x="800" y="675" transitionTime="500" transitionType="2" guid="41365b12-db61-4e5f-a549-e232d688837f" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="1" editor-x="870" editor-y="106">
+    <dialogue-node nodeindex="1" editor-x="193" editor-y="434">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Esta era la Universidad Complutense en los años 50</text>
+        <text>El campus de Ciudad Universitaria de la Complutense está en la Dehesa de la Villa</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>El campus de Ciudad Universitaria se creó en 1927 por el rey Alfonso XIII</text>
+        <text>La flora son principalmente encinas pero Isabel II la repobló con pinos, aunque hay muchos más</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente</text>
+        <text>De hecho, luego te doy una guía para que puedas conocer los árboles de la plaza mejor</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>En la segunda república añadieron ciencias, letras y arquitectura, no todo era curar gente jeje</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Después, llegó la guerra, y se tuvieron que reconstruir muchos edificios</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Tal vez luego debas ir a ver balazos por medicina o farmacia</text>
+        <text>Cuando se inició la construcción del campus, la dehesa empezó a cambiar...</text>
       </speak-char>
       <condition />
       <child nodeindex="2" />
       <effect>
-        <trigger-scene idTarget="Ahora" x="546" y="558" transitionTime="500" transitionType="5" />
+        <trigger-scene idTarget="Antes" x="480" y="540" transitionTime="500" transitionType="5" guid="eecfee06-fadb-43df-8b0a-73191fa4d381" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="1515" editor-y="469">
+    <dialogue-node nodeindex="2" editor-x="234" editor-y="819">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Después, se rompió con la ordenanza y se constuyeron todo tipo de edificios</text>
+        <text>Esta foto es de los años 30, cuando Alfonso XIII inició la construcción del campus</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Pero no todo es construir, la UCM está ubicada en la Dehesa de la Villa y tiene más de cien hectáreas de patrimonio verde</text>
+        <text>Aunque ahora que lo pienso... Estás muy calladito</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>La UCM es tan importante que en 1999 se declaró Bien de Interés Cultural</text>
+        <text>¿Cuales son las facultades que hay en la foto?</text>
       </speak-char>
-      <condition />
-      <speak-player>
-        <resources name="No name" />
-        <text>Y todo se va a ir al traste a menos que hagamos algo...</text>
-      </speak-player>
       <condition />
       <child nodeindex="3" />
+    </dialogue-node>
+    <option-node nodeindex="3" question="Pregunta_Facultades" random="yes" keepShowing="yes" preListening="yes" editor-x="645" editor-y="1117" x="645" y="1117">
+      <speak-player correct="true">
+        <text>Medicina, Farmacia y Odontología</text>
+      </speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>
+        <text>Medicina, Física y Filosofía</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>
+        <text>Matemáticas, Física y Química</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </option-node>
+    <dialogue-node nodeindex="4" editor-x="1361" editor-y="841">
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>¡Efectivamente! Dado que está al lado del Hospital Clínico se empezó por allí</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="6" />
       <effect>
-        <trigger-scene idTarget="Unisucia" x="300" y="337" transitionTime="500" transitionType="5" />
+        <trigger-scene idTarget="Ahora" x="546" y="558" transitionTime="500" transitionType="5" guid="51dfb935-3323-4b4a-845c-a3709880a010" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="1739" editor-y="70">
+    <dialogue-node nodeindex="5" editor-x="1195" editor-y="1133">
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Jeje, no. Dado que está al lado del Hospital Clínico se centraron en Medicina, Farmacia y Odontología</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="6" />
+      <effect>
+        <trigger-scene idTarget="Ahora" x="546" y="558" transitionTime="500" transitionType="5" guid="9179c78c-a468-45b3-9c97-94697e8e4ba2" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1660" editor-y="682">
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>En la Segunda República añadieron Ciencias, Letras y Arquitectura, no todo era curar gente jajaja</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Aquí de hecho, se vivió la guerra. ¡Esta plaza fue frente en la Guerra Civil!</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Aún se ven los balazos en las fachadas de Medicina o Farmacia</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Por su valor, la UCM en 1999 se declaró Bien de Interés Cultural</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Aunque todo se va a ir a freir espárragos a menos que hagamos algo...</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <trigger-scene idTarget="Unisucia" x="300" y="337" transitionTime="500" transitionType="5" guid="d8a682c7-ca82-4b5b-807d-c774871bd75c" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1739" editor-y="70">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Los residuos están acabando con la universidad</text>
@@ -2732,13 +2874,13 @@
         <text>Pero por suerte tengo la herramienta para ayudar a evitarlo...</text>
       </speak-char>
       <condition />
-      <child nodeindex="4" />
+      <child nodeindex="8" />
       <effect>
-        <trigger-scene idTarget="TresErres" x="415" y="373" transitionTime="500" transitionType="1" />
+        <trigger-scene idTarget="TresErres" x="415" y="373" transitionTime="500" transitionType="1" guid="e9e6005d-d7b2-481f-b03f-04a5ba853f4d" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="2453" editor-y="82">
+    <dialogue-node nodeindex="8" editor-x="2453" editor-y="82">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>¡Las tres erres!</text>
@@ -2759,9 +2901,9 @@
         <text>¡RECICLAR!</text>
       </speak-player>
       <condition />
-      <child nodeindex="5" />
+      <child nodeindex="9" />
     </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="2903" editor-y="126">
+    <dialogue-node nodeindex="9" editor-x="2903" editor-y="126">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>¡Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!</text>
@@ -2777,13 +2919,13 @@
         <text>Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...</text>
       </speak-char>
       <condition />
-      <child nodeindex="6" />
+      <child nodeindex="10" />
       <effect>
-        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="2" />
+        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="2" guid="eb9e37a1-6c2e-4f27-bbfc-2a07021d41f8" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="3888" editor-y="66">
+    <dialogue-node nodeindex="10" editor-x="3888" editor-y="66">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Él es Basauron</text>
@@ -2819,13 +2961,13 @@
         <text>LA CUARTA R</text>
       </speak-char>
       <condition />
-      <child nodeindex="7" />
+      <child nodeindex="11" />
       <effect>
-        <trigger-scene idTarget="CuartaErre" x="640" y="540" transitionTime="500" transitionType="1" />
+        <trigger-scene idTarget="CuartaErre" x="640" y="540" transitionTime="500" transitionType="1" guid="8a84b418-8403-4236-a1fe-f3b7197fa965" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="4339" editor-y="471">
+    <dialogue-node nodeindex="11" editor-x="4339" editor-y="471">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>¡RECOGER!</text>
@@ -2846,13 +2988,13 @@
         <text>¡Para salvar el mundo de Basauron!</text>
       </speak-char>
       <condition />
-      <child nodeindex="8" />
+      <child nodeindex="12" />
       <effect>
-        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="5" />
+        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="5" guid="c6572e08-52e4-40fa-9a65-12c6e38f1bb4" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="4819" editor-y="95">
+    <dialogue-node nodeindex="12" editor-x="4819" editor-y="95">
       <speak-player>
         <resources name="No name" />
         <text>¡Genial!</text>
@@ -2868,15 +3010,15 @@
         <text>Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...</text>
       </speak-char>
       <condition />
-      <child nodeindex="9" />
+      <child nodeindex="13" />
       <effect>
-        <activate flag="Intro" />
+        <activate flag="Intro" guid="fec9c6e4-3368-415b-b901-3d783c7f0911" />
         <condition />
-        <trigger-scene idTarget="Start" x="639" y="591" transitionTime="100" transitionType="5" />
+        <trigger-scene idTarget="Start" x="639" y="591" transitionTime="100" transitionType="5" guid="25cffb86-af8e-494d-a3db-22e180858a15" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="9" editor-x="5282" editor-y="403">
+    <dialogue-node nodeindex="13" editor-x="5282" editor-y="403">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
         <text>Ve junto a la estatua "Los portadores de la antorcha" en el centro de la plaza</text>
@@ -2889,7 +3031,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <navigate navigation-type="Ordered">
+          <navigate navigation-type="Ordered" guid="303d13a1-0d67-4055-9778-fcca170b5ab4">
             <step locks="False">PlasticBag</step>
           </navigate>
           <condition />
@@ -2901,7 +3043,7 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Sigue la flecha verde hasta el metro</text>
+        <text>Sigue la flecha verde hasta la estatua</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -2971,26 +3113,26 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>¡Por el poder de la reutilización!</text>
+        <text>#! ¡Por el poder de la reutilización!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>¡¡Ven a la vida!!!</text>
+        <text>#! ¡¡Ven a la vida!!!</text>
       </speak-char>
       <condition />
       <child nodeindex="1" />
       <effect>
-        <activate flag="Alive" />
+        <activate flag="Alive" guid="28f05192-66a5-41f8-8837-30226c77c0df" />
         <condition />
-        <macro-ref id="Sad" />
+        <macro-ref id="Sad" guid="1cc7e969-6718-4de8-a2b8-ff30e916c8c6" />
         <condition />
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="1" editor-x="636" editor-y="48">
       <speak-player>
         <resources name="No name" />
-        <text>¡Woah!</text>
+        <text>¡Guau!</text>
       </speak-player>
       <condition />
       <speak-char idTarget="Bandalf">
@@ -3020,11 +3162,11 @@
       <condition />
       <child nodeindex="2" />
       <effect>
-        <macro-ref id="Normal" />
+        <macro-ref id="Normal" guid="a8dcc411-1f8e-4d7a-9d61-2e1eab29ccbc" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="395" editor-y="366">
+    <dialogue-node nodeindex="2" editor-x="135" editor-y="416">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>¡Soy Bolsi y te ayudaré a partir de ahora en tu aventura!</text>
@@ -3062,7 +3204,7 @@
       <condition />
       <child nodeindex="3" />
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="1426" editor-y="460">
+    <dialogue-node nodeindex="3" editor-x="1193" editor-y="448">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!</text>
@@ -3070,49 +3212,61 @@
       <condition />
       <child nodeindex="4" />
       <effect>
-        <generate-object idTarget="ObjetoGuia" />
+        <generate-object idTarget="ObjetoGuia" guid="2d551508-5015-4a6b-95d8-64b42b58968f" />
         <condition />
       </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="1688" editor-y="97">
+    <dialogue-node nodeindex="4" editor-x="1966" editor-y="196">
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Por otro lado, mientras buscas y reciclas los residuos, puedes utilizar la naturaleza para volverte más fuerte</text>
+        <text>Por otro lado, podríamos utilizar la naturaleza para volverte más fuerte</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Si quieres tener ayuda en la batalla contra basauron, opcionalmente, podemos fabricar unas pociones</text>
+        <text>Si quieres tener vidas extra en la batalla contra basauron, podemos fabricar unas pociones con unos viejos amigos</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>En Medicina y Farmacia hay tres viejos amigos: Santiago Ramón y Cajal y Severo Ochoa con Margarita Salas</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>A Santiago deberás llevarle el fruto de un majuelo y un ala de saltacercas</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>A Severo y Margarita deberás llevarle una ciruela y un plumero de la pampa</text>
+        <text>En medicina, Santiago Ramón y Cajal necesita un fruto de majuelo y un ala de mariposa saltacercas para crear una poción neurológica</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>¡Yo puedo darte pistas si no los encuentras! Jijiji</text>
+        <text>¡Anotado!</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>¡Cada una de ellas te dará una vida extra en la batalla final!</text>
+        <text>En farmacia, Severo Ochoa y Margarita salas necesitan una ciruela y un plumero de la pampa para crear su poción de ARN</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>¡Anotado! Pregúntame si quieres recordarlos...</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>¡Podría darte pistas si no encuentras los ingredientes o te pierdes! Jijiji</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Despues, te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos</text>
+        <text>Aquí tienes el mapa de los árboles que te prometí, te será de ayuda</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="5" />
+      <effect>
+        <generate-object idTarget="ObjetoGuiaArboles" guid="ee2efa74-2bbe-4b35-abc0-354334adbcc5" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="5" editor-x="2143" editor-y="558">
+      <speak-char idTarget="Bandalf">
+        <resources name="No name" />
+        <text>Te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos</text>
       </speak-char>
       <condition />
       <speak-player>
@@ -3127,24 +3281,19 @@
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Busca y recicla al menos 8 objetos de la plaza</text>
+        <text>Busca y recicla al menos 8 objetos de la plaza, y si quieres, busca y lleva los ingredientes a Medicina y a Farmacia</text>
       </speak-char>
       <condition />
       <speak-char idTarget="Bandalf">
         <resources name="No name" />
-        <text>Ve a Medicina y a Farmacia a encontrarte con Santiago, Severo y Margarita</text>
-      </speak-char>
-      <condition />
-      <speak-char idTarget="Bandalf">
-        <resources name="No name" />
-        <text>Después nos veremos en la estatua en el centro de la plaza</text>
+        <text>Nos vemos junto a los contenedores</text>
       </speak-char>
       <condition />
       <end-conversation>
         <effect>
-          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" guid="762b1c37-68db-4cc2-ad0e-541733d93ff6" />
           <condition />
-          <activate flag="Busqueda" />
+          <activate flag="Busqueda" guid="9017d498-fdbb-4518-8926-48a30a0290c9" />
           <condition />
         </effect>
       </end-conversation>
@@ -3213,7 +3362,7 @@
       <condition />
       <child nodeindex="2" />
       <effect>
-        <activate flag="Basauron" />
+        <activate flag="Basauron" guid="6a904268-7008-4532-a7f5-8b26f1fd05ab" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3320,7 +3469,7 @@
       <condition />
       <child nodeindex="3" />
       <effect>
-        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="5" />
+        <trigger-scene idTarget="ElMal" x="650" y="548" transitionTime="500" transitionType="5" guid="8fdfd584-cae6-4dc2-9884-477313ba1880" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3409,7 +3558,7 @@
       <condition />
       <child nodeindex="7" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="1abfdcbd-f9ec-4aa4-87ab-ee91975c5ed4" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3549,7 +3698,7 @@
       <condition />
       <child nodeindex="15" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="d8272907-2f73-4db9-a02b-2c73f12ac2e6" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3629,7 +3778,7 @@
       <condition />
       <child nodeindex="19" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="97909250-6a01-4be1-aacb-b7a7ad7bf483" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3693,7 +3842,7 @@
       <condition />
       <child nodeindex="23" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="dba674c4-2e73-46a1-a34c-bfa0dfdf2e1b" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3765,7 +3914,7 @@
       <condition />
       <child nodeindex="27" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="42b8551a-e095-4fd4-92ba-51e056e76c20" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3837,7 +3986,7 @@
       <condition />
       <child nodeindex="31" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="9bcb7fca-0e45-4a10-b192-b7448b2851c1" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3909,7 +4058,7 @@
       <condition />
       <child nodeindex="35" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="41697702-f853-4d60-88c5-864c6c39ff63" />
         <condition />
       </effect>
     </dialogue-node>
@@ -3989,7 +4138,7 @@
       <condition />
       <child nodeindex="39" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="df15988e-e29a-4045-aee3-8b7318f60deb" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4053,7 +4202,7 @@
       <condition />
       <child nodeindex="43" />
       <effect>
-        <increment var="Recicladas" value="1" />
+        <increment var="Recicladas" value="1" guid="3639db59-8633-45ff-b075-fa05ccd75100" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4117,7 +4266,7 @@
       </condition>
       <child nodeindex="44" />
       <effect>
-        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="2" />
+        <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="500" transitionType="2" guid="b96c9530-8853-4046-90d3-259d15ef61c1" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4134,7 +4283,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <trigger-cutscene idTarget="Fin" />
+          <trigger-cutscene idTarget="Fin" guid="139818b7-ba54-441b-99ac-8fd1ace94794" />
           <condition />
         </effect>
       </end-conversation>
@@ -4256,21 +4405,21 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <activate flag="IntroSevero" />
+        <activate flag="IntroSevero" guid="5eb076bb-2a46-4575-898f-8e0527f58b2e" />
         <condition />
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="817" editor-y="457">
       <child nodeindex="1" />
       <effect>
-        <trigger-conversation idTarget="PistasSevero" />
+        <trigger-conversation idTarget="PistasSevero" guid="c642f0f1-cce2-4a01-8315-f09a027ccbde" />
         <condition>
           <either>
             <inactive flag="PlumeroEncontrado" />
             <inactive flag="CiruelosEncontrados" />
           </either>
         </condition>
-        <trigger-conversation idTarget="CreacionPocionSevero" />
+        <trigger-conversation idTarget="CreacionPocionSevero" guid="81e5f0b7-4ace-4b3e-8516-3a92e46242aa" />
         <condition>
           <active flag="PlumeroEncontrado" />
           <active flag="CiruelosEncontrados" />
@@ -4366,15 +4515,15 @@
       <condition />
       <end-conversation>
         <effect>
-          <activate flag="PocionFarmacia" />
+          <activate flag="PocionFarmacia" guid="c1255ba6-c771-4f88-a67d-58676ebf12c9" />
           <condition />
-          <consume-object idTarget="Plumero" />
+          <consume-object idTarget="Plumero" guid="eb83ffd2-2d24-4812-8bd2-bd8ef85c7c26" />
           <condition />
-          <consume-object idTarget="Ciruela" />
+          <consume-object idTarget="Ciruela" guid="5982d1fd-6cb7-4ff6-ae8d-e9719073d5df" />
           <condition />
-          <trigger-conversation idTarget="SomethingFinished" />
+          <trigger-conversation idTarget="SomethingFinished" guid="f1ba0e08-38fd-4b99-a197-632dede4097e" />
           <condition />
-          <cancel-action />
+          <cancel-action guid="8162a33c-b93d-4b12-93e7-f949f5a4db92" />
           <condition />
         </effect>
       </end-conversation>
@@ -4516,21 +4665,21 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <activate flag="IntroRamon" />
+        <activate flag="IntroRamon" guid="3e4a1855-70cc-41e8-8adb-71b50c971c33" />
         <condition />
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="802" editor-y="408">
       <child nodeindex="1" />
       <effect>
-        <trigger-conversation idTarget="PistasRamon" />
+        <trigger-conversation idTarget="PistasRamon" guid="b87473ec-91ed-4d7c-9dfd-9f00c17ba85f" />
         <condition>
           <either>
             <inactive flag="MajueloEncontrado" />
             <inactive flag="SaltacercasEncontrado" />
           </either>
         </condition>
-        <trigger-conversation idTarget="CreacionPocionRamon" />
+        <trigger-conversation idTarget="CreacionPocionRamon" guid="da7e4c5a-4890-44dc-8960-397e264d7517" />
         <condition>
           <active flag="SaltacercasEncontrado" />
           <active flag="MajueloEncontrado" />
@@ -4626,15 +4775,15 @@
       <condition />
       <end-conversation>
         <effect>
-          <activate flag="PocionMedicina" />
+          <activate flag="PocionMedicina" guid="ab74b93d-bcab-4491-b1c6-03f22e076ae2" />
           <condition />
-          <consume-object idTarget="Saltacercas" />
+          <consume-object idTarget="Saltacercas" guid="8b4d743a-1a1f-49c6-8491-53b2ddd08ce7" />
           <condition />
-          <consume-object idTarget="Majuelo" />
+          <consume-object idTarget="Majuelo" guid="84a347df-09bd-47f8-99a0-5f4ae87078c9" />
           <condition />
-          <trigger-conversation idTarget="SomethingFinished" />
+          <trigger-conversation idTarget="SomethingFinished" guid="979e95ec-e000-45fc-957d-e3c174ea3cc6" />
           <condition />
-          <cancel-action />
+          <cancel-action guid="eb4e8f00-bb91-4508-8c2b-b16cbfeffda7" />
           <condition />
         </effect>
       </end-conversation>
@@ -4659,7 +4808,7 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <trigger-conversation idTarget="SomethingFinished" />
+        <trigger-conversation idTarget="SomethingFinished" guid="46f549d6-3579-4334-be81-453b61b184c0" />
         <condition />
       </effect>
     </dialogue-node>
@@ -4744,7 +4893,7 @@
       <condition />
       <child nodeindex="9" />
     </option-node>
-    <dialogue-node nodeindex="3" editor-x="1853" editor-y="219">
+    <dialogue-node nodeindex="3" editor-x="1750" editor-y="210">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
         <text>Hay varios en la calle frente a medicina</text>
@@ -4757,7 +4906,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <navigate navigation-type="Ordered">
+          <navigate navigation-type="Ordered" guid="0e40268c-7c89-4786-88b3-a3b6f0052787">
             <step locks="False">Contenedores</step>
           </navigate>
           <condition />
@@ -4767,7 +4916,7 @@
     <dialogue-node nodeindex="4" editor-x="1574" editor-y="1508">
       <end-conversation>
         <effect>
-          <trigger-conversation idTarget="TutorialReciclaje" />
+          <trigger-conversation idTarget="TutorialReciclaje" guid="9c85412e-d3e0-42bf-af1b-39bb72d726b3" />
           <condition />
         </effect>
       </end-conversation>
@@ -4797,31 +4946,31 @@
     <dialogue-node nodeindex="6" editor-x="2231" editor-y="914">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje</text>
+        <text>Dicen que una Mariposa Saltacercas perdió el ala por un susto de un balazo...</text>
       </speak-char>
       <condition>
         <inactive flag="SaltacercasEncontrado" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>El fruto del majuelo está frente a odontología</text>
+        <text>Puede que encuentres un Majuelo si te duele una muela...</text>
       </speak-char>
       <condition>
         <inactive flag="MajueloEncontrado" />
       </condition>
       <end-conversation />
     </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1931" editor-y="1047">
+    <dialogue-node nodeindex="7" editor-x="1958" editor-y="1190">
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>Los ciruelos están junto al metro...</text>
+        <text>La entrada al tren subterráneo la custodian los ciruelos...</text>
       </speak-char>
       <condition>
         <inactive flag="CiruelosEncontrados" />
       </condition>
       <speak-char idTarget="Bolsi">
         <resources name="No name" />
-        <text>El plumero de la pampa está cerca de la estatua de Severo... La estatua creo que está cerca de farmacia...</text>
+        <text>Los plumeros han salido volando con el aire del metro...</text>
       </speak-char>
       <condition>
         <inactive flag="PlumeroEncontrado" />
@@ -4836,7 +4985,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <navigate navigation-type="Ordered">
+          <navigate navigation-type="Ordered" guid="c7eef292-3372-43d6-8b4d-d4a00a659129">
             <step locks="False">Bandalf</step>
           </navigate>
           <condition />
@@ -4877,7 +5026,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <navigate navigation-type="Closeness">
+          <navigate navigation-type="Closeness" guid="491ea4d7-f9a1-489f-9b9d-e51f1e800ea7">
             <step locks="False">Medicina</step>
           </navigate>
           <condition />
@@ -4892,7 +5041,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <navigate navigation-type="Closeness">
+          <navigate navigation-type="Closeness" guid="7525fe14-e0c3-40c6-a662-da410ba1b7dc">
             <step locks="False">Farmacia</step>
           </navigate>
           <condition />
@@ -5077,7 +5226,7 @@
       </condition>
       <end-conversation>
         <effect>
-          <trigger-conversation idTarget="SomethingFinished" />
+          <trigger-conversation idTarget="SomethingFinished" guid="50fe3d33-74db-4ff3-bb49-bbbcaecc64ae" />
           <condition>
             <equals var="Total" value="10" />
           </condition>
@@ -5111,11 +5260,11 @@
     <dialogue-node nodeindex="2" editor-x="1234" editor-y="108">
       <end-conversation>
         <effect>
-          <speak-char idTarget="Bandalf">Todavía no puedes, debes reciclar al menos 8 residuos. Búscalos en tu mochila</speak-char>
+          <speak-char idTarget="Bandalf" guid="169c83c3-3a45-4a8e-ad45-629721a45a5e">Todavía no puedes, debes reciclar al menos 8 residuos. Búscalos en tu mochila</speak-char>
           <condition>
             <less-than var="Total" value="8" />
           </condition>
-          <trigger-conversation idTarget="Final" />
+          <trigger-conversation idTarget="BatallaFinal" guid="8848183b-828a-4489-9223-f813fbf32f9c" />
           <condition>
             <greater-equals-than var="Total" value="8" />
           </condition>
@@ -5135,7 +5284,7 @@
       <condition />
       <child nodeindex="1" />
       <effect>
-        <trigger-scene idTarget="AbreMochila" x="445" y="419" transitionTime="500" transitionType="1" />
+        <trigger-scene idTarget="AbreMochila" x="445" y="419" transitionTime="500" transitionType="1" guid="d649e070-4805-4d35-adb7-60810d0f4027" />
         <condition />
       </effect>
     </dialogue-node>
@@ -5147,7 +5296,7 @@
       <condition />
       <child nodeindex="2" />
       <effect>
-        <trigger-scene idTarget="SeleccionaResiduo" x="378" y="391" transitionTime="500" transitionType="4" />
+        <trigger-scene idTarget="SeleccionaResiduo" x="378" y="391" transitionTime="500" transitionType="4" guid="bd06d615-c6b3-466b-b1d1-234a4d2240f6" />
         <condition />
       </effect>
     </dialogue-node>
@@ -5164,7 +5313,7 @@
       <condition />
       <child nodeindex="3" />
       <effect>
-        <trigger-scene idTarget="Enfoca" x="640" y="720" transitionTime="500" transitionType="4" />
+        <trigger-scene idTarget="Enfoca" x="640" y="720" transitionTime="500" transitionType="4" guid="3f476b41-701c-427e-ad67-86f0b00f55b2" />
         <condition />
       </effect>
     </dialogue-node>
@@ -5176,7 +5325,7 @@
       <condition />
       <child nodeindex="4" />
       <effect>
-        <trigger-scene idTarget="Plaza" x="512" y="473" transitionTime="500" transitionType="1" />
+        <trigger-scene idTarget="Plaza" x="512" y="473" transitionTime="500" transitionType="1" guid="c79bcf97-215b-4bcc-9bae-ac71cf77d529" />
         <condition />
       </effect>
     </dialogue-node>
@@ -5188,14 +5337,51 @@
       <condition />
       <end-conversation>
         <effect>
-          <activate flag="Tutorial" />
+          <activate flag="Tutorial" guid="63ce9537-cc22-4e70-8449-4a633392c657" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="TirarAlternative">
-    <option-node nodeindex="0" question="TirarAlternative" random="yes" max-elements-per-row="3" alignment="MiddleCenter" horizontal="yes" editor-x="249" editor-y="182" x="249" y="182">
+    <dialogue-node nodeindex="0" editor-x="78" editor-y="138">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Veo que no has conseguido escanear ningún contenedor...</text>
+      </speak-char>
+      <condition />
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>¿Quieres seleccionarlo manualmente?</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" question="EscaneoManual" preListening="yes" editor-x="51" editor-y="413" x="51" y="413">
+      <speak-player>
+        <text>Sí</text>
+      </speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>
+        <text>No</text>
+        <resources name="No name" />
+      </speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="276" editor-y="356">
+      <speak-char idTarget="Bolsi">
+        <resources name="No name" />
+        <text>Okay!</text>
+      </speak-char>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="509" editor-y="551">
+      <end-conversation />
+    </dialogue-node>
+    <option-node nodeindex="4" question="TirarAlternative" random="yes" preListening="yes" max-elements-per-row="3" alignment="MiddleCenter" horizontal="yes" editor-x="488" editor-y="147" x="488" y="147">
       <speak-player>
         <text>Amarillo</text>
         <resources name="No name">
@@ -5203,7 +5389,7 @@
         </resources>
       </speak-player>
       <condition />
-      <child nodeindex="1" />
+      <child nodeindex="5" />
       <speak-player>
         <text>Azul</text>
         <resources name="No name">
@@ -5211,7 +5397,7 @@
         </resources>
       </speak-player>
       <condition />
-      <child nodeindex="2" />
+      <child nodeindex="6" />
       <speak-player>
         <text>Marron</text>
         <resources name="No name">
@@ -5219,7 +5405,7 @@
         </resources>
       </speak-player>
       <condition />
-      <child nodeindex="3" />
+      <child nodeindex="7" />
       <speak-player>
         <text>Naranja</text>
         <resources name="No name">
@@ -5227,7 +5413,7 @@
         </resources>
       </speak-player>
       <condition />
-      <child nodeindex="4" />
+      <child nodeindex="8" />
       <speak-player>
         <text>Verde</text>
         <resources name="No name">
@@ -5235,50 +5421,50 @@
         </resources>
       </speak-player>
       <condition />
-      <child nodeindex="5" />
+      <child nodeindex="9" />
     </option-node>
-    <dialogue-node nodeindex="1" editor-x="860" editor-y="3">
+    <dialogue-node nodeindex="5" editor-x="860" editor-y="3">
       <end-conversation>
         <effect>
-          <activate flag="ScannedAmarillo" />
+          <activate flag="ScannedAmarillo" guid="a9faf4ec-1e5a-4e02-9261-505b590224cf" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="2" editor-x="860" editor-y="197">
+    <dialogue-node nodeindex="6" editor-x="860" editor-y="197">
       <end-conversation>
         <effect>
-          <activate flag="ScannedAzul" />
+          <activate flag="ScannedAzul" guid="275be622-6408-4b03-bf10-f0e18aa5426c" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="860" editor-y="391">
+    <dialogue-node nodeindex="7" editor-x="860" editor-y="391">
       <end-conversation>
         <effect>
-          <activate flag="ScannedMarron" />
+          <activate flag="ScannedMarron" guid="1b81535f-2925-4ce4-b8b6-3efad79d6630" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="4" editor-x="860" editor-y="585">
+    <dialogue-node nodeindex="8" editor-x="860" editor-y="585">
       <end-conversation>
         <effect>
-          <activate flag="ScannedNaranja" />
+          <activate flag="ScannedNaranja" guid="d63951b9-ca21-443a-8f55-0b0ae2a26a4b" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
-    <dialogue-node nodeindex="5" editor-x="813" editor-y="779">
+    <dialogue-node nodeindex="9" editor-x="813" editor-y="779">
       <end-conversation>
         <effect>
-          <activate flag="ScannedVerde" />
+          <activate flag="ScannedVerde" guid="718b83d7-7ab6-4ed4-b850-b9f0e3019895" />
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
-  <geoelement id="InitialArea">
+  <geo-element id="InitialArea">
     <description>
       <name>
       </name>
@@ -5301,9 +5487,9 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-scene idTarget="Start" x="400" y="300" transitionTime="0" transitionType="0" scale="1" />
+          <trigger-scene idTarget="Start" x="400" y="300" transitionTime="0" transitionType="0" scale="1" guid="850014bf-5c6b-4468-b973-23f3c3ae6879" />
           <condition />
-          <trigger-conversation idTarget="Intro" />
+          <trigger-conversation idTarget="Intro" guid="10039f68-fb27-48bc-be6f-6c652953eb36" />
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
@@ -5312,8 +5498,8 @@
         <only-from-inside>False</only-from-inside>
       </exit-action>
     </actions>
-  </geoelement>
-  <geoelement id="MetroCIUArea">
+  </geo-element>
+  <geo-element id="MetroCIUArea">
     <description>
       <name>
       </name>
@@ -5336,16 +5522,16 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="1000" transitionType="5" />
+          <trigger-scene idTarget="MetroCIU" x="512" y="503" transitionTime="1000" transitionType="5" guid="5e98197a-8a28-478a-82fe-bca7c0f948de" />
           <condition />
-          <speak-player>* Toca al mago para interactuar con él *</speak-player>
+          <speak-player guid="65de63d8-ede6-4e4b-8c2b-746cd124c91a">* Toca al mago para interactuar con él *</speak-player>
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="LosPortadores">
+  </geo-element>
+  <geo-element id="LosPortadores">
     <description>
       <name>Los Portadores de la Antorcha</name>
       <brief>
@@ -5363,16 +5549,16 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-scene idTarget="Ending" x="639" y="591" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Ending" x="639" y="591" transitionTime="0" transitionType="0" guid="79ee6d8b-9f61-420f-8468-dee058796686" />
           <condition />
-          <trigger-conversation idTarget="BatallaFinal" />
+          <trigger-conversation idTarget="BatallaFinal" guid="c2666533-e2c2-43c4-99c3-1c2f475939f5" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Metro">
+  </geo-element>
+  <geo-element id="Metro">
     <description>
       <name>Metro</name>
       <brief>Metro</brief>
@@ -5389,16 +5575,16 @@
     <actions>
       <enter-action>
         <effect>
-          <activate flag="EncontradoMetro" />
+          <activate flag="EncontradoMetro" guid="7df06255-734d-4175-83b7-60c30db3f50a" />
           <condition />
-          <speak-char idTarget="Bolsi">Me suena que había ciruelos cerca del metro... Igual hay una ciruela aquí cerca!</speak-char>
+          <speak-char idTarget="Bolsi" guid="c0bd2cac-366b-47e2-96ad-2882c165d15d">Me suena que había ciruelos cerca del metro... Igual hay una ciruela aquí cerca!</speak-char>
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Farmacia">
+  </geo-element>
+  <geo-element id="Farmacia">
     <description>
       <name>Farmacia</name>
       <brief>
@@ -5420,14 +5606,14 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-zoned-scene idTarget="FacultadFarmacia" x="310" y="276" zoneId="Farmacia" transitionTime="500" transitionType="5" />
+          <trigger-zoned-scene idTarget="FacultadFarmacia" x="310" y="276" zoneId="Farmacia" transitionTime="500" transitionType="5" guid="d494bca1-f45a-40e3-9526-24b9219856ec" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="EstatuaSevero">
+  </geo-element>
+  <geo-element id="EstatuaSevero">
     <description>
       <name>Ventilación del metro</name>
       <brief>
@@ -5448,16 +5634,16 @@
           <inactive flag="MonumentoSeveroEncontrado" />
         </condition>
         <effect>
-          <speak-char idTarget="Bolsi">Genial! Aquí hay mucho viento como para que el plumero se haya caído! El plumero de la pampa estará aquí cerca...</speak-char>
+          <speak-char idTarget="Bolsi" guid="295fbe4f-de04-4f59-900a-d7f0e701b262">Genial! Aquí hay mucho viento como para que el plumero se haya caído! El plumero de la pampa estará aquí cerca...</speak-char>
           <condition />
-          <activate flag="MonumentoSeveroEncontrado" />
+          <activate flag="MonumentoSeveroEncontrado" guid="44efe4f0-29ce-4bb5-9a8d-ca0011d9a880" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Odontología">
+  </geo-element>
+  <geo-element id="Odontología">
     <description>
       <name>Odontología</name>
       <brief>
@@ -5482,18 +5668,18 @@
           <inactive flag="EncontradaOdontologia" />
         </condition>
         <effect>
-          <speak-char idTarget="Bolsi">Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!</speak-char>
+          <speak-char idTarget="Bolsi" guid="8ac02c98-1c3a-4d16-ba8b-3a16cc24c151">Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!</speak-char>
           <condition />
-          <speak-char idTarget="Bolsi">El fruto del majuelo estará aquí cerca...</speak-char>
+          <speak-char idTarget="Bolsi" guid="e01155f9-0659-440e-905f-01808756c9b1">El fruto del majuelo estará aquí cerca...</speak-char>
           <condition />
-          <activate flag="EncontradaOdontologia" />
+          <activate flag="EncontradaOdontologia" guid="36a0a52f-be58-462c-b061-d5bb7e12507f" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Medicina">
+  </geo-element>
+  <geo-element id="Medicina">
     <description>
       <name>Medicina</name>
       <brief>
@@ -5515,14 +5701,14 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-zoned-scene idTarget="FacultadMedicina" x="337" y="315" zoneId="Medicina" transitionTime="500" transitionType="5" />
+          <trigger-zoned-scene idTarget="FacultadMedicina" x="337" y="315" zoneId="Medicina" transitionTime="500" transitionType="5" guid="eaa390f4-e2d6-49b7-880b-649e93e5946e" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Fachada de Medicina">
+  </geo-element>
+  <geo-element id="Fachada de Medicina">
     <description>
       <name>Fachada con muescas</name>
       <brief>
@@ -5547,32 +5733,32 @@
           <inactive flag="EncontradosBalazos" />
         </condition>
         <effect>
-          <speak-char idTarget="Bolsi">Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...</speak-char>
+          <speak-char idTarget="Bolsi" guid="fecbf146-59f2-45e7-afc3-3bb4312c0ba6">Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...</speak-char>
           <condition />
-          <trigger-scene idTarget="Balas1" x="800" y="1200" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Balas1" x="800" y="1200" transitionTime="0" transitionType="0" guid="ac9e5c86-bed4-451c-8eae-464163237d33" />
           <condition />
-          <speak-player>Foto 1</speak-player>
+          <speak-player guid="1eb8ec61-d00a-40b7-8bdf-353e885a1f92">Foto 1</speak-player>
           <condition />
-          <trigger-scene idTarget="Balas2" x="799" y="1200" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Balas2" x="799" y="1200" transitionTime="0" transitionType="0" guid="b196a7dc-5512-41de-9ac8-af40362194a0" />
           <condition />
-          <speak-player>Foto 2</speak-player>
+          <speak-player guid="e2afb077-3c12-4e8b-a118-16a2404d2b20">Foto 2</speak-player>
           <condition />
-          <trigger-scene idTarget="Balas3" x="800" y="1200" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Balas3" x="800" y="1200" transitionTime="0" transitionType="0" guid="63db382e-1f44-4a89-a854-9e4835119765" />
           <condition />
-          <speak-player>Foto 3</speak-player>
+          <speak-player guid="26073832-8045-4b20-84f7-ff242bcfa738">Foto 3</speak-player>
           <condition />
-          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" guid="f96e02b8-38ac-416c-ab71-8093f869e4e9" />
           <condition />
-          <speak-char idTarget="Bolsi">Mola verdad?</speak-char>
+          <speak-char idTarget="Bolsi" guid="d498240a-2bd2-46b3-8ec5-143d0cec4571">Mola verdad?</speak-char>
           <condition />
-          <activate flag="EncontradosBalazos" />
+          <activate flag="EncontradosBalazos" guid="52b20252-33f1-41c4-8629-4fe40a4fcfb5" />
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="Contenedores">
+  </geo-element>
+  <geo-element id="Contenedores">
     <description>
       <name>Contenedores</name>
       <brief>
@@ -5593,16 +5779,16 @@
           <inactive flag="Tutorial" />
         </condition>
         <effect>
-          <speak-char idTarget="Bolsi">Veo que has encontrado los contenedores principales de la plaza! Te explico cómo reciclar...</speak-char>
+          <speak-char idTarget="Bolsi" guid="ebaeb991-7553-4705-9010-af9715d307ff">Veo que has encontrado los contenedores principales de la plaza! Te explico cómo reciclar...</speak-char>
           <condition />
-          <trigger-conversation idTarget="TutorialReciclaje" />
+          <trigger-conversation idTarget="TutorialReciclaje" guid="3b0ee7ce-f7da-4aa2-b932-2cf92a0dc4ab" />
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
-  <geoelement id="VolverAPrincipal">
+  </geo-element>
+  <geo-element id="VolverAPrincipal">
     <description>
       <name>
       </name>
@@ -5621,100 +5807,100 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" />
+          <trigger-scene idTarget="Plaza" x="639" y="591" transitionTime="0" transitionType="0" guid="87e30e45-49ed-4771-a60c-ea752f3cba3e" />
           <condition />
-          <activate flag="Intro" />
+          <activate flag="Intro" guid="24472e65-25f1-4c04-9914-a04f4680960b" />
           <condition />
-          <activate flag="Alive" />
+          <activate flag="Alive" guid="2718627b-437c-4ac2-8532-3d41359f9af4" />
           <condition />
-          <macro-ref id="Normal" />
+          <macro-ref id="Normal" guid="1df72945-bf78-4cb1-bec2-64b6cd5b3fc4" />
           <condition />
-          <activate flag="Busqueda" />
+          <activate flag="Busqueda" guid="e1795a48-465e-4142-b499-0b16d4c7e84a" />
           <condition />
         </effect>
         <only-from-outside>False</only-from-outside>
       </enter-action>
     </actions>
-  </geoelement>
+  </geo-element>
   <macro id="Normal">
     <documentation>
     </documentation>
-    <deactivate flag="Confident" />
+    <deactivate flag="Confident" guid="0f268f20-a9d3-4702-b12b-1578689e82b5" />
     <condition />
-    <deactivate flag="Confused" />
+    <deactivate flag="Confused" guid="47b5a2e8-ec81-4327-bfb3-7fe67223ff7f" />
     <condition />
-    <deactivate flag="Sad" />
+    <deactivate flag="Sad" guid="6ced47b3-a8ba-4042-adfa-6fc41976f78a" />
     <condition />
-    <deactivate flag="Mad" />
+    <deactivate flag="Mad" guid="087a9290-abfb-417c-b033-4a28bc68711a" />
     <condition />
-    <deactivate flag="Happy" />
+    <deactivate flag="Happy" guid="ee844cc6-fa5e-438b-b9e4-adecd5c41f06" />
     <condition />
   </macro>
   <macro id="Happy">
     <documentation>
     </documentation>
-    <macro-ref id="Normal" />
+    <macro-ref id="Normal" guid="f0479089-d85f-43c3-9c0d-2c9cbd913c57" />
     <condition />
-    <activate flag="Happy" />
+    <activate flag="Happy" guid="a321b28d-2c01-4a82-9265-887248eefa94" />
     <condition />
   </macro>
   <macro id="Sad">
     <documentation>
     </documentation>
-    <macro-ref id="Normal" />
+    <macro-ref id="Normal" guid="60ff2a6e-ab4d-432b-ad91-def416fc4575" />
     <condition />
-    <activate flag="Sad" />
+    <activate flag="Sad" guid="4aacd876-a9c5-4b21-9378-695c39345b62" />
     <condition />
   </macro>
   <macro id="Confused">
     <documentation>
     </documentation>
-    <macro-ref id="Normal" />
+    <macro-ref id="Normal" guid="a26fcd10-cb78-47a7-a2d7-0845304d57c3" />
     <condition />
-    <activate flag="Confused" />
+    <activate flag="Confused" guid="769d1e94-e2df-4664-8e19-4f8515d7fc3c" />
     <condition />
   </macro>
   <macro id="Mad">
     <documentation>
     </documentation>
-    <macro-ref id="Normal" />
+    <macro-ref id="Normal" guid="28b52e6f-2636-465b-bc23-92c0a66758eb" />
     <condition />
-    <activate flag="Mad" />
+    <activate flag="Mad" guid="29f428d7-d221-438c-b70a-376155a9260c" />
     <condition />
   </macro>
   <macro id="Confident">
     <documentation>
     </documentation>
-    <macro-ref id="Normal" />
+    <macro-ref id="Normal" guid="2a9fd8a8-f41b-4c4a-a09e-75cc4f458f1f" />
     <condition />
-    <activate flag="Confident" />
+    <activate flag="Confident" guid="3c61434b-55cd-432a-9002-113838824f7e" />
     <condition />
   </macro>
   <macro id="ScannedOff">
     <documentation>
     </documentation>
-    <deactivate flag="ScannedAmarillo" />
+    <deactivate flag="ScannedAmarillo" guid="7885ea2a-27fd-44e2-8c5e-bef4919ba8fb" />
     <condition />
-    <deactivate flag="ScannedAzul" />
+    <deactivate flag="ScannedAzul" guid="c28928cc-a094-44a2-bf12-e8b560d61c40" />
     <condition />
-    <deactivate flag="ScannedMarron" />
+    <deactivate flag="ScannedMarron" guid="f6eeb172-8452-441d-b493-902b1a87922b" />
     <condition />
-    <deactivate flag="ScannedNaranja" />
+    <deactivate flag="ScannedNaranja" guid="cd58c876-2740-434e-949d-c6d58f0d0a79" />
     <condition />
-    <deactivate flag="ScannedVerde" />
+    <deactivate flag="ScannedVerde" guid="045f3372-3618-4f04-b1a3-53c39b1d78a2" />
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
-    <deactivate flag="Correcto" />
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
+    <deactivate flag="Correcto" guid="63f72b5b-df0a-4c52-95de-0f3b7d00d430" />
     <condition>
       <active flag="Correcto" />
     </condition>
-    <deactivate flag="Incorrecto" />
+    <deactivate flag="Incorrecto" guid="73facbf4-454a-4fb2-aa26-c340cc0e3a3c" />
     <condition>
       <active flag="Incorrecto" />
     </condition>
-    <qr-scanner selection-type="WhiteList">
+    <qr-scanner selection-type="WhiteList" guid="43b0379e-3291-4403-ba5e-6c919f7f4994">
       <message>Escanea el QR del contenedor adecuado</message>
       <qr-id>Amarillo</qr-id>
       <qr-id>Naranja</qr-id>
@@ -5723,7 +5909,7 @@
       <qr-id>Azul</qr-id>
     </qr-scanner>
     <condition />
-    <trigger-conversation idTarget="TirarAlternative" />
+    <trigger-conversation idTarget="TirarAlternative" guid="da024797-b82c-4451-b46e-8440431abd67" />
     <condition>
       <inactive flag="ScannedAmarillo" />
       <inactive flag="ScannedAzul" />
@@ -5731,36 +5917,36 @@
       <inactive flag="ScannedNaranja" />
       <inactive flag="ScannedVerde" />
     </condition>
-    <activate flag="Correcto" />
+    <activate flag="Correcto" guid="7b3201d7-9162-4c2b-b3e5-9cda82214dcb" />
     <condition>
       <active flag="ScannedAmarillo" />
       <active flag="TirandoAmarillo" />
     </condition>
-    <activate flag="Correcto" />
+    <activate flag="Correcto" guid="9b872131-1679-4f18-bd0a-7f1945142f0b" />
     <condition>
       <active flag="ScannedAzul" />
       <active flag="TirandoAzul" />
     </condition>
-    <activate flag="Correcto" />
+    <activate flag="Correcto" guid="1dd0e3e9-05e7-4bf7-9c49-a1072ff13543" />
     <condition>
       <active flag="ScannedMarron" />
       <active flag="TirandoMarron" />
     </condition>
-    <activate flag="Correcto" />
+    <activate flag="Correcto" guid="0818736e-c86f-40ce-a73f-4ba2120dea8b" />
     <condition>
       <active flag="ScannedNaranja" />
       <active flag="TirandoNaranja" />
     </condition>
-    <activate flag="Correcto" />
+    <activate flag="Correcto" guid="282dfd11-23ad-417e-be89-0446bd7773ce" />
     <condition>
       <active flag="ScannedVerde" />
       <active flag="TirandoVerde" />
     </condition>
-    <activate flag="Incorrecto" />
+    <activate flag="Incorrecto" guid="f8db51b6-c876-480b-8e2d-4368568ba598" />
     <condition>
       <inactive flag="Correcto" />
     </condition>
-    <speak-player>No has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</speak-player>
+    <speak-player guid="6aa8f9f7-9e70-452d-ba4d-44d1b0a70a78">No has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</speak-player>
     <condition>
       <inactive flag="ScannedAmarillo" />
       <inactive flag="ScannedAzul" />
@@ -5768,72 +5954,72 @@
       <inactive flag="ScannedNaranja" />
       <inactive flag="ScannedVerde" />
     </condition>
-    <deactivate flag="ScannedAmarillo" />
+    <deactivate flag="ScannedAmarillo" guid="c0cde8fd-3570-4303-9334-5c94da85f0ba" />
     <condition>
       <active flag="ScannedAmarillo" />
     </condition>
-    <deactivate flag="ScannedAzul" />
+    <deactivate flag="ScannedAzul" guid="e40111f6-f3e3-4091-9730-c4d2b00bd309" />
     <condition>
       <active flag="ScannedAzul" />
     </condition>
-    <deactivate flag="ScannedMarron" />
+    <deactivate flag="ScannedMarron" guid="16cb38f9-f91b-4b11-aa19-00a11ba64433" />
     <condition>
       <active flag="ScannedMarron" />
     </condition>
-    <deactivate flag="ScannedNaranja" />
+    <deactivate flag="ScannedNaranja" guid="b76e1b71-4719-4120-a8ac-b74d5743cff3" />
     <condition>
       <active flag="ScannedNaranja" />
     </condition>
-    <deactivate flag="ScannedVerde" />
+    <deactivate flag="ScannedVerde" guid="f13c1e77-2ec5-4d90-99a2-11efdd94efdd" />
     <condition>
       <active flag="ScannedVerde" />
     </condition>
-    <increment var="Amarillos" value="1" />
+    <increment var="Amarillos" value="1" guid="48a49753-13a3-4fad-afc2-95aa79b28e7c" />
     <condition>
       <active flag="TirandoAmarillo" />
       <active flag="Correcto" />
     </condition>
-    <increment var="Azules" value="1" />
+    <increment var="Azules" value="1" guid="bc36502a-9c8c-4ce1-8241-447345917594" />
     <condition>
       <active flag="TirandoAzul" />
       <active flag="Correcto" />
     </condition>
-    <increment var="Marrones" value="1" />
+    <increment var="Marrones" value="1" guid="032fc582-4a35-444d-b70f-f8cae2796f36" />
     <condition>
       <active flag="TirandoMarron" />
       <active flag="Correcto" />
     </condition>
-    <increment var="Naranjas" value="1" />
+    <increment var="Naranjas" value="1" guid="3193b976-f36d-4983-b5a2-84f833fe91e8" />
     <condition>
       <active flag="TirandoNaranja" />
       <active flag="Correcto" />
     </condition>
-    <increment var="Verdes" value="1" />
+    <increment var="Verdes" value="1" guid="a591223b-0aa8-40e6-876c-b4238d8c50d3" />
     <condition>
       <active flag="TirandoVerde" />
       <active flag="Correcto" />
     </condition>
-    <increment var="Total" value="1" />
+    <increment var="Total" value="1" guid="222f0c31-007b-4430-b9f5-12a2858c9482" />
     <condition>
       <active flag="Correcto" />
     </condition>
-    <deactivate flag="TirandoAmarillo" />
+    <deactivate flag="TirandoAmarillo" guid="dcd9b32c-44e8-4e44-aef8-826155ae7103" />
     <condition>
       <active flag="TirandoAmarillo" />
     </condition>
-    <deactivate flag="TirandoAzul" />
+    <deactivate flag="TirandoAzul" guid="7bc2cde1-b240-4d62-92ee-84853114abb5" />
     <condition>
       <active flag="TirandoAzul" />
     </condition>
-    <deactivate flag="TirandoMarron" />
+    <deactivate flag="TirandoMarron" guid="8343b21f-a72c-469f-94a4-4fd2f5ca42e3" />
     <condition>
       <active flag="TirandoMarron" />
     </condition>
-    <deactivate flag="TirandoNaranja" />
+    <deactivate flag="TirandoNaranja" guid="3acd7efb-0336-4108-8472-aea209e2060c" />
     <condition>
       <active flag="TirandoNaranja" />
     </condition>
-    <deactivate flag="TirandoVerde" />
+    <deactivate flag="TirandoVerde" guid="21835a55-e5e7-4932-a61a-48c8528112c6" />
     <condition>
       <active flag="TirandoVerde" />
     </condition>
@@ -5845,7 +6031,7 @@
     </documentation>
     <condition />
     <effect>
-      <activate flag="ScannedAmarillo" />
+      <activate flag="ScannedAmarillo" guid="cad1b3b6-36fa-4e08-9cd3-3d25d1450d71" />
       <condition />
     </effect>
   </qr-code>
@@ -5856,7 +6042,7 @@
     </documentation>
     <condition />
     <effect>
-      <activate flag="ScannedMarron" />
+      <activate flag="ScannedMarron" guid="6fdb7f9c-830a-4480-bb67-65c02c646d99" />
       <condition />
     </effect>
   </qr-code>
@@ -5867,7 +6053,7 @@
     </documentation>
     <condition />
     <effect>
-      <activate flag="ScannedNaranja" />
+      <activate flag="ScannedNaranja" guid="afdd13a7-a7e6-482e-b479-6ea5f233c32e" />
       <condition />
     </effect>
   </qr-code>
@@ -5878,7 +6064,7 @@
     </documentation>
     <condition />
     <effect>
-      <activate flag="ScannedVerde" />
+      <activate flag="ScannedVerde" guid="b3d9ef15-467d-4911-af7e-ec033faeb30c" />
       <condition />
     </effect>
   </qr-code>
@@ -5889,7 +6075,7 @@
     </documentation>
     <condition />
     <effect>
-      <activate flag="ScannedAzul" />
+      <activate flag="ScannedAzul" guid="8988a740-2a0c-4031-86c5-d5ed29263f56" />
       <condition />
     </effect>
   </qr-code>
@@ -6094,7 +6280,7 @@
       <active flag="SeeingDisclaimer" />
     </init-condition>
     <effect>
-      <trigger-scene idTarget="Disclaimer" x="512" y="473" transitionTime="0" transitionType="0" />
+      <trigger-scene idTarget="Disclaimer" x="512" y="473" transitionTime="0" transitionType="0" guid="e41a4192-b8f4-4389-a219-8fef57d903cb" />
       <condition />
     </effect>
   </timer>
@@ -6103,9 +6289,9 @@
       <active flag="SeeingDisclaimer" />
     </init-condition>
     <effect>
-      <trigger-last-scene />
+      <trigger-last-scene guid="58c55e7d-f14f-43af-931e-a12a6c753fa6" />
       <condition />
-      <trigger-conversation idTarget="Intro" />
+      <trigger-conversation idTarget="Intro" guid="3a9eeb79-f959-42ed-944c-6256987668a0" />
       <condition>
         <inactive flag="Intro" />
       </condition>

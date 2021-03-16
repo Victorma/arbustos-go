@@ -30,7 +30,7 @@ namespace MapzenGo.Models
         void Awake()
         {
 #if UNITY_ANDROID || UNITY_IPHONE
-            CacheFolderPath = Path.Combine(Application.temporaryCachePath, RelativeCachePath);
+            CacheFolderPath = Path.Combine(Application.persistentDataPath, RelativeCachePath);
 #else
             CacheFolderPath = Path.Combine(Application.dataPath, RelativeCachePath);
 #endif

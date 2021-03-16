@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace uAdventure.Geo
@@ -8,6 +9,16 @@ namespace uAdventure.Geo
     {
         private readonly ITileMeta tileMeta;
         private readonly long cacheDuration;
+
+#if UNITY_WEBGL
+        [DllImport("__Internal")]
+        private static extern string GetProtocol();
+#else
+        private static string GetProtocol()
+        {
+            return "https";
+        }
+#endif
 
         public SimpleCachedOnlineTextureTileLoader(ITileMeta tileMeta, long cacheDuration)
         {
@@ -26,7 +37,7 @@ namespace uAdventure.Geo
         public ITilePromise LoadTile(Vector3d tile, ITileMeta tileMeta, Action<ITilePromise> callback)
         {
             var urlTemplate = (string)tileMeta["url-template"];
-            var url = string.Format(urlTemplate, tile.z, tile.x, tile.y);
+            var url = string.Format(urlTemplate, GetProtocol(), tile.z, tile.x, tile.y);
 
             var cachePath = GetTilePath(url);
             if (TextureExistsInCache(cachePath))
@@ -82,7 +93,7 @@ namespace uAdventure.Geo
             var folder = path.Remove(firstBar).Replace(".", "_");
             var tile = path.Substring(firstBar + 1).Replace("/", "_");
 
-            return Application.temporaryCachePath + "/" + folder + "/" + tile;
+            return Application.persistentDataPath + "/" + folder + "/" + tile;
         }
 
         public static void SavePNG(Texture2D texture, string filePath)

@@ -14,6 +14,7 @@ namespace uAdventure.Runner
         private bool dragging = false;
         private IEnumerable<Action> targetActions;
         private readonly Dictionary<EffectHolder, Action> executingAction = new Dictionary<EffectHolder, Action>();
+        private List<Action> lastActions;
 
         protected Element element;
         public Element Element
@@ -52,9 +53,26 @@ namespace uAdventure.Runner
                 return tmp;
             }
         }
+        protected virtual void Awake()
+        {
+            Game.Instance.GameState.OnConditionChanged += OnConditionChanged;
+        }
+
+        protected void OnDestroy()
+        {
+            if (Game.Instance)
+            {
+                Game.Instance.GameState.OnConditionChanged -= OnConditionChanged;
+            }
+        }
+
+        protected virtual void OnConditionChanged(string condition, int value)
+        {
+        }
 
         protected virtual void Start()
         {
+            OnConditionChanged(null, 0);
         }
 
         protected virtual void Update()
@@ -91,6 +109,7 @@ namespace uAdventure.Runner
                     case Item.BehaviourType.FIRST_ACTION:
                         {
                             var actions = Element.getActions().Valid(AvailableActions);
+                            lastActions = actions.ToList();
                             if (actions.Any())
                             {
                                 ActionSelected(actions.First());
@@ -101,6 +120,7 @@ namespace uAdventure.Runner
                     case Item.BehaviourType.NORMAL:
                         var availableActions = Element.getActions().Valid(AvailableActions).Distinct().ToList();
                         ActionsUtil.AddExamineIfNotExists(Element, availableActions);
+                        lastActions = availableActions;
 
                         //if there is an action, we show them
                         if (availableActions.Count > 0)
@@ -226,7 +246,7 @@ namespace uAdventure.Runner
             if(interactuable is EffectHolder)
             {
                 var effectHolder = interactuable as EffectHolder;
-                action = Element.getActions().Where(a => a.Effects == effectHolder.originalEffects).FirstOrDefault();
+                action = lastActions.Where(a => a.Effects == effectHolder.originalEffects).FirstOrDefault();
             }
 
             if (action == null)

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using ZXing;
@@ -79,8 +81,14 @@ namespace dZine4D.Misc.QR
 
         public void EnableReader()
         {
-            StopCoroutine("EnableReaderRoutine");
-            StartCoroutine("EnableReaderRoutine");
+#if PLATFORM_ANDROID
+                if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+                {
+                    Permission.RequestUserPermission(Permission.Camera);
+                }
+#endif
+            StopCoroutine(EnableReaderRoutine());
+            StartCoroutine(EnableReaderRoutine());
         }
 
         public void DisableReader()
@@ -192,6 +200,41 @@ namespace dZine4D.Misc.QR
                 catch
                 {
                 }
+            }
+        }
+
+
+        private int tries = 0;
+        public void SwitchDevice()
+        {
+            StartCoroutine(SwitchDeviceRoutine());
+        }
+
+        private IEnumerator SwitchDeviceRoutine()
+        {
+            isReaderEnabled = false;
+            var switched = 0;
+            while (!isReaderEnabled && switched < WebCamTexture.devices.Length - 2)
+            {
+                camTexture.Stop();
+                var currentDeviceIndex = WebCamTexture.devices
+                    .Select((t, index) => new { t, index })
+                    .Where(a => a.t.name == camTexture.deviceName)
+                    .Select(a => a.index)
+                    .DefaultIfEmpty(-1)
+                    .First();
+
+                camTexture.deviceName = WebCamTexture.devices[(currentDeviceIndex + 1) % WebCamTexture.devices.Length].name;
+                camTexture.Play();
+                W = camTexture.width;
+                H = camTexture.height;
+
+                yield return new WaitForSeconds(0.5f);
+                if (camTexture.isPlaying)
+                {
+                    isReaderEnabled = true;
+                }
+                switched++;
             }
         }
 

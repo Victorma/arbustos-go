@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace uAdventure.Runner
 {
@@ -30,6 +33,7 @@ namespace uAdventure.Runner
         private RectTransform rectTransform, canvasRectTransform;
         private float completed;
         private float textCompleted;
+        private Vector3 currentVelocity;
 
         // Scale constants for the bubble size transition
         private const float MinScale = 0.7f, MaxScale = 1f;
@@ -50,6 +54,7 @@ namespace uAdventure.Runner
             if(this.state == BubbleState.FADING)
             { 
                 this.rectTransform.anchoredPosition = finalPosition;
+                currentVelocity = Vector3.zero;
                 completed = 1;
                 Update();
             }
@@ -93,6 +98,7 @@ namespace uAdventure.Runner
         /// </summary>
         protected void Start()
         {
+            currentVelocity = Vector3.zero;
             canvasRectTransform = transform.parent.GetComponent<RectTransform>();
             // Image set up
             if (Data.Image)
@@ -169,13 +175,12 @@ namespace uAdventure.Runner
                     break;
                 case BubbleState.FADING:
                     {
+                        finalPosition.z = camZ;
                         // In the showing state the bubble is fading in and finally moves to nothing (idle) state.
-                        Vector3 destination = finalPosition;
 
-                        destination = Vector3.Lerp(this.rectTransform.anchoredPosition, destination, easing);
-                        destination.z = camZ;
+                        rectTransform.anchoredPosition = Vector3.SmoothDamp(rectTransform.anchoredPosition, finalPosition, ref currentVelocity, easing);
 
-                        var ratioLeft = Vector2.Distance(destination, finalPosition) / distance;
+                        var ratioLeft = Vector2.Distance(finalPosition, rectTransform.anchoredPosition) / distance;
                         if(ratioLeft < 0.001)
                         {
                             ratioLeft = 0;
@@ -187,7 +192,6 @@ namespace uAdventure.Runner
                         SetAlpha(completed);
                         SetScale(completed);
 
-                        this.rectTransform.anchoredPosition = destination;
 
                         if (Mathf.Approximately(completed,1f))
                         {
@@ -278,8 +282,105 @@ namespace uAdventure.Runner
 
         protected void SetTextProgress(float percent)
         {
-            var charactersShown = (int) (Data.Line.Length * Mathf.Clamp01(percent));
-            text.text = Data.Line.Substring(0, charactersShown) + "<color=#00000000>" + Data.Line.Substring(charactersShown) + "</color>";
+            var charactersShown = (int)(Data.Line.Length * Mathf.Clamp01(percent));
+            string cutted = CutWithSymbols(Data.Line, charactersShown);
+            var openedSymbols = FindOpenedSimbols(cutted);
+            text.text = cutted + CloseOpenedSymbols(openedSymbols) + "<color=#00000000>" + RemoveSymbols(Data.Line.Substring(cutted.Length)) + "</color>";
+        }
+
+        private string CutWithSymbols(string line, int charactersShown)
+        {
+            var regex = @"<(\/?[A-z]+)(=#?[A-z0-9\.]+)*(\s[A-z]+=#?[A-z0-9\.]+)*>";
+
+            string cutted = null;
+            foreach (Match match in Regex.Matches(line, regex))
+            {
+                if(match.Index <= charactersShown && match.Index+match.Length > charactersShown)
+                {
+                    if (IsValidSymbol(match.Groups[1].Value))
+                    {
+                        charactersShown = match.Index;
+                    }
+                    break;
+                }
+            }
+
+            if (cutted == null)
+            {
+                cutted = Data.Line.Substring(0, charactersShown);
+            }
+
+            return cutted;
+        }
+
+        private List<string> FindOpenedSimbols(string v)
+        {
+            var openedSymbols = new List<string>();
+            var regex = @"<(\/?[A-z]+)(=#?[A-z0-9\.]+)*(\s[A-z]+=#?[A-z0-9\.]+)*>";
+
+            foreach(Match match in Regex.Matches(v, regex))
+            {
+                var openedSymbol = match.Groups[1].Value;
+                if (!IsValidSymbol(openedSymbol))
+                {
+                    continue;
+                }
+
+                var rest = v.Substring(match.Index);
+                rest.IndexOf("</" + openedSymbol + ">");
+
+                if (!openedSymbol.StartsWith("/"))
+                {
+                    openedSymbols.Add(match.Groups[1].Value);
+                }
+                else if (openedSymbols.Count > 0 && openedSymbol.Substring(1) == openedSymbols[openedSymbols.Count - 1])
+                {
+                    openedSymbols.RemoveAt(openedSymbols.Count - 1);
+                }
+                else
+                {
+                    throw new Exception("Malformed html!");
+                }
+            }
+
+            return openedSymbols;
+        }
+
+        private string RemoveSymbols(string v)
+        {
+            var regex = @"<(\/?[A-z]+)(=#?[A-z0-9\.]+)*(\s[A-z]+=#?[A-z0-9\.]+)*>";
+            return Regex.Replace(v, regex, t => IsValidSymbol(t.Groups[1].Value) ? "" : t.Value);
+        }
+
+        private string CloseOpenedSymbols(List<string> openedSymbols)
+        {
+            var r = "";
+            foreach (var symbol in openedSymbols)
+            {
+                r += "</" + symbol + ">";
+            }
+            return r;
+        }
+
+        private bool IsValidSymbol(string openedSymbol)
+        {
+            if (openedSymbol.StartsWith("/"))
+            {
+                openedSymbol = openedSymbol.Substring(1);
+            }
+
+            switch (openedSymbol)
+            {
+                case "b":
+                case "i":
+                case "size":
+                case "color":
+                case "material":
+                case "quad":
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

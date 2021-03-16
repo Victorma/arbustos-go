@@ -57,7 +57,7 @@ namespace uAdventure.Editor
         public void OnCliked()
         {
             Controller.Instance.Save();
-            Debug.Log("saved2");
+            Debug.Log("Saved!");
         }
     }
 
@@ -75,7 +75,7 @@ namespace uAdventure.Editor
 
         public void OnCliked()
         {
-            Debug.Log("saved");
+            Debug.Log("Saved!");
         }
     }
 
@@ -93,7 +93,7 @@ namespace uAdventure.Editor
 
         public void OnCliked()
         {
-
+            uAdventureWindowMetaData.OpenMetaDataWindow();
         }
     }
 
@@ -323,6 +323,24 @@ namespace uAdventure.Editor
         }
     }
 
+    public class ExportLearningObject : IMenuItem
+    {
+        public ExportLearningObject(string name_)
+        {
+            this.Label = name_;
+        }
+
+        public string Label
+        {
+            get; set;
+        }
+
+        public void OnCliked()
+        {
+            Controller.Instance.ExportLearningObject();
+        }
+    }
+
     public class UndoMenuItem : IMenuItem
     {
         public UndoMenuItem(string name_)
@@ -409,7 +427,7 @@ namespace uAdventure.Editor
 
         public void OnCliked()
         {
-            AdventureWindow.OpenAdventureWindow();
+            uAdventureWindowSettings.OpenAdventureWindow();
         }
     }
 
@@ -871,7 +889,7 @@ namespace uAdventure.Editor
 
         public void OnCliked()
         {
-
+            Application.OpenURL("https://www.e-ucm.es/uadventure/");
         }
     }
 
@@ -889,7 +907,7 @@ namespace uAdventure.Editor
 
         public void OnCliked()
         {
-
+            Application.OpenURL("https://github.com/e-ucm/uAdventure/issues/new");
         }
     }
 }

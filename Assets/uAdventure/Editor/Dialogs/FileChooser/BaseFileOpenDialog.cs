@@ -41,7 +41,8 @@ namespace uAdventure.Editor
         PLAY_ANIMATION_EFFECT,
         BUTTON,
         BUTTON_OVER,
-        BUTTON_SOUND
+        BUTTON_SOUND,
+        CURSOR
     }
 
     public static class FileTypeExtension
@@ -82,6 +83,9 @@ namespace uAdventure.Editor
                 case FileType.BOOK_ARROW_LEFT_OVER:
                 case FileType.BOOK_ARROW_RIGHT_OVER:
                     return AssetsConstants.CATEGORY_ARROW_BOOK;
+                case FileType.CURSOR:
+                    return AssetsConstants.CATEGORY_CURSOR;
+                    break;
                 case FileType.BUTTON:
                 case FileType.BUTTON_OVER:
                     return AssetsConstants.CATEGORY_BUTTON;
@@ -156,11 +160,12 @@ public abstract class BaseFileOpenDialog : EditorWindow
                     var validFormat = true;
                     if (!string.IsNullOrEmpty(fileFilter))
                     {
-                        var formats = this.fileFilter.Split(',');
+                        var formatToCheck = selectedAssetPath.ToLowerInvariant();
+                        var formats = this.fileFilter.ToLowerInvariant().Split(',');
                         validFormat = false;
                         foreach (var format in formats)
                         {
-                            if (selectedAssetPath.EndsWith(format))
+                            if (formatToCheck.EndsWith(format))
                             {
                                 validFormat = true;
                                 break;

@@ -47,6 +47,7 @@ namespace uAdventure.Core
             bool hideInventory = ExString.EqualsDefault(element.GetAttribute("hideInventory"), "yes", false);
             int playerLayer = ExParsers.ParseDefault (element.GetAttribute("playerLayer"), -1);
 			float playerScale = ExParsers.ParseDefault (element.GetAttribute("playerScale"), CultureInfo.InvariantCulture, 1.0f);
+            playerScale = Mathf.Max(0, playerScale);
 
             scene = new Scene(sceneId)
             {
@@ -73,8 +74,8 @@ namespace uAdventure.Core
             }
 
 			//XAPI ELEMENTS
-			scene.setXApiClass(element.GetAttribute("class"));
-			scene.setXApiType(element.GetAttribute("type"));
+			scene.setXApiClass(ExString.Default(element.GetAttribute("class"), "accesible"));
+            scene.setXApiType(ExString.Default(element.GetAttribute("type"), "area"));
             //END OF XAPI
 
 			foreach(var res in DOMParserUtility.DOMParse <ResourcesUni> (element.SelectNodes("resources"), parameters))
@@ -108,7 +109,7 @@ namespace uAdventure.Core
 				int destinyX 		= ExParsers.ParseDefault (el.GetAttribute ("destinyX"), int.MinValue), 
 					destinyY 		= ExParsers.ParseDefault (el.GetAttribute ("destinyY"), int.MinValue);
 
-                float destinyScale  = ExParsers.ParseDefault (el.GetAttribute ("destinyScale"), float.MinValue);
+                float destinyScale  = ExParsers.ParseDefault (el.GetAttribute ("destinyScale"), CultureInfo.InvariantCulture, float.MinValue);
 
 				int transitionType 	= ExParsers.ParseDefault(el.GetAttribute("transitionType"), 0),
 					transitionTime 	= ExParsers.ParseDefault(el.GetAttribute("transitionTime"), 0);
@@ -273,7 +274,7 @@ namespace uAdventure.Core
 
             Orientation orientation = (Orientation) ExParsers.ParseDefault(element.GetAttribute("orientation"), 2);
 
-            float scale = ExParsers.ParseDefault (element.GetAttribute("scale"), NumberFormatInfo.InvariantInfo, 0f);
+            float scale = ExParsers.ParseDefault (element.GetAttribute("scale"), CultureInfo.InvariantCulture, 0f);
 			int layer = ExParsers.ParseDefault (element.GetAttribute("layer"), -1);
 
 			int influenceX 		= ExParsers.ParseDefault (element.GetAttribute("influenceX"), 0), 
