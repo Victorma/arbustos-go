@@ -49,6 +49,14 @@ namespace uAdventure.Simva
             ready = true;
         }
 
+        public void Demo()
+        {
+            PreviewManager.Instance.InPreviewMode = true;
+            Game.Instance.GameState.Data.setAutoSave(false);
+            Game.Instance.GameState.Data.setSaveOnSuspend(false);
+            Game.Instance.RunTarget(Game.Instance.GameState.InitialChapterTarget.getId());
+        }
+
         public void Destroy(float time, Action onDestroy)
         {
             GameObject.DestroyImmediate(this.gameObject);

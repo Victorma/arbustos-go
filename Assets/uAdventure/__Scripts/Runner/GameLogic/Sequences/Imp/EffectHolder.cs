@@ -84,17 +84,23 @@ namespace uAdventure.Runner
                                 {
                                     Game.Instance.Talk(((SpeakCharEffect)effect).getLine(), ((SpeakCharEffect)effect).getTargetId());
                                 }
-                                TrackerAsset.Instance.Completable.Initialized(effect.GUID, CompletableTracker.Completable.DialogFragment);
+                                if (TrackerAsset.Instance.Started)
+                                {
+                                    TrackerAsset.Instance.Completable.Initialized(effect.GUID, CompletableTracker.Completable.DialogFragment);
+                                }
                                 forceWait = true;
                             }
-                            else
+                            else 
                             {
                                 if (GUIManager.Instance.InteractWithDialogue() == InteractuableResult.REQUIRES_MORE_INTERACTION)
                                 {
                                     forceWait = true;
-                                    TrackerAsset.Instance.Completable.Progressed(effect.GUID, CompletableTracker.Completable.DialogFragment, 1f);
+                                    if (TrackerAsset.Instance.Started)
+                                    {
+                                        TrackerAsset.Instance.Completable.Progressed(effect.GUID, CompletableTracker.Completable.DialogFragment, 1f);
+                                    }
                                 }
-                                else
+                                else if(TrackerAsset.Instance.Started)
                                 {
                                     TrackerAsset.Instance.Completable.Completed(effect.GUID, CompletableTracker.Completable.DialogFragment);
                                 }

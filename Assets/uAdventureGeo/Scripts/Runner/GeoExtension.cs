@@ -201,7 +201,7 @@ namespace uAdventure.Geo
                 geochar = FindObjectOfType<GeoPositionedCharacter>();
             }
 
-            if (timeSinceLastPositionUpdate > timeToFlush)
+            if (timeSinceLastPositionUpdate > timeToFlush && TrackerAsset.Instance.Started)
             {
                 timeSinceLastPositionUpdate = 0;
 

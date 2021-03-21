@@ -32,7 +32,7 @@ namespace uAdventure.Runner
 
         public bool useSystemIO = true, forceScene = false, editor_mode = true, actionCanceled = false;
         public string gamePath = "", gameName = "", scene_name = "";
-        public static readonly Color NoColor = new Color(-1,-1,-1,-1);
+        public static readonly Color NoColor = new Color(-1, -1, -1, -1);
 
         // Execution
         private bool waitingRunTarget = false, waitingTransition = false, waitingTargetDestroy = false;
@@ -40,13 +40,13 @@ namespace uAdventure.Runner
         private IRunnerChapterTarget runnerTarget;
         private GameState game_state;
         private uAdventureRaycaster uAdventureRaycaster;
-        private TransitionManager TransitionManager 
-        { 
-            get 
+        private TransitionManager TransitionManager
+        {
+            get
             {
                 var camera = FindObjectOfType<Camera>();
                 return camera ? camera.GetComponent<TransitionManager>() : null;
-            } 
+            }
         }
 
         // GUI
@@ -73,6 +73,10 @@ namespace uAdventure.Runner
         public delegate void ElementInteractedDelegate(bool finished, Element element, Core.Action action);
 
         public ElementInteractedDelegate OnElementInteracted;
+
+        public delegate void ActionCanceledDelegate();
+
+        public ActionCanceledDelegate OnActionCanceled;
 
         /*public delegate void ShowTextDelegate(bool finished, ConversationLine line, string text, int x, int y, Color textColor, Color textOutlineColor, Color baseColor, Color outlineColor, string id);
 
@@ -217,7 +221,7 @@ namespace uAdventure.Runner
             GameState.Restart();
             started = true;
             Debug.Log("[START GAME] Game Resuming...");
-            if (!Application.isEditor && GameState.Data.isRestoreAfterOpen())
+            if (GameState.Data.isRestoreAfterOpen())
             {
                 GameState.OnGameResume();
             }
@@ -355,7 +359,7 @@ namespace uAdventure.Runner
 
         public void AutoSave()
         {
-            if(Application.isEditor || !GameState.Data.isAutoSave())
+            if(/*Application.isEditor || */!GameState.Data.isAutoSave())
             {
                 Debug.Log("[AUTO SAVE] Auto save is disabled. Skipping...");
                 return;
@@ -367,10 +371,10 @@ namespace uAdventure.Runner
 
         public void OnApplicationPause(bool paused)
         {
-            if (Application.isEditor)
+            /*if (Application.isEditor)
             {
                 return;
-            }
+            }*/
 
             if (!isSomethingRunning())
             {
@@ -379,7 +383,7 @@ namespace uAdventure.Runner
                     GameState.OnGameSuspend();
                 }
                 
-                if (!paused && GameState.Data.isRestoreAfterOpen())
+                /*if (!paused && GameState.Data.isRestoreAfterOpen())
                 {
                     // TODO REPARE RESTORE AFTER OPEN
                     GameState.OnGameResume();
@@ -389,7 +393,7 @@ namespace uAdventure.Runner
                         gameExtensions.ForEach(g => g.OnGameReady());
                         uAdventureInputModule.LookingForTarget = null;
                     }
-                }
+                }*/
             }
 
         }
@@ -499,6 +503,7 @@ namespace uAdventure.Runner
                 {
                     Debug.LogWarning("There are still some opened change ambits! " + GameState.ChangeAmbitCount);
                 }
+                OnActionCanceled = null;
                 AutoSave();
             }
             // In case any bubble is bugged
@@ -849,8 +854,14 @@ namespace uAdventure.Runner
         {
             if (isSomethingRunning())
             {
-                this.actionCanceled = true;
+                this.actionCanceled = true; 
+                Delegate[] delegateList = OnActionCanceled.GetInvocationList();
+                for (int counter = delegateList.Length - 1; counter >= 0; counter--)
+                {
+                    ((ActionCanceledDelegate)delegateList[counter])();
+                }
             }
+            OnActionCanceled = null;
         }
 
         public void showActions(List<Core.Action> actions, Vector2 position, IActionReceiver actionReceiver = null)
@@ -1124,10 +1135,10 @@ namespace uAdventure.Runner
                                                 if (image)
                                                 {
                                                     content.image = image;
-                                                    if (image.height > buttonImageWidth)
-                                                    {
+                                                    /*if (image.height > buttonImageWidth)
+                                                    {*/
                                                         auxLimitList.Add(GUILayout.Height(buttonImageWidth - 20));
-                                                    }
+                                                    //}
                                                 }
                                             }
 

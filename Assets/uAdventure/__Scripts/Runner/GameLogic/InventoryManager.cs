@@ -62,7 +62,7 @@ namespace uAdventure.Runner
                 }
                 if (inventory)
                 {
-                    if(inventory.Opened != value)
+                    if(inventory.Opened != value && TrackerAsset.Instance.Started)
                     {
                         if (value)
                         {

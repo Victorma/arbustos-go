@@ -76,6 +76,11 @@ namespace uAdventure.Runner
 
         private TrackerAsset.TrackerEvent TraceExit(bool exited, IChapterTarget targetOnExit)
         {
+            if (!TrackerAsset.Instance.Started)
+            {
+                return null;
+            }
+
             var ed = area.Element as Exit;
 
             // ALTERNATIVE

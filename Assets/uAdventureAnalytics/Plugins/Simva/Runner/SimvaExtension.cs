@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using Newtonsoft.Json;
+using uAdventure.Core;
 
 namespace uAdventure.Simva
 {
@@ -28,6 +29,7 @@ namespace uAdventure.Simva
 
         private LoadingDelegate loadingListeners;
         private ResponseDelegate responseListeners;
+        private string savedGameTarget;
 
         private AuthorizationInfo auth;
         private Schedule schedule;
@@ -152,12 +154,17 @@ namespace uAdventure.Simva
                 new EndScene()
                 });
                 Debug.Log("[SIMVA] Setting current target to Simva.Login...");
+                savedGameTarget = Game.Instance.GameState.CurrentTarget;
                 Game.Instance.GameState.CurrentTarget = "Simva.Login";
             }
         }
 
         public override IEnumerator OnBeforeGameSave()
         {
+            if(auth != null)
+            {
+                PlayerPrefs.SetString("simva_auth", JsonConvert.SerializeObject(auth));
+            }
             yield return null;
         }
 
@@ -196,7 +203,36 @@ namespace uAdventure.Simva
 
         public override IEnumerator OnGameReady()
         {
-            if (HasLoginInfo())
+            if (PlayerPrefs.HasKey("simva_auth"))
+            {
+                NotifyLoading(true);
+                this.auth = JsonConvert.DeserializeObject<AuthorizationInfo>(PlayerPrefs.GetString("simva_auth"));
+                this.auth.ClientId = "uadventure";
+                SimvaApi<IStudentsApi>.Login(this.auth)
+                    .Then(simvaController =>
+                {
+                    this.auth = simvaController.AuthorizationInfo;
+                    this.simvaController = simvaController;
+                    return UpdateSchedule();
+                })
+                .Then(schedule =>
+                {
+                    var result = new AsyncCompletionSource();
+                    StartCoroutine(AsyncCoroutine(LaunchActivity(schedule.Next), result));
+                    return result;
+                })
+                .Catch(error =>
+                {
+                    NotifyLoading(false);
+                    NotifyManagers(error.Message);
+                })
+                .Finally(() =>
+                {
+                    OpenIdUtility.tokenLogin = false;
+                });
+
+            }
+            else if (HasLoginInfo())
             {
                 ContinueLoginAndSchedule();
             }
@@ -442,7 +478,11 @@ namespace uAdventure.Simva
                             }
 
                             Debug.Log("[SIMVA] Starting Gameplay...");
-                            Game.Instance.RunTarget(Game.Instance.GameState.InitialChapterTarget.getId(), this);
+                            Game.Instance.RunTarget(savedGameTarget, this);
+                            if(Game.Instance.GameState.CheckFlag("FirstTimeDisclaimer") == FlagCondition.FLAG_ACTIVE)
+                            {
+                                Game.Instance.GameState.SetFlag("SeeingDisclaimer", FlagCondition.FLAG_ACTIVE);
+                            }
                             break;
                     }
                 }

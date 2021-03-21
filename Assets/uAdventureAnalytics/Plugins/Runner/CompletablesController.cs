@@ -20,6 +20,8 @@ namespace uAdventure.Analytics
         [System.NonSerialized]
         private List<Completable> completables;
         private TrackerAsset.TrackerEvent trace;
+        private Element element;
+        private Core.Action action;
 
         public CompletablesController()
         {
@@ -218,6 +220,7 @@ namespace uAdventure.Analytics
                 }
                 trace.SetPartial();
                 Game.Instance.GameState.BeginChangeAmbit();
+                //Game.Instance.OnActionCanceled += ActionCanceled;
 
                 UpdateElementsInteracted(element, action.getType().ToString(), element.getId());
             }
@@ -252,7 +255,15 @@ namespace uAdventure.Analytics
             }
         }
 
-        private void TextShown(int state, ConversationLine line, string text, int x, int y, Color textColor, Color textOutlineColor, Color baseColor, Color outlineColor, string id)
+        /*private void ActionCanceled()
+        {
+            if (trace != null)
+            {
+                ElementInteracted(true, element, action);
+            }
+        }*/
+
+        /*private void TextShown(int state, ConversationLine line, string text, int x, int y, Color textColor, Color textOutlineColor, Color baseColor, Color outlineColor, string id)
         {
             if (state == -1)
             {
@@ -266,7 +277,7 @@ namespace uAdventure.Analytics
             {
                 TrackerAsset.Instance.Completable.Completed(id, CompletableTracker.Completable.DialogNode);
             }
-        }
+        }*/
 
         public void UpdateElementsInteracted(Element element, string interaction, string targetId)
         {

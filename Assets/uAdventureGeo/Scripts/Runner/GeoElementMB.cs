@@ -352,18 +352,23 @@ namespace uAdventure.Geo
                 {
                     NavigationController.Instance.SomethingReached(Holder);
                 }
-
-                trace = TrackerExtension.Movement.Entered(Element, latLonOnExecute);
-                trace.SetPartial();
-                Game.Instance.GameState.BeginChangeAmbit();
+                if (TrackerAsset.Instance.Started)
+                {
+                    trace = TrackerExtension.Movement.Entered(Element, latLonOnExecute);
+                    trace.SetPartial();
+                    Game.Instance.GameState.BeginChangeAmbit();
+                }
                 latLonOnExecute = LatLon;
                 base.Execute();
             }
 
             protected override void ActionFinished(object interactuable)
             {
-                Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
-                trace.Completed();
+                if (TrackerAsset.Instance.Started)
+                {
+                    Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
+                    trace.Completed();
+                }
             }
         }
 
@@ -412,17 +417,23 @@ namespace uAdventure.Geo
 
             protected override void Execute()
             {
-                trace = TrackerExtension.Movement.Exited(Element, latLonOnExecute);
-                trace.SetPartial();
-                Game.Instance.GameState.BeginChangeAmbit();
+                if (TrackerAsset.Instance.Started)
+                {
+                    trace = TrackerExtension.Movement.Exited(Element, latLonOnExecute);
+                    trace.SetPartial();
+                    Game.Instance.GameState.BeginChangeAmbit();
+                }
                 latLonOnExecute = LatLon;
                 base.Execute();
             }
 
             protected override void ActionFinished(object interactuable)
             {
-                Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
-                trace.Completed();
+                if (TrackerAsset.Instance.Started)
+                {
+                    Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
+                    trace.Completed();
+                }
             }
         }
 
@@ -456,9 +467,13 @@ namespace uAdventure.Geo
 
             protected override void Execute()
             {
-                trace = TrackerExtension.Movement.Looked(Element, orientationOnExecute, latLonOnExecute);
-                trace.SetPartial();
-                Game.Instance.GameState.BeginChangeAmbit();
+
+                if (TrackerAsset.Instance.Started)
+                {
+                    trace = TrackerExtension.Movement.Looked(Element, orientationOnExecute, latLonOnExecute);
+                    trace.SetPartial();
+                    Game.Instance.GameState.BeginChangeAmbit();
+                }
                 latLonOnExecute = LatLon;
                 orientationOnExecute = Player.Orientation;
                 base.Execute();
@@ -466,8 +481,11 @@ namespace uAdventure.Geo
 
             protected override void ActionFinished(object interactuable)
             {
-                Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
-                trace.Completed();
+                if (TrackerAsset.Instance.Started)
+                {
+                    Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
+                    trace.Completed();
+                }
             }
         }
 
@@ -502,17 +520,23 @@ namespace uAdventure.Geo
 
             protected override void Execute()
             {
-                trace = TrackerAsset.Instance.GameObject.Interacted(Element, GameObjectTracker.TrackedGameObject.GameObject);
-                trace.SetPartial();
-                Game.Instance.GameState.BeginChangeAmbit();
+                if (TrackerAsset.Instance.Started)
+                {
+                    trace = TrackerAsset.Instance.GameObject.Interacted(Element, GameObjectTracker.TrackedGameObject.GameObject);
+                    trace.SetPartial();
+                    Game.Instance.GameState.BeginChangeAmbit();
+                }
                 base.Execute();
             }
 
             protected override void ActionFinished(object interactuable)
             {
-                TrackerAsset.Instance.setVar("geocommand", "inspect");
-                Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
-                trace.Completed();
+                if (TrackerAsset.Instance.Started)
+                {
+                    TrackerAsset.Instance.setVar("geocommand", "inspect");
+                    Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
+                    trace.Completed();
+                }
             }
         }
     }

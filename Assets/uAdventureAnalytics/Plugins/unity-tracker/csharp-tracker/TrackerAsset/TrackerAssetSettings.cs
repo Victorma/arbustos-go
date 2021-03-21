@@ -18,12 +18,15 @@
 namespace AssetPackage
 {
     using System;
+    using UnityEngine;
 
     /// <summary>
     /// A tracker asset settings.
     /// </summary>
     public class TrackerAssetSettings : BaseSettings
     {
+        private const string Traces_Timestamp_Key = "traces_timestamp";
+
         /// <summary>
         /// Initializes a new instance of the AssetPackage.TrackerAssetSettings
         /// class.
@@ -36,6 +39,14 @@ namespace AssetPackage
             Secure = false;
             BatchSize = 512;
             string timestamp = Math.Round(System.DateTime.Now.ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds).ToString();
+            if (PlayerPrefs.HasKey(Traces_Timestamp_Key))
+            {
+                timestamp = PlayerPrefs.GetString(Traces_Timestamp_Key);
+            }
+            else
+            {
+                PlayerPrefs.SetString(Traces_Timestamp_Key, timestamp);
+            }
             LogFile = timestamp + ".log";
             BackupStorage = true;
             BackupFile = timestamp + "_backup.log";
