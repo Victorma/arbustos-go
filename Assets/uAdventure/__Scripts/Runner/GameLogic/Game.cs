@@ -65,6 +65,7 @@ namespace uAdventure.Runner
         private int pulsing = 0;
         private bool wasShowingInventory = false;
         private int loadedChapter = -1;
+        private int previousTouchCount;
 
         public delegate void TargetChangedDelegate(IChapterTarget newTarget);
 
@@ -313,13 +314,14 @@ namespace uAdventure.Runner
             {
                 MenuMB.Instance.hide();
             }
-            else if (Input.GetKeyDown(KeyCode.Escape))
+            else if (Input.GetKeyDown(KeyCode.Escape) || Input.touchCount == 4)
             {
                 if (!isSomethingRunning())
                 {
                     GUIManager.Instance.ShowConfigMenu();
                 }
             }
+            previousTouchCount = Input.touchCount;
         } 
 
         public IEnumerator LoadGame()
