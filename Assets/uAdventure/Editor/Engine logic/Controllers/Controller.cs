@@ -2228,7 +2228,7 @@ namespace uAdventure.Editor
                 File.WriteAllBytes(downloadPath + "/" + downloadFileName, www.bytes);
                 // Unzip it
                 EditorUtility.DisplayProgressBar("Extracting...", "Extracting " + name + " to " + downloadPath, 0f);
-                ZipUtil.Unzip(downloadPath + "/" + downloadFileName, downloadPath);
+                //ZipUtil.Unzip(downloadPath + "/" + downloadFileName, downloadPath);
                 EditorUtility.DisplayProgressBar("Extracting...", "Extracting " + name + " to " + downloadPath, 1f);
                 EditorUtility.ClearProgressBar();
                 // Delete the zip
@@ -2374,7 +2374,7 @@ namespace uAdventure.Editor
 
             EditorUtility.DisplayProgressBar("Operation.ExportProject.AsLO".Traslate(), "ExportLearningObject.GatheringFiles".Traslate(), 0.80f);
             var files = Directory.GetFiles(projectPath, "*", SearchOption.AllDirectories);
-            var zipFile = new Ionic.Zip.ZipFile(PlayerSettings.productName + ".zip", System.Text.Encoding.UTF8);
+            /*var zipFile = new Ionic.Zip.ZipFile(PlayerSettings.productName + ".zip", System.Text.Encoding.UTF8);
             var prefix = new DirectoryInfo(projectPath).FullName;
             foreach (var file in files.Select(f => new FileInfo(f)))
             {
@@ -2385,7 +2385,7 @@ namespace uAdventure.Editor
 
             EditorUtility.DisplayProgressBar("Operation.ExportProject.AsLO".Traslate(), "ExportLearningObject.Done".Traslate(), 1f);
             EditorUtility.ClearProgressBar();
-            EditorUtility.RevealInFinder(outputFile);
+            EditorUtility.RevealInFinder(outputFile);*/
         }
 
         private static ManifestType GetImsManifest()

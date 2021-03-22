@@ -111,6 +111,10 @@ namespace uAdventure.Geo
 #if PLATFORM_ANDROID
                 if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
                 {
+                    if (!Permission.HasUserAuthorizedPermission(Permission.CoarseLocation))
+                    {
+                        Permission.RequestUserPermission(Permission.CoarseLocation);
+                    }
                     Permission.RequestUserPermission(Permission.FineLocation);
                 }
 #endif
@@ -222,7 +226,7 @@ namespace uAdventure.Geo
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!Application.isMobilePlatform)
+            if (!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode)
             {
                 GeoExtension.Instance.UsingDebugLocation = true;
                 eventData.Use();
