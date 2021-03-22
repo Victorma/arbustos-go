@@ -116,7 +116,7 @@ namespace Simva
 
             // Platform dependent StreamingAssets Load https://docs.unity3d.com/Manual/StreamingAssets.html
 #if UNITY_IOS
-            var filePath = Path.Combine(Application.dataPath + "/Raw", FileName);
+            var filePath = System.IO.Path.Combine(Application.dataPath + "/Raw", FileName);
 #else
             var filePath = System.IO.Path.Combine(Application.streamingAssetsPath + "/", FileName);
 #endif
