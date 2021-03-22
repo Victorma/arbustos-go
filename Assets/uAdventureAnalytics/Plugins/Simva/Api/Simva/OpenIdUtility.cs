@@ -100,6 +100,7 @@ namespace Simva
 
 	public static class OpenIdUtility
     {
+#if UNITY_WEBGL
         [DllImport("__Internal")]
         private static extern void OpenUrl(string url);
 
@@ -111,6 +112,7 @@ namespace Simva
 
         [DllImport("__Internal")]
         private static extern string GetUrl();
+#endif
 
         private static System.Diagnostics.Process windowProcess;
         private static Thread httpListener;
@@ -358,11 +360,15 @@ namespace Simva
             }
             else if(Application.platform == RuntimePlatform.WebGLPlayer)
             {
+#if UNITY_WEBGL
                 PlayerPrefs.SetInt("OpenIdTryContinueLogin", 1);
                 PlayerPrefs.SetString("OpenIdRedirectUrl", GetUrl());
                 PlayerPrefs.Save();
                 Debug.Log("RedirectURL: " + GetUrl());
                 redirectUrl = GetUrl();
+#else
+                redirectUrl = null;
+#endif
             }
             else
             {
@@ -384,7 +390,9 @@ namespace Simva
             var redirectUrl = PlayerPrefs.GetString("OpenIdRedirectUrl");
             if (string.IsNullOrEmpty(redirectUrl))
             {
+#if UNITY_WEBGL
                 redirectUrl = GetUrl();
+#endif
             }
 
             PlayerPrefs.DeleteKey("OpenIdTryContinueLogin");
@@ -410,6 +418,7 @@ namespace Simva
 
         private static LoginResponse ExtractLoginresponseFromUrl()
         {
+#if UNITY_WEBGL
             var error = GetParameter("error");
             if (!string.IsNullOrEmpty(error))
             {
@@ -427,6 +436,9 @@ namespace Simva
                     SessionState = GetParameter("session_state")
                 };
             }
+#else
+            return null;
+#endif
         }
 
         public static IAsyncOperation<AuthorizationInfo> LoginWithAccessCode(string authUrl, string tokenUrl, string clientId,
@@ -515,16 +527,13 @@ namespace Simva
 
         public static bool HasLoginInfo()
         {
-            if(Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                var state = GetParameter("session_state");
-                var code = GetParameter("code");
-                return !string.IsNullOrEmpty(state) && !string.IsNullOrEmpty(code);
-            }
-            else
-            {
-                return false;
-            }
+#if UNITY_WEBGL
+            var state = GetParameter("session_state");
+            var code = GetParameter("code");
+            return !string.IsNullOrEmpty(state) && !string.IsNullOrEmpty(code);
+#else
+            return false;
+#endif
 
         }
 
