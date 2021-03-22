@@ -314,7 +314,7 @@ namespace uAdventure.Runner
             {
                 MenuMB.Instance.hide();
             }
-            else if (Input.GetKeyDown(KeyCode.Escape) || Input.touchCount == 4)
+            else if (Input.GetKeyDown(KeyCode.Escape) || (Input.touchCount != previousTouchCount && Input.touchCount == 4))
             {
                 if (!isSomethingRunning())
                 {
