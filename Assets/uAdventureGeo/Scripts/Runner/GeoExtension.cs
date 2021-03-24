@@ -49,6 +49,7 @@ namespace uAdventure.Geo
         private Rect debugWindowRect = new Rect(0, 0, 200, 200);
         private Texture2D pointer;
         private bool gameIsReady;
+        private bool checkTargetRegistered;
 
         void Awake()
         {
@@ -63,7 +64,7 @@ namespace uAdventure.Geo
                 StartCoroutine(StartLocation());
             }
 
-            if (Application.isPlaying)
+            if (Application.isPlaying && !checkTargetRegistered)
             {
                 Game.TargetChangedDelegate checkTarget = (newTarget) =>
                 {
@@ -73,6 +74,7 @@ namespace uAdventure.Geo
 
                 Game.Instance.OnTargetChanged += checkTarget;
                 checkTarget(Game.Instance.GameState.GetChapterTarget(Game.Instance.GameState.CurrentTarget));
+                checkTargetRegistered = true;
             }
 
             pointer = Resources.Load<Texture2D>("pointer");

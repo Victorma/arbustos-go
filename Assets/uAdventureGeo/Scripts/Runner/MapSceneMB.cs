@@ -105,19 +105,20 @@ namespace uAdventure.Geo
         {
             bkCameraTransform = Camera.main.transform.Backup();
 
-            // Start the gps just in case is not
-            if (GeoExtension.Instance.IsStarted())
-            {
 #if PLATFORM_ANDROID
-                if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+            if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+            {
+                if (!Permission.HasUserAuthorizedPermission(Permission.CoarseLocation))
                 {
-                    if (!Permission.HasUserAuthorizedPermission(Permission.CoarseLocation))
-                    {
-                        Permission.RequestUserPermission(Permission.CoarseLocation);
-                    }
-                    Permission.RequestUserPermission(Permission.FineLocation);
+                    Permission.RequestUserPermission(Permission.CoarseLocation);
                 }
+                Permission.RequestUserPermission(Permission.FineLocation);
+            }
 #endif
+
+            // Start the gps just in case is not
+            if (!GeoExtension.Instance.IsStarted())
+            {
                 GeoExtension.Instance.Start();
             }
 
