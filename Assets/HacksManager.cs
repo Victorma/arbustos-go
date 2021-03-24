@@ -15,6 +15,7 @@ public class HacksManager : MonoBehaviour {
             new ActivateEffect("Intro"),
             new ActivateEffect("Alive"),
             new ActivateEffect("Normal"),
+            new ActivateEffect("Bolsi"),
             new ActivateEffect("Recogida")
         }));
     }
@@ -28,6 +29,7 @@ public class HacksManager : MonoBehaviour {
             new ActivateEffect("Intro"),
             new ActivateEffect("Alive"),
             new ActivateEffect("Normal"),
+            new ActivateEffect("Bolsi"),
             new ActivateEffect("Recogida")
         }));
     }
@@ -41,6 +43,7 @@ public class HacksManager : MonoBehaviour {
             new ActivateEffect("Intro"),
             new ActivateEffect("Alive"),
             new ActivateEffect("Normal"),
+            new ActivateEffect("Bolsi"),
             new ActivateEffect("Recogida")
         }));
     }
@@ -54,6 +57,7 @@ public class HacksManager : MonoBehaviour {
             new ActivateEffect("Intro"),
             new ActivateEffect("Alive"),
             new ActivateEffect("Normal"),
+            new ActivateEffect("Bolsi"),
             new ActivateEffect("Recogida"),
             new TriggerConversationEffect("BatallaFinal")
         }));
