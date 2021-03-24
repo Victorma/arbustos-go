@@ -232,8 +232,24 @@ namespace uAdventure.Runner
                 lastSecond = audioSource.time;
             }
 
+            var emptytexture = new Texture2D(1, 1);
+            foreground.GetComponent<Renderer>().material.SetTexture("_MainTex", emptytexture);
+            foreground.GetComponent<Renderer>().material.SetTexture("_AlphaTex", emptytexture);
+
             Game.Instance.GameState.OnConditionChanged -= OnConditionChanged;
             GameObject.DestroyImmediate(this.gameObject);
+
+            Scene scene = SceneData as Scene;
+            if(scene != null)
+            {
+                foreach (ResourcesUni sr in scene.getResources())
+                {
+                    if (ConditionChecker.check(sr.getConditions()))
+                    {
+                        Game.Instance.ResourceManager.ClearImage(sr.getAssetPath(Scene.RESOURCE_TYPE_BACKGROUND));
+                    }
+                }
+            }
 
             onDestroy();
         }

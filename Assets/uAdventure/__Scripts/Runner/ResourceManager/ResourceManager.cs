@@ -115,7 +115,7 @@ namespace uAdventure.Runner
                 holder.Load();
                 if (holder.Loaded())
                 {
-                    images.Add(uri, holder);
+                    //images.Add(uri, holder);
                     return holder.Sprite;
                 }
                 else
@@ -126,7 +126,7 @@ namespace uAdventure.Runner
                     if (holder.Loaded())
                     {
                         Debug.Log(uri + " loaded from defaults...");
-                        images.Add(uri, holder);
+                        //images.Add(uri, holder);
                         return holder.Sprite;
                     }
                     else
@@ -297,6 +297,18 @@ namespace uAdventure.Runner
                 }
             }
             return result;
+        }
+
+        public void ClearImage(string uri)
+        {
+            if (images.ContainsKey(uri))
+            {
+                Texture2D.Destroy(images[uri].Sprite);
+                Resources.UnloadAsset(images[uri].Texture);
+                images[uri].Texture = new Texture2D(1, 1);
+                images.Remove(uri);
+               
+            }
         }
 
         public AudioClip getAudio(string uri)
