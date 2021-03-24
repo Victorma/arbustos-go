@@ -19,14 +19,14 @@ namespace uAdventure.Runner
 
         void Awake()
         {
-            renderTexture = new RenderTexture(Screen.width/2, Screen.height/2, 24);
+            /*renderTexture = new RenderTexture(Screen.width/2, Screen.height/2, 24);
             renderTexture.Create();
-            Update();
+            Update();*/
         }
 
         void Update()
         {
-            if(!transitioning && (renderTexture == null || renderTexture.width != Screen.width/2 || renderTexture.height != Screen.height/2))
+            if(this.gameObject == Camera.main.gameObject && !transitioning && (renderTexture == null || renderTexture.width != Screen.width/2 || renderTexture.height != Screen.height/2))
             {
                 if (renderTexture)
                 {
@@ -121,6 +121,11 @@ namespace uAdventure.Runner
         private void OnDestroy()
         {
             _shuttingDown = true;
+            if (renderTexture)
+            {
+                renderTexture.Release();
+                Destroy(renderTexture);
+            }
         }
 
         private void ResetMaterial()
