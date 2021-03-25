@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using uAdventure.Core;
 using uAdventure.Runner;
+using uAdventure.Geo;
 
 public class HacksManager : MonoBehaviour {
 
-	public void IrARecogida()
+    public void ActivarModoManual()
+    {
+        GeoExtension.Instance.SwitchDebugLocation();
+    }
+
+    public void IrARecogida()
     {
         GUIManager.Instance.ShowConfigMenu();
         Game.Instance.Execute(new EffectHolder(new Effects()

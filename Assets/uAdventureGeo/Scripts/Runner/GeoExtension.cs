@@ -22,9 +22,21 @@ namespace uAdventure.Geo
             {
                 if ((!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode) && Application.isPlaying)
                 {
-                    memory.Set("using_debug_location", value);
+                    if((Application.platform != RuntimePlatform.IPhonePlayer && Application.platform != RuntimePlatform.Android) || PreviewManager.Instance.InPreviewMode)
+                    {                
+                        memory.Set("using_debug_location", value);
+                    }
                 }
             }
+        }
+
+        public void SwitchDebugLocation()
+        {
+            if (geochar)
+            {
+                memory.Set("debug_location", geochar.LatLon);
+            }
+            memory.Set("using_debug_location", !memory.Get<bool>("using_debug_location"));
         }
 
 
@@ -33,8 +45,8 @@ namespace uAdventure.Geo
         public Texture2D connectedSimbol;
         public Texture2D connectingSimbol;
         public Texture2D disconnectedSimbol;
-        public float blinkingTime;
-        public float iconWidth, iconHeight;
+        public float blinkingTime = 1;
+        public float iconWidth = 50, iconHeight = 50;
         private Memory memory;
         private float timeSinceLastPositionUpdate = 0;
 
@@ -59,6 +71,10 @@ namespace uAdventure.Geo
 
         public void Start()
         {
+            connectedSimbol = Resources.Load<Texture2D>("Maps-Gps-Receiving-icon");
+            connectingSimbol = Resources.Load<Texture2D>("Maps-Gps-Searching-icon");
+            disconnectedSimbol = Resources.Load<Texture2D>("Maps-Gps-Disconnected-icon");
+
             if (!IsStarted())
             {
                 StartCoroutine(StartLocation());
@@ -249,7 +265,26 @@ namespace uAdventure.Geo
                 GUI.DrawTexture(new Rect(Screen.width - iconWidth - 5, 5, iconWidth, iconHeight), paintSimbol);
             }
 
-            if (Application.isEditor || PreviewManager.Instance.InPreviewMode)
+            if (UsingDebugLocation)
+            {
+                var content = new GUIContent("Using Debug Location");
+                var size = GUI.skin.label.CalcSize(content);
+                GUI.Label(new Rect(0, 0, size.x, size.y), content);
+            }
+            else if (IsLocationValid())
+            {
+                var content = new GUIContent("Using Location: " + Input.location.lastData.LatLonD() + " with precision of (" + Input.location.lastData.horizontalAccuracy + ", " + Input.location.lastData.verticalAccuracy + ")");
+                var size = GUI.skin.label.CalcSize(content);
+                GUI.Label(new Rect(0, 0, size.x, size.y), content);
+            }
+            else if (geochar)
+            {
+                var content = new GUIContent("Using Geochar Location");
+                var size = GUI.skin.label.CalcSize(content);
+                GUI.Label(new Rect(0, 0, size.x, size.y), content);
+            }
+
+            /*if (Application.isEditor || PreviewManager.Instance.InPreviewMode)
             {
                 if (guiMap == null)
                 {
@@ -304,15 +339,14 @@ namespace uAdventure.Geo
                     },
                        "Debug Location");
                 }
-            }
+            }*/
         }
 
         public bool IsLocationValid()
         {
             return UsingDebugLocation || (Input.location.status == LocationServiceStatus.Running
                 && Input.location.lastData.timestamp > 0 
-                && Input.location.lastData.LatLon() != Vector2.zero
-                && Mathf.Max(Input.location.lastData.horizontalAccuracy, Input.location.lastData.verticalAccuracy) < 50); // Max 50 metros
+                && Input.location.lastData.LatLon() != Vector2.zero); // Max 50 metros
         }
 
         public Vector2d Location
@@ -338,7 +372,7 @@ namespace uAdventure.Geo
             }
             set
             {
-                if ((!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode) && Application.isPlaying)
+                if ((!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode || UsingDebugLocation) && Application.isPlaying)
                 {
                     UsingDebugLocation = true;
                     memory.Set("debug_location", value);
