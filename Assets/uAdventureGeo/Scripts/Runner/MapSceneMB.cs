@@ -227,7 +227,7 @@ namespace uAdventure.Geo
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode)
+            if (!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode || GeoExtension.Instance.UsingDebugLocation)
             {
                 GeoExtension.Instance.UsingDebugLocation = true;
                 eventData.Use();
