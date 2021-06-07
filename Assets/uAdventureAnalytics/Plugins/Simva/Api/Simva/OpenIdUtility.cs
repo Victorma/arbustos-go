@@ -553,7 +553,6 @@ namespace Simva
                     { "client_id", clientId },
                 };
 
-            Debug.Log("A - Redirect uri: " + redirect_uri);
             //Debug.Log(JsonConvert.SerializeObject(form, Formatting.Indented));
 
             if (!string.IsNullOrEmpty(codeVerifier))
@@ -562,20 +561,37 @@ namespace Simva
                 Debug.Log("A2 - Code Verifier: " + codeVerifier);
             }
 
-            Debug.Log("B");
             UnityWebRequest uwr = UnityWebRequest.Post(tokenUrl, form);
 
-            Debug.Log("C");
             Observable.FromCoroutine(() => DoRequest(result, uwr)).Subscribe();
 
             var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
 
             result.Then(authInfo =>
             {
-                Debug.Log("D");
                 authInfo.ClientId = clientId;
                 wrapper.SetResult(authInfo);
-            }).Catch(ex => wrapper.SetException(ex));
+                return wrapper;
+            })
+            .Catch(ex =>
+            {
+                if (uwr.isHttpError)
+                {
+                    var apiEx = (ApiException)ex;
+                    var msg = (string)apiEx.ErrorContent;
+                    try
+                    {
+                        var authError = JsonConvert.DeserializeObject<AuthorizationError>(msg);
+                        msg = authError.ErrorDescription;
+                    }
+                    catch { }
+                    wrapper.SetException(new ApiException((int)uwr.responseCode, msg));
+                }
+                else
+                {
+                    wrapper.SetException(ex);
+                }
+            });
 
             return wrapper;
         }
@@ -599,7 +615,27 @@ namespace Simva
             {
                 authInfo.ClientId = clientId;
                 wrapper.SetResult(authInfo);
-            }).Catch(ex => wrapper.SetException(ex));
+                return wrapper;
+            })
+            .Catch(ex =>
+            {
+                if (uwr.isHttpError)
+                {
+                    var apiEx = (ApiException)ex;
+                    var msg = (string)apiEx.ErrorContent;
+                    try
+                    {
+                        var authError = JsonConvert.DeserializeObject<AuthorizationError>(msg);
+                        msg = authError.ErrorDescription;
+                    }
+                    catch { }
+                    wrapper.SetException(new ApiException((int)uwr.responseCode, msg));
+                }
+                else
+                {
+                    wrapper.SetException(ex);
+                }
+            });
 
             return wrapper;
         }
@@ -639,13 +675,35 @@ namespace Simva
 
             Observable.FromCoroutine(() => DoRequest(result, uwr)).Subscribe();
 
-            return result.Then(authInfo =>
-            {
-                var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
-                authInfo.ClientId = clientId;
-                wrapper.SetResult(authInfo);
-                return wrapper;
-            });
+            var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
+
+            result.Then(authInfo =>
+                {
+                    authInfo.ClientId = clientId;
+                    wrapper.SetResult(authInfo);
+                    return wrapper;
+                })
+                .Catch(ex =>
+                {
+                    if (uwr.isHttpError)
+                    {
+                        var apiEx = (ApiException)ex;
+                        var msg = (string)apiEx.ErrorContent;
+                        try
+                        {
+                            var authError = JsonConvert.DeserializeObject<AuthorizationError>(msg);
+                            msg = authError.ErrorDescription;
+                        }
+                        catch { }
+                        wrapper.SetException(new ApiException((int)uwr.responseCode, msg));
+                    }
+                    else
+                    {
+                        wrapper.SetException(ex);
+                    }
+                });
+
+            return wrapper;
         }
 
         private static void ThrowErrors(UnityWebRequest uwr)
@@ -784,6 +842,14 @@ namespace Simva
 
             webRequest.Dispose();
         }
+    }
+
+    internal class ErrorMessage
+    {
+        [JsonProperty("error")]
+        public string Error;
+        [JsonProperty("error_description")]
+        public string ErrorDescription;
     }
 
     /// <summary>

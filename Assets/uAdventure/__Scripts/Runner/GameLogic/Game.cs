@@ -227,7 +227,7 @@ namespace uAdventure.Runner
                 GameState.OnGameResume();
             }
             Debug.Log("[START GAME] After Game Load...");
-            foreach(var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnAfterGameLoad", gameExtensions))
             {
                 yield return StartCoroutine(g.OnAfterGameLoad());
             }
@@ -250,7 +250,7 @@ namespace uAdventure.Runner
             RunTarget(forceScene ? scene_name : GameState.CurrentTarget);
             yield return new WaitUntil(() => !waitingRunTarget);
             Debug.Log("[START GAME] Game Ready...");
-            foreach (var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnGameReady", gameExtensions))
             {
                 yield return StartCoroutine(g.OnGameReady());
             }
@@ -329,7 +329,7 @@ namespace uAdventure.Runner
             Debug.Log("[LOAD GAME] Restoring save...");
             GameState.RestoreFrom("save");
             Debug.Log("[LOAD GAME] After Game Load...");
-            foreach(var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnAfterGameLoad", gameExtensions))
             {
                 yield return StartCoroutine(g.OnAfterGameLoad());
             }
@@ -339,7 +339,7 @@ namespace uAdventure.Runner
             Debug.Log("[LOAD GAME] Waiting for target to be ready...!");
             yield return new WaitUntil(() => !waitingRunTarget);
             Debug.Log("[LOAD GAME] Game Ready...");
-            foreach (var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnGameReady", gameExtensions))
             {
                 yield return StartCoroutine(g.OnGameReady());
             }
@@ -347,16 +347,24 @@ namespace uAdventure.Runner
             Debug.Log("[LOAD GAME] Done!");
         }
 
-        public IEnumerator SaveGame()
+        public void SaveGame()
         {
-            Debug.Log("[SAVE GAME] Before saving game...");
-            foreach (var g in gameExtensions)
+            if (!GameState.GetChapterTarget(GameState.CurrentTarget).allowsSavingGame())
             {
-                yield return StartCoroutine(g.OnBeforeGameSave());
+                Debug.Log("[SAVE GAME] Current scene doesn't allow saving. Cancelling save...");
+                return;
             }
-            Debug.Log("[SAVE GAME] Saving...");
-            GameState.SerializeTo("save");
-            Debug.Log("[SAVE GAME] Done!");
+            else
+            {
+                Debug.Log("[SAVE GAME] Before saving game...");
+                foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnBeforeGameSave", gameExtensions))
+                {
+                    g.OnBeforeGameSave();
+                }
+                Debug.Log("[SAVE GAME] Saving...");
+                GameState.SerializeTo("save");
+                Debug.Log("[SAVE GAME] Done!");
+            }
         }
 
         public void AutoSave()
@@ -368,7 +376,7 @@ namespace uAdventure.Runner
             }
 
             Debug.Log("[AUTO SAVE] Performing auto-save...");
-            StartCoroutine(SaveGame());
+            SaveGame();
         }
 
         public void OnApplicationPause(bool paused)
@@ -384,15 +392,16 @@ namespace uAdventure.Runner
                 {
                     GameState.OnGameSuspend();
                 }
-                
+
                 /*if (!paused && GameState.Data.isRestoreAfterOpen())
                 {
                     // TODO REPARE RESTORE AFTER OPEN
                     GameState.OnGameResume();
                     if (started)
                     {
+                        var gameReadyOrderedExtensions = PriorityAttribute.OrderExtensionsByMethod("OnGameReady", gameExtensions);
                         RunTarget(GameState.CurrentTarget);
-                        gameExtensions.ForEach(g => g.OnGameReady());
+                        gameReadyOrderedExtensions.ForEach(g => g.OnGameReady());
                         uAdventureInputModule.LookingForTarget = null;
                     }
                 }*/
@@ -522,24 +531,8 @@ namespace uAdventure.Runner
         private bool quitAborted;
         private IEnumerator QuitCoroutine()
         {
-            var quitOrderExtension = new List<GameExtension>(gameExtensions);
-            // Workaroud Simva extension is the last extension
-            // This lets the analytics extension finish all the completables and flush
-            Simva.SimvaExtension simvaExtension = null;
-            foreach (var gameExtension in quitOrderExtension)
-            {
-                if (gameExtension is Simva.SimvaExtension)
-                {
-                    simvaExtension = gameExtension as Simva.SimvaExtension;
-                    break;
-                }
-            }
-            // Force it being the last
-            quitOrderExtension.Remove(simvaExtension);
-            quitOrderExtension.Add(simvaExtension);
-
             quitAborted = false;
-            foreach (var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("OnGameFinished", gameExtensions))
             {
                 yield return StartCoroutine(g.OnGameFinished());
             }
@@ -565,7 +558,7 @@ namespace uAdventure.Runner
         public IEnumerator Restart()
         {
             GameState.Restart();
-            foreach(var g in gameExtensions)
+            foreach (var g in PriorityAttribute.OrderExtensionsByMethod("Restart", gameExtensions))
             {
                 yield return StartCoroutine(g.Restart());
             }
@@ -664,7 +657,10 @@ namespace uAdventure.Runner
                 {
                     waitingTargetDestroy = false;
                     waitingRunTarget = true;
-                    GameState.CurrentTarget = target.getId();
+                    if (trace)
+                    {
+                        GameState.CurrentTarget = target.getId();
+                    }
                     runnerTarget.RenderScene();
 
                     if (trace && OnTargetChanged != null)
@@ -895,7 +891,8 @@ namespace uAdventure.Runner
 
                 // Enable blurred background
                 blur = GameObject.Instantiate(Blur_Prefab);
-                blur.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 1);
+                blur.transform.position = Camera.main.transform.position + Camera.main.transform.forward;
+                blur.transform.rotation = Camera.main.transform.rotation;
 
                 // Order shuffeling when node is configured for random
                 this.order = Enumerable.Range(0, optionsNode.getLineCount()).ToList();

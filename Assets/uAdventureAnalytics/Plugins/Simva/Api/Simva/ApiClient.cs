@@ -157,6 +157,10 @@ namespace Simva
                     {
                         AuthorizationInfo = authInfo;
                         done.SetCompleted();
+                    })
+                    .Catch(ex =>
+                    {
+                        done.SetException(ex);
                     });
 			}
             catch(ApiException ex)
@@ -511,6 +515,10 @@ namespace Simva
                                     {
                                         AuthorizationInfo = authInfo;
                                         addAuthAndComplete();
+                                    })
+                                    .Catch(ex =>
+                                    {
+                                        result.SetException(ex);
                                     });
                             }
                             else

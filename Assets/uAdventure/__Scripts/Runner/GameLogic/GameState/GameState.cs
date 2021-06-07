@@ -92,7 +92,10 @@ namespace uAdventure.Runner
             }
             set
             {
-                lastTarget = currentTarget;
+                if(!currentTarget.StartsWith("Simva."))
+                {
+                    lastTarget = currentTarget;
+                }
                 currentTarget = value;
             }
         }

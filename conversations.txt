@@ -2,35 +2,35 @@ Conversation: Intro
 Node: 1
  - Player: Hola viajero
  - Player: #O Una voz que habla... 
- - Player: #O Justo lo que me faltaba para rematar el estrés de volver a clase
  - Player: No soy una voz, soy Bandalf y esto es telepatía
- - Player: He conectado mi mundo, Baland, con el tuyo para encontrarte
- - Player: #O Baland... ¿Algo así como Narnia?
- - Player: Más o menos...
- - Player: Pero en este caso mi mundo está amenazado y casi no nos queda tiempo
- - Player: La falta de reciclaje en tu mundo está llevando a mi mundo al desastre
+ - Player: He conectado mi mundo, Baland, con el tuyo para encontrar ayuda
+ - Player: #O Baland... ¿Basura-landia?
+ - Player: Sí, elegimos ese nombre para recordarnos nuestro peor enemigo: La Basura
+ - Player: Y ahora mismo la situación es crítica, aunque aún hay tiempo...
 Node: 2
- * After Node: 1: La falta de reciclaje en tu mundo está llevando a mi mundo al desastre
+ * After Node: 1: Y ahora mismo la situación es crítica, aunque aún hay tiempo...
  - Player: Te ayudaré
  - Player: Bueh y a mí qué
 Node: 3
  * After Node: 2: Te ayudaré
- - Player: Fantástico, manos a la obra
+ - Player: ¡Genial! Te explico...
 Node: 4
  * After Node: 2: Bueh y a mí qué
  - Player: Jajaja, qué iluso, no tienes elección...
 Node: 5
- * After Node: 3: Fantástico, manos a la obra
+ * After Node: 3: ¡Genial! Te explico...
  * After Node: 4: Jajaja, qué iluso, no tienes elección...
  - Player: Nuestros mundos están conectados y se destruirán si no hacemos algo
- - Player: #O No! ¿Qué puedo hacer yo?
- - Player: Mucho! Ven a verme al Metro de Ciudad Universitaria
- - Player: No conozco mucho tu mundo, pero gracias a mi magia podrás interactuar con el mío a través de tu móvil
+ - Player: #O ¡No! ¿Qué puedo hacer yo?
+ - Player: ¡Mucho! Ven a verme al Metro de Ciudad Universitaria
+ - Player: Gracias a mi magia podrás interactuar con mi mundo a través de tu móvil
  - Player: Voy a invocar una flecha verde que indicará mi posición...
+ - Player: #! ¡Navigatio!
 Node: 6
- * After Node: 5: Voy a invocar una flecha verde que indicará mi posición...
- - Player: #! *Wosh!*
- - Player: Soy un crack. Te espero allí
+ * After Node: 5: #! ¡Navigatio!
+ - Player: #O ¡Increíble!
+ - Player: Soy un crack
+ - Player: Sigue la flecha, te espero allí
 
 Conversation: BandalfIntro
 Node: 1
@@ -39,9 +39,9 @@ Node: 1
  - Bandalf: Ibas a preguntarlo, ¿verdad?
  - Player: Yo... Eh... Sí.
  - Bandalf: Soy mago, me adelanto a todo ;)
- - Bandalf: Necesito tu ayuda y no hay tiempo que perder con más preguntas
+ - Bandalf: Necesito tu ayuda. No hay tiempo que perder con preguntas
  - Player: Pero... ¡Sí no he podido preguntar nada!
- - Bandalf: Verás...
+ - Bandalf: ¡SHHHH!
  - Bandalf: Una amenaza se cierne sobre nuestros mundos
  - Bandalf: El planeta está muriéndose
  - Bandalf: Si seguimos consumiendo de manera tan inconsciente vamos a acabar...
@@ -50,39 +50,56 @@ Node: 1
  - Bandalf: Verás...
 Node: 2
  * After Node: 1: Verás...
- - Bandalf: Esta era la Universidad Complutense en los años 50
- - Bandalf: El campus de Ciudad Universitaria se creó en 1927 por el rey Alfonso XIII
- - Bandalf: Estaban Medicina... Farmacia... y Odontología, aquí en la plaza de enfrente
- - Bandalf: En la segunda república añadieron ciencias, letras y arquitectura, no todo era curar gente jeje
- - Bandalf: Después, llegó la guerra, y se tuvieron que reconstruir muchos edificios
- - Bandalf: Tal vez luego debas ir a ver balazos por medicina o farmacia
+ - Bandalf: El campus de Ciudad Universitaria de la Complutense está en la Dehesa de la Villa
+ - Bandalf: La flora son principalmente encinas pero Isabel II la repobló con pinos, aunque hay muchos más
+ - Bandalf: De hecho, luego te doy una guía para que puedas conocer los árboles de la plaza mejor
+ - Bandalf: Cuando se inició la construcción del campus, la dehesa empezó a cambiar...
 Node: 3
- * After Node: 2: Tal vez luego debas ir a ver balazos por medicina o farmacia
- - Bandalf: Después, se rompió con la ordenanza y se constuyeron todo tipo de edificios
- - Bandalf: Pero no todo es construir, la UCM está ubicada en la Dehesa de la Villa y tiene más de cien hectáreas de patrimonio verde
- - Bandalf: La UCM es tan importante que en 1999 se declaró Bien de Interés Cultural
- - Player: Y todo se va a ir al traste a menos que hagamos algo...
+ * After Node: 2: Cuando se inició la construcción del campus, la dehesa empezó a cambiar...
+ - Bandalf: Esta foto es de los años 30, cuando Alfonso XIII inició la construcción del campus
+ - Bandalf: Aunque ahora que lo pienso... Estás muy calladito
+ - Bandalf: ¿Cuales son las facultades que hay en la foto?
 Node: 4
- * After Node: 3: Y todo se va a ir al traste a menos que hagamos algo...
+ * After Node: 3: ¿Cuales son las facultades que hay en la foto?
+ - Player: Medicina, Farmacia y Odontología
+ - Player: Medicina, Física y Filosofía
+ - Player: Matemáticas, Física y Química
+Node: 5
+ * After Node: 4: Medicina, Farmacia y Odontología
+ - Bandalf: ¡Efectivamente! Dado que está al lado del Hospital Clínico se empezó por allí
+Node: 6
+ * After Node: 4: Medicina, Física y Filosofía
+ * After Node: 4: Matemáticas, Física y Química
+ - Bandalf: Jeje, no. Dado que está al lado del Hospital Clínico se centraron en Medicina, Farmacia y Odontología
+Node: 7
+ * After Node: 5: ¡Efectivamente! Dado que está al lado del Hospital Clínico se empezó por allí
+ * After Node: 6: Jeje, no. Dado que está al lado del Hospital Clínico se centraron en Medicina, Farmacia y Odontología
+ - Bandalf: En la Segunda República añadieron Ciencias, Letras y Arquitectura, no todo era curar gente jajaja
+ - Bandalf: Aquí de hecho, se vivió la guerra. ¡Esta plaza fue frente en la Guerra Civil!
+ - Bandalf: Aún se ven los balazos en las fachadas de Medicina o Farmacia
+ - Bandalf: Por su valor, la UCM en 1999 se declaró Bien de Interés Cultural
+ - Bandalf: Aunque todo se va a ir a freir espárragos a menos que hagamos algo...
+Node: 8
+ * After Node: 7: Aunque todo se va a ir a freir espárragos a menos que hagamos algo...
  - Bandalf: Los residuos están acabando con la universidad
  - Bandalf: Consumimos, desperdiciamos y nos despreocupamos
  - Player: ...
  - Bandalf: Contaminación, extinciones, calentamiento...
  - Bandalf: Poco a poco empezamos a sufrir las consecuencias
  - Bandalf: Pero por suerte tengo la herramienta para ayudar a evitarlo...
-Node: 5
- * After Node: 4: Pero por suerte tengo la herramienta para ayudar a evitarlo...
+Node: 9
+ * After Node: 8: Pero por suerte tengo la herramienta para ayudar a evitarlo...
  - Bandalf: ¡Las tres erres!
  - Player: ¡REDUCIR!
  - Player: ¡REUTILIZAR!
  - Player: ¡RECICLAR!
-Node: 6
- * After Node: 5: ¡RECICLAR!
+Node: 10
+ * After Node: 9: ¡RECICLAR!
  - Bandalf: ¡Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!
  - Bandalf: Marrón, Amarillo, Verde, Azul y Naranja
  - Bandalf: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
-Node: 7
- * After Node: 6: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
+Node: 11
+ * After Node: 10: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
  - Bandalf: Él es Basauron
  - Bandalf: Un monstruo cuyo poder puede acabar con todo lo que conocemos
  - Bandalf: Su sombra se cierne sobre nosotros y atacará de un momento a otro
@@ -90,25 +107,25 @@ Node: 7
  - Bandalf: Te voy a entregar un arma...
  - Bandalf: Un arma muy poderosa...
  - Bandalf: LA CUARTA R
-Node: 8
- * After Node: 7: LA CUARTA R
+Node: 12
+ * After Node: 11: LA CUARTA R
  - Bandalf: ¡RECOGER!
  - Bandalf: La universidad, llena de juventud, se llena de residuos
  - Bandalf: Y hoy recogeremos y reciclaremos juntos...
  - Bandalf: ¡Para salvar el mundo de Basauron!
-Node: 9
- * After Node: 8: ¡Para salvar el mundo de Basauron!
+Node: 13
+ * After Node: 12: ¡Para salvar el mundo de Basauron!
  - Player: ¡Genial!
  - Player: Entonces... ¿Cómo empiezo?
  - Bandalf: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
-Node: 10
- * After Node: 9: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
+Node: 14
+ * After Node: 13: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
  - Bandalf: Ve junto a la estatua "Los portadores de la antorcha" en el centro de la plaza
  - Bandalf: Tienes que recoger una bolsa de plástico que aparecerá en tu pantalla
 
 Conversation: BuscandoBolsi
 Node: 1
- - Bandalf: Sigue la flecha verde hasta el metro
+ - Bandalf: Sigue la flecha verde hasta la estatua
  - Bandalf: Allí encontrarás una bolsa
  - Bandalf: ¡Recógela!
 
@@ -126,11 +143,11 @@ Node: 1
  - Bandalf: ¡Ahora voy a hacer mi magia!
  - Bandalf: Bíbidi, bó...
  - Bandalf: No, espera, eso tiene copyright
- - Bandalf: ¡Por el poder de la reutilización!
- - Bandalf: ¡¡Ven a la vida!!!
+ - Bandalf: #! ¡Por el poder de la reutilización!
+ - Bandalf: #! ¡¡Ven a la vida!!!
 Node: 2
- * After Node: 1: ¡¡Ven a la vida!!!
- - Player: ¡Woah!
+ * After Node: 1: #! ¡¡Ven a la vida!!!
+ - Player: ¡Guau!
  - Bandalf: Heh, ¡soy todo un mago!
  - Bandalf: ¡Bolsi! ¡Saluda!
  - Bolsi: Ho...
@@ -150,19 +167,21 @@ Node: 4
  - Bolsi: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
 Node: 5
  * After Node: 4: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
- - Bandalf: Por otro lado, mientras buscas y reciclas los residuos, puedes utilizar la naturaleza para volverte más fuerte
- - Bandalf: Si quieres tener ayuda en la batalla contra basauron, opcionalmente, podemos fabricar unas pociones
- - Bandalf: En Medicina y Farmacia hay tres viejos amigos: Santiago Ramón y Cajal y Severo Ochoa con Margarita Salas
- - Bandalf: A Santiago deberás llevarle el fruto de un majuelo y un ala de saltacercas
- - Bandalf: A Severo y Margarita deberás llevarle una ciruela y un plumero de la pampa
- - Bolsi: ¡Yo puedo darte pistas si no los encuentras! Jijiji
- - Bandalf: ¡Cada una de ellas te dará una vida extra en la batalla final!
- - Bandalf: Despues, te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos
+ - Bandalf: Por otro lado, podríamos utilizar la naturaleza para volverte más fuerte
+ - Bandalf: Si quieres tener vidas extra en la batalla contra basauron, podemos fabricar unas pociones con unos viejos amigos
+ - Bandalf: En medicina, Santiago Ramón y Cajal necesita un fruto de majuelo y un ala de mariposa saltacercas para crear una poción neurológica
+ - Bolsi: ¡Anotado!
+ - Bandalf: En farmacia, Severo Ochoa y Margarita salas necesitan una ciruela y un plumero de la pampa para crear su poción de ARN
+ - Bolsi: ¡Anotado! Pregúntame si quieres recordarlos...
+ - Bolsi: ¡Podría darte pistas si no encuentras los ingredientes o te pierdes! Jijiji
+ - Bandalf: Aquí tienes el mapa de los árboles que te prometí, te será de ayuda
+Node: 6
+ * After Node: 5: Aquí tienes el mapa de los árboles que te prometí, te será de ayuda
+ - Bandalf: Te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos
  - Player: ¡Genial!
  - Bandalf: Recuerda:
- - Bandalf: Busca y recicla al menos 8 objetos de la plaza
- - Bandalf: Ve a Medicina y a Farmacia a encontrarte con Santiago, Severo y Margarita
- - Bandalf: Después nos veremos en la estatua en el centro de la plaza
+ - Bandalf: Busca y recicla al menos 8 objetos de la plaza, y si quieres, busca y lleva los ingredientes a Medicina y a Farmacia
+ - Bandalf: Nos vemos junto a los contenedores
 
 Conversation: LlegadaPortadores
 Node: 1
@@ -416,17 +435,7 @@ Node: 45
  - Bandalf: ¡¡¡Suerte en tu aventura!!!
 
 Conversation: PocionSevero
- Central (la antigua complutense), conocí a Bandalf
- - SeveroMarga: Luego me fui a EEUU donde trabajé mucho tiempo con Margarita y no volví a saber de él, pero pasamos grandes momentos juntos
- - SeveroMarga: Claro que te ayudaremos, qué necesitas?
- - Player: Necesito que nos ayudeis a luchar contra Basauron...
- - SeveroMarga: Genial! Te ayudaremos a hacer una poción para combatirlo!
- - SeveroMarga: Verás, nosotros somos unos genios de la Bioquímica. Hemos hecho grandes avances en el ARN, ADN entre otras cosas.
- - SeveroMarga: Por ello recibí un Premio Nobel en Fisiología y Medicina en 1959
- - SeveroMarga: Yo, Margarita, he recibido múltiples premios, entre ellos doctorados honoris causa y premios a la mujer progresista y a la excelencia química
- - SeveroMarga: Se me ocurre que hagamos una poción genética que mejore tus capacidades celulares!
- - SeveroMarga: Debes traernos: Una ciruela y un plumero de la pampa...
- - SeveroMarga: La ciruela debería estar cerca del metro de ciudad universitaria
+ria
  - SeveroMarga: El plumero debería estar cerca de una estatua mía que hay por aquí cerca
  - SeveroMarga: Traenos los ingredientes y te haremos la poción!
  - Player: Perfecto, voy a ello! Gracias!

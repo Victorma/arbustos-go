@@ -72,7 +72,7 @@ namespace uAdventure.Analytics
             yield return true;
         }
 
-        public override IEnumerator OnBeforeGameSave() 
+        public override void OnBeforeGameSave() 
         {
             var analyticsMemory = Game.Instance.GameState.GetMemory("analytics"); 
             if (analyticsMemory == null)
@@ -81,7 +81,6 @@ namespace uAdventure.Analytics
                 Game.Instance.GameState.SetMemory("analytics", analyticsMemory);
             }
             analyticsMemory.Set("completables", JsonUtility.ToJson(CompletablesController));
-            yield return true;
         }
 
         public override IEnumerator OnGameReady()
@@ -89,6 +88,13 @@ namespace uAdventure.Analytics
             yield return true;
         }
 
+        private bool afterFlush;
+        public void AfterFlush()
+        {
+            afterFlush = true;
+        }
+
+        [Priority(1)]
         public override IEnumerator OnGameFinished()
         {
             if (TrackerAsset.Instance.Active)
@@ -96,11 +102,13 @@ namespace uAdventure.Analytics
                 var flushed = false;
                 TrackerAsset.Instance.ForceCompleteTraces();
                 TrackerAsset.Instance.FlushAll(() => flushed = true);
+                var time = Time.time;
                 yield return new WaitUntil(() => flushed);
                 TrackerAsset.Instance.Stop();
             }
         }
 
+        [Priority(1)]
         public override IEnumerator OnAfterGameLoad()
         {
             if (!inited)

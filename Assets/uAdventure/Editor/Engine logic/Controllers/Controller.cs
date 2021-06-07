@@ -3721,15 +3721,21 @@ namespace uAdventure.Editor
         [UnityEditor.MenuItem("uAdventure/UnComplete", priority = 1)]
         public static void UnComplete()
         {
-            SimvaApi<StudentsApi>.LoginWithToken("t1pm").Then(api =>
+            SimvaApi<StudentsApi>.LoginWithToken("nzwo").Then(api =>
             {
-                api.Api.GetSchedule("6040c9d6c34511006e84f516")
+                api.Api.GetSchedule("6046a0f7c34511006e84f53d")
                 .Then(schedule =>
                 {
                     var act = schedule.Activities.First(a => a.Value.Name == "Gameplay");
-                    api.Api.SetCompletion(act.Key, "t1pm", false);
+                    api.Api.SetCompletion(act.Key, "nzwo", false);
                 });
             });
+        }
+        [UnityEditor.MenuItem("uAdventure/Screenshot", priority = 1)]
+        public static void Screenshot()
+        {
+            ScreenCapture.CaptureScreenshot("Capture");
+
         }
 
 

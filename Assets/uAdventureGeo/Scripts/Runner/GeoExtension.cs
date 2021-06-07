@@ -109,7 +109,7 @@ namespace uAdventure.Geo
             yield return null;
         }
 
-        public override IEnumerator OnBeforeGameSave() { yield return null; }
+        public override void OnBeforeGameSave() { }
         public override IEnumerator OnAfterGameLoad()
         {
             memory = new Memory();
@@ -219,23 +219,14 @@ namespace uAdventure.Geo
                 geochar = FindObjectOfType<GeoPositionedCharacter>();
             }
 
-            if (timeSinceLastPositionUpdate > timeToFlush && TrackerAsset.Instance.Started)
+            if (timeSinceLastPositionUpdate > timeToFlush && TrackerAsset.Instance.Active)
             {
                 timeSinceLastPositionUpdate = 0;
 
                 if (IsStarted() || UsingDebugLocation || geochar)
                 {
                     var mapScene = Game.Instance.CurrentTargetRunner.Data as MapScene;
-                    if (mapScene != null)
-                    {
-                        TrackerExtension.Movement.Moved(mapScene.Id, Location);
-                    }
-                    else
-                    {
-                        TrackerExtension.Movement.Moved("World", Location);
-                    }
-
-                    TrackerAsset.Instance.Flush();
+                    TrackerExtension.Movement.Moved(mapScene != null ? mapScene.Id : "World", Location);
                 }
             }
 
@@ -243,8 +234,7 @@ namespace uAdventure.Geo
 
         void OnGUI()
         {
-            var paintSimbol = disconnectedSimbol;
-
+            Texture2D paintSimbol;
             switch (Input.location.status) {
                 default:
                 case LocationServiceStatus.Failed:

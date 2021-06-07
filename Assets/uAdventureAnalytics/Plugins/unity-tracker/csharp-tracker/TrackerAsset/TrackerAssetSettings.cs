@@ -37,7 +37,7 @@ namespace AssetPackage
             // 
             Port = 3000;
             Secure = false;
-            BatchSize = 512;
+            BatchSize = 256;
             string timestamp = Math.Round(System.DateTime.Now.ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds).ToString();
             if (PlayerPrefs.HasKey(Traces_Timestamp_Key))
             {

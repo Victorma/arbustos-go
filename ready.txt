@@ -1,1 +1,1 @@
-RealTimeSince Startup: 3,911578, Process: 7.06:11:51.1430731
+RealTimeSince Startup: 10,81579, Process: 8.16:33:48.2639682
