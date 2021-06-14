@@ -3721,13 +3721,13 @@ namespace uAdventure.Editor
         [UnityEditor.MenuItem("uAdventure/UnComplete", priority = 1)]
         public static void UnComplete()
         {
-            SimvaApi<StudentsApi>.LoginWithToken("nzwo").Then(api =>
+            SimvaApi<StudentsApi>.LoginWithToken("myiq").Then(api =>
             {
                 api.Api.GetSchedule("6046a0f7c34511006e84f53d")
                 .Then(schedule =>
                 {
                     var act = schedule.Activities.First(a => a.Value.Name == "Gameplay");
-                    api.Api.SetCompletion(act.Key, "nzwo", false);
+                    api.Api.SetCompletion(act.Key, "myiq", false);
                 });
             });
         }

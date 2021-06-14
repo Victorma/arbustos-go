@@ -527,8 +527,6 @@ namespace uAdventure.Runner
         {
             StartCoroutine(QuitCoroutine());
         }
-
-        private bool quitAborted;
         private IEnumerator QuitCoroutine()
         {
             quitAborted = false;
@@ -1018,6 +1016,7 @@ namespace uAdventure.Runner
         }
 
         private List<GUILayoutOption> auxLimitList = new List<GUILayoutOption>();
+        private bool quitAborted;
 
         protected void OnGUI()
         {
