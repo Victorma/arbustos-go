@@ -51,8 +51,9 @@ namespace uAdventure.Runner
         private Dictionary<string, List<ElementReference>> elementContexts;
         private Dictionary<string, int> varFlags;
         private Stack<List<KeyValuePair<string, int>>> varFlagChangeAmbits;
+        private Stack<TrackerEvent> ambitTraces;
 
-#region SerializationFields
+        #region SerializationFields
         [SerializeField]
         private List<string> varFlagKeys;
         [SerializeField]
@@ -141,6 +142,7 @@ namespace uAdventure.Runner
             varFlags = new Dictionary<string, int>();
             elementContexts = new Dictionary<string, List<ElementReference>>();
             varFlagChangeAmbits = new Stack<List<KeyValuePair<string, int>>>();
+            ambitTraces = new Stack<TrackerEvent>();
             memories = new Dictionary<string, Memory>();
             currentChapter = 0;
             playerContext = null;
@@ -456,8 +458,9 @@ namespace uAdventure.Runner
         internal int ChangeAmbitCount { get { return varFlagChangeAmbits.Count; } }
 
         // Var flag change ambits
-        public void BeginChangeAmbit()
+        public void BeginChangeAmbit(TrackerEvent trace)
         {
+            this.ambitTraces.Push(trace);
             this.varFlagChangeAmbits.Push(new List<KeyValuePair<string, int>>());
             Debug.Log("Opened change ambit " + varFlagChangeAmbits.Count);
         }
@@ -486,7 +489,13 @@ namespace uAdventure.Runner
 
         public void EndChangeAmbitAsExtensions(TrackerEvent trace)
         {
+            var currentAmbitTrace = this.ambitTraces.Pop();
             var currentChanges = EndChangeAmbit(false);
+            if(currentAmbitTrace != trace)
+            {
+                Debug.LogError("Closed trace ambit is not the topmost trace!!");
+            }
+
             foreach(var varChange in currentChanges)
             {
                 TrackerAsset.Instance.setVar(varChange.Key, varChange.Value);

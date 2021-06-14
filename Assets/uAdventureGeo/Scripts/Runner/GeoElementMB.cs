@@ -356,7 +356,7 @@ namespace uAdventure.Geo
                 {
                     trace = TrackerExtension.Movement.Entered(Element, latLonOnExecute);
                     trace.SetPartial();
-                    Game.Instance.GameState.BeginChangeAmbit();
+                    Game.Instance.GameState.BeginChangeAmbit(trace);
                 }
                 latLonOnExecute = LatLon;
                 base.Execute();
@@ -421,7 +421,7 @@ namespace uAdventure.Geo
                 {
                     trace = TrackerExtension.Movement.Exited(Element, latLonOnExecute);
                     trace.SetPartial();
-                    Game.Instance.GameState.BeginChangeAmbit();
+                    Game.Instance.GameState.BeginChangeAmbit(trace);
                 }
                 latLonOnExecute = LatLon;
                 base.Execute();
@@ -472,7 +472,7 @@ namespace uAdventure.Geo
                 {
                     trace = TrackerExtension.Movement.Looked(Element, orientationOnExecute, latLonOnExecute);
                     trace.SetPartial();
-                    Game.Instance.GameState.BeginChangeAmbit();
+                    Game.Instance.GameState.BeginChangeAmbit(trace);
                 }
                 latLonOnExecute = LatLon;
                 orientationOnExecute = Player.Orientation;
@@ -524,7 +524,7 @@ namespace uAdventure.Geo
                 {
                     trace = TrackerAsset.Instance.GameObject.Interacted(Element, GameObjectTracker.TrackedGameObject.GameObject);
                     trace.SetPartial();
-                    Game.Instance.GameState.BeginChangeAmbit();
+                    Game.Instance.GameState.BeginChangeAmbit(trace);
                 }
                 base.Execute();
             }

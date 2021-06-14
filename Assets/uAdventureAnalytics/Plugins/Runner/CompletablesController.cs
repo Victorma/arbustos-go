@@ -32,6 +32,13 @@ namespace uAdventure.Analytics
             Game.Instance.OnElementInteracted += ElementInteracted;
         }
 
+        public void Dispose()
+        {
+            Game.Instance.GameState.OnConditionChanged -= (_, __) => ConditionChanged();
+            Game.Instance.OnTargetChanged -= TargetChanged;
+            Game.Instance.OnElementInteracted -= ElementInteracted;
+        }
+
 
         #region Completables
 
@@ -103,6 +110,9 @@ namespace uAdventure.Analytics
                         restoredCompletables = new CompletablesController();
                         restoredCompletables.AddRange(DeserializeFromString<List<CompletableController>>(serializedCompletables));
                     }
+
+                    // Disable the hooks
+                    restoredCompletables.Dispose();
 
                     if (!VerifyControllers(restoredCompletables))
                     {
@@ -219,7 +229,7 @@ namespace uAdventure.Analytics
                     trace = TrackerAsset.Instance.GameObject.Interacted(element.getId(), GameObjectTracker.TrackedGameObject.GameObject);
                 }
                 trace.SetPartial();
-                Game.Instance.GameState.BeginChangeAmbit();
+                Game.Instance.GameState.BeginChangeAmbit(trace);
                 //Game.Instance.OnActionCanceled += ActionCanceled;
 
                 UpdateElementsInteracted(element, action.getType().ToString(), element.getId());

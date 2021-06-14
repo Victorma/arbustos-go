@@ -10,6 +10,7 @@ namespace uAdventure.Runner
 {
     public class ConversationNodeHolder
     {
+        private GraphConversationHolder holder;
         private Conversation conversation;
         private int nodeIndex;
         private string initializedDialogNode;
@@ -29,8 +30,9 @@ namespace uAdventure.Runner
         public bool TracePending { get { return isTracePending; } }
 
 
-        public ConversationNodeHolder(Conversation conversation, ConversationNode node)
+        public ConversationNodeHolder(GraphConversationHolder holder, Conversation conversation, ConversationNode node)
         {
+            this.holder = holder;
             this.conversation = conversation;
             this.node = node;
             nodeIndex = conversation.getAllNodes().IndexOf(node);
@@ -147,12 +149,13 @@ namespace uAdventure.Runner
 
             if (TrackerAsset.Instance.Started && !string.IsNullOrEmpty(onode.getXApiQuestion()))
             {
+                holder.EndTracePending();
                 isTracePending = true;
-                Game.Instance.GameState.BeginChangeAmbit();
                 xAPISuccess = onode.getLine(option).getXApiCorrect();
                 xAPIQuestion = onode.getXApiQuestion();
                 xAPIResponse = onode.getLine(option).getText().Replace(",", " ");
                 trace = TrackerAsset.Instance.Alternative.Selected(xAPIQuestion, xAPIResponse, AlternativeTracker.Alternative.Question);
+                Game.Instance.GameState.BeginChangeAmbit(trace);
                 trace.Result.Duration = Time.realtimeSinceStartup - startTime;
                 trace.SetPartial();
                 Game.Instance.OnActionCanceled += ActionCancelled;
@@ -166,6 +169,7 @@ namespace uAdventure.Runner
                 return;
             }
 
+            isTracePending = false;
             TrackerAsset.Instance.setSuccess(xAPISuccess);
             Game.Instance.GameState.EndChangeAmbitAsExtensions(trace);
             trace.Completed();
@@ -174,7 +178,7 @@ namespace uAdventure.Runner
 
         public ConversationNodeHolder getChild()
         {
-            return (node != null) ? new ConversationNodeHolder(conversation, node.getChild(this.child)) : null;
+            return (node != null) ? new ConversationNodeHolder(holder, conversation, node.getChild(this.child)) : null;
         }
 
         public ConversationNode getNode()
@@ -201,12 +205,12 @@ namespace uAdventure.Runner
 
             foreach (ConversationNode node in conversation.getAllNodes())
             {
-                nodes.Add(new ConversationNodeHolder(conversation, node));
+                nodes.Add(new ConversationNodeHolder(this, conversation, node));
             }
         }
 
         private ConversationNodeHolder current;
-        private ConversationNodeHolder tracePendingNode;
+        private static ConversationNodeHolder tracePendingNode;
         public bool execute()
         {
             bool forcewait = false;
@@ -232,8 +236,7 @@ namespace uAdventure.Runner
                     {
                         // If the current node has a pending trace
                         // We end the previous trace pending
-                        if (tracePendingNode != null)
-                            tracePendingNode.EndTrace();
+                        EndTracePending();
 
                         // And we put this into pending
                         tracePendingNode = current;
@@ -244,8 +247,7 @@ namespace uAdventure.Runner
                     {
                         // When the conversation is over if there's a
                         // pending node, we end it
-                        if(tracePendingNode != null)
-                            tracePendingNode.EndTrace();
+                        EndTracePending();
                         if (TrackerAsset.Instance.Started)
                             TrackerAsset.Instance.Completable.Completed(conversation.getId(), CompletableTracker.Completable.DialogNode);
                         break;
@@ -257,6 +259,12 @@ namespace uAdventure.Runner
                 this.current = null;
 
             return forcewait;
+        }
+
+        public void EndTracePending()
+        {
+            if (tracePendingNode != null && tracePendingNode.TracePending)
+                tracePendingNode.EndTrace();
         }
     }
 }

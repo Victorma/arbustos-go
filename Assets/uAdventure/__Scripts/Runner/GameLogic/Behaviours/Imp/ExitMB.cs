@@ -206,7 +206,7 @@ namespace uAdventure.Runner
                 {
                     Debug.Log("Error while tracing the exit! (" + ex.Message + ", " + ex.StackTrace + ")");
                 }
-                Game.Instance.GameState.BeginChangeAmbit();
+                Game.Instance.GameState.BeginChangeAmbit(trace);
                 exitEffects = toRun.ExitMb.GetExitEffects(out exits);
             }
 
