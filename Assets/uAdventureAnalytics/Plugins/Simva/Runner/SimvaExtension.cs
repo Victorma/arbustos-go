@@ -396,16 +396,12 @@ namespace uAdventure.Simva
                     if (activityType.Equals("gameplay", StringComparison.InvariantCultureIgnoreCase)
                     && backupActivity.Details != null && backupActivity.Details.ContainsKey("backup") && (bool)backupActivity.Details["backup"])
                     {
-                        //This only works in windows player
-                        Application.runInBackground = true;
                         string traces = SimvaBridge.Load(((TrackerAssetSettings)TrackerAsset.Instance.Settings).BackupFile);
                         Instantiate(Resources.Load("SimvaBackupPopup"));
                         backupOperation = SaveActivity(CurrentActivityId, traces, true);
                         backupOperation.Then(() =>
                         {
                             afterBackup = true;
-                            //This only works in windows player
-                            Application.runInBackground = false;
                         });
                     }
 

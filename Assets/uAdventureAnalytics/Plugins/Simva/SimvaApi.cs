@@ -197,8 +197,8 @@ namespace SimvaPlugin
 			};
 
 			var result = new AsyncCompletionSource<SimvaApi<T>>();
-			apiClient.InitOAuth(username, password, SimvaConf.Local.ClientId, null, "simva", null, ":", true, null)
-				.Then(() =>
+			apiClient.InitOAuth(username, password, SimvaConf.Local.ClientId, null, "simva", null, ":", true, null, true)
+                .Then(() =>
 				{
 					if (Inherits<T, IAdminsApi>())
 					{

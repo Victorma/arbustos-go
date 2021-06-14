@@ -670,11 +670,10 @@ namespace Simva.Api
             var result = new AsyncCompletionSource();
 
             // make the HTTP request
-            var callApi = ApiClient.CallApi(path, UnityWebRequest.kHttpVerbPOST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+            var callApi = ApiClient.CallApi(path, UnityWebRequest.kHttpVerbPOST, queryParams, postBody, headerParams, formParams, fileParams, authSettings, true);
 
             callApi.AddProgressCallback(p =>
                 {
-                    UnityEngine.Debug.Log("SetResultProgress: " + p);
                     if (!result.IsCompleted && !result.IsCanceled)
                     {
                         result.SetProgress(p);

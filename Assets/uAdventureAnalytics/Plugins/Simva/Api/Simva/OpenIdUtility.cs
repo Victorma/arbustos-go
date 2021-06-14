@@ -502,12 +502,7 @@ namespace Simva
         public static IAsyncOperation<AuthorizationInfo> LoginWithROPC(string username, string password, string authUrl, string tokenUrl, string clientId,
             string audience, string scope = null)
         {
-            var result = new AsyncCompletionSource<AuthorizationInfo>();
-
-            var port = UnityEngine.Random.Range(25525, 65535);
-
-			var url = authUrl;
-			var formUrlEncoded = "grant_type=password" +
+            var formUrlEncoded = "grant_type=password" +
                 "&username=" + username +
                 "&password=" + password +
                 "&client_id=" + clientId;
@@ -544,7 +539,6 @@ namespace Simva
 
         public static IAsyncOperation<AuthorizationInfo> GetToken(string tokenUrl, string clientId, string authCode, string redirect_uri, string codeVerifier = null)
         {
-            var result = new AsyncCompletionSource<AuthorizationInfo>();
             var form = new Dictionary<string, string>()
                 {
                     { "grant_type", "authorization_code" },
@@ -562,43 +556,11 @@ namespace Simva
             }
 
             UnityWebRequest uwr = UnityWebRequest.Post(tokenUrl, form);
-
-            Observable.FromCoroutine(() => DoRequest(result, uwr)).Subscribe();
-
-            var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
-
-            result.Then(authInfo =>
-            {
-                authInfo.ClientId = clientId;
-                wrapper.SetResult(authInfo);
-                return wrapper;
-            })
-            .Catch(ex =>
-            {
-                if (uwr.isHttpError)
-                {
-                    var apiEx = (ApiException)ex;
-                    var msg = (string)apiEx.ErrorContent;
-                    try
-                    {
-                        var authError = JsonConvert.DeserializeObject<AuthorizationError>(msg);
-                        msg = authError.ErrorDescription;
-                    }
-                    catch { }
-                    wrapper.SetException(new ApiException((int)uwr.responseCode, msg));
-                }
-                else
-                {
-                    wrapper.SetException(ex);
-                }
-            });
-
-            return wrapper;
+            return DoAuthorizationRequest(clientId, uwr);
         }
 
 		public static IAsyncOperation<AuthorizationInfo> GetToken(string tokenUrl, string formUrlEncoded, string clientId)
         {
-            var result = new AsyncCompletionSource<AuthorizationInfo>();
             UnityWebRequest uwr = UnityWebRequest.Post(tokenUrl, "");
 			byte[] bytes = Encoding.UTF8.GetBytes(formUrlEncoded);
 			UploadHandlerRaw uH = new UploadHandlerRaw(bytes);
@@ -607,37 +569,7 @@ namespace Simva
 
 			uwr.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            Observable.FromCoroutine(() => DoRequest(result, uwr)).Subscribe();
-
-            var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
-
-            result.Then(authInfo =>
-            {
-                authInfo.ClientId = clientId;
-                wrapper.SetResult(authInfo);
-                return wrapper;
-            })
-            .Catch(ex =>
-            {
-                if (uwr.isHttpError)
-                {
-                    var apiEx = (ApiException)ex;
-                    var msg = (string)apiEx.ErrorContent;
-                    try
-                    {
-                        var authError = JsonConvert.DeserializeObject<AuthorizationError>(msg);
-                        msg = authError.ErrorDescription;
-                    }
-                    catch { }
-                    wrapper.SetException(new ApiException((int)uwr.responseCode, msg));
-                }
-                else
-                {
-                    wrapper.SetException(ex);
-                }
-            });
-
-            return wrapper;
+            return DoAuthorizationRequest(clientId, uwr);
         }
 
 		public static AuthorizationInfo RefreshToken(string tokenUrl, string clientId, string refresh_token)
@@ -663,8 +595,6 @@ namespace Simva
 
         public static IAsyncOperation<AuthorizationInfo> RefreshTokenAsync(string tokenUrl, string clientId, string refresh_token)
         {
-            var result = new AsyncCompletionSource<AuthorizationInfo>();
-
             UnityWebRequest uwr = UnityWebRequest.Post(tokenUrl,
                 new Dictionary<string, string>()
                 {
@@ -673,11 +603,15 @@ namespace Simva
                     { "client_id", clientId }
                 });
 
-            Observable.FromCoroutine(() => DoRequest(result, uwr)).Subscribe();
+            return DoAuthorizationRequest(clientId, uwr);
+        }
 
+        private static IAsyncOperation<AuthorizationInfo> DoAuthorizationRequest(string clientId, UnityWebRequest uwr)
+        {
             var wrapper = new AsyncCompletionSource<AuthorizationInfo>();
 
-            result.Then(authInfo =>
+            RequestsUtil.DoRequest<AuthorizationInfo>(uwr)
+                .Then(authInfo =>
                 {
                     authInfo.ClientId = clientId;
                     wrapper.SetResult(authInfo);
@@ -701,7 +635,8 @@ namespace Simva
                     {
                         wrapper.SetException(ex);
                     }
-                });
+                })
+                .AddProgressCallback(wrapper.SetProgress);
 
             return wrapper;
         }
@@ -814,34 +749,6 @@ namespace Simva
             return result;
         }
 
-        private static IEnumerator DoRequest<T>(IAsyncCompletionSource<T> op, UnityWebRequest webRequest)
-        {
-            yield return webRequest.SendWebRequest();
-
-            // Sometimes the webrequest is finished but the download is not
-            while (!webRequest.isNetworkError && !webRequest.isHttpError && webRequest.downloadProgress != 1)
-            {
-                yield return new WaitForFixedUpdate();
-            }
-
-            if (webRequest.isNetworkError)
-            {
-                op.SetException(new ApiException((int)webRequest.responseCode, webRequest.error, webRequest.downloadHandler.text));
-            }
-            else if (webRequest.isHttpError)
-            {
-                Debug.Log(webRequest.downloadHandler.text);
-                op.SetException(new ApiException((int)webRequest.responseCode, webRequest.error, webRequest.downloadHandler.text));
-            }
-            else
-            {
-                Debug.Log("Deserializing...");
-                var deserialized = JsonConvert.DeserializeObject<T>(webRequest.downloadHandler.text);
-                op.SetResult(deserialized);
-            }
-
-            webRequest.Dispose();
-        }
     }
 
     internal class ErrorMessage

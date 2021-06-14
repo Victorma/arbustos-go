@@ -73,16 +73,12 @@ namespace uAdventure.Simva
         {
             progressCallbackAdded = false;
 
-            //This only works in windows player
-            Application.runInBackground = true;
             var se = SimvaExtension.Instance;
             string traces = se.SimvaBridge.Load(((TrackerAssetSettings)TrackerAsset.Instance.Settings).BackupFile);
             se.backupOperation = se.SaveActivity(se.backupActivity.Id, traces, true);
             se.backupOperation.Then(() =>
             {
                 se.AfterBackup();
-                //This only works in windows player
-                Application.runInBackground = false;
             });
         }
 

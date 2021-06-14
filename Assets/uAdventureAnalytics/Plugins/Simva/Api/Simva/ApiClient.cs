@@ -218,8 +218,8 @@ namespace Simva
         /// <param name="authSettings">Authentication settings.</param>
         /// <returns>IAsyncOperation<UnityWebRequest></returns>
         public IAsyncOperation<UnityWebRequest> CallApi(String path, string method, Dictionary<String, String> queryParams, String postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> formParams, 
-            Dictionary<String, String> fileParams, String[] authSettings)
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, String> fileParams, String[] authSettings, bool inBackground = false)
         {
             UnityWebRequest request = null;
             var result = new AsyncCompletionSource<UnityWebRequest>();
@@ -289,16 +289,14 @@ namespace Simva
                         request.downloadHandler = new DownloadHandlerBuffer();
                     }
 
-                    result.AddProgressCallback((p) =>
+                    if (inBackground)
                     {
-                        UnityEngine.Debug.Log("ApiClientProgress: " + p);
-                        if(!result.IsCompleted&& !result.IsCanceled)
-                        {
-                            result.SetProgress(p);
-                        }
-                    });
-
-                    Observable.FromCoroutine(() => DoRequest(result, request)).Subscribe();
+                        RequestsUtil.DoRequestInBackground(request).Wrap(result);
+                    }
+                    else
+                    {
+                        RequestsUtil.DoRequest(request).Wrap(result);
+                    }
                 })
                 .Catch(error =>
                 {
@@ -309,45 +307,6 @@ namespace Simva
 
         }
 
-        private static IEnumerator DoRequest(IAsyncCompletionSource<UnityWebRequest> op, UnityWebRequest webRequest)
-        {
-            var wr = webRequest.SendWebRequest();
-            if (webRequest.uploadHandler != null)
-            {
-                while (!webRequest.isDone)
-                {
-                    yield return new WaitForEndOfFrame();
-                    Debug.Log("RequestProgress: " + wr.progress);
-                    op.SetProgress(wr.progress);
-                }
-            }
-            else
-            {
-                yield return wr;
-            }
-
-            // Sometimes the webrequest is finished but the download is not
-            while(!webRequest.isNetworkError && !webRequest.isHttpError && webRequest.downloadProgress != 1)
-            {
-                yield return new WaitForFixedUpdate();
-            }
-            
-            if (webRequest.isNetworkError)
-            {
-                op.SetException(new ApiException((int)webRequest.responseCode, webRequest.error, webRequest.downloadHandler.text));
-            }
-            else if (webRequest.isHttpError)
-            {
-                Debug.Log(webRequest.downloadHandler.text);
-                op.SetException(new ApiException((int)webRequest.responseCode, webRequest.error, webRequest.downloadHandler.text));
-            }
-            else
-            {
-                op.SetResult(webRequest);
-            }
-
-            webRequest.Dispose();
-        }
     
         /// <summary>
         /// Add default header.
