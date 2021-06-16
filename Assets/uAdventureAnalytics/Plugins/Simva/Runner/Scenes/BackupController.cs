@@ -93,10 +93,6 @@ namespace uAdventure.Simva
                 .SetSubject("Backup de " + username).SetText("Backup adjunto")
                 .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
                 .Share();
-
-            // Share on WhatsApp only, if installed (Android only)
-            //if( NativeShare.TargetExists( "com.whatsapp" ) )
-            //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
         }
 
         public void Quit()

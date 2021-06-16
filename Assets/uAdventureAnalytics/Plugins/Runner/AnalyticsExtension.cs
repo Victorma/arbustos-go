@@ -134,14 +134,14 @@ namespace uAdventure.Analytics
                 var trackerConfigs = Game.Instance.GameState.Data.getObjects<TrackerConfig>();
                 trackerConfig = trackerConfigs.Count == 0 ? new TrackerConfig() : trackerConfigs[0];
 
-                yield return StartCoroutine(StartTracker(trackerConfig));
+                yield return StartCoroutine(StartTracker(trackerConfig, null));
                 // TODO wait till start tracker is ready
             }
         }
 
         #endregion GameExtension
                 
-        public IEnumerator StartTracker(TrackerConfig config, IBridge bridge = null)
+        public IEnumerator StartTracker(TrackerConfig config, string backupFilename, IBridge bridge = null)
         {
             trackerConfig = config;
             string domain = "";
@@ -216,6 +216,12 @@ namespace uAdventure.Analytics
                 BackupStorage = config.getRawCopy(),
                 UseBearerOnTrackEndpoint = trackerConfig.getUseBearerOnTrackEndpoint()
             };
+
+            if (!string.IsNullOrEmpty(backupFilename))
+            {
+                tracker_settings.BackupFile = backupFilename;
+            }
+
             Debug.Log("[ANALYTICS] Settings: " + JsonConvert.SerializeObject(tracker_settings));
             TrackerAsset.Instance.StrictMode = false;
             TrackerAsset.Instance.Bridge = bridge ?? new UnityBridge();

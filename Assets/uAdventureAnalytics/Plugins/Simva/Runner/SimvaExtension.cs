@@ -495,7 +495,7 @@ namespace uAdventure.Simva
                             {
                                 SimvaBridge = new SimvaBridge(API.ApiClient);
                                 Debug.Log("[SIMVA] Starting tracker...");
-                                yield return StartCoroutine(AnalyticsExtension.Instance.StartTracker(trackerConfig, SimvaBridge));
+                                yield return StartCoroutine(AnalyticsExtension.Instance.StartTracker(trackerConfig, auth.Username + "_" + activityId + "_backup.log", SimvaBridge));
                             }
 
                             Debug.Log("[SIMVA] Starting Gameplay...");

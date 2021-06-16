@@ -753,7 +753,7 @@
       <condition />
     </map-element>
   </map-scene>
-  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436362915765, -3.72611844539583)" zoom="19" start="no">
+  <map-scene id="Start" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4415214918505 -3.72872555255831 0.00426219236963021 0.00525712966920722" center="(40.4436342502961, -3.72598701715407)" zoom="19" start="no">
     <map-element targetId="PlasticBag" layer="0">
       <condition>
         <active flag="Intro" />
@@ -798,20 +798,8 @@
         <active flag="Busqueda" />
       </condition>
     </map-element>
-    <map-element targetId="Bandalf" layer="0">
-      <condition />
-      <ext-elem-ref scale="0.2435164" orientation="2" transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4437370300293, -3.72653555870056)</param>
-        <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
-        <param name="RevealOnlyOnRange">True</param>
-        <param name="Hint">False</param>
-        <param name="RevealParticleTexture">leaf_particle.png</param>
-        <actions />
-      </ext-elem-ref>
-    </map-element>
   </map-scene>
-  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4442001305176, -3.725897014138)" zoom="18" start="no">
+  <map-scene id="Plaza" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.441520690918 -3.72872495651245 0.00426219217479229 0.00525713013485074" center="(40.443653069742, -3.72590774297404)" zoom="19" start="no">
     <map-element targetId="Marron" layer="0">
       <condition />
       <ext-elem-ref scale="0.15" orientation="0" transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -1194,7 +1182,7 @@
       </ext-elem-ref>
     </map-element>
   </map-scene>
-  <map-scene id="Ending" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4437035466029, -3.72620791196831)" zoom="19" start="no">
+  <map-scene id="Ending" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.441520690918 -3.72872495651245 0.00426219217479229 0.00525713013485074" center="(40.4437035466029, -3.72620791196831)" zoom="19" start="no">
     <map-element targetId="Bandalf" layer="0">
       <condition />
       <ext-elem-ref scale="0.8855089" orientation="2" transformManager="uAdventure.Geo.ScreenDescriptor">
