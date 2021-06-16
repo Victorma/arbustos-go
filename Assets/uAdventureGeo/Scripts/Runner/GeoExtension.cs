@@ -144,11 +144,12 @@ namespace uAdventure.Geo
                 DestroyImmediate(oldZoneControl.gameObject);
             }
 
-            if (memory.Get<bool>("zone_control") && !FindObjectOfType<ZoneControl>())
+            // TODO fix restoring zone control
+            /*if (memory.Get<bool>("zone_control") && !FindObjectOfType<ZoneControl>())
             {
                 var newZoneControl = new GameObject("zone_control");
                 newZoneControl.AddComponent<ZoneControl>().Restore(memory);
-            }
+            }*/
         }
 
 

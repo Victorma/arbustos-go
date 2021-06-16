@@ -51,7 +51,14 @@ namespace uAdventure.Simva
                 return;
             }
 
-            SimvaExtension.Instance.LoginAndSchedule(token.text);
+            if(token.text.ToLower() == "demo")
+            {
+                Demo();
+            }
+            else
+            {
+                SimvaExtension.Instance.LoginAndSchedule(token.text);
+            }
         }
 
         public void LoginWithKeykloak()
@@ -84,6 +91,9 @@ namespace uAdventure.Simva
         public void Demo()
         {
             PreviewManager.Instance.InPreviewMode = true;
+            uAdventure.Geo.GeoExtension.Instance.UsingDebugLocation = true;
+            uAdventure.Geo.GeoExtension.Instance.Location = new Vector2d(40.4436403741371, -3.72659319639157);
+            Game.Instance.Restart();
             Game.Instance.GameState.Data.setAutoSave(false);
             Game.Instance.GameState.Data.setSaveOnSuspend(false);
             Game.Instance.RunTarget(Game.Instance.GameState.InitialChapterTarget.getId());

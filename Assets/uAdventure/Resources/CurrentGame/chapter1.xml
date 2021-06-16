@@ -5899,7 +5899,7 @@
     <condition />
   </macro>
   <macro id="Tirar">
-    <documentation></documentation>
+    <documentation>Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)Escanea el QR del contenedor adecuadoAmarilloNaranjaMarronVerdeAzulNo has escaneado ningún contenedor. Busca el contenedor correcto o pregúntame como encontrarlo :)</documentation>
     <deactivate flag="Correcto" guid="63f72b5b-df0a-4c52-95de-0f3b7d00d430" />
     <condition>
       <active flag="Correcto" />
