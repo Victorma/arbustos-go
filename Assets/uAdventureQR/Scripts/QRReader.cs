@@ -147,9 +147,9 @@ namespace dZine4D.Misc.QR
                 previousWebCamRotation = camTexture.videoRotationAngle;
             }
 
-            if (previousWebCamVerticallyMirrored != camTexture.videoVerticallyMirrored || true)
+            if (previousWebCamVerticallyMirrored != camTexture.videoVerticallyMirrored)
             {
-                if (camTexture.videoVerticallyMirrored || true)
+                if (camTexture.videoVerticallyMirrored)
                 {
                     OutputImage.rectTransform.localScale = new Vector3(1, -1, 1);
                 }
@@ -262,7 +262,7 @@ namespace dZine4D.Misc.QR
 
         private void FlipCameraFeedIfNeeded()
         {
-            if ((previousWebCamVerticallyMirrored || true) && !isFeedFlipped)
+            if (previousWebCamVerticallyMirrored && !isFeedFlipped)
             {
                 if (auxFlipArray == null || auxFlipArray.Length != cameraFeedGrab.Length)
                 {
