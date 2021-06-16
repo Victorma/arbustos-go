@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 8
+  bundleVersion: 9
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -175,8 +175,8 @@ PlayerSettings:
     WebGL: com.eUCM.ElSeorDeLosArbustosGO
     iPhone: com.eUCM.ElSeorDeLosArbustosGO
   buildNumber:
-    iPhone: 8
-  AndroidBundleVersionCode: 8
+    iPhone: 9
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
