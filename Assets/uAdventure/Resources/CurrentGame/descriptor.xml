@@ -3,15 +3,14 @@
   <title>Adventure title</title>
   <description>
   </description>
-  <application-identifier>
-  </application-identifier>
-  <configuration keepShowing="no" keyboard-navigation="disabled" defaultClickAction="showDetails" perspective="regular" dragBehaviour="considerNonTargets" show-save-load="no" show-reset="no" autosave="yes" save-on-suspend="yes" restore-after-open="yes">
-    <gui type="contextual" inventoryPosition="icon" inventoryImage="assets/special/DefaultInventory.png" inventoryX="675" inventoryY="550" inventoryScale="0.2" />
+  <application-identifier>com.eUCM.GuerraCivilUCM</application-identifier>
+  <configuration keepShowing="no" keyboard-navigation="disabled" defaultClickAction="showDetails" perspective="regular" dragBehaviour="considerNonTargets" show-save-load="yes" show-reset="yes" autosave="yes" save-on-suspend="yes" restore-after-open="yes">
+    <gui type="contextual" inventoryPosition="icon" inventoryImage="assets/special/DefaultInventory.png" inventoryX="748.3333" inventoryY="591.6666" inventoryScale="0.1367188" />
     <mode playerTransparent="yes" />
     <graphics mode="windowed" />
   </configuration>
   <extension-objects>
-    <tracker rawCopy="yes" storageType="NET" traceFormat="XAPI" host="https://analytics.e-ucm.es/" trackingCode="5e5dd6eee3490e008a48b34aatwyrbuunx4" flushInterval="3" debug="yes" />
+    <tracker rawCopy="yes" storageType="LOCAL" traceFormat="XAPI" host="" trackingCode="" flushInterval="3" debug="no" />
   </extension-objects>
   <contents>
     <chapter path="chapter1.xml">

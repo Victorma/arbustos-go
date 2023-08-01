@@ -1173,7 +1173,11 @@ namespace AssetPackage
 
             if(trace.Result.Extensions == null)
             {
-                trace.Result.Extensions = new Dictionary<string, object>(extensions);
+                trace.Result.Extensions = new Dictionary<string, object>();
+                foreach (var extension in extensions)
+                {
+                    trace.Result.Extensions.Add(extension.Key, extension.Value);
+                }
             }
             else
             {

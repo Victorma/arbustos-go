@@ -40,8 +40,17 @@ public class TextsExporter {
                     var childNumber = 0;
                     foreach (var child in node.getChilds())
                     {
-                        nodeContinuations[child].Add(" * After " + nodeNames[node] + ": " 
-                            + (node.getChildCount() > 1 ? node.getLine(childNumber).getText(): node.getLines().Last().getText()));
+                        var afterText = " -- Empty node -- ";
+                        if(node.getChildCount() > 1)
+                        {
+                            afterText = node.getLine(childNumber).getText();
+                        }
+                        else if(node.getLineCount() > 0)
+                        { 
+                            afterText = node.getLine(node.getLineCount()-1).getText();
+                        }
+
+                        nodeContinuations[child].Add(" * After " + nodeNames[node] + ": " + afterText);
                         childNumber++;
                     }
                 }
@@ -58,6 +67,8 @@ public class TextsExporter {
                     {
                         outWriter.WriteLine(" - " + line.getName() + ": " + line.getText()); 
                     }
+
+                    WriteEffects(outWriter, node.getEffects());
                 }
                 outWriter.WriteLine("");
 
@@ -76,6 +87,9 @@ public class TextsExporter {
                 {
                     switch (action.getType())
                     {
+                        case Controller.ACTION_EXAMINE:
+                            outWriter.WriteLine(" - Al examinarlo:");
+                            break;
                         case Controller.ACTION_GRAB:
                             outWriter.WriteLine(" - Al cogerlo:");
                             break;
@@ -83,35 +97,8 @@ public class TextsExporter {
                             outWriter.WriteLine(" - Al tirarlo:");
                             break;
                     }
-
-                    foreach(var effect in action.getEffects().getEffects().Where(e => e is SpeakCharEffect || e is SpeakPlayerEffect))
-                    {
-                        var abstractEffect = effect as AbstractEffect;
-                        if (abstractEffect != null && abstractEffect.getConditions().Size() > 0)
-                        {
-                            outWriter.Write("  * Cuando " + abstractEffect.getConditions().ToString() + ": ");
-                        }
-                        else
-                        {
-                            outWriter.Write("  * ");
-                        }
-
-                        var speakCharEffect = effect as SpeakCharEffect;
-                        var speakerName = "Player";
-                        var text = "";
-
-                        if(speakCharEffect != null)
-                        {
-                            speakerName = speakCharEffect.getTargetId();
-                            text = speakCharEffect.getLine();
-                        }
-                        else
-                        {
-                            text = (effect as SpeakPlayerEffect).getLine();
-                        }
-
-                        outWriter.WriteLine(speakerName + ": " + text);
-                    }
+                    var effects = action.getEffects();
+                    WriteEffects(outWriter, effects);
                 }
             }
             foreach (var geoElement in GeoController.Instance.GeoElements.DataControls)
@@ -157,6 +144,38 @@ public class TextsExporter {
                     }
                 }
             }
+        }
+    }
+
+    private static void WriteEffects(System.IO.StreamWriter outWriter, EffectsController effects)
+    {
+        foreach (var effect in effects.getEffects().Where(e => e is SpeakCharEffect || e is SpeakPlayerEffect))
+        {
+            var abstractEffect = effect as AbstractEffect;
+            if (abstractEffect != null && abstractEffect.getConditions().Size() > 0)
+            {
+                outWriter.Write("  * Cuando " + abstractEffect.getConditions().ToString() + ": ");
+            }
+            else
+            {
+                outWriter.Write("  * "); 
+            }
+
+            var speakCharEffect = effect as SpeakCharEffect;
+            var speakerName = "Player";
+            var text = "";
+
+            if (speakCharEffect != null)
+            {
+                speakerName = speakCharEffect.getTargetId();
+                text = speakCharEffect.getLine();
+            }
+            else
+            {
+                text = (effect as SpeakPlayerEffect).getLine();
+            }
+
+            outWriter.WriteLine(speakerName + ": " + text);
         }
     }
 }

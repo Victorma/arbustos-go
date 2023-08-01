@@ -142,6 +142,12 @@ namespace uAdventure.Geo
             var ns = new Vector3(metersSizeAt0.x * pixelScaleAt, metersSizeAt0.y * pixelScaleAt, 1);
             transform.localScale = ns;
             positioner.Hint.transform.localScale = new Vector3(1f/ns.x, 1f/ns.y, 1f/ns.z) * 7f;
+            if (representable.Element.getId() == "Naranjero" || representable.Element.getId() == "Radio")
+            {
+                // Color hint tuned to FFB444 -> FF0000
+                var hintRenderer = positioner.Hint.GetComponent<MeshRenderer>();
+                hintRenderer.material.color = new Color(1, 0, 0, 0.5f);
+            }
         }
 
         private void SetShown(bool shown)

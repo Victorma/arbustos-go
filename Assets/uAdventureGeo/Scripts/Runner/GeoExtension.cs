@@ -17,7 +17,7 @@ namespace uAdventure.Geo
 
         public bool UsingDebugLocation
         {
-            get { return memory.Get<bool>("using_debug_location"); }
+            get { return memory != null && memory.Get<bool>("using_debug_location"); }
             set
             {
                 if ((!Application.isMobilePlatform || PreviewManager.Instance.InPreviewMode) && Application.isPlaying)

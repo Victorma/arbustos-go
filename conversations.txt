@@ -1,769 +1,654 @@
-Conversation: Intro
+Conversation: IntroduccionLibro
 Node: 1
- - Player: Hola viajero
- - Player: #O Una voz que habla... 
- - Player: No soy una voz, soy Bandalf y esto es telepatía
- - Player: He conectado mi mundo, Baland, con el tuyo para encontrar ayuda
- - Player: #O Baland... ¿Basura-landia?
- - Player: Sí, elegimos ese nombre para recordarnos nuestro peor enemigo: La Basura
- - Player: Y ahora mismo la situación es crítica, aunque aún hay tiempo...
+ - Player: Hacer la introducción
+ - Player: Saltarse la introducción
 Node: 2
- * After Node: 1: Y ahora mismo la situación es crítica, aunque aún hay tiempo...
- - Player: Te ayudaré
- - Player: Bueh y a mí qué
+ * After Node: 1: Hacer la introducción
+ - Player: Al fin has llegado...
+ - Player: Hoy no es un día normal en la Universidad Complutense. Hoy has venido con un objetivo muy distinto al de otros días.
+ - Player: Al rebuscar entre las cosas de tu difunto abuelo, has encontrado un libro bastante peculiar.
+ - Player: Tu abuelo, al igual que múchos jóvenes en su época, participó en la Guerra Civil.
+ - Player: En su caso le tocó pelear en el frente de la Ciudad Universitaria. No es que sepa demasiado del tema, pero he venido aquí para intentar aprender más sobre ello.
+ - Player: En este libro escribió su experiencia sobre el conflicto. Sin embargo, el paso de los años no le ha sentado nada bien.
+ - Player: Las páginas son frágiles y han tomado un color amarillento. Es prácticamente ilegible.
+ - Player: Sin embargo, hay 5 fotografías escondidas entre las páginas que se han conservado sorprendentemente bien.
 Node: 3
- * After Node: 2: Te ayudaré
- - Player: ¡Genial! Te explico...
+ * After Node: 1: Saltarse la introducción
 Node: 4
- * After Node: 2: Bueh y a mí qué
- - Player: Jajaja, qué iluso, no tienes elección...
+ * After Node: 2: Sin embargo, hay 5 fotografías escondidas entre las páginas que se han conservado sorprendentemente bien.
+ - Player: Primero...
 Node: 5
- * After Node: 3: ¡Genial! Te explico...
- * After Node: 4: Jajaja, qué iluso, no tienes elección...
- - Player: Nuestros mundos están conectados y se destruirán si no hacemos algo
- - Player: #O ¡No! ¿Qué puedo hacer yo?
- - Player: ¡Mucho! Ven a verme al Metro de Ciudad Universitaria
- - Player: Gracias a mi magia podrás interactuar con mi mundo a través de tu móvil
- - Player: Voy a invocar una flecha verde que indicará mi posición...
- - Player: #! ¡Navigatio!
+ * After Node: 4: Primero...
+ - PlayerPos: Una foto del frente de la Ciudad Universitaria.
 Node: 6
- * After Node: 5: #! ¡Navigatio!
- - Player: #O ¡Increíble!
- - Player: Soy un crack
- - Player: Sigue la flecha, te espero allí
-
-Conversation: BandalfIntro
-Node: 1
- - Bandalf: Sí, soy Bandalf
- - Player: ¿Cómo?
- - Bandalf: Ibas a preguntarlo, ¿verdad?
- - Player: Yo... Eh... Sí.
- - Bandalf: Soy mago, me adelanto a todo ;)
- - Bandalf: Necesito tu ayuda. No hay tiempo que perder con preguntas
- - Player: Pero... ¡Sí no he podido preguntar nada!
- - Bandalf: ¡SHHHH!
- - Bandalf: Una amenaza se cierne sobre nuestros mundos
- - Bandalf: El planeta está muriéndose
- - Bandalf: Si seguimos consumiendo de manera tan inconsciente vamos a acabar...
- - Player: Mal, ¿verdad?
- - Bandalf: Vaya, veo que no hace falta ser mago para darse cuenta...
- - Bandalf: Verás...
-Node: 2
- * After Node: 1: Verás...
- - Bandalf: El campus de Ciudad Universitaria de la Complutense está en la Dehesa de la Villa
- - Bandalf: La flora son principalmente encinas pero Isabel II la repobló con pinos, aunque hay muchos más
- - Bandalf: De hecho, luego te doy una guía para que puedas conocer los árboles de la plaza mejor
- - Bandalf: Cuando se inició la construcción del campus, la dehesa empezó a cambiar...
-Node: 3
- * After Node: 2: Cuando se inició la construcción del campus, la dehesa empezó a cambiar...
- - Bandalf: Esta foto es de los años 30, cuando Alfonso XIII inició la construcción del campus
- - Bandalf: Aunque ahora que lo pienso... Estás muy calladito
- - Bandalf: ¿Cuales son las facultades que hay en la foto?
-Node: 4
- * After Node: 3: ¿Cuales son las facultades que hay en la foto?
- - Player: Medicina, Farmacia y Odontología
- - Player: Medicina, Física y Filosofía
- - Player: Matemáticas, Física y Química
-Node: 5
- * After Node: 4: Medicina, Farmacia y Odontología
- - Bandalf: ¡Efectivamente! Dado que está al lado del Hospital Clínico se empezó por allí
-Node: 6
- * After Node: 4: Medicina, Física y Filosofía
- * After Node: 4: Matemáticas, Física y Química
- - Bandalf: Jeje, no. Dado que está al lado del Hospital Clínico se centraron en Medicina, Farmacia y Odontología
+ * After Node: 5: Una foto del frente de la Ciudad Universitaria.
+ - PlayerPos: Después, una fotografía de lo que parece un pabellón lleno de escombros.
 Node: 7
- * After Node: 5: ¡Efectivamente! Dado que está al lado del Hospital Clínico se empezó por allí
- * After Node: 6: Jeje, no. Dado que está al lado del Hospital Clínico se centraron en Medicina, Farmacia y Odontología
- - Bandalf: En la Segunda República añadieron Ciencias, Letras y Arquitectura, no todo era curar gente jajaja
- - Bandalf: Aquí de hecho, se vivió la guerra. ¡Esta plaza fue frente en la Guerra Civil!
- - Bandalf: Aún se ven los balazos en las fachadas de Medicina o Farmacia
- - Bandalf: Por su valor, la UCM en 1999 se declaró Bien de Interés Cultural
- - Bandalf: Aunque todo se va a ir a freir espárragos a menos que hagamos algo...
+ * After Node: 6: Después, una fotografía de lo que parece un pabellón lleno de escombros.
+ - PlayerPos: Aquí se muestra un edificio completamente derruido...
 Node: 8
- * After Node: 7: Aunque todo se va a ir a freir espárragos a menos que hagamos algo...
- - Bandalf: Los residuos están acabando con la universidad
- - Bandalf: Consumimos, desperdiciamos y nos despreocupamos
+ * After Node: 7: Aquí se muestra un edificio completamente derruido...
+ - PlayerPos: En esta imágen se ve una estatua de un caballo al borde de caerse al suelo.
+Node: 9
+ * After Node: 8: En esta imágen se ve una estatua de un caballo al borde de caerse al suelo.
+ - PlayerPos: Esta foto muestra la vista la vista aerea de un edificio destrozado.
+Node: 10
+ * After Node: 9: Esta foto muestra la vista la vista aerea de un edificio destrozado.
+ - PlayerPos: Y por último, una foto de unos edificios tomada desde el otro lado de la calle.
+Node: 11
+ * After Node: 10: Y por último, una foto de unos edificios tomada desde el otro lado de la calle.
+ - Player: Mi objetivo es localizar estos escenarios en la Ciudad Universitaria.
+ - Player: Me he guardado las fotografías en la mochila, si quiero verlas más de cerca solo tendré que rebuscar dentro.
+ - Player: Lo más inteligente será empezar a buscar desde una zona central... Por ejemplo... La boca de metro de Ciudad Universitaria...
+
+Conversation: IntroduccionGuia
+Node: 1
+ - Player: Hacer la introduccion
+ - Player: Saltarse la introduccion
+Node: 2
+ * After Node: 1: Hacer la introduccion
+ - Player: #O Madre mia... ¿Y las pintas de este señor?
+ - Player: Hola... ¿Cómo es que vas vestido así?
+ - GuiaJugador: #! ¡Diablos! ¿Cómo es que puedes hablar conmigo?
+ - GuiaJugador: ¡Hace poco menos de 100 años que no hablo con nadie vivo!
+ - GuiaJugador: Por tu expresión diría que tampoco tienes ni idea de cómo es que puedes hablar conmigo...
+ - GuiaJugador: Verás... Yo fallecí en este mismo campus. En 1936, justo al final de la Guerra Civil.
+ - GuiaJugador: He estado vagando estas calles por décadas, viendo su reconstrucción y su evolución...
+ - GuiaJugador: Dime. ¿Has venido aquí por algo en especial?
+ - Player: Mi abuelo luchó aquí en la guerra y tenía guardadas 5 fotos tomadas aquí. He venido a averiguar dónde fueron tomadas.
+ - GuiaJugador: A ver a ver... ¡Relámpagos! Que recuerdos... Mira, te puedo ayudar a encontrarlas. Nos lo pasaremos bien.
+Node: 3
+ * After Node: 1: Saltarse la introduccion
+Node: 4
+ * After Node: 2: A ver a ver... ¡Relámpagos! Que recuerdos... Mira, te puedo ayudar a encontrarlas. Nos lo pasaremos bien.
+ - Player: ¿Por qué no me díces dónde están?
+ - Player: De acuerdo.
+Node: 5
+ * After Node: 4: ¿Por qué no me díces dónde están?
+ - GuiaJugador: ¿Y qué gracia tendría eso?
+ - GuiaJugador: Mira, llevo poco menos de 100 años sin hablar con alguien vivo.
+ - GuiaJugador: No te vas a desprender de mí tán fácilmente.
+ - Player: De acuerdo...
+Node: 6
+ * After Node: 4: De acuerdo.
+ * After Node: 5: De acuerdo...
+ - Player: ¿Por dónde debería empezar?
+ - GuiaJugador: Deberías preguntar a la gente de por aquí. A estas horas deberían estar levantándose...
+Node: 7
+ * After Node: 6: Deberías preguntar a la gente de por aquí. A estas horas deberían estar levantándose...
+ - Player: ¿Estudiantes?
+ - Player: ¿Hay más como tú?
+Node: 8
+ * After Node: 7: ¿Estudiantes?
+ - GuiaJugador: ¡Claro que no!
+ - GuiaJugador: Eres el primero de esta época con el que hablo, pero os conozco bién.
+ - GuiaJugador: Algunos no sabéis ni ataros los cordones... ¡Cómo para orientaros con las fotografías!
+ - GuiaJugador: Mira, hay más gente como yo.
+Node: 9
+ * After Node: 7: ¿Hay más como tú?
+ * After Node: 8: Mira, hay más gente como yo.
+ - GuiaJugador: Y de todos los aspectos. Tanto republicanos como sublevados.
+ - GuiaJugador: Civiles, soldados, ricos y pobres. Intenta buscarles por el campus. Pregúntales por las fotografías y seguro que te ayudan.
+ - GuiaJugador: Yo te acompañaré. Si tienes alguna duda o te pierdes por el camino no dudes en preguntarme.
+ - Player: De acuerdo.
+ - GuiaJugador: Prueba a cruzar al otro lado de la carretera, en la plaza me parece ver a alguien...
+
+Conversation: IntroduccionNoticias
+Node: 1
+ - GuiaJugador: ¡Fijate! ¿Sabes qué es esto?
  - Player: ...
- - Bandalf: Contaminación, extinciones, calentamiento...
- - Bandalf: Poco a poco empezamos a sufrir las consecuencias
- - Bandalf: Pero por suerte tengo la herramienta para ayudar a evitarlo...
-Node: 9
- * After Node: 8: Pero por suerte tengo la herramienta para ayudar a evitarlo...
- - Bandalf: ¡Las tres erres!
- - Player: ¡REDUCIR!
- - Player: ¡REUTILIZAR!
- - Player: ¡RECICLAR!
-Node: 10
- * After Node: 9: ¡RECICLAR!
- - Bandalf: ¡Y para ello debemos aprender a separar, que es lo que vas a aprender hoy!
- - Bandalf: Marrón, Amarillo, Verde, Azul y Naranja
- - Bandalf: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
-Node: 11
- * After Node: 10: Son los cinco contenedores legendarios y con ellos podemos librarnos del mal...
- - Bandalf: Él es Basauron
- - Bandalf: Un monstruo cuyo poder puede acabar con todo lo que conocemos
- - Bandalf: Su sombra se cierne sobre nosotros y atacará de un momento a otro
- - Bandalf: Por ello debemos protejernos, ¡y para eso te necesito!
- - Bandalf: Te voy a entregar un arma...
- - Bandalf: Un arma muy poderosa...
- - Bandalf: LA CUARTA R
-Node: 12
- * After Node: 11: LA CUARTA R
- - Bandalf: ¡RECOGER!
- - Bandalf: La universidad, llena de juventud, se llena de residuos
- - Bandalf: Y hoy recogeremos y reciclaremos juntos...
- - Bandalf: ¡Para salvar el mundo de Basauron!
-Node: 13
- * After Node: 12: ¡Para salvar el mundo de Basauron!
- - Player: ¡Genial!
- - Player: Entonces... ¿Cómo empiezo?
- - Bandalf: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
-Node: 14
- * After Node: 13: Perfecto, acompáñame, tengo que mostrarte cómo recoger la basura...
- - Bandalf: Ve junto a la estatua "Los portadores de la antorcha" en el centro de la plaza
- - Bandalf: Tienes que recoger una bolsa de plástico que aparecerá en tu pantalla
+ - GuiaJugador: ¿Qué pasa, acaso no leéis periódicos los de vuestra época?
+ - GuiaJugador: Esto es prensa de la época... Aunque casi se podría llamar propaganda.
+ - GuiaJugador: ¿Sabes? La guerra no solo se libraba en el frente. Las imprentas luchaban para animar a la población o para descorazonar al enemigo.
+ - GuiaJugador: Solo hacía falta que un bando perdiera una batalla para anunciarla despues como una tremenda victoria.
+ - GuiaJugador: Por el campus encontrarás prensa de toda España, de todos los colores políticos.
+ - GuiaJugador: Seguramente no resuelvan el misterio de las fotografías, pero seguro que aprendes algo.
+ - GuiaJugador: Disculpa, siempre acabo hablando más de la cuenta... Veamos esa página...
 
-Conversation: BuscandoBolsi
+Conversation: DemasiadoLejos
 Node: 1
- - Bandalf: Sigue la flecha verde hasta la estatua
- - Bandalf: Allí encontrarás una bolsa
- - Bandalf: ¡Recógela!
+ - Player: Estoy demasiado lejos de esa persona para que me oiga...
+ - Player: Debería de acercarme un poco más
 
-Conversation: EncontradoBolsi
+Conversation: ConvGuia
 Node: 1
- - Bandalf: #! ¡Mira!
- - Bandalf: #! ¡La bolsa de basura que buscábamos!
- - Bandalf: Todos los objetos que conectan tu mundo con el mío están ocultos
- - Bandalf: Sin embargo, ¡podrás interactuar con ellos a través de tu pantalla!
- - Bandalf: Toca la bolsa de basura y pulsa en el símbolo de recoger para recogerla
-
-Conversation: CreacionBolsi
-Node: 1
- - Bandalf: ¡Perfecto!
- - Bandalf: ¡Ahora voy a hacer mi magia!
- - Bandalf: Bíbidi, bó...
- - Bandalf: No, espera, eso tiene copyright
- - Bandalf: #! ¡Por el poder de la reutilización!
- - Bandalf: #! ¡¡Ven a la vida!!!
+ - GuiaJugador: ¿Necesitas ayuda?
 Node: 2
- * After Node: 1: #! ¡¡Ven a la vida!!!
- - Player: ¡Guau!
- - Bandalf: Heh, ¡soy todo un mago!
- - Bandalf: ¡Bolsi! ¡Saluda!
- - Bolsi: Ho...
- - Bolsi: Holi...
- - Bandalf: No tengas miedo pequeña
+ * After Node: 1: ¿Necesitas ayuda?
+ - Player: Ayúdame a abrir el mapa.
+ - Player: Estoy perdido.
+ - Player: No se a donde ir.
 Node: 3
- * After Node: 2: No tengas miedo pequeña
- - Bolsi: ¡Soy Bolsi y te ayudaré a partir de ahora en tu aventura!
- - Bandalf: ¡Así me gusta!
- - Bandalf: Hay muchos otros residuos en la plaza que deberás reciclar
- - Bandalf: En total, hay 15 residuos y deberás encontrar al menos 8 para poder atraer la atención de Basauron
- - Bandalf: Busca cuantos más puedas y luego recíclalos en los contenedores en la esquina de la plaza junto a Medicina
- - Bolsi: Yo te ayudaré a encontrarlos si me preguntas
- - Bolsi: ¡Y te ayudaré a reciclar explicándote cada residuo que encuentres!
+ * After Node: 2: Ayúdame a abrir el mapa.
+ - GuiaJugador: Claro eso está hecho.
+ - Player: Aunque creo que no tienes nada que buscar ahí por ahora...
 Node: 4
- * After Node: 3: ¡Y te ayudaré a reciclar explicándote cada residuo que encuentres!
- - Bolsi: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
+ * After Node: 2: Estoy perdido.
+ - GuiaJugador: Las fotos no están demasiado alejadas del frente. Intenta no desviarte demasiado.
+ - GuiaJugador: Muchos de los míos se encuentran en la zona cercana al metro. Si vas allí, seguro que te dan pistas.
+ - Player: ¡De acuerdo!
 Node: 5
- * After Node: 4: Toma esta guía de reciclaje, ¡podrás consultarla cuando quieras en tu inventario!
- - Bandalf: Por otro lado, podríamos utilizar la naturaleza para volverte más fuerte
- - Bandalf: Si quieres tener vidas extra en la batalla contra basauron, podemos fabricar unas pociones con unos viejos amigos
- - Bandalf: En medicina, Santiago Ramón y Cajal necesita un fruto de majuelo y un ala de mariposa saltacercas para crear una poción neurológica
- - Bolsi: ¡Anotado!
- - Bandalf: En farmacia, Severo Ochoa y Margarita salas necesitan una ciruela y un plumero de la pampa para crear su poción de ARN
- - Bolsi: ¡Anotado! Pregúntame si quieres recordarlos...
- - Bolsi: ¡Podría darte pistas si no encuentras los ingredientes o te pierdes! Jijiji
- - Bandalf: Aquí tienes el mapa de los árboles que te prometí, te será de ayuda
-Node: 6
- * After Node: 5: Aquí tienes el mapa de los árboles que te prometí, te será de ayuda
- - Bandalf: Te estaré esperando junto a los contenedores, pregunta a Bolsi si quieres encontrarlos
- - Player: ¡Genial!
- - Bandalf: Recuerda:
- - Bandalf: Busca y recicla al menos 8 objetos de la plaza, y si quieres, busca y lleva los ingredientes a Medicina y a Farmacia
- - Bandalf: Nos vemos junto a los contenedores
+ * After Node: 2: No se a donde ir.
+ - GuiaJugador: Veamos...
+ - GuiaJugador: Sobre esta fotografía...
+ - GuiaJugador: El chaval al lado de medicina te dijo que el nombre del edificio tenía algo que ver con un artista...
+ - GuiaJugador: Sobre esta...
+ - GuiaJugador:  El soldado comunista te dijo que el edificio de al lado de la foto es la Casa de Velazquez. También recomendó que pasaras por allí.
+ - GuiaJugador: Esta foto...
+ - GuiaJugador: El chico este tan... borde... Te dijo que probaras a buscar en la facultad de enfrente. Supongo que se refería a la de filosofía.
+ - GuiaJugador: El soldado sublevado de arquitectura te confirmó que la foto es de allí. Deberías ir a ver.
+ - GuiaJugador: Nadie más con quien hayas hablado te ha dado ninguna pista... Deberías probar a hablar con más personas.
 
-Conversation: LlegadaPortadores
+Conversation: ConvSoldadoComunista
 Node: 1
- - Bandalf: Bueno, ya estamos en el centro de la plaza
- - Bandalf: Esta es la Plaza de Ramón y Cajal, uno de los puntos más icónicos de la Ciudad Universitaria
- - Player: Ramón y Cajal? Como el hospital?
- - Bandalf: Hospital? Vaya, si que ha llegado Santiago lejos!
- - Player: Santiago?
- - Bandalf: Verás, hace muchos años, antes de la guerra civil, aquí daba clase un buen amigo mío
- - Bandalf: Santiago Ramón y Cajal
- - Bandalf: 
-
-Conversation: BatallaFinal
-Node: 1
- - Bandalf: Bien, con los residuos que has reciclado hemos conseguido provocar a Basauron
+ - Player: ¿Hola?
+ - SoldadoComunista: ¿Puedes verme? ¡Menuda sorpresa!
+ - SoldadoComunista: ¿Se puede saber qué se te ha perdido por aquí?
+ - Player: Estoy buscando el lugar donde se tomaron unas fotografías de mi abuelo.
+ - SoldadoComunista: ¡Fascinante! ¿Podría verlas?
+ - Player: ¡Volviste! ¿Necesitas algo?
 Node: 2
- * After Node: 1: Bien, con los residuos que has reciclado hemos conseguido provocar a Basauron
- - Player: Ahí viene!
+ * After Node: 1: ¡Volviste! ¿Necesitas algo?
+ * After Node: 3: ¡Mira en qué estado se quedó!
+ * After Node: 4: Deberías echar un vistazo por allí.
+ * After Node: 5: #O Eso explica bastantes cosas...
+ - Player: ¿Cuál es tu historia?
+ - Player: ¿Te suena esta fotografía?
+ - Player: Un anarquista me dijo que no te preguntara sobre Durruti.
+ - Player: Debería irme.
 Node: 3
- * After Node: 2: Ahí viene!
- - Basauron: #! MUAHAHAHAHA
- - Basauron: #! ¡Soy Basauron, Señor Oscuro de la basura!
- - Basauron: #! ¡Voy a dominar este mundo, a acabar con la hegemonía de las personas y su irresponsabilidad! 
- - Player: ¡Adelante Bandalf! ¡Peleemos!
- - Bandalf: ¡Tómate las pociones que hayas fabricado!
- - Bandalf: ¡Tendrás protección a fallos si fallas!
- - Player: Vale!
- - Player: #O Glup
- - Player: #O Glup
- - Player: #O Glup
- - Player: Viscoso pero sabroso!
- - Player: #! ¡Bien Basauron! ¡Vamos a acabar contigo!
- - Basauron: #! ¡Y ahora MUERE!
+ * After Node: 2: ¿Cuál es tu historia?
+ - SoldadoComunista: Me llamo Perdo Gómez, y fuí militante en el Partido Comunista Español.
+ - SoldadoComunista: Al estallar la guerra, tomé las armas contra los fascistas para defender la capital de la república.
+ - SoldadoComunista: Yo participé en la defensa del hospital clínico, más hacia el este, y allí es donde fallecí.
+ - SoldadoComunista: Tras cruzar el Manzanares, los sublevados ocuparon prácticamente la mitad de Ciudad Universitaria. Incluído el Hospital Clínico.
+ - SoldadoComunista: Se lo conseguimos arrebatar brevemente, pero en cuestión de días lo retomaron de nuevo.
+ - SoldadoComunista: Intentamos sacarles de allí de cualquier manera. Intentamos derruir el edificio múltiples veces. Minas, granadas, bombas... Lo intentamos todo.
+ - SoldadoComunista: ¡Mira en qué estado se quedó!
 Node: 4
- * After Node: 3: #! ¡Y ahora MUERE!
- - Basauron: Es mi momento, voy a acabar con la humanidad
- - Basauron: ¡Mi basura innundará el mundo!
- - Player: #O * Basauron va a tirarte basura *
- - Player: #O * Separa la basura correctamente para derrotarle *
- - Player: #O * Acierta el máximo número de preguntas para derrotar a Basauron *
- - Player: ¡Viene un botellín de cerveza!
+ * After Node: 2: ¿Te suena esta fotografía?
+ - SoldadoComunista: Este edificio... No estoy seguro de cuál es exáctamente...
+ - SoldadoComunista: Estoy seguro que el edificio que tiene a su lado es la Casa de Velazquez.
+ - SoldadoComunista: Ese edificio fue defendido por unos compañeros polacos de las Brigadas Internacionales.
+ - SoldadoComunista: Deberías echar un vistazo por allí.
 Node: 5
- * After Node: 4: ¡Viene un botellín de cerveza!
- - Player: Verde
- - Player: Azul
- - Player: Amarillo
- - Player: Marrón
- - Player: Naranja
+ * After Node: 2: Un anarquista me dijo que no te preguntara sobre Durruti.
+ - SoldadoComunista: ¡JA! ¿Es ese Hugo verdad?
+ - SoldadoComunista: Mira, nuestra relacion con los anarquistas nunca ha sido buena.
+ - SoldadoComunista: Si, en un principio la CNT era mucho más popular que el PCE, y podía movilizar a más personas...
+ - SoldadoComunista: ¡Pero hacían lo que les daba la gana! Si no fuera por nosotros, los comunistas, los soviéticos no nos hubieran ayudado.
+ - SoldadoComunista: Nunca sabremos lo que realmente le ocurrió a Durruti. Si me preguntas a mí, lo más seguro es que lo asesinara uno de los suyos.
+ - SoldadoComunista: Igual fue uno de sus compañeros anarquistas, o un desertor, o un trotskysta.
+ - SoldadoComunista: #! ¡Malditos trotskystas!
+ - SoldadoComunista: Disculpa, ya ves que la unidad no era lo nuestro...
+ - Player: #O Eso explica bastantes cosas...
 Node: 6
- * After Node: 5: Verde
- - Basauron: #! ARG, lo has reciclado bien...
+ * After Node: 2: Debería irme.
+ - SoldadoComunista: ¡Suerte camarada!
+ - SoldadoComunista: Por cierto... ¿Alguna vez te has fijado en este monumento?
+ - SoldadoComunista: Conmemora a nuestros compañeros de las brigadas internacionales.
+ - SoldadoComunista: Bueno, no te quiero entretener más. ¡Que vaya bien!
 Node: 7
- * After Node: 5: Azul
- * After Node: 5: Amarillo
- * After Node: 5: Marrón
- * After Node: 5: Naranja
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 8
- * After Node: 6: #! ARG, lo has reciclado bien...
- * After Node: 7: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene un tetrabrick!
-Node: 9
- * After Node: 8: Viene un tetrabrick!
- - Player: Amarillo
- - Player: Verde
- - Player: Azul
- - Player: Naranja
- - Player: Marrón
-Node: 10
- * After Node: 9: Amarillo
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 11
- * After Node: 9: Verde
- * After Node: 9: Azul
- * After Node: 9: Naranja
- * After Node: 9: Marrón
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 12
- * After Node: 10: #! ARG, lo has reciclado bien...
- * After Node: 11: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene una huevera!
-Node: 13
- * After Node: 12: Viene una huevera!
- - Player: Azul
- - Player: Verde
- - Player: Amarillo
- - Player: Naranja
- - Player: Marrón
-Node: 14
- * After Node: 13: Azul
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 15
- * After Node: 13: Verde
- * After Node: 13: Amarillo
- * After Node: 13: Naranja
- * After Node: 13: Marrón
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 16
- * After Node: 14: #! ARG, lo has reciclado bien...
- * After Node: 15: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene una lata!
-Node: 17
- * After Node: 16: Viene una lata!
- - Player: Azul
- - Player: Naranja
- - Player: Amarillo
- - Player: Verde
- - Player: Marrón
-Node: 18
- * After Node: 17: Azul
- * After Node: 17: Naranja
- * After Node: 17: Verde
- * After Node: 17: Marrón
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 19
- * After Node: 17: Amarillo
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 20
- * After Node: 18: #! Mal!!! Mi basura innundará tu mundo!
- * After Node: 19: #! ARG, lo has reciclado bien...
- - Player: Viene un jarrón roto!
-Node: 21
- * After Node: 20: Viene un jarrón roto!
- - Player: Naranja
- - Player: Amarillo
- - Player: Verde
- - Player: Azul
- - Player: Marrón
-Node: 22
- * After Node: 21: Naranja
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 23
- * After Node: 21: Amarillo
- * After Node: 21: Verde
- * After Node: 21: Azul
- * After Node: 21: Marrón
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 24
- * After Node: 22: #! ARG, lo has reciclado bien...
- * After Node: 23: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene un jueguete roto!
-Node: 25
- * After Node: 24: Viene un jueguete roto!
- - Player: Naranja
- - Player: Verde
- - Player: Azul
- - Player: Marrón
- - Player: Amarillo
-Node: 26
- * After Node: 25: Naranja
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 27
- * After Node: 25: Verde
- * After Node: 25: Azul
- * After Node: 25: Marrón
- * After Node: 25: Amarillo
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 28
- * After Node: 26: #! ARG, lo has reciclado bien...
- * After Node: 27: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene un hueso de fruta!
-Node: 29
- * After Node: 28: Viene un hueso de fruta!
- - Player: Marrón
- - Player: Verde
- - Player: Azul
- - Player: Naranja
- - Player: Amarillo
-Node: 30
- * After Node: 29: Marrón
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 31
- * After Node: 29: Verde
- * After Node: 29: Azul
- * After Node: 29: Naranja
- * After Node: 29: Amarillo
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 32
- * After Node: 30: #! ARG, lo has reciclado bien...
- * After Node: 31: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene propaganda electoral!
-Node: 33
- * After Node: 32: Viene propaganda electoral!
- - Player: Azul
- - Player: Verde
- - Player: Naranja
- - Player: Marrón
- - Player: Amarillo
-Node: 34
- * After Node: 33: Azul
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 35
- * After Node: 33: Verde
- * After Node: 33: Naranja
- * After Node: 33: Marrón
- * After Node: 33: Amarillo
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 36
- * After Node: 34: #! ARG, lo has reciclado bien...
- * After Node: 35: #! Mal!!! Mi basura innundará tu mundo!
- - Player: Viene un pintauñas vacío!
-Node: 37
- * After Node: 36: Viene un pintauñas vacío!
- - Player: Azul
- - Player: Amarillo
- - Player: Naranja
- - Player: Verde
- - Player: Marrón
-Node: 38
- * After Node: 37: Azul
- * After Node: 37: Amarillo
- * After Node: 37: Naranja
- * After Node: 37: Marrón
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 39
- * After Node: 37: Verde
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 40
- * After Node: 38: #! Mal!!! Mi basura innundará tu mundo!
- * After Node: 39: #! ARG, lo has reciclado bien...
- - Player: Viene un corcho!
-Node: 41
- * After Node: 40: Viene un corcho!
- - Player: Marrón
- - Player: Verde
- - Player: Azul
- - Player: Amarillo
- - Player: Naranja
-Node: 42
- * After Node: 41: Marrón
- - Basauron: #! ARG, lo has reciclado bien...
-Node: 43
- * After Node: 41: Verde
- * After Node: 41: Azul
- * After Node: 41: Amarillo
- * After Node: 41: Naranja
- - Basauron: #! Mal!!! Mi basura innundará tu mundo!
-Node: 44
- * After Node: 42: #! ARG, lo has reciclado bien...
- * After Node: 43: #! Mal!!! Mi basura innundará tu mundo!
- - Basauron: #! ARG! Eres un tipo duro...
- - Basauron: Veo que la humanidad aún tiene esperanza porque sabes separar muy bien la basura
- - Basauron: ¡Sin embargo, no ceses tu trabajo o volveré!
- - Basauron: #! ¡Vaya, no tienes ni idea de separar la basura!
- - Basauron: Has perdido este combate y la tierra sufrirá las consecuencias...
- - Basauron: #! ¡Pero aún no es tarde! 
- - Basauron: ¡Aprende a separar correctamente y vuelve a enfrentarte al reto!
-Node: 45
- * After Node: 44: ¡Aprende a separar correctamente y vuelve a enfrentarte al reto!
- - Bandalf: Bueno, me voy a volver a mi mundo... El portal interdimensional se cierra... 
- - Bandalf: ¡¡¡Suerte en tu aventura!!!
+ * After Node: 6: Bueno, no te quiero entretener más. ¡Que vaya bien!
+ - Player: Bueno... Ahora que tengo la pista del edificio velazquez debería de buscar en el mapa que tengo en la mochila abajo a la derecha...
 
-Conversation: PocionSevero
-ria
- - SeveroMarga: El plumero debería estar cerca de una estatua mía que hay por aquí cerca
- - SeveroMarga: Traenos los ingredientes y te haremos la poción!
- - Player: Perfecto, voy a ello! Gracias!
-
-Conversation: PistasSevero
+Conversation: ConvNinyoMedicina
 Node: 1
- - SeveroMarga: Aún te faltan ingredientes:
- - SeveroMarga: La pista para encontrar el plumero es que está junto a mi estatua...
- - SeveroMarga: La pista para encontrar los ciruelos se encuentra junto al metro...
- - Player: Gracias!
-
-Conversation: CreacionPocionSevero
-Node: 1
- - SeveroMarga: Genial, ya tienes todos los ingredientes...
- - SeveroMarga: Toma tu poción!
- - Player: Gracias!
- - SeveroMarga: Suerte en la batalla, manda recuerdos a Bandalf!
-
-Conversation: FinalSevero
-Node: 1
- - SeveroMarga: Suerte en la batalla contra Basauron! Da recuerdos a Bandalf!
-
-Conversation: PocionRamon
-Node: 1
- - Player: Disculpe señor...
- - Ramon: Perdone jóven, estoy muy ocupado trabajando en mi teoría neuronal...
- - Player: Teoría neuronal?
- - Player: En fin, esto es muy urgente... Vengo en nombre de Bandalf para...
- - Ramon: Bandalf!
- - Ramon: Hacía mucho que no escuchaba ese nombre!
- - Ramon: Conocí a Bandalf en Zaragoza durante mis estudios de medicina... 
- - Ramon: Deja que me presente, soy Santiago Ramón y Cajal, catedrático de Histología, Hitoquimia Normal y Anatomía Patológica de la facultad de Medicina
- - Ramon: Bandalf y yo pasamos grandes momentos juntos, pero finalmente desapareció porque previó que algo oscuro se acercaba...
- - Player: Verá señor, por eso estoy aquí...
- - Player: Bandalf prevee la llegada de Basauron, señor oscuro de la basura y necesitamos tu ayuda para derrotarle
- - Ramon: No se hable más, tengo una idea genial
- - Ramon: Te ayudaré a preparar una poción para combatir contra Basauron
- - Ramon: Verás, he recibido el Premio Nobel de Fisiología y Medicina por mis descubrimientos sobre neurociencia
- - Ramon: Entre otras cosas, escribí la Doctrina de la Neurona y la Histología del Sistema Nervioso del Hombre y los Vertebrados
- - Player: Wow, podría decirse que entendemos cómo funcionan las neuronas gracias a ti?
- - Ramon: Bueno... Jeje... Algo así. Cosas como que las neuronas son independientes y la sinapsis con aportaciones mías...
- - Ramon: Pero ahora el tiempo apremia y debo aplicar mis conocimientos para crear una poción para que tus neuronas funcionen al 100% durante el combate!
- - Player: Genial!
- - Ramon: Para ello necesito dos cosas: un fruto del majuelo y un ala de saltacercas...
- - Ramon: Son cosas inverosímiles, pero así es la magia jejeje
- - Ramon: Esta plaza es bastante interesante y la fauna y flora de ella nos ayudarán.
- - Ramon: Deberías encontrar un majuelo cerca de odontología...
- - Ramon: Y el ala de saltacercas creo que se le calló cuando la guerra... En la fachada de medicina donde haya restos de balazos de la guerra podrías encontrar una...
- - Player: Genial! Muchas gracias!
- - Ramon: Suerte! Estaré esperándote!
-
-Conversation: PistasRamon
-Node: 1
- - Player: Necesito ayuda para encontrar los ingredientes...
- - Ramon: Perfecto, aún te queda...
- - Ramon: El fruto del majuelo, que está cerca de odontología
- - Ramon: El ala del saltacercas... Prueba a buscar por la fachada de medicina
- - Player: Gracias!
-
-Conversation: CreacionPocionRamon
-Node: 1
- - Player: Bueno, ya lo tengo todo
- - Ramon: Perfecto, dame tus incredientes y haré la poción
- - Ramon: * Hace cosas de científico *
- - Ramon: Aquí tienes
- - Ramon: Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte
-
-Conversation: FinalRamon
-Node: 1
- - Ramon: Suerte con la batalla contra Basauron, saluda a Bandalf de mi parte
-
-Conversation: AyudaBolsi
-Node: 1
- * After Node: 3: Qué tenemos que hacer ahora?
- - Bolsi: Hola compi, te recuerdo lo que estamos haciendo
+ - Player: Disculpa. ¿Tienes un momento?
+ - NinyoMedicina: ¡Anda! ¿Estás vivo?
+ - Player: Pues si...
+ - NinyoMedicina: Curioso... Rompes la monotonía. Aquí todo el mundo está chiflado.
+ - NinyoMedicina: ¿Necesitas algo?
 Node: 2
- * After Node: 1: Hola compi, te recuerdo lo que estamos haciendo
- - Bolsi: Con qué necesitas ayuda
+ * After Node: 1: ¿Necesitas algo?
+ * After Node: 3: #O Debería mirar el mapa, seguro que encuentro algo.
+ * After Node: 4: Lo siento, no puedo decirte nada más sobre el tema.
+ - Player: ¿Te suena esta foto?
+ - Player: ¿Y esta foto?
+ - Player: Debería irme.
 Node: 3
- * After Node: 2: Con qué necesitas ayuda
- - Player: Qué tenemos que hacer ahora?
- - Player: Indícame dónde están los contenedores de reciclaje
- - Player: Ayúdame a encontrar las facultades para las pociones
- - Player: Recuérdame las pistas para los ingredientes de la poción de Ramón
- - Player: Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita
- - Player: Indícame dónde está la estatua de los portadores
- - Player: No necesito nada más
+ * After Node: 2: ¿Te suena esta foto?
+ - NinyoMedicina: Si claro, estamos aquí mism... Oh espera...
+ - Player: Que va, la estatua de la foto no es la de esta plaza.
+ - NinyoMedicina: No recuerdo exáctamente el nombre del edificio...
+ - NinyoMedicina: ¿Hogar Goya... Villa Picasso... Casa...?
+ - Player: #O Supongo que será algo de un pintor...
+ - Player: #O Debería mirar el mapa, seguro que encuentro algo.
 Node: 4
- * After Node: 3: Indícame dónde están los contenedores de reciclaje
- - Bolsi: Hay varios en la calle frente a medicina
- - Bolsi: Te pondré una flecha verde que te indique dónde ir
+ * After Node: 2: ¿Y esta foto?
+ - NinyoMedicina: A ver a ver...
+ - NinyoMedicina: ¡Madre mia, menudo destrozo!
+ - NinyoMedicina: Esto saca pinta de ser un pabellón de una facultad.
+ - NinyoMedicina: Lo siento, no puedo decirte nada más sobre el tema.
 Node: 5
- * After Node: 3: Ayúdame a encontrar las facultades para las pociones
- - Bolsi: Perfecto, aún tenemos pendiente
- - Bolsi: La facultad de medicina
- - Bolsi: La facultad de farmacia
+ * After Node: 2: Debería irme.
+ - NinyoMedicina: ¡Nos vemos!
+
+Conversation: ConvSoldadoPerdido
+Node: 1
+ - SoldadoPerdido: Hola
+Node: 2
+ * After Node: 1: Hola
+ * After Node: 3: Continúa con tu camino y seguro que a tu vuelta ya lo recuerdo.
+ - Player: ¿Sabes qué es esto?
+ - Player: ¿Sabes qué es esto?
+ - Player: ¿Ya tienes la información sobre la foto?
+ - Player: Estoy bien, gracias.
+Node: 3
+ * After Node: 2: ¿Sabes qué es esto?
+ - SoldadoPerdido: Esa foto me suena mucho...
+ - SoldadoPerdido: Continúa con tu camino y seguro que a tu vuelta ya lo recuerdo.
+Node: 4
+ * After Node: 2: ¿Sabes qué es esto?
+ * After Node: 2: ¿Ya tienes la información sobre la foto?
+ - SoldadoPerdido: Por supuesto, es lo que nos ordenaron atacar. 
+ - SoldadoPerdido: Yo fallecí en el asalto, pero mis compañeros lograron mantener la posición.
+ - SoldadoPerdido: Deberías ir al frente entre agrónomos y odontología a preguntar.
+ - SoldadoPerdido: Allí hay un Guardia Civil que te indicará el lugar.
+Node: 5
+ * After Node: 2: Estoy bien, gracias.
+ - Player: Hasta luego entonces.
 Node: 6
- * After Node: 3: Recuérdame las pistas para los ingredientes de la poción de Ramón
- - Bolsi: El ala del saltacercas está en la fachada con balazos... La mariposa se asustó y perdió un ala jeje
- - Bolsi: El fruto del majuelo está frente a odontología
+ * After Node: 4: Allí hay un Guardia Civil que te indicará el lugar.
+ - Player: Genial, muchas gracias.
+ - Player: Debería buscar esa ubicación en el mapa del frente que tengo en la mochila...
+ - Player: Ya estuvimos antes en ese lugar. Es donde entregamos la foto.
+
+Conversation: ConvVelazquez
+Node: 1
+ - Player: Hola, ¿puedes ayudarme?
+ - PolacoVelazquez: Cześć, ¿qué haces por aqui?
+ - PolacoVelazquez: No suelo tener la oportunidad de hablar con gente viva, por aquí solo quedan chiflados.
+ - PolacoVelazquez: Entonces, ¿quieres algo?
+Node: 2
+ * After Node: 1: Entonces, ¿quieres algo?
+ * After Node: 3: Durante la guerra este edificio fue completamente destrozado. Poco después de ser tomada, sufrió un incendio que la dejó destorzada.
+ * After Node: 4: Yo cai en combate y terminamos perdiendo la posición.
+ * After Node: 7: #O Perfecto, ya me queda una foto menos.
+ - Player: ¿Qué pasó aquí?
+ - Player: ¿Quién eres?
+ - Player: ¿Te suena esta foto?
+ - Player: No necesito nada.
+Node: 3
+ * After Node: 2: ¿Qué pasó aquí?
+ - PolacoVelazquez: Esto de aqui es la Casa de Velazquez.
+ - PolacoVelazquez: Cuando los sublevados cruzaron el Manzanares en noviembre del 36, primero tomaron este edificio y después siguieron con su avance.
+ - PolacoVelazquez: La batalla fue horrible, no los conseguimos parar... 
+ - PolacoVelazquez: Durante la guerra este edificio fue completamente destrozado. Poco después de ser tomada, sufrió un incendio que la dejó destorzada.
+Node: 4
+ * After Node: 2: ¿Quién eres?
+ - PolacoVelazquez: Soy Kacper Kowalski, vine desde Polonia en defensa de la república como brigadista al comienzo de la guerra.
+ - PolacoVelazquez: Forme parte del Batallón Dabrowski. Nos establecimos en esta posición dos dias antes del ataque de los sublevados.
+ - PolacoVelazquez: Defendimos esta posición hasta nuestro último aliento.
+ - PolacoVelazquez: Dos tercios de nuestros compañeros cayeron. Despúes de cinco horas de combate, solo quedaban en pie seis hombres entre los cuales me encontraba.
+ - PolacoVelazquez: Yo cai en combate y terminamos perdiendo la posición.
+Node: 5
+ * After Node: 2: ¿Te suena esta foto?
+ - Player: Me la encontre en el diario de mi abuelo. Participó en la guerra.
+ - PolacoVelazquez: A ver...
+Node: 6
+ * After Node: 2: No necesito nada.
+ - Player: Do Widzenia, espero volver a vernos.
 Node: 7
- * After Node: 3: Recuérdame las pistas para los ingredientes de la poción de Severo y Margarita
- - Bolsi: Los ciruelos están junto al metro...
- - Bolsi: El plumero de la pampa está cerca de la estatua de Severo... La estatua creo que está cerca de farmacia...
+ * After Node: 5: A ver...
+ - PolacoVelazquez: ...
+ - PolacoVelazquez: Anda si es el caballo de la Casa de Velzaquez. Lleva aqui mucho tiempo. Milagrosamente consiguio sobrevivir a la guerra, aun que acabó un poco torcida.
+ - PolacoVelazquez: Menuda tristeza ver el sitio de esta manera. ¿Sabes?, aquello que se ve al fondo es la escuela de Arquitectura.
+ - PolacoVelazquez: También la mantuvieron los franquistas durante toda la guerra. Ve a echar un vistazo, seguro que te necuentras algún charlatán.
+ - Player: #O Perfecto, ya me queda una foto menos.
 Node: 8
- * After Node: 3: Indícame dónde está la estatua de los portadores
- - Player: Está en el centro de la plaza. Te indico
+ * After Node: 6: Do Widzenia, espero volver a vernos.
+ - Player: Bien. Si esta era la Casa de Velazquez entonces un poco más adelante estará la siguiente foto, en Arquitectura.
+
+Conversation: ConvArquitectura
+Node: 1
+ - RiosCapape: ¡Alto!, ¿quién te envía?
+ - Player: ¿Usted es...?
+ - RiosCapape: Rios Capapé, y esto es el puesto de mando de la escuela de Arquitectura.
+ - RiosCapape: Ahora, ¿qué ocurre?, ¿otra vez han atacado la pasarela de la muerte o estas aqui para relevar a los soldados?
+Node: 2
+ * After Node: 1: Ahora, ¿qué ocurre?, ¿otra vez han atacado la pasarela de la muerte o estas aqui para relevar a los soldados?
+ * After Node: 4: Entiendo, eso explica un par de cosas.
+ - Player: ¿Pasarela de la Muerte?
+ - Player: La guerra ya acabó.
+Node: 3
+ * After Node: 2: ¿Pasarela de la Muerte?
+ - RiosCapape: La pasarela que nos une con el Puente de los Franceses, la usamos para aprovisionarnos.
+ - RiosCapape: Pero basta de chachara. Ve a la biblioteca y trae libros, después si quieres te puedes ir al hogar del combatiente a descansar.
+Node: 4
+ * After Node: 2: La guerra ya acabó.
+ - RiosCapape: ¿Qué?, ¿Cuándo?, ¿Hemos ganado?
+ - Player: Mas o menos, la cosa es que usted está muerto.
+ - RiosCapape: Entiendo, eso explica un par de cosas.
+Node: 5
+ * After Node: 3: Pero basta de chachara. Ve a la biblioteca y trae libros, después si quieres te puedes ir al hogar del combatiente a descansar.
+ * After Node: 6: Una pena que se echen a perder, pero la situacion lo requiere.
+ * After Node: 7: Los soldados en relevos descansan ahi.
+ * After Node: 10: #O Una foto menos.
+ - Player: ¿Libros?
+ - Player: ¿Hogar del combatiente?
+ - Player: ¿Te suena esta foto?
+ - Player: Nada más
+Node: 6
+ * After Node: 5: ¿Libros?
+ - RiosCapape: Si, los usamos para las barricadas. 
+ - RiosCapape: Una pena que se echen a perder, pero la situacion lo requiere.
+Node: 7
+ * After Node: 5: ¿Hogar del combatiente?
+ - RiosCapape: Si, el bar que tenemos aqui. 
+ - RiosCapape: Los soldados en relevos descansan ahi.
+Node: 8
+ * After Node: 5: ¿Te suena esta foto?
 Node: 9
- * After Node: 3: No necesito nada más
- - Bolsi: Si necesitas algo me preguntas :)
+ * After Node: 5: Nada más
+ - RiosCapape: Hasta luego
 Node: 10
- * After Node: 5: La facultad de farmacia
- - Player: Medicina
- - Player: Farmacia
+ * After Node: 8:  -- Empty node -- 
+ - RiosCapape: Claro, si es este lugar, mira, ahi abajo a la derecha se ve la pasarela de la muerte y todo.
+ - Player: #O Una foto menos.
 Node: 11
- * After Node: 10: Medicina
- - Bolsi: Perfecto, te indico la dirección de medicina
-Node: 12
- * After Node: 10: Farmacia
- - Bolsi: Perfecto, te indico dónde está farmacia
+ * After Node: 9: Hasta luego
+ - Player: Por aquí ya no tengo nada más que hacer.
+ - Player: Debería volver por el camino para recopilar más información...
+ - Player: Debería volver a hablar con el soldado. Seguro que ya sabe de dónde es la foto.
 
-Conversation: SomethingFinished
+Conversation: ConvArquitecturaFin
 Node: 1
- - Bolsi: Tenemos que buscar residuos por la plaza y reciclar al menos 10
- - Bolsi: Tenemos que hacer una poción en la Facultad de Medicina
- - Bolsi: Tenemos que buscar los ingredientes de la poción de Santiago Ramón y Cajal
- - Bolsi: Tenemos que llevarle los ingredientes a Santiago Ramón y Cajal en Medicina
- - Bolsi: Tenemos que hacer una poción en la Facultad de Farmacia
- - Bolsi: Tenemos que buscar los ingredientes de la poción de Severo y Margarita
- - Bolsi: Tenemos que llevarles los ingredientes de la poción a Severo y Margarita en Farmacia
- - Bolsi: Tenemos que encontrarnos con Bandalf en los portadores de la antorcha para la batalla contra basauron
+ - Player: Ahora mismo estoy ocupado.
 
-Conversation: Reciclado
+Conversation: ConvSoldadoMedicina
 Node: 1
- - Bolsi: Genial, primer objeto reciclado! Aún hay 14 más!
- - Bolsi: Segundo objeto reciclado! Aún hay 13 más!
- - Bolsi: Tercer objeto reciclado! Aún hay 12 más!
- - Bolsi: Cuarto objeto reciclado! Aún hay 11 más!
- - Bolsi: Quinto objeto reciclado! Aún hay 10 más!
- - Bolsi: Sexto objeto reciclado! Aún hay 9 más!
- - Bolsi: Séptimo objeto reciclado! Aún hay 8 más!
- - Bolsi: Octavo objeto reciclado! Aún hay 7 más!
- - Bolsi: Noveno objeto reciclado! Aún hay 6 más!
- - Bolsi: Décimo objeto reciclado! Aún hay 5 más! 
- - Bolsi: Undécimo objeto reciclado! Aún hay 4 más!
- - Bolsi: Duocécimo objeto reciclado! Aún hay 3 más!
- - Bolsi: Decimotercer objeto reciclado! Aún hay 2 más!
- - Bolsi: Decimocuarto objeto reciclado! Aún queda uno más!
- - Bolsi: Éste era el último objeto reciclado! Ya están todos!
- - Bolsi: Ya tenemos al menos diez objetos! 
+ - SoldadoMedicina: ¿Pero qué haces caminando en tierra de nadie? ¿No sabes que te pueden disparar?
+ - Player: #O Este está más perdido que yo...
+ - Player: Hola, gracias por la ayuda, pero la guerra ya acabó.
+ - SoldadoMedicina: #! ¿ Qué ?
+ - SoldadoMedicina: Ah si, es verdad... A veces me cuesta recordar.
+ - Player: No pasa nada. ¿Qué pasó aquí?
+ - SoldadoMedicina: Tras cruzar el Manzanares en Noviembre del 36, los Sublevados tomaron varios edificios del campus, incluida la Escuela de Agronomos.
+ - SoldadoMedicina: Sin embargo, los Republicanos consiguieron mantener la facultad de Odontología.
+ - SoldadoMedicina: Separados por poco más de 80 metros durante los 4 años que se mantuvo el frente... Ya te puedes imaginar el horror que tuvo lugar aquí.
+ - SoldadoMedicina: Bueno... ¿Tienes alguna pregunta?
+ - SoldadoMedicina: #! ¡¡HOLA!!
+Node: 2
+ * After Node: 1: #! ¡¡HOLA!!
+ * After Node: 3: Fue un escenario realmente dramático.
+ * After Node: 4: Pero... No le preguntes a un tal Pedro... No tiene ni idea de lo que habla.
+ * After Node: 7: Aunque ya te aviso que no está por aquí cerca... Yo que tú seguiría a lo tuyo y ya aparecerá.
+ * After Node: 9: #O Bien. Una foto menos que tengo que localizar.
+ - Player: ¿Por qué se mantuvo el frente de esta manera?
+ - Player: ¿Cual es tu historia?
+ - Player: Creo que debería irme.
+ - Player: ¿Te suena esta foto?
+ - Player: ¿Y esta?
+ - Player: Tengo el naranjero que buscabas.
+Node: 3
+ * After Node: 2: ¿Por qué se mantuvo el frente de esta manera?
+ - SoldadoMedicina:  Los sublevados no tenían los recursos necesarios para tomar Madrid. Aun así, lo intentaron.
+ - SoldadoMedicina:  Entre sus múltiples intentos, cruzaron el Manzanares y atacaron la Ciudad Universitaria. 
+ - SoldadoMedicina: Ante la imposibilidad de tomar la capital, Franco detuvo el avance y desvió sus tropas a Toledo.
+ - SoldadoMedicina: Sin embargo, el frente de la Ciudad Universitaria se mantuvo inmovil. Se convirtió en un símbolo de la lucha en Madrid.
+ - SoldadoMedicina: Para los republicanos, se convirtió en el símbolo del "No Pasarán", y para los sublevados, el de "No nos echarán".
+ - SoldadoMedicina: Fue un escenario realmente dramático.
+Node: 4
+ * After Node: 2: ¿Cual es tu historia?
+ - SoldadoMedicina: Me llamo Hugo Martinez. Al estallar la guerra, tomé las armas para defender Madrid contra los sublevados.
+ - SoldadoMedicina: Formé parte de la Columna Durruti, dirigida por... Bueno, por Buenaventura Durruti. 
+ - SoldadoMedicina: Fue una de las personas más importantes de la CNT y del anarquismo español.
+ - SoldadoMedicina: El 19 de Noviembre de 1936, una bala fascista le atravesó el pecho en la calle Isaac Peral, cerca del Clínico.
+ - SoldadoMedicina: Su cuerpo fue embalsado y trasladado a Barcelona. ¡A su funeral acudieron miles de personas!
+ - SoldadoMedicina: Seguro que por aquí encuentras a mas personas que te contarán cosas interesantes sobre él.
+ - SoldadoMedicina: Pero... No le preguntes a un tal Pedro... No tiene ni idea de lo que habla.
+Node: 5
+ * After Node: 2: Creo que debería irme.
+ - SoldadoMedicina: Entendido, estaré por aquí si me buscas.
+ - SoldadoMedicina: Intentaré no gritarte la próxima vez.
+Node: 6
+ * After Node: 2: ¿Te suena esta foto?
+ - Player: Mira, he encontrado esta foto en el diario de mi abuelo. ¿Te suena?
+Node: 7
+ * After Node: 2: ¿Y esta?
+ - SoldadoMedicina: ¡Pues claro! Aquí mismo estudié.
+ - SoldadoMedicina: ¿Sabes? Me vas a hacer un favor.
+ - Player: #O Oh no...
+ - SoldadoMedicina: Llevo unos días buscando mi "Naranjero". Así llamábamos a el modelo de subfusil que usábamos.
+ - SoldadoMedicina: Ya te habrás dado cuenta que la memoria no es lo mío... Búscalo y te diré dónde sacaron esta fotografía.
+ - SoldadoMedicina: Aunque ya te aviso que no está por aquí cerca... Yo que tú seguiría a lo tuyo y ya aparecerá.
+Node: 8
+ * After Node: 2: Tengo el naranjero que buscabas.
+ - SoldadoMedicina: A ver a ver...
+ - SoldadoMedicina: ¡Pero bueno! ¡Excelente trabajo!
+ - SoldadoMedicina: El tacto, el peso... *snif snif* ¡Incluso el olor! Justo como lo recordaba...
+ - Player: ...
+ - SoldadoMedicina: ...
+ - Player: ...
+ - SoldadoMedicina: ¡Ah, que sigues aquí! Bueno... muchísimas gracias. Ahora nadie cruzará el frente con este viejo amigo en mis manos.
+ - SoldadoMedicina: Y sobre la foto, pues verás... Conozco a alguien que te puede decir dónde es.
+ - SoldadoMedicina: Camina hacia el norte por esta misma calle y encontrarás al hombre junto al jardín botánico. ¡Mucha suerte!
+Node: 9
+ * After Node: 6: Mira, he encontrado esta foto en el diario de mi abuelo. ¿Te suena?
+ - SoldadoMedicina: ¡Anda! Justo como lo recordada.
+ - SoldadoMedicina: ¡Pero bueno! Está sacada desde aquí mismo, desde agrónomos, mirando hacia Odontología.
+ - SoldadoMedicina: ¿Oye, esta foto la sacó tu abuelo?
+ - Player: No lo sé...
+ - SoldadoMedicina: Pues la tomó desde el lado sublevado... ¡¿No será un franquista?!
+ - Player: No tengo ni idea...
+ - SoldadoMedicina: Bueno, espero que lo consigas averiguar. ¡Mucha suerte!
+ - SoldadoMedicina: ¿Tienes alguna pregunta más?
+ - Player: #O Bien. Una foto menos que tengo que localizar.
 
-Objeto: PlasticBag
- - Al cogerlo:
-Objeto: Raspa
- - Al cogerlo:
-  * Bolsi: Genial, una raspa!
-  * Bolsi: Las raspas van al orgánico
-  * Bolsi: Los residuos orgánicos sirven para hacer abono y energía
-  * Bolsi: Cada 100kg se convierten en 30kg de abono
+Conversation: ConvGuardiaCivil
+Node: 1
+ - GuardiaCivil: ¡Alto!, ¿quién va?
+ - Player: Yo, esto...
+ - GuardiaCivil: ¿No sabe usted, que esto es una zona de guerra?
+ - Player: Si, lo era, pero...
+ - GuardiaCivil: Si lo sabe, entonces...
+ - GuardiaCivil: (risas)
+ - GuardiaCivil: No puedo más, es broma, tranquilo.
+ - GuardiaCivil: A veces me aburro mucho aquí, lo siento.
+ - Player: Mas enserio, ¿qué haces aqui?
+Node: 2
+ * After Node: 1: Mas enserio, ¿qué haces aqui?
+ * After Node: 3: (Debería de buscar la ubicación en el mapa)
+ - Player: ¿Sabes donde esta esto?
+ - Player: Me tengo que ir.
+Node: 3
+ * After Node: 2: ¿Sabes donde esta esto?
+ - GuardiaCivil: Eso es el Hospital Clínico.
+ - GuardiaCivil: Está en la otra dirección, sigue en dirección al Metro y antes de llegar gira a la derecha.
+ - Player: (Debería de buscar la ubicación en el mapa)
+Node: 4
+ * After Node: 2: Me tengo que ir.
+ - GuardiaCivil: Hasta luego entonces.
+ - Player: Tengo que buscar el Hospital Clínico en el mapa...
+
+Conversation: ConvDurruti
+Node: 1
+ - ColumnistaDurruti: Buenos dias, o tardes, la verdad es que no estoy seguro.
+ - ColumnistaDurruti: Bueno, ¿qué te trae por aquí?
+Node: 2
+ * After Node: 1: Bueno, ¿qué te trae por aquí?
+ * After Node: 3: El día 20 muero yo, una de las bombas que caen por el bombardeo a gran escala que asoló la zona.
+ * After Node: 6: Perfecto, me queda una fotografía menos.
+ - Player: ¿Quién eres?
+ - Player: ¿Qué sabes de esta foto?
+ - Player: Me tengo que ir
+Node: 3
+ * After Node: 2: ¿Quién eres?
+ - ColumnistaDurruti: ¿Yo?, pues antes de morir pertenecía a la Columna Durruti.
+ - ColumnistaDurruti: Llegamos a Madrid el 15 de noviembre, a las 9:00 de la mañana creo.
+ - ColumnistaDurruti: Veníamos desde los frentes de Aragón, eramos unos 1600 hombres.
+ - ColumnistaDurruti: Se nos asigno al Clínico, al día siguiente, hicimos un contraataque desde las Facultades hasta el Clínico. Lo logramos y avanzamos.
+ - ColumnistaDurruti: Pero al día siguiente, los nacionales contraatacaron, nos defendimos como pudimos en el Asilo de Santa Cristina. Ese edificio fue destruido durante el conflicto
+ - ColumnistaDurruti: Tuvimos que retroceder, de hecho estuvimos retrocediendo hasta el 19, de día que Durruti murío.
+ - ColumnistaDurruti: El día 20 muero yo, una de las bombas que caen por el bombardeo a gran escala que asoló la zona.
+Node: 4
+ * After Node: 2: ¿Qué sabes de esta foto?
+Node: 5
+ * After Node: 2: Me tengo que ir
+ - ColumnistaDurruti: Hasta luego.
+Node: 6
+ * After Node: 4:  -- Empty node -- 
+ - ColumnistaDurruti: Esto es el Clínico, antes de los Bombardeos a gran escala de Noviembre.
+ - ColumnistaDurruti: Fue una posición muy disputada, ya que hacía la función de cuña en el frente.
+ - ColumnistaDurruti: Estuvo ocupada por anarquistas como Durruti, la columna de quien pertenecía.
+ - ColumnistaDurruti: Desde el día 21, fue ocupada por los nacionales, el avance cesó y no huvo más cambios.
+ - Player: Perfecto, me queda una fotografía menos.
+
+Conversation: EncuentroNaranjero
+Node: 1
+ - Player: Pero... ¿Quién deja esto al aire libre?
+ - Player: Espera...
+Node: 2
+ * After Node: 1: Espera...
+ - Player: Esto debe ser el naranjero.
+Node: 3
+ * After Node: 2: Esto debe ser el naranjero.
+ - Player: Debería volver con Pedro.
+
+Conversation: ConvCienciasInformacion
+Node: 1
+ - Player: ¿Hola?
+ - SoldadoCienciasInformacion: Hola, disculpa, llevo mucho tiempo sin hablar con gente.
+Node: 2
+ * After Node: 1: Hola, disculpa, llevo mucho tiempo sin hablar con gente.
+ * After Node: 3: Este frente que dividía a los dos bandos, por tan sólo 50 metros, y pasó a ser el teatro de una guerra de desgaste.
+ * After Node: 4: Uno está a la izquierda y otro a la derecha de esa rotonda.
+ - Player: ¿Quién eres y qué haces aquí?
+ - Player: ¿Te suena esta foto?
+ - Player: Gracias, adios
+Node: 3
+ * After Node: 2: ¿Quién eres y qué haces aquí?
+ - SoldadoCienciasInformacion: Soy Vitores Rosales, un soldado de la II República.
+ - SoldadoCienciasInformacion: Participé en la guerra civil, y morí en este frente de batalla.
+ - Player: ¿Frente de batalla?
+ - SoldadoCienciasInformacion: Si, antes esto era un espacio abierto y un arroyo del río manzanares. Detuvimos a los franquistas en este frente.
+ - Player: ¿Es esta foto?
+ - SoldadoCienciasInformacion: Si mira que estamos aquí.
+ - SoldadoCienciasInformacion: Este frente que dividía a los dos bandos, por tan sólo 50 metros, y pasó a ser el teatro de una guerra de desgaste.
+Node: 4
+ * After Node: 2: ¿Te suena esta foto?
+ - SoldadoCienciasInformacion: Emmm, no me suena, pero me recuerdo que en el año 36 solo existía la facultad de letra y de ciencias
+ - SoldadoCienciasInformacion: Uno está a la izquierda y otro a la derecha de esa rotonda.
+Node: 5
+ * After Node: 2: Gracias, adios
+
+Conversation: ConvBotanico
+Node: 1
+ - Player: Disculpa. ¿Tienes un momento?
+ - HombreBontanico: Espera, déjame acabar estos ...... ya estoy.
+ - HombreBontanico: ¿Necesitas algo?
+Node: 2
+ * After Node: 1: ¿Necesitas algo?
+ * After Node: 3: Pero fue casi destruida durante la guerra y la reconstrucción no fue como estaba diseñada.
+ - Player: ¿Quién eres?
+ - Player: ¿Te suena esta foto?
+ - Player: Nada, tengo que irme.
+Node: 3
+ * After Node: 2: ¿Quién eres?
+ - HombreBontanico: Manuel Sánchez Arcas
+ - Player: El Premio Nacional de Arquitectura por el proyecto de la Central Térmica de la Ciudad Universitaria.
+ - HombreBontanico: Sí, la central está aquí detrás del botánico.
+ - HombreBontanico: Pero fue casi destruida durante la guerra y la reconstrucción no fue como estaba diseñada.
+Node: 4
+ * After Node: 2: ¿Te suena esta foto?
+ - HombreBontanico: Claro que si, esta aula fue diseñada por mis compañeros y yo.
+ - HombreBontanico: Es un aula en la Facultad de Filosofía. 
+ - Player: Debería de buscar esa ubicación en el mapa que tengo en el inventario...
+Node: 5
+ * After Node: 2: Nada, tengo que irme.
+
+Conversation: ConvMatematica
+Node: 1
+ - Player: Hola
+ - ChicoMates: Hola
+ - Player: Te quería pregunta una cosa
+ - ChicoMates: ¿Me estás hablando a mi?
+ - Player: Si te estoy hablando.
+ - ChicoMates: ¿Cómo puedes verme?
+ - Player: Emmm. Te veo porque tengo este diario.
+ - ChicoMates: ¿Diario?, dejame investigar un momento.
+ - ChicoMates: Ni idea de por que funciona.
+Node: 2
+ * After Node: 1: Ni idea de por que funciona.
+ * After Node: 3: Tampoco, vete a la facultad de enfrente, allí puede ser.
+ - Player: Una pregunta, ¿Conoces esta foto?
+ - Player: Tengo que irme, encantado de conocerte.
+Node: 3
+ * After Node: 2: Una pregunta, ¿Conoces esta foto?
+ - ChicoMates: No
+ - ChicoMates: ¿Y estos?
+ - ChicoMates: Tampoco, vete a la facultad de enfrente, allí puede ser.
+Node: 4
+ * After Node: 2: Tengo que irme, encantado de conocerte.
+ - ChicoMates: Adios
+
+Conversation: ConvFilosofia
+Node: 1
+ - Player: ¿Hola?
+ - ChicaFilosofia: ¡Menuda sorpresa! ¿Cómo puedes verme?
+ - Player: Ni idea... Estoy buscando unas fotos que pertenecían a mi abuelo.
+ - Player: ¡Pues bienvenido a la facultad de Filosofía! A ver si te puedo ayudar.
+ - ChicaFilosofia: ¡Hola de nuevo!
+Node: 2
+ * After Node: 1: ¡Hola de nuevo!
+ * After Node: 3: Y bueno... Finalmente una bomba acabó con mi vida en el 39...
+ * After Node: 4: Tras la guerra decidieron reconstruir el campus. Tuvieron que tirar prácticamente todo el edificio...
+ * After Node: 7: En mi época no había nada interesante hacia el norte. Ahora al parecer hay una universidad de informática... ¡Que cosas!
+ - Player: ¿Cual es tu historia?
+ - Player: ¿Cual es la historia de este lugar?
+ - Player: ¿Reconoces esta fotografía?
+ - Player: Debería irme.
+Node: 3
+ * After Node: 2: ¿Cual es tu historia?
+ - ChicaFilosofia: Me llamo Carla. Soy de Madrid y estudié aquí mismo, en la facultad de Filosofía.
+ - ChicaFilosofia: Esta universidad era un centro muy moderno para la época.
+ - ChicaFilosofia: En aquel entonces la Unión Soviética tenía poco menos de 15 años, había un ambiente muy izquierdista en esta facultad.
+ - ChicaFilosofia: Y cuando llegó la guerra... Ya te puedes imaginar que lado escogí.
+ - ChicaFilosofia: Defendí la facultad junto a mis compañeros durante la duración de toda la guerra como miliciana.
+ - ChicaFilosofia: Estábamos muy pero que muy desorganizados al principio, pero el ejército se fue formalizando durante el transcurso de la guerra.
+ - ChicaFilosofia: Y bueno... Finalmente una bomba acabó con mi vida en el 39...
+Node: 4
+ * After Node: 2: ¿Cual es la historia de este lugar?
+ - ChicaFilosofia: La facultad empezó su construcción bajo el reinado de Alfonso XIII.
+ - ChicaFilosofia: Tras su exilio, y la declaración de la segunda república, su desarrollo se impulsó enormemente.
+ - ChicaFilosofia: Este sitio era... Algo especial. Muy especial. ¡Clases mixtas! Era increíble para la época.
+ - ChicaFilosofia: Mira esta foto. Para vosotros os puede parecer algo banal, pero esto era realmente inspirador para las mujeres de la época.
+ - ChicaFilosofia: Y bueno, con la guerra, todo se fue al garete... Este edificio se convirtió en el centro de operaciones republicano durante la guerra.
+ - ChicaFilosofia: Conseguimos mantener la facultad durante toda la guerra, pero eso no significa que no viviera durísimos bombardeos y tiroteos.
+ - ChicaFilosofia: Tras la guerra decidieron reconstruir el campus. Tuvieron que tirar prácticamente todo el edificio...
+Node: 5
+ * After Node: 2: ¿Reconoces esta fotografía?
+Node: 6
+ * After Node: 2: Debería irme.
+ - ChicaFilosofia: De acuerdo. ¡Nos vemos!
+Node: 7
+ * After Node: 5:  -- Empty node -- 
+ - ChicaFilosofia: Esto esto... ¡Madre mía! Esto es... Era el aula magna de esta facultad.
+ - ChicaFilosofia: Mira en qué estado más lamentable quedó... La de libros que se perdieron...
+ - ChicaFilosofia: ¿Sabes? Al ganar los nacionales la guerra, consideraron dejar el campus tal cual, completamente destruido.
+ - ChicaFilosofia: De esta manera dejarían el campus como símbolo de su victoria, y memorial de la guerra.
+ - ChicaFilosofia: #! ¡Menuda estupidez!
+ - ChicaFilosofia: Que aburrida estaría aquí, entre ruinas... Menos mal que lo reconstruyeron...
+ - ChicaFilosofia: Disculpa, espero no haberte dado demasiado la chapa. Espero haberte ayudado con la foto.
+ - Player: #O Genial, una foto menos...
+ - ChicaFilosofia: ¿Aun te quedan fotos por localizar? Si es así, deberías buscar por el sur.
+ - ChicaFilosofia: En mi época no había nada interesante hacia el norte. Ahora al parecer hay una universidad de informática... ¡Que cosas!
+
+Objeto: BackArrow
  - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: La raspa, al igual que todos los restos de comida, van al marrón!
-Objeto: Cafe
- - Al cogerlo:
-  * Bolsi: Genial, restos de café!
-  * Bolsi: Los restos de café van al orgánico
-  * Bolsi: Con ellos, también los filtros, cáscaras de pipas, corcho, serrín y plantas
-  * Bolsi: Incluso los huesos de la fruta!
  - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los restos del café, al igual que el filtro, van al marrón!
-Objeto: PapelDeCocina
- - Al cogerlo:
-  * Bolsi: Genial, papel de cocina sucio!
-  * Bolsi: Los restos de papel de cocina manchados de comida van al orgánico
-  * Bolsi: El papel, normalmente, se recicla en el contenedor azul
-  * Bolsi: Sin embargo, éste está sucio de comida o grasa, por lo que debe ir al orgánico
-  * Bolsi: Esto es necesario dado que la grasa interfiere en el proceso de reciclaje del papel
-  * Bolsi: Por otro lado, si está manchado de químicos o pintura, debe ir al naranja
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los restos de papel de cocina y servilletas sucias van al orgánico!
-Objeto: Colilla
- - Al cogerlo:
-  * Bolsi: Genial, una colilla!
-  * Bolsi: Las colillas van al naranja
-  * Bolsi: Las colillas pueden permanecer hasta 10 años en el suelo
-  * Bolsi: A priori no parece mucho...
-  * Bolsi: Sin embargo, pese a degradarse, al contener sustancias químicas dañinas como el alquitrán o el amoníaco son muy dañinas para el suelo
-  * Bolsi: Por eso debemos tirarlas a las papeleras!
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las colillas van al contenedor naranja!
-Objeto: CacaDeGato
- - Al cogerlo:
-  * Bolsi: Puaj caca de gato!
-  * Bolsi: La caca de gato va al naranja
-  * Bolsi: Al contrario de lo que puedas pensar, los restos de tus animales no van al orgánico
-  * Bolsi: Esto incluye las cacas y la arena sucia, por ejemplo
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los residuos de animales deben ir al resto!
-Objeto: Goma
- - Al cogerlo:
-  * Bolsi: Genial, una goma!
-  * Bolsi: Las gomas van al naranja
-  * Bolsi: No todos los plásticos son reciclables
-  * Bolsi: Sólo aquellos identificados por el símbolo adecuado con el triángulo del 1 al 7
-  * Bolsi: Otros plásticos como los juguetes de los niños no lo son y deben ir al resto o pueden donarse a organizaciones.
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las gomas no son reciclables, van al resto!
-Objeto: Botella
- - Al cogerlo:
-  * Bolsi: Genial, una botella!
-  * Bolsi: Las gomas van al amarillo
-  * Bolsi: Algunas botellas son reutilizables
-  * Bolsi: Las más adecuadas son las del número 4 (polietileno de baja densidad) y 5 (polipropileno) o aquellas BPA Free
-  * Bolsi: Sin embargo, aquellas identificadas con un 1 (polietileno) que son las más comunes, no es recomendable reutilizarlas...
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las botellas de plástico, al igual que los envases, van al amarillo!
-Objeto: Aluminio
- - Al cogerlo:
-  * Bolsi: Genial, papel de aluminio!
-  * Bolsi: El papel de aluminio va al amarillo
-  * Bolsi: Reciclar el aluminio supone un 95% menos de energía que extraerlo de la bauxita
-  * Bolsi: Por ello debemos reciclar las latas de bebida y conservas, así como el papel de aluminio
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: El aluminio y las latas van al amarillo!
-Objeto: Aerosol
- - Al cogerlo:
-  * Bolsi: Genial, un aerosol!
-  * Bolsi: Los aerosoles van al amarillo
-  * Bolsi: Los aerosoles y las chapas deben de reciclarse, aunque sólo si están vacíos
-  * Bolsi: Los aerosoles que estén llenos deben de llevarse al punto limpio para evitar explosiones o incendios
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los aerosoles vacíos van al amarillo!
-Objeto: Botelladevidrio
- - Al cogerlo:
-  * Bolsi: Genial, una botella de vidrio!
-  * Bolsi: Las botellas de vidrio van al verde
-  * Bolsi: Las botellas de vidrio son totalmente reciclables, pero sus tapones deben ser separados a los contenedores correspondientes
-  * Bolsi: Por ejemplo, el corcho debe ir al orgánico y las chapas al amarillo.
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las botellas de vidrio deben reciclarse en el contenedor verde!
-Objeto: Tarro
- - Al cogerlo:
-  * Bolsi: Genial, un tarro!
-  * Bolsi: Los tarros son de vidrio y van al verde
-  * Bolsi: El vidrio se transforma en calcín que se funde en nuevo vidrio un número ilimitado de veces
-  * Bolsi: I LI MI TA DO!
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los tarros son de vidrio, van al verde!
-Objeto: Rimel
- - Al cogerlo:
-  * Bolsi: Genial, un bote de rimel!
-  * Bolsi: Los botes de cosmético son de vidrio y van al verde
-  * Bolsi: El vidrio y el cristal son muy diferentes
-  * Bolsi: Sólo el vidrio es reciclable y se deposita en el contenedor verde
-  * Bolsi: Los vasos, copas, espejos, etc, no son reciclables
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Los frascos de los cosméticos que son de vidrio van al verde!
-Objeto: Caja
- - Al cogerlo:
-  * Bolsi: Genial, una caja de cartón!
-  * Bolsi: Las cajas van al contenedor azul y debemos plegarlas para que no ocupen mucho espacio!
-  * Bolsi: Sin embargo, si está sucia (ej caja de pizza) debe ir al orgánico dado que la grasa no permite reciclarlas
-  * Bolsi: Una idea es recortar las partes con comida y separar lo reciclable
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las cajas de cartón limpias van al azul (debidamente plegadas)!
-Objeto: Apuntes
- - Al cogerlo:
-  * Bolsi: Genial, unos apuntes!
-  * Bolsi: El papel va al contenedor azul
-  * Bolsi: Se debe de ahorrar papel y debemos tratar de imprimir la menor cantidad posible
-  * Bolsi: Los libros podemos llevarlos a una librería para que se puedan reutilizar
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: El papel, aunque esté escrito, va al azul!
-Objeto: Revista
- - Al cogerlo:
-  * Bolsi: Genial, una revista vieja!
-  * Bolsi: Las revistas van al contenedor azul
-  * Bolsi: Podemos utilizarla para manualidades, pero si se mancha de pintura...
-  * Bolsi: Debemos tirarla al naranja, dado que está sucio, pero no de comida
- - Al tirarlo:
-  * Cuando if Correcto then: Player: Bien hecho!
-  * Cuando if Incorrecto then: Bolsi: Las revistas van al azul!
-Objeto: Ciruela
- - Al cogerlo:
-Objeto: Plumero
- - Al cogerlo:
-Objeto: Saltacercas
- - Al cogerlo:
-Objeto: Majuelo
- - Al cogerlo:
-Lugar: EstatuaSevero
+  * Player: Debería de encontrar los puntos en el mapa antes de seguir.
+Lugar: LimitesIntroduccion
  - Enter:
-  * Bolsi: Genial! Has encontrado el monumento a Severo! El ingrediente estará aquí cerca...
-Lugar: Odontología
+  * Player: Estoy muy lejos de la zona de juego.
+  * Player: Seguiré la flecha para continuar con el juego
+ - Exit:
+Lugar: ZonaNorte
  - Enter:
-  * Bolsi: Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!
-  * Bolsi: El fruto del majuelo estará aquí cerca...
-Lugar: Fachada de Medicina
+  * Player: Algo me dice que no debería ir hacia la zona norte todavía...
+Lugar: ZonaArquitectura
  - Enter:
-  * Bolsi: Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...
-  * Player: Foto 1
-  * Player: Foto 2
-  * Player: Foto 3
-  * Bolsi: Mola verdad?
- Foto 3
-  * Bolsi: Mola verdad?
-ingrediente estará aquí cerca...
-Lugar: Odontología
+  * Player: Antes de ir hacia allí debería de encontrar más pistas...
  - Enter:
-  * Bolsi: Has encontrado odontología! Esta facultad fue la última en la plaza en construirse aunque es una de las más prestigiosas del país!
-  * Bolsi: El fruto del majuelo estará aquí cerca...
-Lugar: Fachada de Medicina
- - Enter:
-  * Bolsi: Mira! Ahí están los balazos de la guerra civil! Sabes, la complutense fue un campo de batalla en la guerra... Hubo que reconstruir muchas facultades...
-  * Player: Foto 1
-  * Player: Foto 2
-  * Player: Foto 3
-  * Bolsi: Mola verdad?
+  * Player: Antes de ir hacia allí debería de encontrar el edificio de Velázquez en el mapa...
